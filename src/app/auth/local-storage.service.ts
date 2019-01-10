@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
 
-  constructor() {}
+  constructor(public userService: UserService) {}
 
   saveAuthData(token: string, email: string, userId: Number) {
     localStorage.setItem('token', token);
@@ -33,5 +34,18 @@ export class LocalStorageService {
       userId
     };
   }
+
+  autoAuthenticateUser() {
+    const credintials = this.getAuthData();
+
+    if (!credintials) {
+      return;
+    }
+
+    this.userService.setToken(credintials.token);
+    this.userService.isAuthenticated = true;
+  }
+
+  
 
 }
