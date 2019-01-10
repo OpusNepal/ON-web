@@ -8,13 +8,17 @@ import { environment } from '../../environments/environment';
 })
 export class UserService {
 
-  private isAuthenticated = false;
+  isAuthenticated = false;
   private token = '';
 
   constructor(public http: HttpClient) { }
 
   getToken() {
     return this.token;
+  }
+
+  setToken(token: string) {
+    this.token = token;
   }
 
   signUp(user) {
@@ -28,7 +32,7 @@ export class UserService {
   }
 
   login(user: AuthModel) {
-    return this.http.post<{data: {data: {}}}>(environment.api+"auth/login", user);
+    return this.http.post<{data: {data: {email: string, id:Number, token:string}}}>(environment.api+"auth/login", user);
   }
 
 }
