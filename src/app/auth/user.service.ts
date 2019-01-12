@@ -24,7 +24,8 @@ export class UserService {
   signUp(user) {
     const userData = {
       email: user.email,
-      password: user.password
+      password: user.password,
+      userType: user.userType
     };
 
     return this.http.post(environment.api+"auth/register", userData);
@@ -32,7 +33,7 @@ export class UserService {
   }
 
   login(user: AuthModel) {
-    return this.http.post<{data: {data: {email: string, id:Number, token:string}}}>(environment.api+"auth/login", user);
+    return this.http.post<{data: {data: {email: string, id:Number, token:string}}}>(environment.api + "auth/login", user);
   }
 
 }
