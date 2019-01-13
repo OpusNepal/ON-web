@@ -36,4 +36,19 @@ export class UserService {
     return this.http.post<{data: {data: {email: string, id:Number, token:string}}}>(environment.api + "auth/login", user);
   }
 
+  updateProfile(user) {
+    const profileData = {
+      streetName: user.streetName,
+      expert: user.expert,
+      role: user.role,
+      bio: user.bio,
+      cv: user.cv,
+      profilePic: user.profilePic,
+      sampleArt: user.sampleArt,
+
+    };
+    return this.http.post(environment.api+"profile/",profileData);
+
+  }
+
 }

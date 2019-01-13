@@ -11,12 +11,16 @@ import { LoginComponent } from './login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
+import { FirstPageComponent } from './first-page/first-page.component';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    FirstPageComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
