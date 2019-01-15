@@ -11,12 +11,19 @@ import { LoginComponent } from './login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { ImageVerificationComponent } from './admin/image-verification/image-verification.component';
+import { AccountVerificationComponent } from './admin/account-verification/account-verification.component';
+import { AdminRoutingModule } from './admin/admin-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    ImageVerificationComponent,
+    AccountVerificationComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +31,8 @@ import { AuthModule } from './auth/auth.module';
     NgbModule,
     ReactiveFormsModule,
     AuthModule,
-    HttpClientModule
+    HttpClientModule,
+    AdminRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

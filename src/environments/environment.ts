@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  api: "https://artysnepal.herokuapp.com/api/"
+  //api: "https://artysnepal.herokuapp.com/api/",
+  api: "http://127.0.0.1:8848/api/"
+
 };
 
 /*
