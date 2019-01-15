@@ -21,15 +21,8 @@ export class UserService {
     this.token = token;
   }
 
-  signUp(user) {
-    const userData = {
-      email: user.email,
-      password: user.password,
-      userType: user.userType
-    };
-
+  signUp(userData) {
     return this.http.post(environment.api+"auth/register", userData);
-       
   }
 
   login(user: AuthModel) {

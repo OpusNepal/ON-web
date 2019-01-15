@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../auth/user.service';
+import { SignupModel } from './signup.model';
 
 @Component({
   selector: 'app-signup',
@@ -11,6 +12,7 @@ import { UserService } from '../auth/user.service';
 export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
+  signupModel: SignupModel;
 
   constructor(public formBuilder: FormBuilder, public userService: UserService, public router: Router) { 
 
@@ -22,18 +24,20 @@ export class SignupComponent implements OnInit {
 
   private createForm(): void {
     this.signupForm = this.formBuilder.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      userName: ['', [Validators.required]],
-      email:['', [Validators.required]],
+      fullName: ['', [Validators.required]],
+      email: ['', [Validators.required]],
       password: ['', Validators.required],
+      Phone: ['', Validators.required],
       userType: ['', Validators.required]
     });
   }
 
   onSubmit() {
+    console.log("yeta pugyo");
     console.log(this.signupForm.value);
-    this.userService.signUp(this.signupForm.value).subscribe((res) => {
+    this.signupModel = this.signupForm.value;
+    this.signupForm.value.userType === 'Artist' ? this.signupModel.isVerified = false : this.signupModel.isVerified = true;
+    this.userService.signUp(this.signupModel).subscribe((res) => {
       console.log(res);
       this.router.navigate(['profile']);
     }, (err) => {
