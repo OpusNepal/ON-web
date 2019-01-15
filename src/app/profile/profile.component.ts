@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../auth/user.service';
+import { LocalStorageService } from '../auth/local-storage.service';
 
 
 @Component({
@@ -12,9 +13,10 @@ import { UserService } from '../auth/user.service';
 export class ProfileComponent implements OnInit {
 
 profileForm: FormGroup;
-  constructor(public formBuilder: FormBuilder, public userService: UserService, public router: Router) { }
+  constructor(public formBuilder: FormBuilder, public userService: UserService, public router: Router, public localStorageService: LocalStorageService) { }
 
   ngOnInit() {
+    this.createForm();
   }
 
   private createForm(): void {
@@ -31,7 +33,8 @@ profileForm: FormGroup;
 
   onSubmit() {
     console.log(this.profileForm.value);
-    this.userService.updateProfile(this.profileForm.value).subscribe((res) => {
+    const { userId } = this.localStorageService.getAuthData();
+    this.userService.updateProfile(userId, this.profileForm.value).subscribe((res) => {
       console.log(res);
       this.router.navigate(['home']);
     }, (err) => {

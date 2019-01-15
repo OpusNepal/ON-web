@@ -1,9 +1,9 @@
 export class ProfileModel {
     CV: File;
-    streetName: String;
-    expert: String;
-    bio: String;
-    role: String;
+    streetName: string;
+    expert: string;
+    bio: string;
+    role: string;
     Profilepic: ImageBitmap;
     sampleart:  ImageBitmap;
 
