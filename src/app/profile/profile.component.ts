@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../auth/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { UserService } from '../auth/user.service';
 export class ProfileComponent implements OnInit {
 
 profileForm: FormGroup;
-  constructor(public formBuilder: FormBuilder, public userService: UserService, public router: Router) { }
+  constructor(private route: ActivatedRoute,  public formBuilder: FormBuilder, public userService: UserService, public router: Router) { }
 
   ngOnInit() {
   }
@@ -32,7 +33,7 @@ profileForm: FormGroup;
   onSubmit() {
     console.log(this.profileForm.value);
     this.userService.updateProfile(this.profileForm.value).subscribe((res) => {
-      console.log(res);
+      console.log(res[0].data.id);
       this.router.navigate(['home']);
     }, (err) => {
       console.log(err);
