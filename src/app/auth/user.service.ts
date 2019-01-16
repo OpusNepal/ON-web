@@ -22,7 +22,7 @@ export class UserService {
   }
 
   signUp(userData) {
-    return this.http.post(environment.api+"auth/register", userData);
+    return this.http.post<{data: {data: {id: string, email: string}, message: string, type: string}}>(environment.api+"auth/register", userData);
   }
 
   login(user: AuthModel) {
