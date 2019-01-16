@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', Validators.required],
       Phone: ['', Validators.required],
-      userType: ['', Validators.required]
+      userType: ['Customer', Validators.required]
     });
   }
 
@@ -41,8 +41,9 @@ export class SignupComponent implements OnInit {
     this.signupForm.value.userType === 'artist' ? this.signupModel.isVerified = false : this.signupModel.isVerified = true;
     this.userService.signUp(this.signupModel).subscribe((res) => {
       console.log(res);
-      let userid = res;
+      let userid = res.data.data.id;
       this.router.navigate(['profile'], {queryParams: {id: userid}});
+      // this.router.navigate(['profile']);
     }, (err) => {
       console.log(err);
     });

@@ -29,7 +29,7 @@ export class UserService {
     return this.http.post<{data: {data: {email: string, id:Number, token:string}}}>(environment.api + "auth/login", user);
   }
 
-  updateProfile(user) {
+  updateProfile(userId, user) {
     const profileData = {
       streetName: user.streetName,
       expert: user.expert,
@@ -40,7 +40,7 @@ export class UserService {
       sampleArt: user.sampleArt,
 
     };
-    return this.http.post(environment.api+"profile/",profileData);
+    return this.http.put(environment.api+`profile/${userId}`,profileData);
 
   }
 
