@@ -11,10 +11,10 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   getArtists() {
-    return this.http.get<Artist[]>(environment.api + "admin/getprofile");
+     return this.http.get<Artist[]>(environment.api + "admin/getprofile");
   }
 
-  verifyArtist(id: string) {
+  verifyArtist(id: Number) {
     return this.http.put(environment.api + 'admin/verifyaccount/${id}', null);
   }
   

@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
 
-    <div class="card col-md-4" style="width:400px;" *ngFor="let artist of unverifiedArtists">
-      <img class="card-img-top" src="{{ artist.profile_pic }}" alt="Card image">
+    <div class="card col-md-4" style="width:400px;" *ngFor="let artist of artists" >
+      <img class="card-img-top" [src]="artist.profilepic" alt="Card image">
       <div class="card-body">
         <h4 class="card-title">{{ artist.fullName }}</h4>
         <p class="card-text">Street Name: {{ artist.streetName }}</p>
@@ -24,6 +24,11 @@
             </div>
           </div>
         </div>
+
+         <!-- <div>
+          <p>CV: </p>
+          <embed [src]="assets/sanitizer.bypassSecurityTrustResourceUrl(artist.cv)" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
+        </div>  -->
         <div>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             View Sample Art
@@ -32,7 +37,7 @@
           <div class="modal fade" id="myModal">
             <div class="modal-dialog">
               <div class="modal-content">
-                <img src="{{ artist.sample_art }}" alt="">
+                <img [src]="artist.samplepic" alt="">
               </div>
             </div>
           </div>
@@ -54,10 +59,5 @@
 
 
 
-
-
-<!-- <div>
-                  <p>CV: </p>
-                  <embed src="assets/{{ sanitizer.bypassSecurityTrustResourceUrl(artist.cv) }}" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
-                </div>
-                   -->
+                
+                   

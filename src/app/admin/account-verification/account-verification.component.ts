@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { artists, Artist } from './../artist';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AdminService } from '../admin.service';
+import { environment } from 'src/environments/environment';;
 
 
 @Component({
@@ -11,7 +12,7 @@ import { AdminService } from '../admin.service';
 })
 export class AccountVerificationComponent implements OnInit {
 
-  unverifiedArtists: Artist[];
+   artists: Artist[];
 
   constructor(public sanitizer: DomSanitizer, public adminService: AdminService) {
     //this.unverifiedArtists = artists;
@@ -19,7 +20,12 @@ export class AccountVerificationComponent implements OnInit {
 
   ngOnInit() {
     this.adminService.getArtists().subscribe(res => {
-      this.unverifiedArtists = res;
+      this.artists = res.map(artist => {
+        artist.profilepic = environment.public + artist.profilepic;
+        artist.samplepic = environment.public + artist.profilepic;
+        artist.CV = environment.public + artist.CV
+        return artist;
+      });
     });
   }
 
@@ -31,7 +37,7 @@ export class AccountVerificationComponent implements OnInit {
   }
 
   rejectArtist(artist: Artist): void {
-    this.unverifiedArtists = this.unverifiedArtists.filter(item => item.id !== artist.id);
+    //this.unverifiedArtists = this.unverifiedArtists.filter(item => item.id !== artist.id);
   }
 
 }
