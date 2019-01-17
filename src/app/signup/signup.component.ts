@@ -27,15 +27,15 @@ export class SignupComponent implements OnInit {
   private createForm(): void {
     this.signupForm = this.formBuilder.group({
       fullName: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      password: ['', Validators.required],
-      Phone: ['', Validators.required],
-      userType: ['Customer', Validators.required]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+      Phone: ['', [Validators.required]],
+      userType: ['Customer', [Validators.required]]
     });
   }
 
   onSubmit() {
-    console.log("yeta pugyo");
+   
     console.log(this.signupForm.value);
     this.signupModel = this.signupForm.value;
     this.signupForm.value.userType === 'artist' ? this.signupModel.isVerified = false : this.signupModel.isVerified = true;

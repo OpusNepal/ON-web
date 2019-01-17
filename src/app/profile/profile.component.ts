@@ -40,9 +40,9 @@ ngOnInit() {
       expert:     ['', [Validators.required]],
       role:       ['', [Validators.required]],
       bio:        ['', [Validators.required]],
-      cv:         ['', Validators.required],
-      profilePic: ['', Validators.required],
-      sampleArt:  ['', Validators.required]
+      cv:         ['', [Validators.required]],
+      profilePic: ['', [Validators.required]],
+      sampleArt:  ['', [Validators.required]]
     });
   }
 
