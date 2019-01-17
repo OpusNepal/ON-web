@@ -22,7 +22,7 @@ export class UserService {
   }
 
   signUp(userData) {
-    return this.http.post(environment.api+"auth/register", userData);
+    return this.http.post<{data: {data: {id: string, email: string}, message: string, type: string}}>(environment.api+"auth/register", userData);
   }
 
   login(user: AuthModel) {
@@ -30,17 +30,8 @@ export class UserService {
   }
 
   updateProfile(userId, user) {
-    const profileData = {
-      streetName: user.streetName,
-      expert: user.expert,
-      role: user.role,
-      bio: user.bio,
-      cv: user.cv,
-      profilePic: user.profilePic,
-      sampleArt: user.sampleArt,
-
-    };
-    return this.http.put(environment.api+`profile/${userId}`,profileData);
+   
+    return this.http.put(environment.api + `profile/${userId}`, user);
 
   }
 

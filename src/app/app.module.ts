@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HomePageComponent } from './home-page/home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { ProfileComponent } from './profile/profile.component';
     SignupComponent,
     LoginComponent,
     FirstPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
