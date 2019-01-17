@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 
-    <div class="card col-md-4" style="width:400px;" *ngFor="let artist of artists" >
+    <div class="card col-md-4" style="width:400px;" *ngFor="let artist of artists">
       <img class="card-img-top" [src]="artist.profilepic" alt="Card image">
       <div class="card-body">
         <h4 class="card-title">{{ artist.fullName }}</h4>
@@ -25,10 +25,20 @@
           </div>
         </div>
 
-         <!-- <div>
-          <p>CV: </p>
-          <embed [src]="assets/sanitizer.bypassSecurityTrustResourceUrl(artist.cv)" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
-        </div>  -->
+        <div>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalCV">
+            View CV
+          </button>
+
+          <div class="modal fade" id="myModalCV">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <embed [src]="artist.CV | safe" width="800" height="900" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             View Sample Art
@@ -55,9 +65,3 @@
   </div>
 
 </div>
-
-
-
-
-                
-                   

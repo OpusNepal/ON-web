@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { artists, Artist } from './../artist';
-import { DomSanitizer } from '@angular/platform-browser';
 import { AdminService } from '../admin.service';
 import { environment } from 'src/environments/environment';;
 
@@ -14,19 +13,23 @@ export class AccountVerificationComponent implements OnInit {
 
    artists: Artist[];
 
-  constructor(public sanitizer: DomSanitizer, public adminService: AdminService) {
-    //this.unverifiedArtists = artists;
-   }
+  constructor(public adminService: AdminService) { }
 
   ngOnInit() {
     this.adminService.getArtists().subscribe(res => {
       this.artists = res.map(artist => {
         artist.profilepic = environment.public + artist.profilepic;
-        artist.samplepic = environment.public + artist.profilepic;
+        artist.samplepic = environment.public + artist.samplepic;
         artist.CV = environment.public + artist.CV
         return artist;
       });
     });
+    // this.artists = artists.map(artist => {
+    //       artist.profilepic = environment.public + artist.profilepic;
+    //       artist.samplepic = environment.public + artist.samplepic;
+    //       artist.CV = environment.public + artist.CV
+    //       return artist;
+    //     });
   }
 
   verifyArtist(artist: Artist): void {
