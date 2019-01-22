@@ -15,7 +15,7 @@ export class AdminService {
   }
 
   verifyArtist(id: Number) {
-    return this.http.put(environment.api + 'admin/verifyaccount/${id}', null);
+    return this.http.put(environment.api + `admin/verifyaccount/${id}`, null);
   }
   
 }

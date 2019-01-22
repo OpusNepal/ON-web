@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row jumbotron">
 
     <div class="card col-md-4" style="width:400px;" *ngFor="let artist of artists">
       <img class="card-img-top" [src]="artist.profilepic" alt="Card image">
@@ -12,11 +12,11 @@
         <p class="card-text">Phone Number: {{ artist.phone }}</p>
 
         <div>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalBio">
+          <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#Bio' + artist.id">
             View bio
           </button>
 
-          <div class="modal fade" id="myModalBio">
+          <div class="modal fade" id="Bio{{artist.id}}">
             <div class="modal-dialog">
               <div class="modal-content">
                 <p>{{ artist.bio }}</p>
@@ -26,11 +26,11 @@
         </div>
 
         <div>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalCV">
+          <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#myModalCV'+artist.id">
             View CV
           </button>
 
-          <div class="modal fade" id="myModalCV">
+          <div class="modal fade" id="myModalCV{{artist.id}}">
             <div class="modal-dialog">
               <div class="modal-content">
                 <embed [src]="artist.CV | safe" width="800" height="900" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
@@ -40,11 +40,11 @@
         </div>
 
         <div>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+          <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#myModal' + artist.id">
             View Sample Art
           </button>
 
-          <div class="modal fade" id="myModal">
+          <div class="modal fade" id="myModal{{artist.id}}">
             <div class="modal-dialog">
               <div class="modal-content">
                 <img [src]="artist.samplepic" alt="">

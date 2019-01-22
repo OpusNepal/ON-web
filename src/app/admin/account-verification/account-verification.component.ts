@@ -24,6 +24,7 @@ export class AccountVerificationComponent implements OnInit {
         return artist;
       });
     });
+    
     // this.artists = artists.map(artist => {
     //       artist.profilepic = environment.public + artist.profilepic;
     //       artist.samplepic = environment.public + artist.samplepic;
