@@ -13,10 +13,13 @@ export class AccountVerificationComponent implements OnInit {
 
    artists: Artist[];
 
-  constructor(public adminService: AdminService) { }
+  constructor(public adminService: AdminService) {}
+   
 
   ngOnInit() {
     this.adminService.getArtists().subscribe(res => {
+
+      console.log(res);
       this.artists = res.map(artist => {
         artist.profilepic = environment.public + artist.profilepic;
         artist.samplepic = environment.public + artist.samplepic;

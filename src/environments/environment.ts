@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   //api: "https://artysnepal.herokuapp.com/api/",
-  api: "http://127.0.0.1:8848/api/",
-  public: "http://127.0.0.1:8848/"
+  api: "http://192.168.50.172:8848/api/",
+  public: "http://192.168.50.172:8848/"
 
 };
 
