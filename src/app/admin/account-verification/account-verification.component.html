@@ -2,7 +2,7 @@
   <div class="row jumbotron">
 
     <div class="card col-md-4" style="width:400px;" *ngFor="let artist of artists">
-      <img class="card-img-top" [src]="artist.profilepic" alt="Card image">
+      <img class="card-img-top" [src]="artist.profilepic" width="300" height="200" alt="profile picture">
       <div class="card-body">
         <h4 class="card-title">{{ artist.fullName }}</h4>
         <p class="card-text">Street Name: {{ artist.streetName }}</p>
@@ -47,22 +47,19 @@
           <div class="modal fade" id="myModal{{artist.id}}">
             <div class="modal-dialog">
               <div class="modal-content">
-                <img [src]="artist.samplepic" alt="">
+                <img [src]="artist.samplepic" width="800" height="800" alt="">
               </div>
             </div>
           </div>
-  
+
           <div>
             <button (click)="verifyArtist(artist)" class="btn btn-success">Verify</button>
             <button (click)="rejectArtist(artist)" class="btn btn-danger">Reject</button>
           </div>
-      </div>
-      
+        </div>
+
 
       </div>
-
-    
+    </div>
 
   </div>
-
-</div>

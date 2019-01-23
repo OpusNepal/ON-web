@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { artists, Artist } from './../artist';
+import { mockArtists, Artist } from './../artist';
 import { AdminService } from '../admin.service';
 import { environment } from 'src/environments/environment';;
 
@@ -19,8 +19,9 @@ export class AccountVerificationComponent implements OnInit {
   ngOnInit() {
     this.adminService.getArtists().subscribe(res => {
 
-      console.log(res);
-      this.artists = res.map(artist => {
+      var clonedRes = JSON.parse(JSON.stringify(res));
+
+      this.artists = clonedRes.map(artist => {
         artist.profilepic = environment.public + artist.profilepic;
         artist.samplepic = environment.public + artist.samplepic;
         artist.CV = environment.public + artist.CV
@@ -28,7 +29,10 @@ export class AccountVerificationComponent implements OnInit {
       });
     });
     
-    // this.artists = artists.map(artist => {
+    // var clonedArtists = JSON.parse(JSON.stringify(mockArtists));
+
+    // this.artists = clonedArtists.map(data => {
+    //       let artist = data;
     //       artist.profilepic = environment.public + artist.profilepic;
     //       artist.samplepic = environment.public + artist.samplepic;
     //       artist.CV = environment.public + artist.CV
