@@ -16,6 +16,9 @@ import { ImageVerificationComponent } from './admin/image-verification/image-ver
 import { AccountVerificationComponent } from './admin/account-verification/account-verification.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { SafePipe } from './admin/safe.pipe';
+import { FirstPageComponent } from './first-page/first-page.component';
+import { ProfileComponent } from './profile/profile.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,10 @@ import { SafePipe } from './admin/safe.pipe';
     DashboardComponent,
     ImageVerificationComponent,
     AccountVerificationComponent,
-    SafePipe
+    SafePipe,
+    FirstPageComponent,
+    ProfileComponent
+    
   ],
   imports: [
     BrowserModule,

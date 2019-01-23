@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   signinForm: FormGroup;
 
-  constructor(public fb: FormBuilder, public userService: UserService, public router: Router, public localStorageService: LocalStorageService) {
+  constructor(public fb: FormBuilder,
+     public userService: UserService, public router: Router, public localStorageService: LocalStorageService) {
     this.createForm();
    }
 
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
   createForm() {
     this.signinForm = this.fb.group({
       email: ['', [Validators.required]],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+     userType: ['Customer', Validators.required]
     });
   }
 
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.userService.isAuthenticated = true;
       this.userService.setToken(token);
       this.localStorageService.saveAuthData(token, email, id);
-    });;
+    });
   }
 
 }

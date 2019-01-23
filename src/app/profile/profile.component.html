@@ -1,0 +1,65 @@
+  <div class="login-content">
+    <div class="fixed-menu">
+
+    </div>
+      <div class="card">
+        <div class="card-header">
+          <strong>Update Profile</strong>
+        </div>
+      <div class="card-body">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <div class="row form-group">
+            <div class="col col-md-4"><label for="streetName"class=" form-control-label">Street Name:</label></div>
+            <div class="col-12 col-md-8"><input type="text" name="streetName" class="form-control" value="" formControlName="streetName"></div>
+          </div>
+    
+          <div class="row form-group">
+            <div class="col col-md-4"><label for="expert" class=" form-control-label">Expert:</label></div>
+            <div class="col-12 col-md-8">  <input type="text" name="expert" value="" class="form-control" formControlName="expert"></div>
+          </div>
+    
+          <div class="row form-group">
+              <div class="col col-md-4"><label for="role" class=" form-control-label">Role:</label></div>
+              <div class="col-12 col-md-8">  <input type="text" name="role" value="" class="form-control" formControlName="role"></div>
+            </div>
+            <div class="row form-group">
+              <div class="col col-md-4"><label for="bio" class=" form-control-label">Bio:</label></div>
+              <div class="col-12 col-md-8">  <input type="text" name="bio" value="" class="form-control" formControlName="bio"></div>
+            </div>
+      
+    
+          <div class="row form-group">
+            <div class="col col-md-4"><label for="cv" class=" form-control-label">Upload CV:</label></div>
+            <div class="col-12 col-md-8"><input type="file" accept="application/pdf" (change)="onCvSelect($event)" name="cv" value="" class="form-control-file" formControlName="cv"></div>
+            
+          </div>
+    
+    
+          <div class="row form-group">
+            <div class="col col-md-4"><label for="profilePic" class=" form-control-label">Upload Profile Picture:</label></div>
+            <div class="col-12 col-md-8"><input type="file" accept="image/*" (change)="onProfilePicSelect($event)" name="profilePic" value="" class="form-control-file" formControlName="profilePic"></div>
+            
+          </div>
+
+          <div class="row form-group">
+              <div class="col col-md-4"><label for="sampleArt" class=" form-control-label">Upload Sample Art:</label></div>
+              <div class="col-12 col-md-8"><input type="file" accept="image/*" (change)="onSampleArtSelect($event)" name="sampleArt" value="" class="form-control-file" formControlName="sampleArt"></div>
+              
+          </div>
+          <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" name="button" [disabled]="!profileForm.valid">Submit</button>
+      </form>
+    </div>
+    <div class="card-footer">
+          <!-- <button type="submit" class="btn btn-primary btn-sm"[disabled]="!profileForm.valid" >
+              <i class="fa fa-dot-circle-o"></i> Submit
+            </button>
+            <button type="reset" class="btn btn-danger btn-sm">
+              <i class="fa fa-ban"></i> Reset
+            </button> -->
+            
+      </div>
+   </div>
+  </div>
+
+  
+

@@ -21,19 +21,18 @@ export class UserService {
     this.token = token;
   }
 
-  signUp(user) {
-    const userData = {
-      email: user.email,
-      password: user.password,
-      userType: user.userType
-    };
-
-    return this.http.post(environment.api+"auth/register", userData);
-       
+  signUp(userData) {
+    return this.http.post<{data: {data: {id: string, email: string}, message: string, type: string}}>(environment.api+"auth/register", userData);
   }
 
   login(user: AuthModel) {
     return this.http.post<{data: {data: {email: string, id:Number, token:string}}}>(environment.api + "auth/login", user);
+  }
+
+  updateProfile(userId, user) {
+   
+    return this.http.put(environment.api + `profile/${userId}`, user);
+
   }
 
 }

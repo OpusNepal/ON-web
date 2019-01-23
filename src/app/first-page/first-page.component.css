@@ -1,0 +1,29 @@
+.content-front{
+  z-index: 1;
+  padding-top: 200px;
+}
+.banner{
+  background-image: url("~src/assets/images/thumb/background.jpg");
+  background-size: cover;
+  height:-webkit-fill-available;
+  background-color: rgba(0,0,0,0.8);
+}
+.text-center{
+  text-align: center;
+}
+
+
+/* coming-soon css */
+.l1-txt1 {
+    font-family: Poppins-Bold;
+    font-size: 50px;
+    line-height: 1.1;
+    color: #fff;
+    text-transform: uppercase;
+}
+.m2-txt1 {
+    font-family: Lato-Light;
+    font-size: 25px;
+    line-height: 1.2;
+    color: #fff;
+}

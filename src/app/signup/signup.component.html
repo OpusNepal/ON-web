@@ -1,54 +1,56 @@
-<div class="container">
-  <div class="jumbotron">
-    Please fill the form below! * represents mandatory fields.
-  </div>
-
-  <div>
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="firstName">First Name:
-          <input type="text" name="firstName" class="form-control" value="" formControlName="firstName">
-        </label>
-      </div>
-
-      <div class="form-group">
-        <label for="lastName">Last Name:
-          <input type="text" name="lastName" value="" class="form-control" formControlName="lastName">
-        </label>
-      </div>
-
-      <div class="form-group">
-        <label for="userName">Username:
-          <input type="text" name="userName" value="" class="form-control" formControlName="userName">
-        </label>
-      </div>
-
-      <div class="form-group">
-        <label for="email">E-mail:
-          <input type="email" name="email" value="" class="form-control" formControlName="email">
-        </label>
-      </div>
-
-
-      <div class="form-group">
-        <label for="password">Password:
-          <input type="password" name="password" value="" class="form-control" formControlName="password">
-        </label>
-      </div>
-
-      <div class="form-group">
-        <label for="userType">User Type:
-          <select class="form-control" formControlName="userType">
-            <option value="artist">Artist</option>
-            <option value="customer" [selected]="true">Customer</option>
-          </select>
-        </label>
-      </div>
-
-      <button type="submit" class="btn btn-submit" name="button" [disabled]="!signupForm.valid">Sign Up</button>
-
-    </form>
+<div class="login-content">
+  <div class="fixed-menu">
 
   </div>
+    
+ <div class="card">
+    <div class="card-header">
+      <strong>Sign Up</strong>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="fullName">Full Name:
+              <input type="text" name="fullName" class="form-control" value="" formControlName="fullName">
+            </label>
+          </div>
+    
+          <div class="form-group">
+            <label for="email">E-mail:
+              <input type="email" name="email" value="" class="form-control" formControlName="email">
+            </label>
+          </div>
+    
+          <div class="form-group">
+            <label for="password">Password:
+              <input type="password" name="password" value="" class="form-control" formControlName="password">
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number:
+              <input type="text" name="phoneNumber" value="" class="form-control" formControlName="Phone">
+            </label>
+          </div>
+    
+          <div class="form-group">
+            <label for="userType">User Type:
+              <select class="form-control" formControlName="userType">
+                <option value="artist">Artist</option>
+                <option value="customer" [selected]="true">Customer</option>
+              </select>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" name="button" [disabled]="!signupForm.valid">Sign Up</button>
+          
+        </form>
+    
+      </div>
+      <div class="card-footer">
+          
+    
+      </div>
+ </div>
+ 
 
 </div>
