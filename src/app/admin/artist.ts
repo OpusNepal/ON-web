@@ -14,7 +14,7 @@ export interface Artist {
    // isVerified: boolean
 }
 
-export const artists: Artist[] = [
+export const mockArtists: Artist[] = [
     {
     id: 3,
     streetName: 'street 101',
@@ -28,14 +28,14 @@ export const artists: Artist[] = [
     },
 
     {
-        id: 3,
+        id: 4,
         streetName: 'street 101',
         expert: 'yes',
         role: 'yes',
-        bio: 'yes',
+        bio: 'me noob',
         artistId: 17,
         CV: 'public/uploads/CV/1547734519866Techical-Features-of-Opus-Nepal.pdf',
-        profilepic: 'public/uploads/profilepic/1547734519870simpsons-the-great-phatsby-1-920x584.jpg',
-        samplepic: 'public/uploads/sampleart/1547734519871simpsons-the-great-phatsby-1-920x584.jpg' 
+        profilepic: 'public/uploads/profilepic/test.jpg',
+        samplepic: 'public/uploads/sampleart/test.jpg' 
         }
 ];
