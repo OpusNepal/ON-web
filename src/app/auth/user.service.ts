@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AuthModel } from './auth.model';
 import { HttpClient } from '@angular/common/http'; 
 import { environment } from '../../environments/environment';
+import { ProfileModel } from '../profile/profile.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,10 @@ export class UserService {
    
     return this.http.put(environment.api + `profile/${userId}`, user);
 
+  }
+
+  getProfile(userId) : any {
+    return this.http.get(environment.api + 'profile/' + userId);
   }
 
 }

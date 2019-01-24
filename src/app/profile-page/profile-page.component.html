@@ -1,16 +1,14 @@
-<div class="fixed-menu">
-</div>
 <div class="profile-page">
     <div class="row">
         <div class="col-md-2">
             <a href="#">
-                <img title="profile image" class="img-circle img-responsive" src="./assets/images/thumb/kiran.png">
+                <img title="profile image" class="img-circle img-responsive" [src]="imagePath">
             </a>
 
         </div>
         <div class="col-sm-10">
                   <div class="headline">
-                         <h2> <b> Kiran </b>Maharjan </h2>
+                         <h2> <b>{{profilePageModel.fullName}}</b></h2>
                   </div>
 
         </div>
@@ -25,9 +23,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><strong>Profile</strong></div>
                     
-                    <li class="list-group-item text-right"><span class="pull-left"><strong class=""> Street Name </strong></span>H11235 </li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Expert</strong></span>Mural</li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role: </strong></span> Street Artist</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class=""> Street Name </strong></span>{{profilePageModel.streetName}}</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Expert</strong></span>{{profilePageModel.expert}}</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role: </strong></span>{{profilePageModel.role}}</li>
                 </div>
             </ul>
 
@@ -36,8 +34,8 @@
             <div class="panel panel-default">
 
                 <div class="panel-heading"><strong>Bio</strong></div>
-                <div class="panel-body"> Kiran Maharjan is a street artist whose works depict images painted realistically with spray, paint which have elements of calligraphy. His work revolves around the dual nature of man and of the artist himself. Maharjan completed his BFA degree from Kathmandu University centre for Art and Design in 2014. He has exhibited his work in galleries like Siddhartha Art Gallery, Nepal Art Council and in various other alternative venues like Alliance Francaise de Katmandou and Tings Tea Lounge. He is currently involved in the street art project called Prasad and also conducts various street art workshops in and around the capital. His work can be seen nationally in the streets of Kupondole, Thamel, Pokhara, Birgunj, and Internationally in Denmark and Finland.
-
+                <div class="panel-body">
+                        {{profilePageModel.bio}}
                 </div> <!-- panel body close -->
             </div> <!-- panel bio  default above close -->
             <br>
