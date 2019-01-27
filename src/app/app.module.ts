@@ -18,6 +18,7 @@ import { AdminRoutingModule } from './admin/admin-routing.module';
 import { SafePipe } from './admin/safe.pipe';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProductUploadComponent } from './product-upload/product-upload.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProfileComponent } from './profile/profile.component';
     AccountVerificationComponent,
     SafePipe,
     FirstPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProductUploadComponent
     
   ],
   imports: [
