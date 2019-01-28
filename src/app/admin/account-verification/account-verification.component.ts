@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { mockArtists, Artist } from './../artist';
+import {  Artist } from './../artist';
 import { AdminService } from '../admin.service';
 import { environment } from 'src/environments/environment';;
-
 
 @Component({
   selector: 'app-account-verification',
@@ -13,8 +12,7 @@ export class AccountVerificationComponent implements OnInit {
 
   artists: Artist[];
 
-  constructor(public adminService: AdminService) {}
-   
+  constructor(public adminService: AdminService) {} 
 
   ngOnInit() {
     this.adminService.getArtists().subscribe(res => {
@@ -22,22 +20,12 @@ export class AccountVerificationComponent implements OnInit {
       var clonedRes = JSON.parse(JSON.stringify(res));
 
       this.artists = clonedRes.map(artist => {
-        artist.profilepic = environment.public + artist.profilepic;
-        artist.samplepic = environment.public + artist.samplepic;
-        artist.CV = environment.public + artist.CV
+        artist.profile.profilepic = environment.public + artist.profile.profilepic;
+        artist.profile.samplepic = environment.public + artist.profile.samplepic;
+        artist.profile.CV = environment.public + artist.profile.CV
         return artist;
       });
     });
-    
-    // var clonedArtists = JSON.parse(JSON.stringify(mockArtists));
-
-    // this.artists = clonedArtists.map(data => {
-    //       let artist = data;
-    //       artist.profilepic = environment.public + artist.profilepic;
-    //       artist.samplepic = environment.public + artist.samplepic;
-    //       artist.CV = environment.public + artist.CV
-    //       return artist;
-    //     });
   }
 
   verifyArtist(artist: Artist): void {

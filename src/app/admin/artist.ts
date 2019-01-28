@@ -1,41 +1,75 @@
-export interface Artist {
+interface Profile {
     id: Number,
-    artistId: Number
-    streetName: string,
-    expert: string,
-    role: string,
-    bio: string,
-    CV: string
-    profilepic: string,
-    samplepic: string,
-  //  fullName: string,
-   // email: string,
-   // phone: string,
-   // isVerified: boolean
+    created_at: String,
+    updated_at: String,
+    streetName: String,
+    expert: String,
+    bio: String,
+    artistId: Number,
+    CV: String,
+    role: String,
+    profilepic: String,
+    samplepic: String
 }
 
-export const mockArtists: Artist[] = [
-    {
-        id: 3,
-        streetName: 'street 101',
-        expert: 'yes',
-        role: 'yes',
-        bio: 'yes',
-        artistId: 17,
-        CV: 'public/uploads/CV/1547734519866Techical-Features-of-Opus-Nepal.pdf',
-        profilepic: 'public/uploads/profilepic/1547734519870simpsons-the-great-phatsby-1-920x584.jpg',
-        samplepic: 'public/uploads/sampleart/1547734519871simpsons-the-great-phatsby-1-920x584.jpg' 
-    },
+export interface Artist {
+    id: Number,
+    created_at: String,
+    updated_at: String,
+    email: String,
+    userType: String,
+    fullName: String,
+    Phone: String,
+    isVerified: Boolean,
+    profile: Profile
+}
 
+export const mockArtists: Artist[] =
+[
     {
-        id: 4,
-        streetName: 'street 101',
-        expert: 'yes',
-        role: 'yes',
-        bio: 'me noob',
-        artistId: 17,
-        CV: 'public/uploads/CV/1547734519866Techical-Features-of-Opus-Nepal.pdf',
-        profilepic: 'public/uploads/profilepic/test.jpg',
-        samplepic: 'public/uploads/sampleart/test.jpg' 
+        "id": 38,
+        "created_at": "2019-01-22T16:51:50.102Z",
+        "updated_at": "2019-01-22T16:51:50.102Z",
+        "email": "yudeepu33@gmail.com",
+        "userType": "artist",
+        "fullName": "rumit man ",
+        "Phone": "12345",
+        "isVerified": false,
+        "profile": {
+            "id": 20,
+            "created_at": "2019-01-22T16:51:50.106Z",
+            "updated_at": "2019-01-22T16:52:19.470Z",
+            "streetName": null,
+            "expert": "now",
+            "role": "enough",
+            "bio": "now",
+            "artistId": 38,
+            "CV": "public/uploads/CV/test.pdf",
+            "profilepic": "public/uploads/profilepic/test.jpg",
+            "samplepic": "public/uploads/sampleart/test.jpg"
+        }
+    },
+    {
+        "id": 36,
+        "created_at": "2019-01-22T16:45:01.688Z",
+        "updated_at": "2019-01-22T16:45:01.688Z",
+        "email": "yudeepu12685@gmail.com",
+        "userType": "artist",
+        "fullName": "Yudeep Rajbhandari",
+        "Phone": "12345",
+        "isVerified": false,
+        "profile": {
+            "id": 18,
+            "created_at": "2019-01-22T16:45:01.695Z",
+            "updated_at": "2019-01-22T16:46:01.504Z",
+            "streetName": null,
+            "expert": "now",
+            "role": "enough",
+            "bio": "now",
+            "artistId": 36,
+            "CV": "public/uploads/CV/test.pdf",
+            "profilepic": "public/uploads/profilepic/test.jpg",
+            "samplepic": "public/uploads/sampleart/test.jpg"
+        }
     }
-];
+]
