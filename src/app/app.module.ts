@@ -11,13 +11,9 @@ import { LoginComponent } from './login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { ImageVerificationComponent } from './admin/image-verification/image-verification.component';
-import { AccountVerificationComponent } from './admin/account-verification/account-verification.component';
-import { AdminRoutingModule } from './admin/admin-routing.module';
-import { SafePipe } from './admin/safe.pipe';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -25,10 +21,6 @@ import { ProfileComponent } from './profile/profile.component';
     HeaderComponent,
     SignupComponent,
     LoginComponent,
-    DashboardComponent,
-    ImageVerificationComponent,
-    AccountVerificationComponent,
-    SafePipe,
     FirstPageComponent,
     ProfileComponent
     
@@ -40,7 +32,7 @@ import { ProfileComponent } from './profile/profile.component';
     ReactiveFormsModule,
     AuthModule,
     HttpClientModule,
-    AdminRoutingModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

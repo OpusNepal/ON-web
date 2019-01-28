@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';;
 })
 export class AccountVerificationComponent implements OnInit {
 
-   artists: Artist[];
+  artists: Artist[];
 
   constructor(public adminService: AdminService) {}
    
