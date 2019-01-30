@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from '../auth/local-storage.service';
+import { UserProductModel } from '../profile-page/user-product.model';
+import { UserService } from '../auth/user.service';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +11,18 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   modalReference: any;
   closeResult: any;
+  isLoggedIn: Boolean = false;
 
-  constructor() { }
+  constructor(public localStorage: LocalStorageService, public userService: UserService) { }
 
   ngOnInit() {
+    if(this.userService.isAuthenticated){
+      this.isLoggedIn = true;
+    }
+  }
+  logoutEvent(){
+    this.localStorage.clearAuthData();
+    this.isLoggedIn = false;
   }
   
 }

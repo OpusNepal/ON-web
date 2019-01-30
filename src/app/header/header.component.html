@@ -29,13 +29,16 @@
     <div class="navbar navbar-nav navbar-right">
       <ul class="navbar-nav mr-auto" >
           <li class="nav-item">
-              <a class="nav-link" routerLink="/upload-product"><span class=""></span> Upload Product</a>
+              <a class="nav-link" *ngIf="isLoggedIn" routerLink="/upload-product"><span class=""></span> Upload Product</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" routerLink="/login"><span class="fa fa-sign-in"></span> Login</a>
+              <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/login"><span class="fa fa-sign-in"></span> Login</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" routerLink="/signup">Sign Up</a>
+            <a class="nav-link" *ngIf="isLoggedIn" routerLink="/login" (click)="logoutEvent()"><span class="fa fa-sign-out"></span> Logout</a>
+        </li>
+          <li class="nav-item">
+              <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/signup">Sign Up</a>
           </li>
            <li class="nav-item">
              <a class = "nav-link" href="#"><span class="fa fa-cart-plus"></span>Cart</a>

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../auth/user.service';
 import { environment } from 'src/environments/environment';
 import { ProfilePageModel } from './profile-page.model';
+import { UserProductModel } from './user-product.model';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class ProfilePageComponent implements OnInit {
   id: String;
   profilePageModel : ProfilePageModel;
   imagePath: any;
+  productImage: any;
+  products: Array<UserProductModel> = [];
 
   constructor(private route: ActivatedRoute, public userService: UserService) { }
 
@@ -25,27 +28,23 @@ export class ProfilePageComponent implements OnInit {
         console.log(params);
         this.id = params.userId;
       });
+      this.productImage = environment.files;
 
-    // this.userService.getProfile(this.id).subscribe((res)=>{
-    //     this.profilePageModel = res;
-    //     console.log(this.profilePageModel);
-    //     this.imagePath = environment.files + this.profilePageModel.profilepic;
-    //     console.log(this.imagePath);
-    // }, (err) => {
-    //   console.log(err);}
-    
-    // );
     Promise.all([this.userService.getProfile(this.id),this.userService.getProductsofUser(this.id)]).then(
       res => {
         this.profilePageModel = res[0];
-        console.log(this.profilePageModel);
         this.imagePath = environment.files + this.profilePageModel.profilepic;
         console.log(this.imagePath);
-        console.log(res[1]);
+        this.products = res[1];
+        console.log(this.products);
+        for (let product of this.products){
+          product.image = environment.files + product.image;
+        }
       }, (err) => {
         console.log(err);}
       
     )
+    
     
     
     

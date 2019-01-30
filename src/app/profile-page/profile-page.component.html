@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="profile-page">
     <div class="row">
         <div class="col-md-2">
@@ -69,11 +70,11 @@
                 <div class="panel-body">
                   <div class="row">
                 
-                        <div class="col-md-6">
+                        <div class="col-md-6" *ngFor = "let product of products">
                                     <div class="product-page-single">
                                         <div class="single-product-item">
                                             <div class="product-image-wrap">
-                                                <a href="#"><img src=".assets/images/thumb/Kiran-3_800x604.jpg" alt="Product image"></a>
+                                                <a href="#"><img src="{{product.image}}" alt="Product image"></a>
                                                 <div class="product-detail-inner">
                                                     <div class="item-details-overly-info">
                                                         <ul class="list-inline list-unstyled">
@@ -85,11 +86,11 @@
                                                 </div>
                                             </div>
                                             <div class="product-item-details">
-                                                <h2><a href="#">Beginning</a><br>Kiran </h2>
+                                                <h2><a href="#">{{product.Name}}</a><br>{{fullName}}</h2>
                                                  
                                                 <div class="price-like-box">
                                                     <div class="pull-left item-price">
-                                                        <span class="current-price">Rs.1,50,000.00</span>
+                                                        <span class="current-price">Rs.{{product.price}}</span>
                                                     </div>
                                                     <div class="pull-right item-rating">
                                                         <ul class="list-inline">
@@ -108,133 +109,9 @@
                         </div>     <!-- first col close -->
         
 
-                        <div class="col-md-6">
-                    
-
-                                    <div class="product-page-single">
-                                        <div class="single-product-item">
-                                            <div class="product-image-wrap">
-
-                                                <a href="#"><img src="./assets/images/thumb/kiranmural2.jpg" alt="Product image"></a>
-
-                                                <div class="product-detail-inner">
-
-                                                    <div class="item-details-overly-info">
-                                                        <ul class="list-inline list-unstyled">
-                                                            <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                                            <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
-                                                           <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item-details">
-                                                <h2><a href="#">Beauty in the wall</a><br>Kiran</h2>
-                                                <div class="price-like-box">
-                                                    <div class="pull-left item-price">
-                                                       <!--  <span class="old-price"><del>$50.00</del></span> -->
-                                                        <span class="current-price">Rs.23,550.00</span>
-                                                    </div>
-                                                    <div class="pull-right item-rating">
-                                                        <ul class="list-inline">
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star-o"></i></li>
-                                                            <li><i class="fa fa-star-o"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            
-
-                        </div> <!-- col close -->
+                       
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                                     <div class="product-page-single">
-                                        <div class="single-product-item">
-                                            <div class="product-image-wrap">
-                                                <a href="#"><img src="./assets/images/thumb/kiranmural4.JPG" alt="Product image"></a>
-                                                <div class="product-detail-inner">
-                                                    <div class="item-details-overly-info">
-                                                        <ul class="list-inline list-unstyled">
-                                                            <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                                            <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
-                                                           <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item-details">
-                                                <h2><a href="#">Filling Thought</a><br>Kiran </h2>
-                                                 
-                                                <div class="price-like-box">
-                                                    <div class="pull-left item-price">
-                                                        <!-- <span class="old-price"><del>$50.00</del></span> -->
-                                                        <span class="current-price">Rs.54,000.00</span>
-                                                    </div>
-                                                    <div class="pull-right item-rating">
-                                                        <ul class="list-inline">
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                     
-                                                             <li><i class="fa fa-star"></i></li>
-                                                             <li><i class="fa fa-star-o"></i></li>
-                                                            <li><i class="fa fa-star-o"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                             
-                 
-                        </div> <!-- col close -->
-
-                        <div class="col-md-6">
-                                     <div class="product-page-single">
-                                        <div class="single-product-item">
-                                            <div class="product-image-wrap">
-                                                <a href="#"><img src="images/thumb/kiranmural3.JPG" alt="Product image"></a>
-                                                <div class="product-detail-inner">
-                                                    <div class="item-details-overly-info">
-                                                        <ul class="list-inline list-unstyled">
-                                                            <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                                            <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
-                                                           <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item-details">
-                                                <h2><a href="#">Concrete</a><br>Kiran </h2>
-                                                 
-                                                <div class="price-like-box">
-                                                    <div class="pull-left item-price">
-                                                        <!-- <span class="old-price"><del>$50.00</del></span> -->
-                                                        <span class="current-price">Rs.63,000.00</span>
-                                                    </div>
-                                                    <div class="pull-right item-rating">
-                                                        <ul class="list-inline">
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                             <li><i class="fa fa-star"></i></li>
-                                                             
-                                                            <!-- <li><i class="fa fa-star-o"></i></li> -->
-                                                            <li><i class="fa fa-star-o"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> <!-- col close -->
-                         </div>
-                    </div> <!-- row close -->
                 </div>
         </div> <!-- pannel close -->
             <!-- outside the box -->

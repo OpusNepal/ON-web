@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../auth/user.service';
 import { ProductCategory } from './productCategory.model';
 import { LocalStorageService } from '../auth/local-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-upload',
@@ -20,13 +21,13 @@ export class ProductUploadComponent implements OnInit {
   userId : string;
 
 
-  constructor(public formBuilder: FormBuilder, public userService : UserService, public localStorage : LocalStorageService) {
+  constructor(public formBuilder: FormBuilder, public userService : UserService, public localStorage : LocalStorageService, public router: Router) {
     this.createForm();
    }
 
   ngOnInit() {
 
-    
+    this.localStorage.getAuthData() == null ? this.router.navigate(['login']):this.userId = this.localStorage.getAuthData().userId;
     this.userService.getCategories().subscribe((res)=>
     {
       this.Categories = res;
@@ -36,8 +37,7 @@ export class ProductUploadComponent implements OnInit {
     }
     );
 
-    this.userId = this.localStorage.getAuthData().userId;
-    console.log(this.userId);
+    
   }
   private createForm(): void {
     this.ProductUploadForm = this.formBuilder.group({
@@ -77,7 +77,7 @@ export class ProductUploadComponent implements OnInit {
     productForm.append("Orientation",this.ProductUploadForm.value.orientation);
     productForm.append("buildOn", this.ProductUploadForm.value.builOn);
     productForm.append("price",this.ProductUploadForm.value.price);
-    productForm.append("artistId", '1');
+    productForm.append("artistId", this.userId);
     productForm.append("subCategoryId", this.selectedSubCategory);
     productForm.append("availability",this.ProductUploadForm.value.availability);
     productForm.append("Name",this.ProductUploadForm.value.name);
@@ -85,6 +85,7 @@ export class ProductUploadComponent implements OnInit {
     console.log(productForm);
     this.userService.uploadProduct(productForm).subscribe((res)=>{
         console.log(res);
+        this.router.navigate(['profile-page'],{queryParams:{userId: this.userId}});
     }, (err) => {
       console.log(err);
     });

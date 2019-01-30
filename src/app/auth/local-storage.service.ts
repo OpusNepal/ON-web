@@ -18,6 +18,7 @@ export class LocalStorageService {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     localStorage.removeItem('userId');
+    this.userService.isAuthenticated = false;
   }
 
   getAuthData(): { token, email, userId } | null {
