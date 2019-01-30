@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row jumbotron">
+  <div class="row">
 
     <div class="card col-md-4" style="width:400px;" *ngFor="let artist of artists">
       <img class="card-img-top" [src]="artist.profile.profilepic" width="300" height="200" alt="profile picture">
@@ -54,11 +54,13 @@
           <div>
             <button (click)="verifyArtist(artist)" class="btn btn-success">Verify</button>
             <button (click)="rejectArtist(artist)" class="btn btn-danger">Reject</button>
+
           </div>
         </div>
 
 
       </div>
+
     </div>
 
   </div>

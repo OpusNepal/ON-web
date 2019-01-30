@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';;
 })
 export class AccountVerificationComponent implements OnInit {
 
+  page = 2;
   artists: Artist[];
 
   constructor(public adminService: AdminService) {} 

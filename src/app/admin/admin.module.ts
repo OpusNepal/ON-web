@@ -6,17 +6,22 @@ import { AccountVerificationComponent } from './account-verification/account-ver
 import { AdminService } from './admin.service';
 import { AdminRoutingModule } from './admin-routing.module';
 import { SafePipe } from './safe.pipe';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
     DashboardComponent,
     ImageVerificationComponent,
     AccountVerificationComponent,
-    SafePipe
+    SafePipe,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    NgbModule
   ],
   providers: [
     AdminService

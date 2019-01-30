@@ -31,4 +31,13 @@ export class ImageVerificationComponent implements OnInit {
     console.log(this.products);
   }
 
+  verifyProduct(id: Number) {
+    console.log(id)
+  }
+
+  rejectProduct(id: Number) {
+    console.log(id)
+
+  }
+
 }
