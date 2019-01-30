@@ -1,0 +1,70 @@
+<div class="login-content">
+   <div class="card">
+      <div class="card-header">
+        <strong>Upload Product</strong>
+      </div>
+      <div class="card-body">
+          <form [formGroup]="ProductUploadForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name"class=" form-control-label">Name:</label>
+                 <input type="text" name="name" class="form-control" value="" formControlName="name">
+            </div>
+            <div class="form-group">
+                <label for="orientation"class=" form-control-label">Orientation:</label>
+                <input type="text" name="orientation" class="form-control" value="" formControlName="orientation">
+            </div>
+            <div class="form-group">
+                <label for="builOn"class=" form-control-label">Build On:</label>
+               <input type="date" name="buildOn" class="form-control" value="" formControlName="buildOn">
+            </div>
+            <div class="form-group">
+                <label for="price"class=" form-control-label">Price:</label>
+                <input type="number" name="price" class="form-control" value="" formControlName="price">
+            </div>
+            <div class="form-group">
+                <label for="availability"class=" form-control-label">Availability:</label>
+                <input type="text" name="availability" class="form-control" value="" formControlName="availability">
+            </div>
+          
+            <div class="form-group">
+              <label for="Category">Category:
+                <select class="form-control" formControlName="Category" [(ngModel)]="selectedCategory"(change)="selectCategory($event)">
+                  
+                  <option [ngValue]="undefined" disabled> Select </option>
+                  <option [value]="category.id" *ngFor="let category of Categories">  
+                        {{category.Category}}
+                 
+                </select>
+              </label>
+            <div class="form-group">
+                <label for="SubCategory">Sub-Category:
+                <select class="form-control" formControlName="SubCategory" [(ngModel)]="selectedSubCategory"(change)="selectSubCategory($event)">
+                  
+                  <option [ngValue]="undefined" disabled> Select </option>
+                  <option [value]="subcategory.id" *ngFor="let subcategory of SubCategories">  
+                        {{subcategory.subCategory}}
+                 
+                </select>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="product" class=" form-control-label">Product:</label>
+              <input type="file" accept="image/*" (change)="onProductSelect($event)" name="product" value="" class="form-control-file" formControlName="product">
+              
+            </div>
+              
+            </div>
+            <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" name="button" [disabled]="!ProductUploadForm.valid">Upload</button>
+            
+          </form>
+      
+        </div>
+        <div class="card-footer">
+            
+      
+        </div>
+   </div>
+   
+  
+  </div>
+  

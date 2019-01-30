@@ -44,5 +44,16 @@ export class UserService {
   getProductsofUser(userId) : Promise<any> {
     return this.http.get(environment.api + 'products/getProductUser/'+ userId).toPromise();
   }
+  getCategories() : any {
+    return this.http.get(environment.api + 'category');
+  }
+
+  getSubCategories(id) : any{
+    return this.http.get(environment.api + 'category/'+ id + '/getSubcategory');
+  }
+
+  uploadProduct(product) : any{
+    return this.http.post(environment.api + 'products',product);
+  }
 
 }
