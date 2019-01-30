@@ -74,7 +74,7 @@ ngOnInit() {
     console.log(this.profileForm.value);
     this.userService.updateProfile(this.id, profileFormData).subscribe((res) => {
       console.log(res);
-      this.router.navigate(['profile-page'],{ queryParams: {userId: this.id}});
+      this.router.navigate(['login']);
     }, (err) => {
       console.log(err);
     });

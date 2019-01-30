@@ -26,15 +26,26 @@ export class ProfilePageComponent implements OnInit {
         this.id = params.userId;
       });
 
-    this.userService.getProfile(this.id).subscribe((res)=>{
-        this.profilePageModel = res;
+    // this.userService.getProfile(this.id).subscribe((res)=>{
+    //     this.profilePageModel = res;
+    //     console.log(this.profilePageModel);
+    //     this.imagePath = environment.files + this.profilePageModel.profilepic;
+    //     console.log(this.imagePath);
+    // }, (err) => {
+    //   console.log(err);}
+    
+    // );
+    Promise.all([this.userService.getProfile(this.id),this.userService.getProductsofUser(this.id)]).then(
+      res => {
+        this.profilePageModel = res[0];
         console.log(this.profilePageModel);
         this.imagePath = environment.files + this.profilePageModel.profilepic;
         console.log(this.imagePath);
-    }, (err) => {
-      console.log(err);}
-    
-    );
+        console.log(res[1]);
+      }, (err) => {
+        console.log(err);}
+      
+    )
     
     
     

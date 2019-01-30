@@ -3,6 +3,7 @@ import { AuthModel } from './auth.model';
 import { HttpClient } from '@angular/common/http'; 
 import { environment } from '../../environments/environment';
 import { ProfileModel } from '../profile/profile.model';
+import { ProfilePageModel } from '../profile-page/profile-page.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,8 +37,12 @@ export class UserService {
 
   }
 
-  getProfile(userId) : any {
-    return this.http.get(environment.api + 'profile/' + userId);
+  public getProfile(userId) : Promise<any> {
+    return this.http.get(environment.api + 'profile/' + userId).toPromise();
+  }
+
+  getProductsofUser(userId) : Promise<any> {
+    return this.http.get(environment.api + 'products/getProductUser/'+ userId).toPromise();
   }
 
 }
