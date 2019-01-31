@@ -15,7 +15,7 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   getArtists(): Observable<Artist[]> {
-     //return this.http.get<Artist[]>(environment.api + "admin/getprofile");
+    //return this.http.get<Artist[]>(environment.api + "admin/getprofile");
     return of(mockArtists);  
   }
 
