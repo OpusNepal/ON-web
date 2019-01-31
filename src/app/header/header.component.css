@@ -1,8 +1,10 @@
 .bg-light{
     background-color: white !important;
+    border-bottom: solid 1px #e0e0e0;
+ 
 }
 .navbar{
-    margin-bottom: 0px;
+    margin-bottom: 5px;
 }
 .navbar-brand{
     margin: 0;

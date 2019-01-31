@@ -115,7 +115,11 @@ QUOTES*/
 /*
 QUOTES close */
 
-
+.prodImage{
+    width: 100%;
+    max-width: inherit;
+    overflow: hidden !important;
+}
 
 
 

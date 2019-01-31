@@ -1,13 +1,13 @@
 <app-header></app-header>
-<div class="profile-page">
+<div class="container target">
     <div class="row">
         <div class="col-md-2">
-            <a href="#">
-                <img title="profile image" class="img-circle img-responsive" [src]="imagePath">
+            <a href="#" class ="pull-left">
+                <img title="profile image" class="img-circle img-responsive prodImage" [src]="imagePath">
             </a>
 
         </div>
-        <div class="col-sm-10">
+        <div class="col-sm-10  pull-right">
                   <div class="headline">
                          <h2> <b>{{profilePageModel.fullName}}</b></h2>
                   </div>
@@ -15,6 +15,7 @@
         </div>
 
     </div>
+    <br>
 
 <div class="row">
      <div class="col-md-3">
@@ -74,7 +75,7 @@
                                     <div class="product-page-single">
                                         <div class="single-product-item">
                                             <div class="product-image-wrap">
-                                                <a href="#"><img src="{{product.image}}" alt="Product image"></a>
+                                                <a href="#"><img class="prodImage" src="{{product.image}}" alt="Product image"></a>
                                                 <div class="product-detail-inner">
                                                     <div class="item-details-overly-info">
                                                         <ul class="list-inline list-unstyled">
@@ -133,12 +134,12 @@
                     </div>
             </blockquote>
             <hr >
-            <div>
+            <div class="detailBox panel panel-default" >
                 <div class="panel-heading">
                     <strong> Words About Artist</strong>
                                                 
                 </div>
-                <div>
+                <div class="actionBox">
                     <ul class="commentList">
                         <li>
                             <div class="commenterImage">
