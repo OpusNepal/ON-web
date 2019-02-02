@@ -67,7 +67,7 @@
   <!-- Display of image according to subcategories -->
   <div class="container">
     <div *ngFor = "let product of subcategoryProductsList">
-        <div class="headline">
+        <div class="headline" *ngIf="product.subcategoryProducts.length > 0">
             <h3>Featured   <b> {{product.subcategory}} </b> Arts </h3>
         </div>
         <div class="row">

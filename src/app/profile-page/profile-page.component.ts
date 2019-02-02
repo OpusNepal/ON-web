@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../auth/user.service';
 import { environment } from 'src/environments/environment';
 import { ProfilePageModel } from '../app-models/profile-page.model';
 import { UserProductModel } from '../app-models/user-product.model';
+import { LocalStorageService } from '../auth/local-storage.service';
 
 
 @Component({
@@ -19,15 +20,16 @@ export class ProfilePageComponent implements OnInit {
   productImage: any;
   products: Array<UserProductModel> = [];
 
-  constructor(private route: ActivatedRoute, public userService: UserService) { }
+  constructor(private route: ActivatedRoute, public userService: UserService,public localStorage: LocalStorageService, public router: Router) { }
 
   ngOnInit() {
 
-    this.route.queryParams
-      .subscribe(params => {
-        console.log(params);
-        this.id = params.userId;
-      });
+    // this.route.queryParams
+    //   .subscribe(params => {
+    //     console.log(params);
+    //     this.id = params.userId;
+    //   });
+      this.localStorage.getAuthData() == null ? this.router.navigate(['login']):this.id = this.localStorage.getAuthData().userId;
       this.productImage = environment.files;
 
     Promise.all([this.userService.getProfile(this.id),this.userService.getProductsofUser(this.id)]).then(

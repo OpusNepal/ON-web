@@ -86,7 +86,8 @@ export class ProductUploadComponent implements OnInit {
     console.log(productForm);
     this.userService.uploadProduct(productForm).subscribe((res)=>{
         console.log(res);
-        this.router.navigate(['profile-page'],{queryParams:{userId: this.userId}});
+        this.router.navigate(['profile-page']);
+    
     }, (err) => {
       console.log(err);
     });
