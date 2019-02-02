@@ -16,7 +16,7 @@ import { ImageVerificationComponent } from './admin/image-verification/image-ver
 import { AccountVerificationComponent } from './admin/account-verification/account-verification.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { SafePipe } from './admin/safe.pipe';
-import { FirstPageComponent } from './first-page/first-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { FooterComponent } from './footer/footer.component';
@@ -32,7 +32,7 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
     ImageVerificationComponent,
     AccountVerificationComponent,
     SafePipe,
-    FirstPageComponent,
+    HomePageComponent,
     ProfileComponent,
     ProfilePageComponent,
     FooterComponent,

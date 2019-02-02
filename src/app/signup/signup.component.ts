@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
       console.log(res);
       const id = res.data.data.id;
       console.log(res.data.data.id);
-      this.router.navigate(['profile'], { queryParams: {userId: id}});
+      this.signupForm.value.userType === 'artist' ? this.router.navigate(['profile'], { queryParams: {userId: id}}) : this.router.navigate(['login']);
     }, (err) => {
       console.log(err);
     });
