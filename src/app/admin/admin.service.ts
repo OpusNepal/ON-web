@@ -15,8 +15,8 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   getArtists(): Observable<Artist[]> {
-    //return this.http.get<Artist[]>(environment.api + "admin/getprofile");
-    return of(mockArtists);  
+    return this.http.get<Artist[]>(environment.api + "admin/getprofile");
+    //return of(mockArtists);  
   }
 
   verifyArtist(id: Number) {
@@ -24,12 +24,30 @@ export class AdminService {
   }
 
   getProducts(): Observable<Product[]> {
-    //return this.http.get<Product[]>(environment.api + 'admin/getproducts');
-    return of(mockProducts);
+    return this.http.get<Product[]>(environment.api + 'admin/getproducts');
+    //return of(mockProducts);
   }
 
   verifyProduct(id: Number) {
     return this.http.put(environment.api + `admin/verifyproduct/${id}`, null);
+  }
+
+  getVerifiedArtists(): Observable<Artist[]> {
+    return of(mockArtists);
+  }
+
+  addCategory(category: string): Observable<any> {
+    console.log(category)
+    return of(true)
+  }
+
+  getCategories() : any {
+    return this.http.get(environment.api + 'category');
+  }
+
+  addSubcategory(subcategory: string, categoryId: Number): Observable<any> {
+    console.log(subcategory, categoryId)
+    return of(true)
   }
   
 }

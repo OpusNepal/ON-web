@@ -14,6 +14,9 @@ import { AuthModule } from './auth/auth.module';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminModule } from './admin/admin.module';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { FooterComponent } from './footer/footer.component';
+import { ProductUploadComponent } from './product-upload/product-upload.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { AdminModule } from './admin/admin.module';
     SignupComponent,
     LoginComponent,
     FirstPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProfilePageComponent,
+    FooterComponent,
+    ProductUploadComponent
     
   ],
   imports: [
