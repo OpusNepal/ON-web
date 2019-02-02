@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
     this.email = this.formBuilder.control('', Validators.required)
     this.password = this.formBuilder.control('', Validators.required)
     this.Phone = this.formBuilder.control('', Validators.required)
-    this.userType = this.formBuilder.control('Customer', Validators.required)
+    this.userType = this.formBuilder.control('customer', Validators.required)
 
     this.signupForm = this.formBuilder.group({
         fullName: this.fullName,
@@ -50,14 +50,19 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
    
-    console.log(this.signupForm.value);
+    const { userType } = this.signupForm.value
+    
     this.signupModel = this.signupForm.value;
-    this.signupModel.isVerified = this.signupForm.value.userType === 'Artist' ? false: true;
+    this.signupModel.isVerified = this.signupForm.value.userType === 'artist' ? false: true;
+
     this.userService.signUp(this.signupModel).subscribe((res) => {
       console.log(res);
-      const id = res.data.data.id;
-      console.log(res.data.data.id);
-      this.router.navigate(['profile'], { queryParams: {userId: id}});
+      if (userType === 'customer') {
+        this.router.navigate(['login']);
+      } else if (userType == 'artist') {
+        const id = res.data.data.id;
+        this.router.navigate(['profile'], { queryParams: {userId: id}});
+      }
     }, (err) => {
       this.open(this.content)
     });

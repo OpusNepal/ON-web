@@ -9,7 +9,8 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
 
 
 const routes: Routes = [
-  {path: '', component: FirstPageComponent },
+  {path: 'home', component: FirstPageComponent },
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
