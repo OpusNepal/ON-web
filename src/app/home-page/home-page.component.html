@@ -1,0 +1,123 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9">
+        
+        <ngb-carousel *ngIf="images">
+          <ng-template ngbSlide>
+            <img [src]="images[0]" alt="Random first slide" style="width:1200px; height:500px; max-width: 100%;">
+            <div class="carousel-caption headline">
+              <h3 style="color:white;">Reckless Traveler</h3>
+              <p>Ramesh Xhu</p>
+              <span class="btn btn-primary btn-lg">Shop Now</span>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <img [src]="images[1]" alt="Random second slide" style="width:1200px; height:500px; max-width: 100%;">
+            <div class="carousel-caption headline">
+              <h3 style="color:white;">Murals</h3>
+              <span class="btn btn-primary btn-lg">Shop Now</span>
+              
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <img [src]="images[2]" alt="Random third slide" style="width:1200px; height:500px; max-width: 100%;" >
+            <div class="carousel-caption headline">
+              <h3 style="color:white;">Heritages</h3>
+              <span class="btn btn-primary btn-lg">Shop Now</span>
+             
+            </div>
+          </ng-template>
+        </ngb-carousel>
+       
+        
+      </div>
+
+<!--Artist of the week -->
+
+        <div class="col-md-3">
+            <div class="square-card">
+              <a href="#" alt="square card" style="display: block;">
+                <div class="card-header">
+                    <img src="./assets/images/thumb/kiran.png" class="img-responsive" style="width: 100%">
+                    <div class="card-header_overlay text-center">
+                        <span class="pill">Artist of the Week</span>
+                     </div>
+                </div>
+    
+                <div class="page-header text-center" style="padding-top:5px;">
+                  <h4>Kiran Maharjan</h4> 
+                </div>
+    
+                  <p class="text-center">
+                      Specialization :  Street art<br>
+                      Street Name : H11235<br>
+                        Awards : 4<br>
+                        Mural  : 7 <br>
+                        Exhibitions : 4<br>
+                    
+                    </p>
+                  <div class="cta">
+        
+                  </div>
+                </a>
+            </div>
+        </div>
+  <!--End Artist of week-->
+  <!-- Display of image according to subcategories -->
+  <div class="container">
+    <div *ngFor = "let product of subcategoryProductsList">
+        <div class="headline">
+            <h3>Featured   <b> {{product.subcategory}} </b> Arts </h3>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6" *ngFor = "let prod of product.subcategoryProducts; let i=index">
+              <div *ngIf="i < 4">
+                  <div class="product-page-single">
+                    <div class="single-product-item">
+                        <div class="product-image-wrap">
+                            <a href="#"><img src="{{prod.image}}" alt="Product image" style="width:252px;height: 250px;"></a>
+                            <div class="product-detail-inner">
+                                <div class="item-details-overly-info">
+                                    <ul class="list-inline list-unstyled">
+                                        <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
+                                       <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item-details">
+                            <h2><a href="#">{{prod.Name}}</a><br>{{prod.user.fullName}}</h2>
+                             
+                            <div class="price-like-box">
+                                <div class="pull-left item-price">
+                                    <!-- <span class="old-price"><del>$50.00</del></span> -->
+                                    <span class="current-price">{{prod.price}}</span>
+                                </div>
+                                <div class="pull-right item-rating">
+                                    <ul class="list-inline">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star-o"></i></li>
+                                        <li><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <a href="#" *ngIf="i == 4"> Show more</a>
+            </div>   
+
+          </div>
+    </div>
+</div>
+      
+  <!-- End of Display of Image according to categories -->
+
+  </div>
+</div>
+<app-footer></app-footer>
