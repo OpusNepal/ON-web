@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.userService.isAuthenticated = true;
       this.userService.setToken(token);
       this.localStorageService.saveAuthData(token, email, id);
-      this.router.navigate(['profile-page'],{ queryParams: {userId: id}});
+      this.router.navigate([''],{ queryParams: {userId: id}});
     });
   }
 

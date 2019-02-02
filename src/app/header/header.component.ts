@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LocalStorageService } from '../auth/local-storage.service';
-import { UserProductModel } from '../profile-page/user-product.model';
+import { UserProductModel } from '../app-models/user-product.model';
 import { UserService } from '../auth/user.service';
-import { CategoryAndSubCategoryModel } from './CategoryAndSubCat.model';
-import { ProductCategory } from '../product-upload/productCategory.model';
+import { CategoryAndSubCategoryModel } from '../app-models/CategoryAndSubCat.model';
+import { ProductCategory } from '../app-models/productCategory.model';
+import { ProductSubCategory } from '../app-models/productSubCategory.model';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit {
   closeResult: any;
   isLoggedIn: Boolean = false;
   Categories : ProductCategory[];
-  SubCategories : ProductCategory[];
+  SubCategories : ProductSubCategory[];
   List: Array<CategoryAndSubCategoryModel> = [];
 
   constructor(public localStorage: LocalStorageService, public userService: UserService) { }
@@ -41,11 +42,10 @@ export class HeaderComponent implements OnInit {
           
          
         });
-        console.log(model);
         this.List.push(model);
       } );
     });
-    console.log(this.List)
+   
   }
   logoutEvent(){
     this.localStorage.clearAuthData();

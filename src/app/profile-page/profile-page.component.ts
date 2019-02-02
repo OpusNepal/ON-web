@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../auth/user.service';
 import { environment } from 'src/environments/environment';
-import { ProfilePageModel } from './profile-page.model';
-import { UserProductModel } from './user-product.model';
+import { ProfilePageModel } from '../app-models/profile-page.model';
+import { UserProductModel } from '../app-models/user-product.model';
 
 
 @Component({

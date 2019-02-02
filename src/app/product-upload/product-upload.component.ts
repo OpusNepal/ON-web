@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../auth/user.service';
-import { ProductCategory } from './productCategory.model';
+import { ProductCategory } from '../app-models/productCategory.model';
 import { LocalStorageService } from '../auth/local-storage.service';
 import { Router } from '@angular/router';
+import { ProductSubCategory } from '../app-models/productSubCategory.model';
 
 @Component({
   selector: 'app-product-upload',
@@ -14,7 +15,7 @@ export class ProductUploadComponent implements OnInit {
 
   ProductUploadForm : FormGroup;
   Categories : ProductCategory[];
-  SubCategories : ProductCategory[];
+  SubCategories : ProductSubCategory[];
   selectedCategory: number;
   selectedSubCategory : string;
   productImage : File;

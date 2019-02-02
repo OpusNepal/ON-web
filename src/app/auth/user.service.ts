@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { AuthModel } from './auth.model';
 import { HttpClient } from '@angular/common/http'; 
 import { environment } from '../../environments/environment';
-import { ProfileModel } from '../profile/profile.model';
-import { ProfilePageModel } from '../profile-page/profile-page.model';
+import { ProfileModel } from '../app-models/profile.model';
+import { ProfilePageModel } from '../app-models/profile-page.model';
+import { ProductOfSubcategory } from '../app-models/productsOfSubcategoryResponse.model';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +55,10 @@ export class UserService {
 
   uploadProduct(product) : any{
     return this.http.post(environment.api + 'products',product);
+  }
+
+  getProductsOfSubCategory(id) : any{
+    return this.http.get(environment.api + 'products/getproductsubCategory/' + id);
   }
 
 }
