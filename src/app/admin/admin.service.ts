@@ -24,8 +24,8 @@ export class AdminService {
   }
 
   getProducts(): Observable<Product[]> {
-    //return this.http.get<Product[]>(environment.api + 'admin/getproducts');
-    return of(mockProducts);
+    return this.http.get<Product[]>(environment.api + 'admin/getproducts');
+    //return of(mockProducts);
   }
 
   verifyProduct(id: Number) {
@@ -33,10 +33,14 @@ export class AdminService {
   }
 
   getVerifiedArtists(): Observable<Artist[]> {
+
+    //add api to get verified artist
     return of(mockArtists);
   }
 
   addCategory(category: string): Observable<any> {
+
+    // add api to add category
     console.log(category)
     return of(true)
   }
@@ -56,6 +60,14 @@ export class AdminService {
       id: userId
     };
     return this.http.put(environment.api + `admin/rejectproduct/${productId}`, body)
+  }
+
+  rejectAccount(userId: Number, rejectMessage: string) {
+    const body = {
+      id: userId,
+      rejectMessage
+    };
+    return this.http.put(environment.api + `admin/rejectaccount/${userId}`, body);
   }
   
 }

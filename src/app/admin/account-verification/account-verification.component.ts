@@ -11,8 +11,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 })
 export class AccountVerificationComponent implements OnInit {
 
-  currentRejectArtist: Artist;
-  closeResult: string;
+  currentRejectArtistId: Number;
 
   artists: Artist[];
 
@@ -43,16 +42,19 @@ export class AccountVerificationComponent implements OnInit {
     
   }
 
-  setRejectArtist(artist: Artist) {
-    this.currentRejectArtist = artist;
+  setRejectArtistId(artistId: Number) {
+    this.currentRejectArtistId = artistId;
   }
 
   rejectArtist(comment: string): void {
-    console.log(this.currentRejectArtist)
+    console.log(this.currentRejectArtistId)
     console.log(comment)
+
+    this.adminService.rejectAccount(this.currentRejectArtistId, comment).subscribe(() => {
+      console.log('Rejected')
+    });
     //this.unverifiedArtists = this.unverifiedArtists.filter(item => item.id !== artist.id);
   }
-
 
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title'})
