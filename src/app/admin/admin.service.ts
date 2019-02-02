@@ -24,8 +24,8 @@ export class AdminService {
   }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(environment.api + 'admin/getproducts');
-    //return of(mockProducts);
+    //return this.http.get<Product[]>(environment.api + 'admin/getproducts');
+    return of(mockProducts);
   }
 
   verifyProduct(id: Number) {
@@ -48,6 +48,14 @@ export class AdminService {
   addSubcategory(subcategory: string, categoryId: Number): Observable<any> {
     console.log(subcategory, categoryId)
     return of(true)
+  }
+
+  rejectProduct(rejectMessage: string, productId: Number, userId:Number) {
+    const body = {
+      rejectMessage,
+      id: userId
+    };
+    return this.http.put(environment.api + `admin/rejectproduct/${productId}`, body)
   }
   
 }

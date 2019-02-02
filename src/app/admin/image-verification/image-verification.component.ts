@@ -15,6 +15,7 @@ export class ImageVerificationComponent implements OnInit {
   closeResult: string;
 
   rejectProductId: Number;
+  rejectUserId: Number;
 
   products: Product[]
 
@@ -43,21 +44,20 @@ export class ImageVerificationComponent implements OnInit {
 
   }
 
-  setRejectProductId(id: Number) {
-    console.log(id)
-    this.rejectProductId = id;
+  setRejectIds(productId: Number, userId: Number) {
+    this.rejectProductId = productId;
+    this.rejectUserId = userId;
   }
 
   rejectProduct(comment: string) {
-    console.log(comment);
-    console.log(this.rejectProductId);
+    this.adminService.rejectProduct(comment, this.rejectProductId, this.rejectUserId).subscribe((res) => {
+      console.log('Rejected')
+    }); 
 
   }
-
 
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title'})
   }
-
 
 }

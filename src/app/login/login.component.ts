@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../auth/user.service';
 import { Route } from '@angular/compiler/src/core';
 import { LocalStorageService } from '../auth/local-storage.service';
+import { NavbarService } from '../navbar.service';
 
 
 @Component({
@@ -21,11 +22,17 @@ export class LoginComponent implements OnInit {
   showError = false;
 
   constructor(public formBuilder: FormBuilder,
-     public userService: UserService, public router: Router, public localStorageService: LocalStorageService) {
+     public userService: UserService, public router: Router, public localStorageService: LocalStorageService, private navbarService: NavbarService) {
     this.createForm();
    }
 
   ngOnInit() {
+    this.navbarService.setShowLogout(false);
+    this.navbarService.setShowLogin(true);
+    this.navbarService.setShowSignup(true);
+    this.navbarService.setShowDashboard(false);
+    this.navbarService.setShowProfile(false);
+    this.navbarService.setShowCart(false);
   }
 
   createForm(): void {
@@ -47,6 +54,18 @@ export class LoginComponent implements OnInit {
       this.localStorageService.saveAuthData(token, email, id, userType);
 
       this.router.navigate(['home'])
+
+      this.navbarService.setShowLogin(false);
+      this.navbarService.setShowSignup(false);
+      this.navbarService.setShowLogout(true);
+
+      if (userType === 'artist') {
+        this.navbarService.setShowProfile(true)
+      } else if (userType === 'admin') {
+        this.navbarService.setShowDashboard(true)
+      } else if (userType === 'Customer') {
+        this.navbarService.setShowCart(true);
+      }
     //1  this.router.navigate(['profile-page'],{ queryParams: {userId: id}});
     }, (err) => {
       this.showError = true

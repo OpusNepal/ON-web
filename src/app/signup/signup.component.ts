@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../auth/user.service';
 import { SignupModel } from './signup.model';
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
+import { NavbarService } from '../navbar.service';
 
 @Component({
   selector: 'app-signup',
@@ -25,11 +26,17 @@ export class SignupComponent implements OnInit {
   private content;
  
 
-  constructor(public formBuilder: FormBuilder, public userService: UserService, public router: Router,  private modalService: NgbModal) { 
+  constructor(public formBuilder: FormBuilder, public userService: UserService, public router: Router,  private modalService: NgbModal, private navbarService: NavbarService) { 
   }
 
   ngOnInit() {
     this.createForm();
+    this.navbarService.setShowLogout(false);
+    this.navbarService.setShowLogin(true);
+    this.navbarService.setShowSignup(true);
+    this.navbarService.setShowDashboard(false);
+    this.navbarService.setShowProfile(false);
+    this.navbarService.setShowCart(false);
   }
 
   private createForm(): void {
