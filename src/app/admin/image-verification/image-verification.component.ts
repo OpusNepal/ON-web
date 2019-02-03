@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { Product } from '../products';
 import { environment } from 'src/environments/environment';
-import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap"
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 
 
 @Component({
@@ -15,6 +15,7 @@ export class ImageVerificationComponent implements OnInit {
   closeResult: string;
 
   rejectProductId: Number;
+  rejectUserId: Number;
 
   products: Product[]
 
@@ -43,35 +44,20 @@ export class ImageVerificationComponent implements OnInit {
 
   }
 
-  setRejectProductId(id: Number) {
-    console.log(id)
-    this.rejectProductId = id;
+  setRejectIds(productId: Number, userId: Number) {
+    this.rejectProductId = productId;
+    this.rejectUserId = userId;
   }
 
   rejectProduct(comment: string) {
-    console.log(comment);
-    console.log(this.rejectProductId);
+    this.adminService.rejectProduct(comment, this.rejectProductId, this.rejectUserId).subscribe((res) => {
+      console.log('Rejected')
+    }); 
 
   }
-
 
   open(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title'}).result
-          .then((result) => {
-            this.closeResult = `Closed with: ${result}`
-          }, (reason) => {
-            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`
-          });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title'})
   }
 
 }

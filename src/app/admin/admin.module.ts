@@ -8,6 +8,9 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { SafePipe } from './safe.pipe';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CurrentArtistComponent } from './current-artist/current-artist.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import { AddSubcategoryComponent } from './add-subcategory/add-subcategory.component';
 
 
 @NgModule({
@@ -16,7 +19,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ImageVerificationComponent,
     AccountVerificationComponent,
     SafePipe,
-    SidebarComponent
+    SidebarComponent,
+    CurrentArtistComponent,
+    AddCategoryComponent,
+    AddSubcategoryComponent
   ],
   imports: [
     CommonModule,
