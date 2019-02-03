@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { UserService } from './user.service';
+import { NavbarService } from '../navbar.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
 
-  constructor(public userService: UserService) {}
+  constructor(private userService: UserService, private navbarService: NavbarService) {}
 
   saveAuthData(token: string, email: string, userId: Number, userType: string): void {
     localStorage.setItem('token', token);
@@ -40,13 +41,39 @@ export class LocalStorageService {
   }
 
   autoAuthenticateUser(): void {
-    const credintials = this.getAuthData();
+    const credentials = this.getAuthData();
 
-    if (!credintials) {
+    if (!credentials) {
       return;
     }
 
-    this.userService.setToken(credintials.token);
+    const { userType } = credentials;
+    if (userType === 'artist') {
+      this.navbarService.setShowProfile(true);
+      this.navbarService.setShowCart(false);
+      this.navbarService.setShowDashboard(false);
+      this.navbarService.setShowLogin(false);
+      this.navbarService.setShowLogout(true);
+      this.navbarService.setShowSignup(false);
+    } else if (userType === 'Customer') {
+      this.navbarService.setShowProfile(false);
+      this.navbarService.setShowCart(true);
+      this.navbarService.setShowDashboard(false);
+      this.navbarService.setShowLogin(false);
+      this.navbarService.setShowLogout(true);
+      this.navbarService.setShowSignup(false);
+      
+    } else if (userType === 'admin') {
+      this.navbarService.setShowProfile(false);
+      this.navbarService.setShowCart(false);
+      this.navbarService.setShowDashboard(true);
+      this.navbarService.setShowLogin(false);
+      this.navbarService.setShowLogout(true);
+      this.navbarService.setShowSignup(false);
+
+    }
+
+    this.userService.setToken(credentials.token);
     this.userService.isAuthenticated = true;
   }
 

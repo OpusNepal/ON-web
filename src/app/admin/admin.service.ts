@@ -52,6 +52,8 @@ export class AdminService {
   addSubcategory(subcategory: string, categoryId: Number): Observable<any> {
     console.log(subcategory, categoryId)
     return of(true)
+
+    // add api to add sub category
   }
 
   rejectProduct(rejectMessage: string, productId: Number, userId:Number) {
