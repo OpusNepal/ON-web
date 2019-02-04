@@ -36,13 +36,14 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     console.log("yeta pugyo");
-    console.log(this.signupForm.value);
     this.signupModel = this.signupForm.value;
-    this.signupForm.value.userType === 'artist' ? this.signupModel.isVerified = false : this.signupModel.isVerified = true;
+    //this.signupForm.value.userType === 'artist' ? this.signupModel.isVerified = false : this.signupModel.isVerified = true;
+    this.signupModel.isVerified = this.signupForm.value.userType == 'Artist'? false: true
+  
     this.userService.signUp(this.signupModel).subscribe((res) => {
-      console.log(res);
+      
       const id = res.data.data.id;
-      console.log(res.data.data.id);
+     
       this.router.navigate(['profile'], { queryParams: {userId: id}});
     }, (err) => {
       console.log(err);

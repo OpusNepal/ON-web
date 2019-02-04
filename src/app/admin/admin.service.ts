@@ -15,8 +15,8 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   getArtists(): Observable<Artist[]> {
-     //return this.http.get<Artist[]>(environment.api + "admin/getprofile");
-    return of(mockArtists);  
+     return this.http.get<Artist[]>(environment.api + "admin/getprofile");
+    //return of(mockArtists);  
   }
 
   verifyArtist(id: Number) {
@@ -24,8 +24,8 @@ export class AdminService {
   }
 
   getProducts(): Observable<Product[]> {
-    //return this.http.get<Product[]>(environment.api + 'admin/getproducts');
-    return of(mockProducts);
+    return this.http.get<Product[]>(environment.api + 'admin/getproducts');
+    //return of(mockProducts);
   }
 
   verifyProduct(id: Number) {

@@ -1,56 +1,53 @@
 <div class="login-content">
-  <div class="fixed-menu">
-
-  </div>
-    
- <div class="card">
-    <div class="card-header">
-      <strong>Sign Up</strong>
+    <div class="fixed-menu">
+  
     </div>
-    <div class="card-body">
-        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <label for="fullName">Full Name:
-              <input type="text" name="fullName" class="form-control" value="" formControlName="fullName">
-            </label>
-          </div>
+      
+  
     
-          <div class="form-group">
-            <label for="email">E-mail:
-              <input type="email" name="email" value="" class="form-control" formControlName="email">
-            </label>
-          </div>
-    
-          <div class="form-group">
-            <label for="password">Password:
-              <input type="password" name="password" value="" class="form-control" formControlName="password">
-            </label>
-          </div>
-
-          <div class="form-group">
-            <label for="phoneNumber">Phone Number:
-              <input type="text" name="phoneNumber" value="" class="form-control" formControlName="Phone">
-            </label>
-          </div>
-    
-          <div class="form-group">
-            <label for="userType">User Type:
-              <select class="form-control" formControlName="userType">
-                <option value="artist">Artist</option>
-                <option value="customer" [selected]="true">Customer</option>
-              </select>
-            </label>
-          </div>
-          <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" name="button" [disabled]="!signupForm.valid">Sign Up</button>
-          
-        </form>
-    
-      </div>
-      <div class="card-footer">
-          
-    
-      </div>
- </div>
- 
-
-</div>
+     <div class="login-page" >
+      <div class="banner">Sign<strong> Up</strong></div>
+    <div class="form">
+          <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+           
+              <label for="fullName">
+                <input type="text" name="fullName" class="form-control" value="" formControlName="fullName" placeholder="Full Name">
+              </label>
+       
+      
+  
+              <label for="email">
+                <input type="email" name="email" value="" class="form-control" formControlName="email" placeholder="Email">
+              </label>
+            
+      
+        
+              <label class="form-label" for="password">
+                <input type="password" name="password" value="" class="form-control" formControlName="password" placeholder="Password">
+              </label>
+       
+  
+       
+              <label for="phoneNumber">
+                <input type="text" name="phoneNumber" value="" class="form-control" formControlName="Phone" placeholder="Phone Number">
+              </label>
+            
+      
+            <label for="userType" class="form-label" style="text-align: left">User Type:
+          <select class="form-select" formControlName="userType">
+            <option value="Artist">Artist</option>
+            <option value="Customer" [selected]="true">Customer</option>
+          </select>
+        </label>
+            <button type="submit" name="button" [disabled]="!signupForm.valid">Sign Up</button>
+            
+          </form>
+      
+        </div>
+      
+  
+   
+  
+  </div>
+  </div>
+  

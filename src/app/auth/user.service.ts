@@ -22,6 +22,7 @@ export class UserService {
   }
 
   signUp(userData) {
+    console.log(userData)
     return this.http.post<{data: {data: {id: string, email: string}, message: string, type: string}}>(environment.api+"auth/register", userData);
   }
 

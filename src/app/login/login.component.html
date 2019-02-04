@@ -1,29 +1,22 @@
 <div class="fixed-menu">
 </div>
-<div class="container">
-  <form class="" [formGroup] = "signinForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="email">Email:
-        <input type="email" name="email"  class="form-control" value="" formControlName="email">
-      </label>
-    </div>
+<div class="login-page" >
+    <div class="banner">Log<strong>IN</strong></div>
+  <div class="form">
+  <form class="login-form" [formGroup] = "signinForm" (ngSubmit)="onSubmit()">
+   
+    
+      <input type="email" name="email" class="form-control" value="" formControlName="email" placeholder="Email"/>
+ 
 
 
-    <div class="form-group">
-      <label for="password">Password:
-        <input type="password" name="password" value=""  class="form-control" formControlName="password">
-      </label>
-    </div>
+    
+      <input type="password" name="password" value=""  class="form-control" formControlName="password" placeholder="Password"/>
 
-    <div class="form-group">
-      <label for="userType">User Type:
-        <select class="form-control" formControlName="userType">
-          <option value="Artist">Artist</option>
-          <option value="Customer" [selected]="true">Customer</option>
-        </select>
-      </label>
-    </div>
 
-    <button type="submit"  class = "btn btn-submit" name="button">Login</button>
+    
+     
+<button type="submit" name="button">login</button>
   </form>
+</div>
 </div>

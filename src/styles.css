@@ -18,6 +18,7 @@ body {
   font-size:14px;
   line-height:24px;
   color:#6f6f6f;
+
 }
 
 a{
@@ -514,8 +515,7 @@ ul.cart-list > li.total > .btn:focus{
   font-family: 'Muli', Arial, sans-serif;
 }
 
-.content {
-}
+
 
 #sidebar {
   min-width: 250px;
@@ -543,7 +543,8 @@ a[data-toggle="collapse"] {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #fafafa;
+
+background-color: #a19d9d83
 }
 
 p {

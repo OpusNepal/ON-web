@@ -1,34 +1,33 @@
-<div class="container">
-    <div class="row">
-      <div class="card col-md-4" style="width:400px;" *ngFor="let product of products">
-        <img class="card-img-top" [src]="product.image" width="300" height="300" alt="product image">
-        <div class="card-body">
-          <h4 class="card-title">Name: {{ product.Name }}</h4>
-          <p class="card-text">Availability: {{ product.availability }}</p>
+<div class="container helper">
+    <div class="row" style="margin-top: 70px">
+      <div class="card card--big" *ngFor="let product of products" >
+        <img class="card__image" [src]="product.image" alt="product image">
+         
+          <h2 class="card__title">Name: {{ product.Name }}</h2>
+          <p class="card__text">Availability: {{ product.availability }}</p>
   
-          <div>
-            <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#' + product.id">
-              View More
+          <div class="card__action-bar">
+            <button type="button" class="card__button" data-toggle="modal" [attr.data-target]="'#' + product.id">
+                <strong style="color:#3a539b">View More</strong>
             </button>
-  
+            
             <div class="modal fade" id="{{product.id}}">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <p>bla bla bla</p>
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <p>bla bla bla</p>
+                  </div>
                 </div>
               </div>
+            <button (click)="verifyProduct(product.id)" class="card__button"><Strong style="color:dimgrey">Verify</Strong></button>
+              <button (click)="rejectProduct(product.id)" class="card__button"><Strong style="color:#d91e18">Reject</Strong></button>
             </div>
-          </div>
+            
+          
   
-            <div>
-              <button (click)="verifyProduct(product.id)" class="btn btn-success">Verify</button>
-              <button (click)="rejectProduct(product.id)" class="btn btn-danger">Reject</button>
-            </div>
-  
-  
-        </div>
+           
+       
       </div>
-
+    
       
     </div>
   

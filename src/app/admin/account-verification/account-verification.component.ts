@@ -18,14 +18,17 @@ export class AccountVerificationComponent implements OnInit {
   ngOnInit() {
     this.adminService.getArtists().subscribe(res => {
 
+      console.log(res)
       var clonedRes = JSON.parse(JSON.stringify(res));
 
+      console.log(clonedRes)
       this.artists = clonedRes.map(artist => {
         artist.profile.profilepic = environment.public + artist.profile.profilepic;
         artist.profile.samplepic = environment.public + artist.profile.samplepic;
         artist.profile.CV = environment.public + artist.profile.CV
         return artist;
       });
+
     });
   }
 
