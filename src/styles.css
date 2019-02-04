@@ -542,7 +542,7 @@ a[data-toggle="collapse"] {
 body {
   font-family: 'Poppins', sans-serif;
 
-background-color: #a19d9d83
+/* background-color: #a19d9d83 */
 }
 
 p {
@@ -558,5 +558,47 @@ a, a:hover, a:focus {
   text-decoration: none;
   transition: all 0.3s;
 }
+
+/* Bikram's styles */
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+ 
+  text-align: center;
+  
+  text-decoration: none;
+ 
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
 
 
