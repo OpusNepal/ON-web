@@ -16,13 +16,8 @@
           <a class="nav-link" href="#">Customized Arts</a>
         </li>
         <li class="nav-item dropdown megamenu-fw">
-<<<<<<< HEAD
           <a class="nav-link dropdown-toggle"  data-toggle="dropdown" href="#">Categories</a>
           <ul class="dropdown-menu megamenu-content animated" role="menu">
-=======
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Categories</a>
-          <ul class="dropdown-menu megamenu-content" role="menu">
->>>>>>> feature/imageverification
             <li>
               <div class="row">
                 <div class="col-menu col-md-3" *ngFor="let ls of List">
@@ -45,41 +40,13 @@
         </li>
 
       </ul>
-      <!-- <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form> -->
+    
     </div>
-
-    <!--     
-    <div class="navbar navbar-nav navbar-right">
-      <ul class="navbar-nav mr-auto" >
-          <li class="nav-item">
-              <a class="nav-link" *ngIf="isLoggedIn" routerLink="/upload-product"><span class=""></span> Upload Product</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/login"><span class="fa fa-sign-in"></span> Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" *ngIf="isLoggedIn" routerLink="/login" (click)="logoutEvent()"><span class="fa fa-sign-out"></span> Logout</a>
-        </li>
-          <li class="nav-item">
-              <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/signup">Sign Up</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" *ngIf="isLoggedIn" routerLink="/profile-page">Profile</a>
-          </li>
-           <li class="nav-item">
-             <a class = "nav-link" href="#"><span class="fa fa-cart-plus"></span>Cart</a>
-            </li>         
-      </ul>
-    </div> -->
-
 
     <div class="navbar navbar-nav navbar-right">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowProfile() | async" routerLink="profile-page"><span class=""></span>Profile</a>
+          <a class="nav-link" *ngIf="navbarService.getShowProfile() | async" routerLink="/profile-page"><span class=""></span>Profile</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" *ngIf="navbarService.getShowLogin() | async" routerLink="/login"><span class="fa fa-sign-in"></span>

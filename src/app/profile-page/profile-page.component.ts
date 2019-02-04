@@ -15,7 +15,7 @@ import { LocalStorageService } from '../auth/local-storage.service';
 export class ProfilePageComponent implements OnInit {
 
   id: String;
-  profilePageModel : ProfilePageModel;
+  profilePageModel : ProfilePageModel = new ProfilePageModel();
   imagePath: any;
   productImage: any;
   products: Array<UserProductModel> = [];
