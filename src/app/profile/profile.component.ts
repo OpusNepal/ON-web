@@ -40,9 +40,9 @@ ngOnInit() {
       expert:     ['', [Validators.required]],
       role:       ['', [Validators.required]],
       bio:        ['', [Validators.required]],
-      cv:         ['', Validators.required],
-      profilePic: ['', Validators.required],
-      sampleArt:  ['', Validators.required]
+      cv:         ['', [Validators.required]],
+      profilePic: ['', [Validators.required]],
+      sampleArt:  ['', [Validators.required]]
     });
   }
 
@@ -74,7 +74,7 @@ ngOnInit() {
     console.log(this.profileForm.value);
     this.userService.updateProfile(this.id, profileFormData).subscribe((res) => {
       console.log(res);
-      this.router.navigate(['home']);
+      this.router.navigate(['login']);
     }, (err) => {
       console.log(err);
     });

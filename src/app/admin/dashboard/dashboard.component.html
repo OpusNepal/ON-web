@@ -1,11 +1,10 @@
-<div class="container-fluid">
-  <ul class="nav nav-pills nav-fill">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/admin/verifyaccount" routerLinkActive="active">Verify Account</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/admin/verifyimage" routerLinkActive="active">Verify Image</a>
-    </li>
-  </ul>
-  <router-outlet></router-outlet>
+<div class="wrapper">
+
+  <nav id="sidebard">
+    <app-sidebar></app-sidebar>
+  </nav>
+
+  <nav id="content" style="margin: auto">
+    <router-outlet></router-outlet>
+  </nav>
 </div>
