@@ -15,7 +15,6 @@ import { NavbarService } from '../navbar.service';
 export class HeaderComponent implements OnInit {
   modalReference: any;
   closeResult: any;
-  isLoggedIn: Boolean = false;
   Categories : ProductCategory[];
   SubCategories : ProductSubCategory[];
   List: Array<CategoryAndSubCategoryModel> = [];
@@ -23,9 +22,7 @@ export class HeaderComponent implements OnInit {
   constructor(public localStorage: LocalStorageService, public userService: UserService, public navbarService: NavbarService) { }
 
   ngOnInit() {
-    if(this.userService.isAuthenticated){
-      this.isLoggedIn = true;
-    }
+    
     this.userService.getCategories().subscribe(res =>{
       this.Categories = res;
       this.Categories.forEach(row => {
@@ -53,13 +50,13 @@ export class HeaderComponent implements OnInit {
 
   logoutEvent(){
     this.localStorage.clearAuthData();
-    this.isLoggedIn = false;
     this.navbarService.setShowLogout(false);
     this.navbarService.setShowLogin(true);
     this.navbarService.setShowSignup(true);
     this.navbarService.setShowDashboard(false);
     this.navbarService.setShowProfile(false);
     this.navbarService.setShowCart(false);
+    this.navbarService.setShowUploadProduct(false);
   }
   
 }

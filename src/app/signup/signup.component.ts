@@ -37,6 +37,7 @@ export class SignupComponent implements OnInit {
     this.navbarService.setShowDashboard(false);
     this.navbarService.setShowProfile(false);
     this.navbarService.setShowCart(false);
+    this.navbarService.setShowUploadProduct(false);
   }
 
   private createForm(): void {

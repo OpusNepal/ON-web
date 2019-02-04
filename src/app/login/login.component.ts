@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     this.navbarService.setShowDashboard(false);
     this.navbarService.setShowProfile(false);
     this.navbarService.setShowCart(false);
+    this.navbarService.setShowUploadProduct(false);
   }
 
   createForm(): void {
