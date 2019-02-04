@@ -1,31 +1,35 @@
-<div>
-
-  <div class="form-group">
-    <label for="category">Category:
-      <select #category>
-          <option *ngFor="let category of categories" value="{{ category.id }}">{{ category.Category }}</option>
-      </select>
-    </label>
-  </div>
-  <div class="form-group">
-    <label for="subcategory">Add Sub-category:</label>
-    <input type="text" class="form-control" id="subcategory" #subcategory>
-  </div>
-
-  <button (click)="addSubcategory(subcategory.value, category.value)"> ADD </button>
-</div>
-
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Success!</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>Sub-category added successfully.</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click'); subcategory.value='' ">OK</button>
-  </div>
-</ng-template>
+<div class="login-content">
+    <div class="login-page" >
+      <div class="banner">Add<strong>  Sub Category</strong></div>
+    
+      <div class="form">
+        <label for="category">
+          <select #category class="form-control" style="height:50px">
+              <option value="" selected disabled hidden>Choose Category</option>
+              <option *ngFor="let category of categories" value="{{ category.id }}" >{{ category.Category }}</option>
+          </select>
+        </label>
+    
+        <label for="subcategory">
+        <input type="text" class="form-control" id="subcategory" #subcategory placeholder="Add Sub categories">
+      </label>
+    
+      <button type="submit" name="button" (click)="addSubcategory(subcategory.value, category.value)"> ADD </button>
+    </div>
+    </div>
+    </div>
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Success!</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Sub-category added successfully.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click'); subcategory.value='' ">OK</button>
+      </div>
+    </ng-template>
+    

@@ -1,12 +1,16 @@
-<div>
-  <div class="form-group">
-    <label for="category">Add Category:</label>
-    <input type="text" class="form-control" id="category" #category>
+<div class="login-content">
+<div class="login-page" >
+  <div class="banner">Add<strong> Category</strong></div>
+  <div class="form">
+    <label for="category">
+    <input type="text" class="form-control" id="category" placeholder="Add Category" #category>
+  </label>
+  <button type="submit" name="button" (click)="addCategory(category.value)"> ADD </button>
   </div>
 
-  <button (click)="addCategory(category.value)"> ADD </button>
+  
 </div>
-
+</div>
 
 
 <ng-template #content let-modal>
