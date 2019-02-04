@@ -39,10 +39,10 @@ export class AdminService {
   }
 
   addCategory(category: string): Observable<any> {
-
+    return this.http.post(environment.api + `category`, {category});
     // add api to add category
-    console.log(category)
-    return of(true)
+    //console.log(category)
+    //return of(true)
   }
 
   getCategories() : any {
@@ -50,9 +50,9 @@ export class AdminService {
   }
 
   addSubcategory(subcategory: string, categoryId: Number): Observable<any> {
-    console.log(subcategory, categoryId)
-    return of(true)
-
+//     console.log(subcategory, categoryId)
+//     return of(true)
+    return this.http.post(environment.api + `category/createsubCategory`, {subCategory: subcategory, categoryId});
     // add api to add sub category
   }
 
