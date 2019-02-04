@@ -1,14 +1,13 @@
 <div class="container">
-  <div class="row jumbotron">
+  <div class="row">
 
     <div class="card col-md-4" style="width:400px;" *ngFor="let artist of artists">
-      <img class="card-img-top" [src]="artist.profilepic" alt="Card image">
+      <img class="card-img-top" [src]="artist.profile.profilepic" width="300" height="200" alt="profile picture">
       <div class="card-body">
         <h4 class="card-title">{{ artist.fullName }}</h4>
-        <p class="card-text">Street Name: {{ artist.streetName }}</p>
-        <p class="card-text">Expert: {{ artist.expert }}</p>
-        <p class="card-text">Role: {{ artist.role }}</p>
         <p class="card-text">Email: {{ artist.email }}</p>
+        <p class="card-text">Expert: {{ artist.profile.expert }}</p>
+        <p class="card-text">Role: {{ artist.profile.role }}</p>
         <p class="card-text">Phone Number: {{ artist.phone }}</p>
 
         <div>
@@ -19,7 +18,7 @@
           <div class="modal fade" id="Bio{{artist.id}}">
             <div class="modal-dialog">
               <div class="modal-content">
-                <p>{{ artist.bio }}</p>
+                <p>{{ artist.profile.bio }}</p>
               </div>
             </div>
           </div>
@@ -33,7 +32,7 @@
           <div class="modal fade" id="myModalCV{{artist.id}}">
             <div class="modal-dialog">
               <div class="modal-content">
-                <embed [src]="artist.CV | safe" width="800" height="900" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
+                <embed [src]="artist.profile.CV | safe" width="800" height="900" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
               </div>
             </div>
           </div>
@@ -47,22 +46,42 @@
           <div class="modal fade" id="myModal{{artist.id}}">
             <div class="modal-dialog">
               <div class="modal-content">
-                <img [src]="artist.samplepic" alt="">
+                <img [src]="artist.profile.samplepic" width="800" height="800" alt="">
               </div>
             </div>
           </div>
-  
+
           <div>
             <button (click)="verifyArtist(artist)" class="btn btn-success">Verify</button>
-            <button (click)="rejectArtist(artist)" class="btn btn-danger">Reject</button>
+            <button (click)="open(content); setRejectArtistId(artist.id)" class="btn btn-danger">Reject</button>
+
           </div>
-      </div>
-      
+        </div>
+
 
       </div>
 
-    
+    </div>
 
   </div>
 
-</div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Comment:</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <textarea class="form-control" rows="5" id="comment" #comment></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark"  [disabled]= "comment.value.length == 0" (click)="modal.close('Save click'); rejectArtist(comment.value);">Send</button>
+    </div>
+  </ng-template>
+  

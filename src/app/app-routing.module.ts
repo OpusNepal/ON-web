@@ -9,7 +9,8 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
 
 
 const routes: Routes = [
-  {path: '', component: HomePageComponent },
+  {path: 'home', component: HomePageComponent },
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
@@ -17,9 +18,6 @@ const routes: Routes = [
   {path: 'profile-page', component: ProfilePageComponent}
 
 ];
-
-  
- 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

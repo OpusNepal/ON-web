@@ -11,11 +11,10 @@ export class AuthInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
        
-       
         const token = this.userService.getToken();
         const reqWithToken = req.clone({
             setHeaders: {
-                'x-authentication': token
+                'x-access-token': token
             }
         });
     

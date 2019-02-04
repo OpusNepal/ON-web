@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+
+    <div class="card col-md-4" style="width:400px;" *ngFor="let artist of verifiedArtists">
+      <img class="card-img-top" [src]="artist.profile.profilepic" width="300" height="200" alt="profile picture">
+      <div class="card-body">
+        <h4 class="card-title">{{ artist.fullName }}</h4>
+        <p class="card-text">Email: {{ artist.email }}</p>
+        <p class="card-text">Expert: {{ artist.profile.expert }}</p>
+        <p class="card-text">Role: {{ artist.profile.role }}</p>
+        <p class="card-text">Phone Number: {{ artist.phone }}</p>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+

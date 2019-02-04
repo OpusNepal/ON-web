@@ -5,6 +5,7 @@ import { UserService } from '../auth/user.service';
 import { CategoryAndSubCategoryModel } from '../app-models/CategoryAndSubCat.model';
 import { ProductCategory } from '../app-models/productCategory.model';
 import { ProductSubCategory } from '../app-models/productSubCategory.model';
+import { NavbarService } from '../navbar.service';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
   SubCategories : ProductSubCategory[];
   List: Array<CategoryAndSubCategoryModel> = [];
 
-  constructor(public localStorage: LocalStorageService, public userService: UserService) { }
+  constructor(public localStorage: LocalStorageService, public userService: UserService, public navbarService: NavbarService) { }
 
   ngOnInit() {
     if(this.userService.isAuthenticated){
@@ -47,9 +48,18 @@ export class HeaderComponent implements OnInit {
     });
    
   }
+
+
+
   logoutEvent(){
     this.localStorage.clearAuthData();
     this.isLoggedIn = false;
+    this.navbarService.setShowLogout(false);
+    this.navbarService.setShowLogin(true);
+    this.navbarService.setShowSignup(true);
+    this.navbarService.setShowDashboard(false);
+    this.navbarService.setShowProfile(false);
+    this.navbarService.setShowCart(false);
   }
   
 }

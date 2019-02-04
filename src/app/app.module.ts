@@ -18,6 +18,7 @@ import { AdminRoutingModule } from './admin/admin-routing.module';
 import { SafePipe } from './admin/safe.pipe';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AdminModule } from './admin/admin.module';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
@@ -46,7 +47,7 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
     ReactiveFormsModule,
     AuthModule,
     HttpClientModule,
-    AdminRoutingModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -29,7 +29,7 @@ export class UserService {
   }
 
   login(user: AuthModel) {
-    return this.http.post<{data: {data: {email: string, id:Number, token:string}}}>(environment.api + "auth/login", user);
+    return this.http.post<{data: {data: {email: string, id:Number, token:string, userType:string}}}>(environment.api + "auth/login", user);
   }
 
   updateProfile(userId, user) {
@@ -45,6 +45,7 @@ export class UserService {
   getProductsofUser(userId) : Promise<any> {
     return this.http.get(environment.api + 'products/getProductUser/'+ userId).toPromise();
   }
+  
   getCategories() : any {
     return this.http.get(environment.api + 'category');
   }
