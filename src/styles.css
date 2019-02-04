@@ -18,6 +18,7 @@ body {
   font-size:14px;
   line-height:24px;
   color:#6f6f6f;
+
 }
 
 a{
@@ -540,7 +541,8 @@ a[data-toggle="collapse"] {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #fafafa;
+
+background-color: #a19d9d83
 }
 
 p {

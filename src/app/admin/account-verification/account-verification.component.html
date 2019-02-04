@@ -1,55 +1,78 @@
 <div class="container">
-  <div class="row">
-
-    <div class="card col-md-4" style="width:400px;" *ngFor="let artist of artists">
-      <img class="card-img-top" [src]="artist.profile.profilepic" width="300" height="200" alt="profile picture">
-      <div class="card-body">
-        <h4 class="card-title">{{ artist.fullName }}</h4>
-        <p class="card-text">Email: {{ artist.email }}</p>
-        <p class="card-text">Expert: {{ artist.profile.expert }}</p>
-        <p class="card-text">Role: {{ artist.profile.role }}</p>
-        <p class="card-text">Phone Number: {{ artist.phone }}</p>
-
-        <div>
-          <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#Bio' + artist.id">
-            View bio
-          </button>
-
-          <div class="modal fade" id="Bio{{artist.id}}">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <p>{{ artist.profile.bio }}</p>
+    <div class="row" style="margin-top: 70px">
+  
+      <div class="card card--big" *ngFor="let artist of artists" >
+        <img class="card__image" [src]="artist.profile.profilepic" alt="profile picture">
+        
+          <h2 class="card__title">{{ artist.fullName }}</h2>
+          
+          <p class="card__text">
+            <a>Email: {{ artist.email }}</a><br>
+            <a>Expert: {{ artist.profile.expert }}</a><br>
+            <a>Role: {{ artist.profile.role }}</a><br>
+            <a>Phone Number: {{ artist.phone }}</a><br>
+          </p>
+        
+         
+        
+  
+          <div class="card__action-bar">
+            
+                <button type="button" class="card__button" data-toggle="modal" [attr.data-target]="'#Bio' + artist.id">
+                    <strong style="color:#3a539b">View bio</strong>
+                  </button>
+                  <div class="modal fade" id="Bio{{artist.id}}">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <p>{{ artist.profile.bio }}</p>
+                        </div>
+                      </div>
+                    </div>
+            
+            
+            
+                <button type="button" class="card__button" data-toggle="modal" [attr.data-target]="'#myModal' + artist.id">
+                    <strong style="color:#3a539b">Sample Art</strong> 
+                  </button>
+                       
+            <div class="modal fade" id="myModal{{artist.id}}">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <img [src]="artist.profile.samplepic" width="800" height="800" alt="">
+                  </div>
+                </div>
               </div>
-            </div>
+            
+         
+            
+                <button type="button" class="card__button" data-toggle="modal" [attr.data-target]="'#myModalCV'+artist.id">
+                    <strong style="color:#3a539b">View CV</strong>
+                  </button>
+                  <div class="modal fade" id="myModalCV{{artist.id}}">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <embed [src]="artist.profile.CV | safe" width="800" height="900" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
+                        </div>
+                      </div>
+                    </div>
+            
+        
+        <button (click)="verifyArtist(artist)" class="card__button"><Strong style="color:dimgrey">Verify</Strong></button>
+              <button (click)="rejectArtist(artist)" class="card__button"><Strong style="color:#d91e18">Reject</Strong></button>
+         
           </div>
-        </div>
-
-        <div>
-          <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#myModalCV'+artist.id">
-            View CV
-          </button>
-
-          <div class="modal fade" id="myModalCV{{artist.id}}">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <embed [src]="artist.profile.CV | safe" width="800" height="900" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
-              </div>
-            </div>
+  
+          
+            
+  
+            
+          
+  
+          
+      
+  
           </div>
-        </div>
-
-        <div>
-          <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#myModal' + artist.id">
-            View Sample Art
-          </button>
-
-          <div class="modal fade" id="myModal{{artist.id}}">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <img [src]="artist.profile.samplepic" width="800" height="800" alt="">
-              </div>
-            </div>
-          </div>
+<<<<<<< HEAD
 
           <div>
             <button (click)="verifyArtist(artist)" class="btn btn-success">Verify</button>
@@ -85,3 +108,7 @@
     </div>
   </ng-template>
   
+=======
+          </div>
+       
+>>>>>>> UISign
