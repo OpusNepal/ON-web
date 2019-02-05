@@ -17,6 +17,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
 import { AdminModule } from './admin/admin.module';
+import { ProductViewComponent } from './product-view/product-view.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AdminModule } from './admin/admin.module';
     ProfileComponent,
     ProfilePageComponent,
     FooterComponent,
-    ProductUploadComponent
+    ProductUploadComponent,
+    ProductViewComponent
     
   ],
   imports: [
