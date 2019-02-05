@@ -3,6 +3,18 @@
   z-index: 1;
   padding-top: 200px;
 }
+.fullscreen {
+    width:100%;
+    height:fit-content;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    min-height: 100vh;
+    background: gray; /* Just to visualize the extent */
+    background-repeat:   no-repeat;
+    object-fit: cover;
+  }
 .banner{
   background-image: url("~src/assets/images/thumb/background.jpg");
   background-size: cover;
@@ -13,6 +25,10 @@
   text-align: center;
 }
 
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
 
 /* coming-soon css */
 .l1-txt1 {
@@ -39,7 +55,7 @@
   font-weight: 300;
   text-align: center;
   text-transform: uppercase;
-  position: relative;
+
   margin: 30px 0 60px;
 }
 
@@ -181,7 +197,7 @@ body {
   margin: 30px 0 60px;
 }
 .headline  > h2::after {
-  content: ;
+
   width: 100px;
   position: absolute;
   margin: 0 auto;
