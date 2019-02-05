@@ -17,17 +17,17 @@
           <a class="nav-link" href="#"><strong>Customized Arts</strong></a>
         </li>
         <li class="nav-item dropdown megamenu-fw">
-          <a class="nav-link dropdown-toggle"  data-toggle="dropdown" href="#"><strong>Categories</strong></a>
-          <ul class="dropdown-menu megamenu-content animated" role="menu">
-            <li>
-              <div class="row">
-                <div class="col-menu col-md-3" *ngFor="let ls of List">
-                  <a href="#" class="title">
+          <a class="nav-link dropdown-toggle"  data-toggle="dropdown" href="#" style="background:none"><strong>Categories</strong></a>
+          <ul class="dropdown-menu megamenu-content animated multi-column columns-3" role="menu">
+            <li> 
+                <div class="row">
+                <div class="col-menu col-md-3" *ngFor="let ls of List" style="padding-left: 30px">
+                  <a href="#" class="title" style="background:none">
                     <h4 style="color:black">{{ls.category}}</h4>
                   </a>
                   <div class="content">
                     <ul class="menu-col" *ngFor="let l of ls.subcategories">
-                      <li><a href="#">{{l}}</a></li>
+                      <li><a href="#" style="background:none; padding-left:0px !important">{{l}}</a></li>
 
                     </ul>
                   </div>
