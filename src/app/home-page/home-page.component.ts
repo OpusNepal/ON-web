@@ -60,7 +60,6 @@ export class HomePageComponent implements OnInit {
           });
   
         });
-        console.log("asdgafsdgasgdfgsa")
         console.log(this.subcategoryProductsList);
      });
         
