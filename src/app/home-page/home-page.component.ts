@@ -5,6 +5,7 @@ import { ProductCategory } from '../app-models/productCategory.model';
 import { SubcategoryProducts } from '../app-models/subcategoryProducts.model';
 import { ProductSubCategory } from '../app-models/productSubCategory.model';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 
 
@@ -23,7 +24,7 @@ export class HomePageComponent implements OnInit {
   subcategoryProductsList: Array<SubcategoryProducts> = [];
   categoryList: Array<number> = [];
 
-  constructor(config: NgbCarouselConfig, public userService: UserService) {
+  constructor(config: NgbCarouselConfig, public userService: UserService, public router: Router) {
     config.interval = 3000;
     config.keyboard = false;
     config.pauseOnHover = false;
@@ -68,11 +69,8 @@ export class HomePageComponent implements OnInit {
   viewProductDetail(event){
       console.log(event);
       var target = event.target || event.srcElement || event.currentTarget;
-      var value = target.innerHTML;
-      console.log(value);
-  }
-  public test(value){
-    console.log(value);
+      var id = target.attributes.id.value;
+      this.router.navigate(['product-view'], { queryParams: {productId: id}});
   }
 
 }

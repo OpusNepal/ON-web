@@ -3,7 +3,7 @@
     <div class="col-md-6">
         <br><br>
         <div class="mag">
-            <img  id="zoom_mw" src="images/thumb/largeRiksaw.png" data-toggle="magnify" class="image-responsive" ><br><br>
+            <img  id="zoom_mw" src="{{productDetails.image}}" data-toggle="magnify" class="image-responsive" ><br><br>
         </div>
         <div class='row'>
             <div class='col-md-12'>
@@ -25,51 +25,51 @@
 
        <div class="col-md-6">
             <div class="row">
-                            
-                  <div class="col-md-12">
-                                    <div class="headline">
-                                              <h2 style="padding-right:95px; ">Hardworking <b>Nepali</b></h2>
-                                        </div>
-                           <div class="col-md-6" style="padding-left: 150px">
-                                <span class="sr-only">Four out of Five Stars</span> 
-                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-                            
-                         </div><br>
-                 
-                                
-                       </div>
+                    <div class="col-md-12" >
+                        <div class="headline">
+                            <h2 style="padding-right:95px; ">{{productDetails.Name}}</h2>
+                        </div>
+                        <div class="col-md-6" style="padding-left: 150px">
+                            <span class="sr-only">Four out of Five Stars</span> 
+                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                        
+                        </div>
+                        <br>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="description">
+                            <hr>
+                                       Genre : {{productDetails.subCategory.subCategory}}<br>
+                                        Artist  : <a href="shankar.html">{{productDetails.user.fullName}}</a><br>
+                                        Size: 17.5" x 13.5" Inch<br>
+                                        Signed : Yes<br>
+                                        Orientation : {{productDetails.Orientation}}<br>
+                                        Material : Canvas<br>
+                                        Medium : Pencil<br>
+                                        Weight(approx) in gm : 500 gm with package<br>
+                                        Price : Rs. {{productDetails.price}}
+                            <hr>
+                        </div>
+                        <div class="col-md-8 pull-right">
+                            <a href="cart.html"> <button class="btn btn-primary  btn-lg btn-brand btn-full-width">
+                                Add to Cart
+                            </button></a>
+                        </div>
+    
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-12 top-10">
+                            <br>
+                            <p>To order by telephone, <a href="tel:01-550555"> call @ 01-550555</a></p>
+                        </div>
+                    </div>
                 
-                       <div class="col-md-12">
-                                  <div class="description">
-                                      <hr>
-                                                 Genre : Sketch<br>
-                                                  Artist  : <a href="shankar.html">Shankar Man Shrestha</a><br>
-                                                  Size: 17.5" x 13.5" Inch<br>
-                                                  Signed : Yes<br>
-                                                  Orientation : Horizontal<br>
-                                Material : Canvas<br>
-                                Medium : Pencil<br>
-                                Weight(approx) in gm : 500 gm with package<br>
-                                Price : Rs. 3,550.00
-                                <hr>
-                                  </div>
-                       </div>
-
-
-                  <div class="row">
-
-                      <div class="col-md-12 top-10">
-                          <br>
-                          <p>To order by telephone, <a href="tel:01-550555"> call @ 01-550555</a></p>
-                      </div>
-              </div>
-
-
-
 <div class="row">
                      
 <ul class="nav nav-tabs" role="tablist">
@@ -86,9 +86,8 @@
                    role="tab"
                    data-toggle="tab"
                   >Reviews</a>
-                 </li>
+            </li>
 </ul>
-
 </div>
 
 
@@ -98,7 +97,7 @@
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="description">
         <div class="top-10">
-         <p> ― Shankar Shrestha</p>      
+         <p> ― {{productDetails.user.fullName}}</p>      
          <blockquote cite="https://www.goodreads.com/quotes/tag/himalayas">
           "This type of  scene is very common in Nepalese society.I got this scenario when I was wandering with my daughter Sakshi in Murli Chwok of Birjung.It tooks me 3 days to draw this in canvas."
           
@@ -135,19 +134,20 @@
                           <div class="row" id="post-review-box" style="display:none;">
                               <div class="col-md-12">
 
-                                  <form >
+                                  <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()" >
+
                                       <input id="ratings-hidden" name="rating" type="hidden"> 
                                       <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
                       
                                       <div class="text-right">
                                           <div class="stars starrr" data-rating="0">
                                       
-                                    </div>
+                                      </div>
                                           <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
                                           <span class="glyphicon glyphicon-remove"></span>
-                                  Cancel</a>
+                                            Cancel</a>
                                           <button class="btn btn-success btn-lg" type="submit">Save
-                                    </button>
+                                        </button>
                                       </div>
                                   </form>
                               </div>
@@ -171,169 +171,51 @@
 
     
 <div class="headline">
-    <h2>More By<b>Shankar Man </b> Shrestha</h2>
+    <h2>More By <b>{{productDetails.user.fullName}}</b></h2>
+</div>
+<div class= "row" *ngIf= "products.length > 0">
+        <div class="col-md-3 col-sm-6" *ngFor="let prod of products; let i = index">
+                <div class="product-page-single" *ngIf="i < 4">
+                    <div class="single-product-item">
+                        <div class="product-image-wrap">
+            
+                            <a href="#"> <img src="{{prod.image}}" alt="Product image" style="width:252px;height: 250px;"> </a>
+            
+                            <div class="product-detail-inner">
+            
+                                <div class="item-details-overly-info">
+                                    <ul class="list-inline list-unstyled">
+                                        <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
+                                       <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item-details">
+                            <h2>{{prod.Name}} <a href="sankar.html"><br>{{prod.user.fullName}}</a></h2>
+                            <div class="price-like-box">
+                                <div class="pull-left item-price">
+                                   <!--  <span class="old-price"><del>$50.00</del></span> -->
+                                    <span class="current-price">Rs.3,550.00</span>
+                                </div>
+                                <div class="pull-right item-rating">
+                                    <ul class="list-inline">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star-o"></i></li>
+                                        <li><i class="fa fa-star-o"></i></li>
+                                        <li><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </div>                         
-<div class="col-md-3 col-sm-6">
-    <div class="product-page-single">
-        <div class="single-product-item">
-            <div class="product-image-wrap">
 
-                <a href="productView.html"> <img src="images/thumb/women.png" alt="Product image" style="width:252px;height: 250px;"> </a>
-
-                <div class="product-detail-inner">
-
-                    <div class="item-details-overly-info">
-                        <ul class="list-inline list-unstyled">
-                            <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                            <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
-                           <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item-details">
-                <h2>Strong <a href="sankar.html"><br>Shankar Man Shrestha</a></h2>
-                <div class="price-like-box">
-                    <div class="pull-left item-price">
-                       <!--  <span class="old-price"><del>$50.00</del></span> -->
-                        <span class="current-price">Rs.3,550.00</span>
-                    </div>
-                    <div class="pull-right item-rating">
-                        <ul class="list-inline">
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star-o"></i></li>
-                            <li><i class="fa fa-star-o"></i></li>
-                            <li><i class="fa fa-star-o"></i></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  
+ </div>
 </div>
-<div class="col-md-3 col-sm-6">
-    <div class="product-page-single">
-        <div class="single-product-item">
-            <div class="product-image-wrap">
-                <a href="product-page.html"><img src="images/thumb/sankarsleep.png" alt="Product image" style="width:252px;height: 250px;"></a>
-                <div class="product-detail-inner">
-                    <div class="item-details-overly-info">
-                        <ul class="list-inline list-unstyled">
-                            <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                            <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item-details">
-                <h2><a href="#">Satistfied Life</a><br>Shankar Man Shrestha</h2>
-                <div class="price-like-box">
-                    <div class="pull-left item-price">
-                       <!--  <span class="old-price"><del>50.00</del></span> -->
-                        <span class="current-price">Rs.9,550.00</span>
-                    </div>
-                    <div class="pull-right item-rating">
-                        <ul class="list-inline">
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star-o"></i></li>
-                            <li><i class="fa fa-star-o"></i></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-md-3 col-sm-6">
-    <div class="product-page-single">
-        <div class="single-product-item">
-            <div class="product-image-wrap">
-                <a href="product-page.html"><img src="images/thumb/sankarcow.png" alt="Product image" style="width:252px; height: 250px;"></a>
-                <div class="product-detail-inner">
-                    <div class="item-details-overly-info">
-                        <ul class="list-inline list-unstyled">
-                            <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                            <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item-details">
-                <h2><a href="#">Working Life</a><br>Shankar Man Shrestha</h2>
-                <div class="price-like-box">
-                    <div class="pull-left item-price">
-                       <!--  <span class="old-price"><del>50.00</del></span> -->
-                        <span class="current-price">Rs.7,550.00</span>
-                    </div>
-                    <div class="pull-right item-rating">
-                        <ul class="list-inline">
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star-o"></i></li>
-                            <li><i class="fa fa-star-o"></i></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-md-3 col-sm-6">
-    <div class="product-page-single">
-        <div class="single-product-item">
-            <div class="product-image-wrap">
-                <a href="product-page.html"><img src="images/thumb/sankarboy.png" alt="Product image" style="width:252px;height: 250px;" ></a>
-                <div class="product-detail-inner">
-                    <div class="item-details-overly-info">
-                        <ul class="list-inline list-unstyled">
-                            <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                            <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item-details">
-                <h2><a href="#">Thirst </a><br>Shankar Man Shrestha</h2>
-                <div class="price-like-box">
-                    <div class="pull-left item-price">
-                       <!--  <span class="old-price"><del>50.00</del></span> -->
-                        <span class="current-price">Rs.6,025.00</span>
-                    </div>
-                    <div class="pull-right item-rating">
-                        <ul class="list-inline">
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star-o"></i></li>
-                            <li><i class="fa fa-star-o"></i></li>
-                            <li><i class="fa fa-star-o"></i></li>
-                         
-                            <li><i class="fa fa-star-o"></i></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-                             
-
-
-
-</div>
-
-
-
-
-
-                 
-</div> 
+<app-footer></app-footer>

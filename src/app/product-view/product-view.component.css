@@ -23,3 +23,195 @@
        -moz-border-radius: 100%;
              border-radius: 100%
 }
+
+.nav-tabs {
+    border-bottom: 1px solid #ddd;
+}
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+
+   
+.headline > h2 {
+    color: #000;
+    font-size: 26px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    margin: 30px 0 60px;
+  }
+  .headline  > h2::after {
+    content: ;
+    width: 100px;
+    position: absolute;
+    margin: 0 auto;
+    height: 4px;
+    border-radius: 1px;
+    background: #7ac400;
+    left: 0;
+    right: 0;
+    bottom: -20px;
+  }
+  
+  
+  
+  
+  .single-product-item {
+      width: 100%;
+      border: 1px solid #eeeeee;
+      margin-bottom: 30px;
+      padding: 0 0 20px;
+      position: relative;
+      background-color: #fff;
+      border-radius: 4px;
+  }
+  
+  .product-image-wrap {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+  }
+  
+  .single-product-item img {
+      -webkit-transition: all 0.6s ease-in-out;
+      -moz-transition: all 0.6s ease-in-out;
+      -o-transition: all 0.6s ease-in-out;
+      -ms-transition: all 0.6s ease-in-out;
+      transition: all 0.6s ease-in-out;
+  }
+  .single-product-item img {
+      margin: 0;
+      padding: 0;
+      float: left;
+      z-index: 4;
+      width: 100%;
+  }
+  .single-product-item .product-detail-inner {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      -webkit-transition: all 0.45s ease-in-out;
+      -moz-transition: all 0.45s ease-in-out;
+      -o-transition: all 0.45s ease-in-out;
+      -ms-transition: all 0.45s ease-in-out;
+      transition: all 0.45s ease-in-out;
+      background-color: rgba(0, 0, 0, 0.3);
+  }
+  .single-product-item:hover .item-details-overly-info {
+      bottom: 50px;
+  }
+  .single-product-item .item-details-overly-info {
+      z-index: 10;
+      color: #fff;
+      position: absolute;
+      width: 100%;
+      height: 40px;
+      text-align: center;
+      bottom: 0;
+      -webkit-transition: all 0.45s ease-in-out;
+      -moz-transition: all 0.45s ease-in-out;
+      -o-transition: all 0.45s ease-in-out;
+      -ms-transition: all 0.45s ease-in-out;
+      transition: all 0.45s ease-in-out;
+  }
+  
+  .single-product-item:hover img {
+      opacity: 1;
+      transform: scale(1.15, 1.15);
+      -webkit-transform: scale(1.15, 1.15);
+      -moz-transform: scale(1.15, 1.15);
+      -ms-transform: scale(1.15, 1.15);
+      -o-transform: scale(1.15, 1.15);
+  }
+  .single-product-item:hover .product-detail-inner {
+      opacity: 1;
+  }
+  
+  
+  .item-details-overly-info ul li {
+      padding: 0;
+  }
+  
+  .item-details-overly-info ul li a i {
+      height: 30px;
+      width: 30px;
+      line-height: 30px;
+      border-radius: 2px;
+      display: block;
+      margin: 2px;
+      color: #949291;
+      text-align: center;
+      vertical-align: middle;
+      background: #fff;
+      transition: 0.3s ease-in;
+      -moz-transition: 0.3s ease-in;
+      -webkit-transition: 0.3s ease-in;
+      -o-transition: 0.3s ease-in;
+  }
+  
+  .item-details-overly-info ul li a i:hover {
+      background: #000;
+      color: #fff;
+  }
+  
+  .product-item-details {
+      padding: 0 10px;
+      display: block;
+      overflow: hidden;
+  }
+  
+  .product-item-details h2 {
+      font-size: 15px;
+      line-height: 20px;
+      padding: 10px 0;
+      margin: 0;
+      font-weight: 400;
+      color: #949291;
+  }
+  
+  .product-item-details h2 a {
+      color: #949291;
+  }
+  
+  .product-item-details h2 a:hover {
+      color: #000;
+  }
+  
+  .price-like-box {
+  
+  }
+  
+  .item-price {
+  
+  }
+  
+  .item-price span {
+      font-size: 16px;
+      font-weight: 500;
+  }
+  
+  .item-price .old-price {
+      font-size: 14px;
+      font-weight: 400;
+  }
+  
+  .item-price .current-price {
+      color: #000;
+      font-weight: 600;
+  }
+  
+  .item-rating ul li {
+      padding: 0;
+      color: #000;
+      font-size: 11px;
+      line-height: 15px;
+  }
