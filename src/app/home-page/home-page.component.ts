@@ -72,5 +72,10 @@ export class HomePageComponent implements OnInit {
       var id = target.attributes.id.value;
       this.router.navigate(['product-view'], { queryParams: {productId: id}});
   }
+  showMore(event){
+    console.log(event);
+    var id = event.target.attributes.id.value;
+    this.router.navigate(['all-products'],{queryParams : {subCategoryId : id}});
+  }
 
 }

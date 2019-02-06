@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
 import { AdminModule } from './admin/admin.module';
 import { ProductViewComponent } from './product-view/product-view.component';
+import { AllProductsComponent } from './all-products/all-products.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProductViewComponent } from './product-view/product-view.component';
     ProfilePageComponent,
     FooterComponent,
     ProductUploadComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    AllProductsComponent
     
   ],
   imports: [

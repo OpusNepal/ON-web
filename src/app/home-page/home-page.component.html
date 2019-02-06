@@ -108,7 +108,7 @@
                     </div>
                 </div>
               </div>
-              <a href="#" *ngIf="i == 4"> Show more</a>
+              <a id = "{{prod.subCategoryId}}" (click)="showMore($event)" *ngIf="i == 4"> Show more</a>
             </div>   
 
           </div>
