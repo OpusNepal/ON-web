@@ -65,4 +65,14 @@ export class HomePageComponent implements OnInit {
         
   }
 
+  viewProductDetail(event){
+      console.log(event);
+      var target = event.target || event.srcElement || event.currentTarget;
+      var value = target.innerHTML;
+      console.log(value);
+  }
+  public test(value){
+    console.log(value);
+  }
+
 }
