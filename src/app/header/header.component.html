@@ -18,16 +18,16 @@
         </li>
         <li class="nav-item dropdown megamenu-fw">
           <a class="nav-link dropdown-toggle"  data-toggle="dropdown" href="#" style="background:none"><strong>Categories</strong></a>
-          <ul class="dropdown-menu megamenu-content animated multi-column columns-3" role="menu">
+          <ul class="dropdown-menu megamenu-content animated multi-column columns-3"  role="menu">
             <li> 
                 <div class="row">
                 <div class="col-menu col-md-3" *ngFor="let ls of List" style="padding-left: 30px">
-                  <a href="#" class="title" style="background:none">
-                    <h4 style="color:black">{{ls.category}}</h4>
+                  <a href="#" class="title" style="background:none; ">
+                    <h4 style="color:black" style="margin: 0%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">{{ls.category}}</h4>
                   </a>
-                  <div class="content">
-                    <ul class="menu-col" *ngFor="let l of ls.subcategories">
-                      <li><a href="#" style="background:none; padding-left:0px !important">{{l}}</a></li>
+                  <div class="content" style="padding:0px">
+                    <ul class="menu-col" *ngFor="let l of ls.subcategories" style=" list-style-type: none; padding-left:10%">
+                      <li><a href="#" style="background:none; padding-left:0px !important; font-family:Georgia, 'Times New Roman', Times, serif">{{l}}</a></li>
 
                     </ul>
                   </div>
