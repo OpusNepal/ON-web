@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   
-  files : "http://192.168.50.110:8848/",
-  api: "http://192.168.50.110:8848/api/",
+  files : "http://192.168.50.161:8848/",
+  api: "http://192.168.50.16018848/api/",
   public: "http://127.0.0.1:8848/"
 
 };
