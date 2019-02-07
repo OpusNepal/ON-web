@@ -25,11 +25,12 @@ export class UserService {
   }
 
   signUp(userData) {
+    console.log(userData)
     return this.http.post<{data: {data: {id: string, email: string}, message: string, type: string}}>(environment.api+"auth/register", userData);
   }
 
   login(user: AuthModel) {
-    return this.http.post<{data: {data: {email: string, id:Number, token:string}}}>(environment.api + "auth/login", user);
+    return this.http.post<{data: {data: {email: string, id:Number, token:string, userType:string}}}>(environment.api + "auth/login", user);
   }
 
   updateProfile(userId, user) {
@@ -45,6 +46,7 @@ export class UserService {
   getProductsofUser(userId) : Promise<any> {
     return this.http.get(environment.api + 'products/getProductUser/'+ userId).toPromise();
   }
+  
   getCategories() : any {
     return this.http.get(environment.api + 'category');
   }
@@ -59,6 +61,10 @@ export class UserService {
 
   getProductsOfSubCategory(id) : any{
     return this.http.get(environment.api + 'products/getproductsubCategory/' + id);
+  }
+
+  getProductDetail(id) : any{
+    return this.http.get(environment.api + 'products/' + id);
   }
 
 }

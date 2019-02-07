@@ -11,16 +11,14 @@ import { LoginComponent } from './login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { ImageVerificationComponent } from './admin/image-verification/image-verification.component';
-import { AccountVerificationComponent } from './admin/account-verification/account-verification.component';
-import { AdminRoutingModule } from './admin/admin-routing.module';
-import { SafePipe } from './admin/safe.pipe';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
+import { AdminModule } from './admin/admin.module';
+import { ProductViewComponent } from './product-view/product-view.component';
+import { AllProductsComponent } from './all-products/all-products.component';
 
 @NgModule({
   declarations: [
@@ -28,15 +26,13 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
     HeaderComponent,
     SignupComponent,
     LoginComponent,
-    DashboardComponent,
-    ImageVerificationComponent,
-    AccountVerificationComponent,
-    SafePipe,
     HomePageComponent,
     ProfileComponent,
     ProfilePageComponent,
     FooterComponent,
-    ProductUploadComponent
+    ProductUploadComponent,
+    ProductViewComponent,
+    AllProductsComponent
     
   ],
   imports: [
@@ -46,7 +42,8 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
     ReactiveFormsModule,
     AuthModule,
     HttpClientModule,
-    AdminRoutingModule,
+    AdminModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

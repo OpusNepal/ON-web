@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { Routes, RouterModule, Router } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { AccountVerificationComponent } from './account-verification/account-verification.component';
 import { ImageVerificationComponent } from './image-verification/image-verification.component';
-import { AdminService } from './admin.service'
+import { CurrentArtistComponent } from './current-artist/current-artist.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import { AddSubcategoryComponent } from './add-subcategory/add-subcategory.component';
 
 const routes: Routes = [
   {
@@ -18,23 +19,30 @@ const routes: Routes = [
       {
         path: 'verifyimage',
         component: ImageVerificationComponent
+      },
+      {
+        path: 'currentartists',
+        component: CurrentArtistComponent
+      },
+      {
+        path: 'addcategory',
+        component: AddCategoryComponent
+      },
+      {
+        path: 'addsubcategory',
+        component: AddSubcategoryComponent
       }
     ]
   }
 ];
 
-
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     RouterModule.forChild(routes)
   ],
   exports: [
     RouterModule
-  ],
-  providers: [
-    AdminService
   ]
 })
 export class AdminRoutingModule { }

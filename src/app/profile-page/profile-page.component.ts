@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { ProfilePageModel } from '../app-models/profile-page.model';
 import { UserProductModel } from '../app-models/user-product.model';
 import { LocalStorageService } from '../auth/local-storage.service';
+import { NavbarService } from '../navbar.service';
 
 
 @Component({
@@ -15,12 +16,12 @@ import { LocalStorageService } from '../auth/local-storage.service';
 export class ProfilePageComponent implements OnInit {
 
   id: String;
-  profilePageModel : ProfilePageModel;
+  profilePageModel : ProfilePageModel = new ProfilePageModel();
   imagePath: any;
   productImage: any;
   products: Array<UserProductModel> = [];
 
-  constructor(private route: ActivatedRoute, public userService: UserService,public localStorage: LocalStorageService, public router: Router) { }
+  constructor(private route: ActivatedRoute, public userService: UserService,public localStorage: LocalStorageService, public router: Router, public navbarService: NavbarService) { }
 
   ngOnInit() {
 
@@ -29,6 +30,13 @@ export class ProfilePageComponent implements OnInit {
     //     console.log(params);
     //     this.id = params.userId;
     //   });
+      this.navbarService.setShowLogout(true);
+      this.navbarService.setShowLogin(false);
+      this.navbarService.setShowSignup(false);
+      this.navbarService.setShowDashboard(false);
+      this.navbarService.setShowProfile(true);
+      this.navbarService.setShowCart(false);
+      this.navbarService.setShowUploadProduct(true);
       this.localStorage.getAuthData() == null ? this.router.navigate(['login']):this.id = this.localStorage.getAuthData().userId;
       this.productImage = environment.files;
 
