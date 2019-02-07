@@ -1,6 +1,7 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
   <div class="container">
-    <a class="navbar-brand" href="#"><img src="./assets/images/brand/opus.jpg" style="width:145px; height:59px; overflow: hidden !important;"
+    <a class="navbar-brand" href="#"><img src="./assets/images/brand/opus.jpg" style="width:auto; height:59px; overflow: hidden !important;"
         class="logo" alt="Opus "></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,23 +11,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#"><strong>Home</strong> <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Customized Arts</a>
+          <a class="nav-link" href="#"><strong>Customized Arts</strong></a>
         </li>
         <li class="nav-item dropdown megamenu-fw">
-          <a class="nav-link dropdown-toggle"  data-toggle="dropdown" href="#">Categories</a>
-          <ul class="dropdown-menu megamenu-content animated" role="menu">
-            <li>
-              <div class="row">
-                <div class="col-menu col-md-3" *ngFor="let ls of List">
-                  <a href="#" class="title">
+          <a class="nav-link dropdown-toggle"  data-toggle="dropdown" href="#" style="background:none"><strong>Categories</strong></a>
+          <ul class="dropdown-menu megamenu-content animated multi-column columns-3" role="menu">
+            <li> 
+                <div class="row">
+                <div class="col-menu col-md-3" *ngFor="let ls of List" style="padding-left: 30px">
+                  <a href="#" class="title" style="background:none">
                     <h4 style="color:black">{{ls.category}}</h4>
                   </a>
                   <div class="content">
                     <ul class="menu-col" *ngFor="let l of ls.subcategories ; let i = index">
-                      <li ><a id = "{{ls.subCategoryIds[i]}}" (click)="showProducts($event)">{{l}}</a></li>
+                      <li ><a id = "{{ls.subCategoryIds[i]}}" (click)="showProducts($event)" style="background:none; padding-left:0px !important">{{l}}</a></li>
 
                     </ul>
                   </div>
@@ -36,40 +37,38 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Featured Artists</a>
+          <a class="nav-link" href="#"><strong>Featured Artists</strong></a>
         </li>
 
       </ul>
-    
-    </div>
-
-    <div class="navbar navbar-nav navbar-right">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav " style="float:right">
         <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowUploadProduct() | async" routerLink="/upload-product">Upload Product</a>
+          <a class="nav-link" *ngIf="navbarService.getShowUploadProduct() | async" routerLink="/upload-product"><strong>Upload Product</strong></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowProfile() | async" routerLink="/profile-page"><span class=""></span>Profile</a>
+          <a class="nav-link" *ngIf="navbarService.getShowProfile() | async" routerLink="/profile-page"><span class=""></span><strong>Profile</strong></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" *ngIf="navbarService.getShowLogin() | async" routerLink="/login"><span class="fa fa-sign-in"></span>
-            Login</a>
+          <strong>Login</strong></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" *ngIf="navbarService.getShowLogout() | async" routerLink="/home" (click)="logoutEvent()"><span
-              class="fa fa-sign-out"></span> Logout</a>
+              class="fa fa-sign-out"></span><strong>Logout</strong></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowSignup() | async" routerLink="/signup">Sign Up</a>
+          <a class="nav-link" *ngIf="navbarService.getShowSignup() | async" routerLink="/signup"><strong>Sign Up</strong></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowCart() | async" href="#"><span class="fa fa-cart-plus"></span>Cart</a>
+          <a class="nav-link" *ngIf="navbarService.getShowCart() | async" href="#"><span class="fa fa-cart-plus"></span><strong>Cart</strong></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowDashboard() | async" routerLink="admin">Dashboard</a>
+          <a class="nav-link" *ngIf="navbarService.getShowDashboard() | async" routerLink="admin"><strong>Dashboard</strong></a>
         </li>
       </ul>
     </div>
+
+   
 
 
   </div>

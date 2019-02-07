@@ -58,7 +58,7 @@
             
         
         <button (click)="verifyArtist(artist)" class="card__button"><Strong style="color:dimgrey">Verify</Strong></button>
-              <button (click)="rejectArtist(artist)" class="card__button"><Strong style="color:#d91e18">Reject</Strong></button>
+        <button (click)="rejectArtist(artist)" class="card__button"><Strong style="color:#d91e18">Reject</Strong></button>
          
           </div>
   
@@ -73,11 +73,6 @@
   
           </div>
 
-          <div>
-            <button (click)="verifyArtist(artist)" class="btn btn-success">Verify</button>
-            <button (click)="open(content); setRejectArtistId(artist.id)" class="btn btn-danger">Reject</button>
-
-          </div>
         </div>
 </div>
 <ng-template #content let-modal>
