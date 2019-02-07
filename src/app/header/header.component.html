@@ -25,8 +25,8 @@
                     <h4 style="color:black">{{ls.category}}</h4>
                   </a>
                   <div class="content">
-                    <ul class="menu-col" *ngFor="let l of ls.subcategories">
-                      <li><a href="#">{{l}}</a></li>
+                    <ul class="menu-col" *ngFor="let l of ls.subcategories ; let i = index">
+                      <li ><a id = "{{ls.subCategoryIds[i]}}" (click)="showProducts($event)">{{l}}</a></li>
 
                     </ul>
                   </div>
