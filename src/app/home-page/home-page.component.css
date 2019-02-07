@@ -5,12 +5,12 @@
 }
 .fullscreen {
     width:100%;
-    height:fit-content;
+  
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    min-height: 100vh;
+   max-height: 60vh;
     background: gray; /* Just to visualize the extent */
     background-repeat:   no-repeat;
     object-fit: cover;
@@ -217,8 +217,8 @@ body {
 .single-product-item {
     width: 100%;
     border: 1px solid #eeeeee;
-    margin-bottom: 30px;
-    padding: 0 0 20px;
+    
+    
     position: relative;
     background-color: #fff;
     border-radius: 4px;
@@ -401,5 +401,17 @@ body {
        border-color:white;
       
     }
+    .fullscreen {
+        width:100%;
+        height:fit-content;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        min-height: 100vh;
+        background: gray; /* Just to visualize the extent */
+        background-repeat:   no-repeat;
+        object-fit: cover;
+      }
      }
 
