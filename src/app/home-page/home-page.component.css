@@ -181,7 +181,7 @@ body {
   margin: 30px 0 60px;
 }
 .headline  > h2::after {
-  content: ;
+
   width: 100px;
   position: absolute;
   margin: 0 auto;
