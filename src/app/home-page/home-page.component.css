@@ -304,7 +304,7 @@ body {
     margin: 2px;
     color: #949291;
     text-align: center;
-    vertical-align: middle;
+  
     background: #fff;
     transition: 0.3s ease-in;
     -moz-transition: 0.3s ease-in;
@@ -340,13 +340,6 @@ body {
     color: #000;
 }
 
-.price-like-box {
-
-}
-
-.item-price {
-
-}
 
 .item-price span {
     font-size: 16px;
@@ -388,7 +381,7 @@ body {
     border-width: 12px;
     border-radius: 2%;
     border-color:white;
-    margin-left:200%
+    margin-left:180%
  }
   }
 
