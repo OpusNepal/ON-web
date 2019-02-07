@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { Artist } from '../artist';
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 
 @Component({
   selector: 'app-current-artist',
@@ -11,7 +12,13 @@ export class CurrentArtistComponent implements OnInit {
 
   verifiedArtists: Artist[];
 
-  constructor(private adminService: AdminService) { }
+  message = "";
+
+
+  @ViewChild('content')
+  private content;
+
+  constructor(private adminService: AdminService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.adminService.getVerifiedArtists().subscribe((res) => {
@@ -21,4 +28,16 @@ export class CurrentArtistComponent implements OnInit {
     });
   }
 
+  setArtistOfWeek(id: Number) {
+    this.adminService.setArtistOfWeek(id).subscribe((res) => {
+      this.message = "Success";
+      this.modalService.open(this.content, { ariaLabelledBy: 'modal-basic-title'})
+
+    }, (err) => {
+      this.message = "Could not complete operation";
+      this.modalService.open(this.content, { ariaLabelledBy: 'modal-basic-title'})
+
+    });
+  }
+  
 }

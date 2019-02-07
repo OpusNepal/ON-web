@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; 
 import { environment } from '../../environments/environment';
-import { Artist } from './artist';
+import { Artist, ArtistOfTheWeek } from './artist';
 import { Product } from './products';
 import { Observable, of} from 'rxjs';
 import { mockProducts } from './products';
-import { mockArtists } from './artist';
+import { mockArtists, artistOfTheWeek } from './artist';
 
 @Injectable({
   providedIn: 'root'
@@ -72,4 +72,14 @@ export class AdminService {
     return this.http.put(environment.api + `admin/rejectaccount/${userId}`, body);
   }
   
+  setArtistOfWeek(id: Number) {
+    //console.log(id)
+    return this.http.post(environment.api + 'users/ArtistOfWeek', { id })
+  }
+
+  getArtistOfWeek(): Observable<ArtistOfTheWeek> {
+    //return of(artistOfTheWeek);
+    return this.http.get<ArtistOfTheWeek>(environment.api + 'users/ArtistOfWeek')
+  }
+
 }

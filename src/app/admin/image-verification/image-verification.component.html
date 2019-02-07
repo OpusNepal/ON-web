@@ -1,50 +1,54 @@
-<div class="container helper">
-    <div class="row" style="margin-top: 70px">
-      <div class="card card--big" *ngFor="let product of products" >
-        <img class="card__image" [src]="product.image" alt="product image">
-         
-          <h2 class="card__title">Name: {{ product.Name }}</h2>
-          <p class="card__text">Availability: {{ product.availability }}</p>
-  
-          <div class="card__action-bar">
-            <button type="button" class="card__button" data-toggle="modal" [attr.data-target]="'#' + product.id">
-                <strong style="color:#3a539b">View More</strong>
-            </button>
-            
-            <div class="modal fade" id="{{product.id}}">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <p>bla bla bla</p>
-                  </div>
-                </div>
+<div class="container">
+  <div class="row">
+    <div class="card col-md-4" style="width:400px;" *ngFor="let product of products">
+      <img class="card-img-top" [src]="product.image" width="300" height="300" alt="product image">
+      <div class="card-body">
+        <h4 class="card-title">Name: {{ product.Name }}</h4>
+        <p class="card-text">Availability: {{ product.availability }}</p>
+        <p class="card-text">Price: {{ product.price }}</p>
+
+        <div>
+          <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#' + product.id">
+            View More
+          </button>
+
+          <div class="modal fade" id="{{product.id}}">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <p>Build on: {{ product.buildOn }}</p>
+                <p>Artist Name: {{ product.user.fullName }}</p>
+                <p>Artist e-mail: {{ product.user.email }}</p>
+                <p>Artist Phone number: {{ product.user.Phone }}</p>
+                <p>Category: {{ product.subCategory.category.Category }}</p>
+                <p>Sub-category: {{ product.subCategory.subCategory }}</p>
               </div>
-            <button (click)="verifyProduct(product.id)" class="card__button"><Strong style="color:dimgrey">Verify</Strong></button>
-              <button (click)="rejectProduct(product.id)" class="card__button"><Strong style="color:#d91e18">Reject</Strong></button>
             </div>
           </div>
-  
-           
         </div>
-      </div>     
 
+        <div>
+          <button (click)="verifyProduct(product.id)" class="btn btn-success">Verify</button>
+          <button (click)="setRejectIds(product.id, product.user.id); open(content);" class="btn btn-danger">Reject</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-   <ng-template #content let-modal>
-      <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Comment:</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <textarea class="form-control" rows="5" id="comment" #comment></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" [disabled]= "comment.value.length == 0" (click)="modal.close('Save click'); rejectProduct(comment.value);">Send</button>
-      </div>
-    </ng-template>
-    
-  
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Comment:</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <textarea class="form-control" rows="5" id="comment" #comment></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" [disabled]="comment.value.length == 0" (click)="modal.close('Save click'); rejectProduct(comment.value);">Send</button>
+    </div>
+  </ng-template>

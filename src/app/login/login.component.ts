@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   password: FormControl;
 
   showError = false;
+  showMessage = "";
 
   constructor(public formBuilder: FormBuilder,
      public userService: UserService, public router: Router, public localStorageService: LocalStorageService, private navbarService: NavbarService) {
@@ -69,6 +70,7 @@ export class LoginComponent implements OnInit {
       }
     //1  this.router.navigate(['profile-page'],{ queryParams: {userId: id}});
     }, (err) => {
+      this.showMessage = err.error.error.message;
       this.showError = true
     });
   }

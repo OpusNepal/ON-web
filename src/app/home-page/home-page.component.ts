@@ -5,8 +5,9 @@ import { ProductCategory } from '../app-models/productCategory.model';
 import { SubcategoryProducts } from '../app-models/subcategoryProducts.model';
 import { ProductSubCategory } from '../app-models/productSubCategory.model';
 import { environment } from 'src/environments/environment';
-
-
+import { ArtistOfTheWeek } from '../admin/artist';
+import { AdminService } from '../admin/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -23,7 +24,9 @@ export class HomePageComponent implements OnInit {
   subcategoryProductsList: Array<SubcategoryProducts> = [];
   categoryList: Array<number> = [];
 
-  constructor(config: NgbCarouselConfig, public userService: UserService) {
+  artistOfTheWeek: ArtistOfTheWeek;
+
+  constructor(config: NgbCarouselConfig, public userService: UserService, private adminService: AdminService,  private router: Router) {
     config.interval = 3000;
     config.keyboard = false;
     config.pauseOnHover = false;
@@ -63,7 +66,26 @@ export class HomePageComponent implements OnInit {
         console.log("asdgafsdgasgdfgsa")
         console.log(this.subcategoryProductsList);
      });
+
+  
+     this.adminService.getArtistOfWeek().subscribe((res) => {
+        let clonedRes: ArtistOfTheWeek = JSON.parse(JSON.stringify(res));
+
+        clonedRes.users.profile.CV = environment.public + clonedRes.users.profile.CV;
+        clonedRes.users.profile.samplepic = environment.public + clonedRes.users.profile.samplepic;
+        clonedRes.users.profile.profilepic = environment.public + clonedRes.users.profile.profilepic;
         
+        this.artistOfTheWeek = clonedRes;
+     });
+        
+  }
+
+  showProfileForArtistOfTheWeek() {
+    // navigate to show the profile of the artist of the week
+    // TODO
+    const id = this.artistOfTheWeek.id
+    // this.router.navigate(['profile-page'],{ queryParams: {userId: id}});
+    console.log(this.artistOfTheWeek.id)
   }
 
 }
