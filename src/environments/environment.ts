@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   
   files : "http://localhost:8848/",
-  api: "https://artysnepal.herokuapp.com/api/",
+  api: "http://localhost:8848/api/",
+  // api: "https://artysnepal.herokuapp.com/api/",
   public: "http://127.0.0.1:8848/"
 
 };

@@ -2,17 +2,17 @@
   <div class="row">
     <div class="col-md-6">
         <br><br>
-        <div class="mag">
-            <img  id="zoom_mw" src="{{productDetails.image}}" data-toggle="magnify" class="image-responsive" ><br><br>
+        <div class="mag" >
+            <img  id="zoom_mw" src="{{productDetails.image}}" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width:542px" data-toggle="magnify" class="image-responsive" ><br><br>
         </div>
-        <div class='row'>
-            <div class='col-md-12'>
+        <div class="row">
+            <div class="col-md-12">
                 <div class="headline">
-                <h2> Story behind this Art </h2>
+                <h2 style="margin-bottom:0%; text-align:center; font-weight: bold"> Story behind this Art </h2>
                 </div>
 
                 <div class="embed-responsive embed-responsive-16by9  sizer">
-                  <iframe width="560" height="315" class="embed-responsive-item" src="https://www.youtube.com/embed/x1Kr_ixThGI" frameborder="0" allow="autoplay; encrypted-media" alt="Shankar Man Shrestha Video from youtube site is unable to show..Check your internet connetivity and Try again
+                  <iframe width="100%" height="auto" class="embed-responsive-item" src="https://www.youtube.com/embed/x1Kr_ixThGI" frameborder="0" allow="autoplay; encrypted-media" alt="Shankar Man Shrestha Video from youtube site is unable to show..Check your internet connetivity and Try again
                   " allowfullscreen></iframe>
                 </div>
             </div>
@@ -26,18 +26,17 @@
        <div class="col-md-6">
             <div class="row">
                     <div class="col-md-12" >
-                        <div class="headline">
-                            <h2 style="padding-right:95px; ">{{productDetails.Name}}</h2>
+                        <div class="headline" style="margin:0%; text-align:center">
+                            <h2 style="margin-bottom:0%; text-align:center; font-weight: bold"><strong>{{productDetails.Name}}</strong></h2>
+                          
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                           
                         </div>
-                        <div class="col-md-6" style="padding-left: 150px">
-                            <span class="sr-only">Four out of Five Stars</span> 
-                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-                        
-                        </div>
+                     
                         <br>
                     </div>
 
@@ -45,7 +44,7 @@
                         <div class="description">
                             <hr>
                                        Genre : {{productDetails.subCategory.subCategory}}<br>
-                                        Artist  : <a href="shankar.html">{{productDetails.user.fullName}}</a><br>
+                                        Artist  : <a href="shankar.html" style="color:blue">{{productDetails.user.fullName}}</a><br>
                                         Size: 17.5" x 13.5" Inch<br>
                                         Signed : Yes<br>
                                         Orientation : {{productDetails.Orientation}}<br>
@@ -56,7 +55,7 @@
                             <hr>
                         </div>
                         <div class="col-md-8 pull-right">
-                            <a href="cart.html"> <button class="btn btn-primary  btn-lg btn-brand btn-full-width">
+                            <a href="cart.html"> <button class="btn btn-primary  btn-md btn-brand btn-full-width" style="margin-left:0%; width:60%">
                                 Add to Cart
                             </button></a>
                         </div>
@@ -66,100 +65,43 @@
 
                         <div class="col-md-12 top-10">
                             <br>
-                            <p>To order by telephone, <a href="tel:01-550555"> call @ 01-550555</a></p>
+                            <p>To order by telephone, <a href="tel:01-550555" style="color:blue"> call @ 01-550555</a></p>
                         </div>
                     </div>
                 
-<div class="row">
-                     
-<ul class="nav nav-tabs" role="tablist">
-             <li role="presentation" class="active">
-              <a href="#description"
-               aria-controls="description"
-               role="tab"
-               data-toggle="tab"
-              >Description</a>
-             </li>
-                 <li role="presentation">
-                  <a href="#reviews"
-                   aria-controls="reviews"
-                   role="tab"
-                   data-toggle="tab"
-                  >Reviews</a>
-            </li>
-</ul>
-</div>
-
-
-
-  
-<!-- Tab panes -->
-<div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="description">
-        <div class="top-10">
-         <p> ― {{productDetails.user.fullName}}</p>      
-         <blockquote cite="https://www.goodreads.com/quotes/tag/himalayas">
-          "This type of  scene is very common in Nepalese society.I got this scenario when I was wandering with my daughter Sakshi in Murli Chwok of Birjung.It tooks me 3 days to draw this in canvas."
-          
-         </blockquote>  
-
-        </div>
-       
-     </div>             
-    <div role="tabpanel" class="tab-pane top-10" id="reviews">
-      <div class="top-10">
-          <div class="col-md-4">
-                                    <span class="sr-only">Four out of Five Stars</span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-                                    <span class="label label-success">61</span>
-          </div>
-        </div>
-
-
-    <!--    Reviews  -->
-
-      
-      <!-- <div class="container">
-                  <div class="row" style="margin-top:40px;">
-                      <div class="col-md-6">
-                      <div class="well well-sm">
-                          <div class="text-right">
-                              <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Leave a Review</a>
-                          </div>
-                      
-                          <div class="row" id="post-review-box" style="display:none;">
-                              <div class="col-md-12">
-
-                                  <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()" >
-
-                                      <input id="ratings-hidden" name="rating" type="hidden"> 
-                                      <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
-                      
-                                      <div class="text-right">
-                                          <div class="stars starrr" data-rating="0">
-                                      
-                                      </div>
-                                          <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
-                                          <span class="glyphicon glyphicon-remove"></span>
-                                            Cancel</a>
-                                          <button class="btn btn-success btn-lg" type="submit">Save
-                                        </button>
-                                      </div>
-                                  </form>
-                              </div>
-                          </div>
-                      </div> 
-                      
-                      </div>
-                  </div>
-    </div> -->
-    </div>  
-
-</div>
+                    <div class="tabs">
+                        <input class="input" name="tabs" type="radio" id="tab-1" checked="checked"/>
+                        <label class="label" for="tab-1">Description</label><div class="panel">
+                        <p> ― {{productDetails.user.fullName}}</p>      
+                                 <blockquote cite="https://www.goodreads.com/quotes/tag/himalayas">
+                                  "This type of  scene is very common in Nepalese society.I got this scenario when I was wandering with my daughter Sakshi in Murli Chwok of Birjung.It tooks me 3 days to draw this in canvas."
+                                  
+                                 </blockquote> 
+                        </div>
+                        
+                        <input class="input" name="tabs" type="radio" id="tab-2"/>
+                        <label class="label" for="tab-2">Reviews</label><div class="panel">
+                        <p>
+                            
+                                                           
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span> 
+                                <span style="background-color: green;padding:1%; margin-left:5px; color:white; border-radius:5% ">61</span>
+                             
+                         </p>
+                         <p> ― {{productDetails.user.fullName}}</p>      
+                                 <blockquote cite="https://www.goodreads.com/quotes/tag/himalayas">
+                                  "This type of  scene is very common in Nepalese society.I got this scenario when I was wandering with my daughter Sakshi in Murli Chwok of Birjung.It tooks me 3 days to draw this in canvas."
+                            
+                                 </blockquote> 
+                                                        </div>
+                         
+                         
+                         
+                         </div>
                  
 </div>
 
@@ -171,49 +113,58 @@
 
     
 <div class="headline">
-    <h2>More By <b>{{productDetails.user.fullName}}</b></h2>
+    <h2 >More By <b style="font-weight: bold; margin-bottom: 0%">{{productDetails.user.fullName}}</b></h2>
 </div>
-<div class= "row" *ngIf= "products.length > 0">
-        <div class="col-md-3 col-sm-6" *ngFor="let prod of products; let i = index">
-                <div class="product-page-single" *ngIf="i < 4">
-                    <div class="single-product-item">
-                        <div class="product-image-wrap">
-            
-                            <a href="#"> <img src="{{prod.image}}" alt="Product image" style="width:252px;height: 250px;"> </a>
-            
-                            <div class="product-detail-inner">
-            
-                                <div class="item-details-overly-info">
-                                    <ul class="list-inline list-unstyled">
-                                        <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                        <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
-                                       <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
-                                    </ul>
-                                </div>
+<div class="row" *ngIf="products.length > 0" >
+        <div class="col-md-3 col-sm-6" *ngFor = "let prod of products; let i=index" >
+          <div *ngIf="i < 4">
+            <div class="square-card">
+<a href="#" alt="square card" style="display: block;">
+
+              <div class="product-page-single">
+                <div class="single-product-item">
+
+    <div class="product-image-wrap">
+    <div class="card-header" style="padding: 0%">
+                        <a href="#"><img src="{{prod.image}}" alt="Product image" style="height:100%" ></a>
+                        </div>
+                        <div class="product-detail-inner">
+                            <div class="item-details-overly-info">
+                                <ul class="list-inline ">
+                                  
+                                    <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                    <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
+                                   <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
+                                </ul>
                             </div>
                         </div>
-                        <div class="product-item-details">
-                            <h2>{{prod.Name}} <a href="sankar.html"><br>{{prod.user.fullName}}</a></h2>
-                            <div class="price-like-box">
-                                <div class="pull-left item-price">
-                                   <!--  <span class="old-price"><del>$50.00</del></span> -->
-                                    <span class="current-price">Rs.3,550.00</span>
-                                </div>
-                                <div class="pull-right item-rating">
-                                    <ul class="list-inline">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star-o"></i></li>
-                                        <li><i class="fa fa-star-o"></i></li>
-                                        <li><i class="fa fa-star-o"></i></li>
-                                    </ul>
-                                </div>
+                    </div>
+                    <div class="product-item-details">
+                        <h2><a href="#"><strong>{{prod.Name}}</strong></a></h2><br><h2>{{prod.user.fullName}}</h2>
+                         
+                        <div class="price-like-box">
+                            <div class="pull-left item-price">
+                                <!-- <span class="old-price"><del>$50.00</del></span> -->
+                                <span class="current-price">{{prod.price}}</span>
                             </div>
+                            <br>
+                            <div class="row" style="padding:10%">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>                         
+            </a>
+            </div>
+          </div>
+          <a href="#" class="btn " *ngIf="i == 4" > Show more</a>
+        </div>   
+        </div>                        
 
   
  </div>
