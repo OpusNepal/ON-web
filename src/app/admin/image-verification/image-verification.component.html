@@ -1,26 +1,27 @@
 <div class="container">
-  <div class="row">
-    <div class="card col-md-4" style="width:400px;" *ngFor="let product of products">
-      <img class="card-img-top" [src]="product.image" width="300" height="300" alt="product image">
-      <div class="card-body">
-        <h4 class="card-title">Name: {{ product.Name }}</h4>
-        <p class="card-text">Availability: {{ product.availability }}</p>
-        <p class="card-text">Price: {{ product.price }}</p>
-
-        <div>
-          <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#' + product.id">
-            View More
-          </button>
-
-          <div class="modal fade" id="{{product.id}}">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <p>Build on: {{ product.buildOn }}</p>
-                <p>Artist Name: {{ product.user.fullName }}</p>
-                <p>Artist e-mail: {{ product.user.email }}</p>
-                <p>Artist Phone number: {{ product.user.Phone }}</p>
-                <p>Category: {{ product.subCategory.category.Category }}</p>
-                <p>Sub-category: {{ product.subCategory.subCategory }}</p>
+    <div class="row">
+      <div class="card col-md-4" style="width:400px;" *ngFor="let product of products">
+        <img class="card-img-top" [src]="product.image" width="300" height="300" alt="product image">
+        <div class="card-body">
+          <h4 class="card-title">Name: {{ product.Name }}</h4>
+          <p class="card-text">Availability: {{ product.availability }}</p>
+          <p class="card-text">Price: {{ product.price }}</p>
+  
+          <div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#' + product.id">
+              View More
+            </button>
+  
+            <div class="modal fade" id="{{product.id}}">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <p>Build on: {{ product.buildOn }}</p>
+                  <p>Artist Name: {{ product.user.fullName }}</p>
+                  <p>Artist e-mail: {{ product.user.email }}</p>
+                  <p>Artist Phone number: {{ product.user.Phone }}</p>
+                  <p>Category: {{ product.subCategory.category.Category }}</p>
+                  <p>Sub-category: {{ product.subCategory.subCategory }}</p>
+                </div>
               </div>
             </div>
           </div>
