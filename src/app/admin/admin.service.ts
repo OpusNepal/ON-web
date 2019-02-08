@@ -35,7 +35,7 @@ export class AdminService {
   getVerifiedArtists(): Observable<Artist[]> {
 
     //add api to get verified artist
-    return of(mockArtists);
+    return this.http.get<Artist[]>(environment.api + "admin/getVerifiedProfile");
   }
 
   addCategory(category: string): Observable<any> {
