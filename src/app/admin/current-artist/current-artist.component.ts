@@ -25,6 +25,12 @@ export class CurrentArtistComponent implements OnInit {
       var clonedRes = JSON.parse(JSON.stringify(res));
 
       this.verifiedArtists = clonedRes;
+      this.verifiedArtists = clonedRes.map(artist => {
+        artist.profile.profilepic = environment.public + artist.profile.profilepic;
+        artist.profile.samplepic = environment.public + artist.profile.samplepic;
+        artist.profile.CV = environment.public + artist.profile.CV
+        return artist;
+      });
     });
   }
 
