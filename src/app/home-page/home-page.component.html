@@ -68,53 +68,67 @@
         <div class="headline" *ngIf="product.subcategoryProducts.length > 0">
           <h3>Featured <b> {{product.subcategory}} </b> Arts </h3>
         </div>
-        <div class="row" *ngIf="product.subcategoryProducts.length > 0">
-          <div class="col-md-3 col-sm-6" *ngFor="let prod of product.subcategoryProducts; let i=index">
-            <div *ngIf="i < 4">
-              <div class="product-page-single">
-                <div class="single-product-item">
-                  <div class="product-image-wrap">
-                    <a href="#"><img src="{{prod.image}}" alt="Product image" style="width:252px;height: 250px;"></a>
-                    <div class="product-detail-inner">
-                      <div class="item-details-overly-info">
-                        <ul class="list-inline list-unstyled">
-                          <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                          <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
-                          <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
-                        </ul>
-                      </div>
+        <div class="col-md-9" style="text-align: center;">
+              
+            <div *ngFor = "let product of subcategoryProductsList">
+                    <div class="headline" *ngIf="product.subcategoryProducts.length > 0">
+                        <h3>Featured   <strong> {{product.subcategory}}  Arts </strong></h3>
                     </div>
-                  </div>
-                  <div class="product-item-details">
-                    <h2><a href="#">{{prod.Name}}</a><br>{{prod.user.fullName}}</h2>
-
-                    <div class="price-like-box">
-                      <div class="pull-left item-price">
-                        <!-- <span class="old-price"><del>$50.00</del></span> -->
-                        <span class="current-price">{{prod.price}}</span>
+                    <div class="row" *ngIf="product.subcategoryProducts.length > 0" >
+                        <div class="col-md-3 col-sm-6" *ngFor = "let prod of product.subcategoryProducts; let i=index" >
+                          <div *ngIf="i < 4">
+                            <div class="square-card">
+                            <a alt="square card" style="display: block;">
+          
+                              <div class="product-page-single">
+                                <div class="single-product-item">
+          
+                    <div class="product-image-wrap">
+                    <div class="card-header" style="padding: 0%">
+                                        <a><img src="{{prod.image}}" alt="Product image" style="height:100%" ></a>
+                                        </div>
+                                        <div class="product-detail-inner">
+                                            <div class="item-details-overly-info">
+                                                <ul class="list-inline ">
+                                                  
+                                                    <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                                    <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
+                                                   <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-item-details">
+                                        <h2><a (click)="viewProductDetail($event)"><strong id ="{{prod.id}}">{{prod.Name}}</strong></a></h2><br><h2>{{prod.user.fullName}}</h2>
+                                         
+                                        <div class="price-like-box">
+                                            <div class="pull-left item-price">
+                                                <!-- <span class="old-price"><del>$50.00</del></span> -->
+                                                <span class="current-price">{{prod.price}}</span>
+                                            </div>
+                                            <br>
+                                            <div class="row" style="padding:10%">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                            </div>
+                          </div>
+                          <a id = "{{prod.subCategoryId}}" (click)="showMore($event)" class="btn btn-outline-dark" *ngIf="i == 4" style=""> Show more</a>
+                        </div>   
+            
                       </div>
-                      <div class="pull-right item-rating">
-                        <ul class="list-inline">
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star-o"></i></li>
-                          <li><i class="fa fa-star-o"></i></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <a href="#" *ngIf="i == 4"> Show more</a>
-          </div>
-
         </div>
-      </div>
-    </div>
-    <!--End Artist of week-->
-    <!-- Display of image according to subcategories -->
+  <!--End Artist of week-->
+  <!-- Display of image according to subcategories -->
 
     <!-- End of Display of Image according to categories -->
 

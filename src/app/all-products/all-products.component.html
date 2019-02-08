@@ -1,0 +1,53 @@
+<div class="container" >
+        <div class="row"  >
+                <div class="col-md-3 col-sm-6" *ngFor = "let prod of products" >
+                 
+                    <div class="square-card">
+        <a href="#" alt="square card" style="display: block;">
+        
+                      <div class="product-page-single">
+                        <div class="single-product-item">
+        
+            <div class="product-image-wrap">
+            <div class="card-header" style="padding: 0%">
+                                <a href="#"><img src="{{prod.image}}" alt="Product image" style="height:100%" ></a>
+                                </div>
+                                <div class="product-detail-inner">
+                                    <div class="item-details-overly-info">
+                                        <ul class="list-inline ">
+                                          
+                                            <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
+                                           <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-item-details">
+                                <h2><a href="#"><strong>{{prod.Name}}</strong></a></h2><br><h2>{{prod.user.fullName}}</h2>
+                                 
+                                <div class="price-like-box">
+                                    <div class="pull-left item-price">
+                                        <!-- <span class="old-price"><del>$50.00</del></span> -->
+                                        <span class="current-price">{{prod.price}}</span>
+                                    </div>
+                                    <br>
+                                    <div class="row" style="padding:10%">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                    </div>
+                  
+                </div>   
+                </div>  
+  
+</div>
+<app-footer></app-footer>

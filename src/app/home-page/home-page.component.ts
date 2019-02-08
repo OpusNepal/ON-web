@@ -9,6 +9,8 @@ import { ArtistOfTheWeek } from '../admin/artist';
 import { AdminService } from '../admin/admin.service';
 import { Router } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -63,7 +65,6 @@ export class HomePageComponent implements OnInit {
           });
   
         });
-        console.log("asdgafsdgasgdfgsa")
         console.log(this.subcategoryProductsList);
      });
 
@@ -86,6 +87,19 @@ export class HomePageComponent implements OnInit {
     const id = this.artistOfTheWeek.id
     // this.router.navigate(['profile-page'],{ queryParams: {userId: id}});
     console.log(this.artistOfTheWeek.id)
+
+  }
+  
+  viewProductDetail(event){
+      console.log(event);
+      var target = event.target || event.srcElement || event.currentTarget;
+      var id = target.attributes.id.value;
+      this.router.navigate(['product-view'], { queryParams: {productId: id}});
+  }
+  showMore(event){
+    console.log(event);
+    var id = event.target.attributes.id.value;
+    this.router.navigate(['all-products'],{queryParams : {subCategoryId : id}});
   }
 
 }
