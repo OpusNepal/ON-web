@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { Artist } from '../artist';
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
+import { environment } from 'src/environments/environment';;
+
 
 @Component({
   selector: 'app-current-artist',
