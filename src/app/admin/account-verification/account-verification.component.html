@@ -23,7 +23,7 @@
                   </button>
                   <div class="modal fade" id="Bio{{artist.id}}">
                       <div class="modal-dialog">
-                        <div class="modal-content">
+                        <div class="modal-content" style="padding:10%">
                           <p>{{ artist.profile.bio }}</p>
                         </div>
                       </div>
@@ -37,8 +37,8 @@
                        
             <div class="modal fade" id="myModal{{artist.id}}">
                 <div class="modal-dialog">
-                  <div class="modal-content">
-                    <img [src]="artist.profile.samplepic" width="800" height="800" alt="">
+                  <div class="modal-content watermarked">
+                    <img [src]="artist.profile.samplepic"  width="100%" height="auto" alt="">
                   </div>
                 </div>
               </div>
@@ -51,7 +51,7 @@
                   <div class="modal fade" id="myModalCV{{artist.id}}">
                       <div class="modal-dialog">
                         <div class="modal-content">
-                          <embed [src]="artist.profile.CV | safe" width="800" height="900" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
+                          <embed [src]="artist.profile.CV | safe"  height="900" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
                         </div>
                       </div>
                     </div>
