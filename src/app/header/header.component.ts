@@ -6,6 +6,7 @@ import { CategoryAndSubCategoryModel } from '../app-models/CategoryAndSubCat.mod
 import { ProductCategory } from '../app-models/productCategory.model';
 import { ProductSubCategory } from '../app-models/productSubCategory.model';
 import { NavbarService } from '../navbar.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
   SubCategories : ProductSubCategory[];
   List: Array<CategoryAndSubCategoryModel> = [];
 
-  constructor(public localStorage: LocalStorageService, public userService: UserService, public navbarService: NavbarService) { }
+  constructor(public localStorage: LocalStorageService, public userService: UserService, public navbarService: NavbarService, public router: Router) { }
 
   ngOnInit() {
     
@@ -35,6 +36,7 @@ export class HeaderComponent implements OnInit {
           this.SubCategories.forEach(row =>{
            
             model.subcategories.push(row.subCategory);
+            model.subCategoryIds.push(row.id);
           
           });
           
@@ -57,6 +59,13 @@ export class HeaderComponent implements OnInit {
     this.navbarService.setShowProfile(false);
     this.navbarService.setShowCart(false);
     this.navbarService.setShowUploadProduct(false);
+  }
+
+  showProducts(event){
+    console.log(event);
+    var id = event.target.attributes.id.value;
+    console.log(id);
+    this.router.navigate(['all-products'],{queryParams: {subCategoryId : id}});
   }
   
 }

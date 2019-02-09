@@ -72,14 +72,14 @@
                         <div class="col-md-3 col-sm-6" *ngFor = "let prod of product.subcategoryProducts; let i=index" >
                           <div *ngIf="i < 4">
                             <div class="square-card">
-          <a href="#" alt="square card" style="display: block;">
+                            <a alt="square card" style="display: block;">
           
                               <div class="product-page-single">
                                 <div class="single-product-item">
           
                     <div class="product-image-wrap">
                     <div class="card-header" style="padding: 0%">
-                                        <a href="#"><img src="{{prod.image}}" alt="Product image" style="height:100%" ></a>
+                                        <a><img src="{{prod.image}}" alt="Product image" style="height:100%" ></a>
                                         </div>
                                         <div class="product-detail-inner">
                                             <div class="item-details-overly-info">
@@ -93,7 +93,7 @@
                                         </div>
                                     </div>
                                     <div class="product-item-details">
-                                        <h2><a href="#"><strong>{{prod.Name}}</strong></a></h2><h2>{{prod.user.fullName}}</h2>
+                                        <h2><a (click)="viewProductDetail($event)"><strong id ="{{prod.id}}">{{prod.Name}}</strong></a></h2><br><h2>{{prod.user.fullName}}</h2>
                                          
                                         <div class="price-like-box">
                                             <div class="pull-left item-price">
@@ -115,7 +115,7 @@
                             </a>
                             </div>
                           </div>
-                          <a href="#" class="btn " *ngIf="i == 4" > Show more</a>
+                          <a id = "{{prod.subCategoryId}}" (click)="showMore($event)" class="btn btn-outline-dark" *ngIf="i == 4" style=""> Show more</a>
                         </div>   
             
                       </div>

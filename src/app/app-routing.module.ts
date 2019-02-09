@@ -6,6 +6,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
+import { ProductViewComponent } from './product-view/product-view.component';
+import { AllProductsComponent } from './all-products/all-products.component';
 
 
 const routes: Routes = [
@@ -15,7 +17,9 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'upload-product', component: ProductUploadComponent},
-  {path: 'profile-page', component: ProfilePageComponent}
+  {path: 'profile-page', component: ProfilePageComponent},
+  {path: 'product-view', component: ProductViewComponent},
+  {path: 'all-products', component: AllProductsComponent}
 
 ];
 

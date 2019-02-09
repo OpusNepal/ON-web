@@ -63,4 +63,8 @@ export class UserService {
     return this.http.get(environment.api + 'products/getproductsubCategory/' + id);
   }
 
+  getProductDetail(id) : any{
+    return this.http.get(environment.api + 'products/' + id);
+  }
+
 }
