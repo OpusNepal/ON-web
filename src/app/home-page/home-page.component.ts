@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig, NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from '../auth/user.service';
 import { ProductCategory } from '../app-models/productCategory.model';
 import { SubcategoryProducts } from '../app-models/subcategoryProducts.model';
@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
-  providers: [NgbCarouselConfig] 
+  providers: [NgbCarouselConfig, NgbRatingConfig]
 })
 export class HomePageComponent implements OnInit {
 
@@ -27,15 +27,18 @@ export class HomePageComponent implements OnInit {
   categoryList: Array<number> = [];
 
   artistOfTheWeek: ArtistOfTheWeek;
+  readonly = true
 
-  constructor(config: NgbCarouselConfig, public userService: UserService, private adminService: AdminService,  private router: Router) {
+  constructor(config: NgbCarouselConfig, public ratingConfig: NgbRatingConfig, public userService: UserService, private adminService: AdminService,  private router: Router) {
     config.interval = 3000;
     config.keyboard = false;
     config.pauseOnHover = false;
-   }
+ 
+    ratingConfig.max = 5;
+
+  }
 
   ngOnInit() {
-   
    
     this.userService.getCategories().subscribe((res) => {
       this.productCategories = res;
@@ -66,10 +69,22 @@ export class HomePageComponent implements OnInit {
   
         });
         console.log(this.subcategoryProductsList);
+
+        this.userService.getAllowRating().subscribe((res) => {
+          if(!res) {
+            this.readonly = true;
+          } else {
+            this.readonly = false;
+          }
+        });
      });
 
   
      this.adminService.getArtistOfWeek().subscribe((res) => {
+       if (!res) {
+         return
+       }
+
         let clonedRes: ArtistOfTheWeek = JSON.parse(JSON.stringify(res));
 
         clonedRes.users.profile.CV = environment.public + clonedRes.users.profile.CV;
@@ -78,6 +93,7 @@ export class HomePageComponent implements OnInit {
         
         this.artistOfTheWeek = clonedRes;
      });
+
         
   }
 
@@ -100,6 +116,12 @@ export class HomePageComponent implements OnInit {
     console.log(event);
     var id = event.target.attributes.id.value;
     this.router.navigate(['all-products'],{queryParams : {subCategoryId : id}});
+  }
+
+  rateChanged(newRating: Number, productId: Number, userId: Number) {
+    this.userService.rateProduct(newRating, productId, userId).subscribe((res) => {
+      //console.log(res)
+    });
   }
 
 }

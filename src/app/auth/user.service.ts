@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment';
 import { ProfileModel } from '../app-models/profile.model';
 import { ProfilePageModel } from '../app-models/profile-page.model';
 import { ProductOfSubcategory } from '../app-models/productsOfSubcategoryResponse.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class UserService {
 
   isAuthenticated = false;
   private token = '';
+  private allowRating = new BehaviorSubject<boolean>(false);
 
   constructor(public http: HttpClient) { }
 
@@ -67,4 +69,17 @@ export class UserService {
     return this.http.get(environment.api + 'products/' + id);
   }
 
+  rateProduct(rating: Number, productId: Number, userId: Number) {
+    const body = {rating, productId, userId };
+    return this.http.post(environment.api + "products/rating/", body)
+  }
+
+  getAllowRating() {
+    return this.allowRating.asObservable();
+  }
+
+  setAllowRating(flag: boolean) {
+    this.allowRating.next(flag);
+  }
+  
 }
