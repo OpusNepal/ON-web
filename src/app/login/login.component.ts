@@ -63,13 +63,14 @@ export class LoginComponent implements OnInit {
 
       if (userType === 'artist') {
         this.navbarService.setShowProfile(true)
-        this.userService.setAllowRating(false);
+        //this.userService.setAllowRating(false);
       } else if (userType === 'admin') {
         this.navbarService.setShowDashboard(true);
-        this.userService.setAllowRating(false);
+        //this.userService.setAllowRating(false);
       } else if (userType === 'customer') {
         this.navbarService.setShowCart(true);
-        this.userService.setAllowRating(true);
+        this.navbarService.setShowWishlist(true);
+        //this.userService.setAllowRating(true);
       }
     //1  this.router.navigate(['profile-page'],{ queryParams: {userId: id}});
     }, (err) => {

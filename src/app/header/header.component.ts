@@ -57,7 +57,8 @@ export class HeaderComponent implements OnInit {
     this.navbarService.setShowProfile(false);
     this.navbarService.setShowCart(false);
     this.navbarService.setShowUploadProduct(false);
-    this.userService.setAllowRating(false);
+    //this.userService.setAllowRating(false);
+    this.navbarService.setShowWishlist(false);
     }
   
 }

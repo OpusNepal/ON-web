@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { ArtistOfTheWeek } from '../admin/artist';
 import { AdminService } from '../admin/admin.service';
 import { Router } from '@angular/router';
+import { LocalStorageService } from '../auth/local-storage.service';
 
 
 
@@ -27,9 +28,10 @@ export class HomePageComponent implements OnInit {
   categoryList: Array<number> = [];
 
   artistOfTheWeek: ArtistOfTheWeek;
-  readonly = true
+  readonly = true;
+  enableWishlist = false;
 
-  constructor(config: NgbCarouselConfig, public ratingConfig: NgbRatingConfig, public userService: UserService, private adminService: AdminService,  private router: Router) {
+  constructor(config: NgbCarouselConfig, public ratingConfig: NgbRatingConfig, public userService: UserService, private adminService: AdminService,  private router: Router, private localStorageService: LocalStorageService) {
     config.interval = 3000;
     config.keyboard = false;
     config.pauseOnHover = false;
@@ -70,13 +72,22 @@ export class HomePageComponent implements OnInit {
         });
         console.log(this.subcategoryProductsList);
 
-        this.userService.getAllowRating().subscribe((res) => {
-          if(!res) {
-            this.readonly = true;
-          } else {
-            this.readonly = false;
+        // this.userService.getAllowRating().subscribe((res) => {
+        //   if(!res) {
+        //     this.readonly = true;
+        //   } else {
+        //     this.readonly = false;
+        //   }
+        // });
+
+        if (this.localStorageService.getAuthData()) {
+          const { userType } = this.localStorageService.getAuthData();
+          if (userType === 'customer') {
+            this.enableWishlist = true
           }
-        });
+        }
+        
+
      });
 
   
@@ -118,9 +129,17 @@ export class HomePageComponent implements OnInit {
     this.router.navigate(['all-products'],{queryParams : {subCategoryId : id}});
   }
 
-  rateChanged(newRating: Number, productId: Number, userId: Number) {
+  rateChanged(newRating: Number, productId: Number) {
+    const { userId } = this.localStorageService.getAuthData();
     this.userService.rateProduct(newRating, productId, userId).subscribe((res) => {
       //console.log(res)
+    });
+  }
+
+  addToWishlist(productId: Number) {
+    const { userId } = this.localStorageService.getAuthData();
+    this.userService.setWishlistItem(userId, productId).subscribe((res) => {
+      //Success
     });
   }
 

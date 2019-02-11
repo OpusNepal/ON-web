@@ -19,6 +19,7 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
 import { AdminModule } from './admin/admin.module';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { AllProductsComponent } from './all-products/all-products.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AllProductsComponent } from './all-products/all-products.component';
     FooterComponent,
     ProductUploadComponent,
     ProductViewComponent,
-    AllProductsComponent
+    AllProductsComponent,
+    WishlistComponent
     
   ],
   imports: [

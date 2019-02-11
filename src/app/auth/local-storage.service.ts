@@ -59,7 +59,8 @@ export class LocalStorageService {
       this.navbarService.setShowLogin(false);
       this.navbarService.setShowLogout(true);
       this.navbarService.setShowSignup(false);
-      this.userService.setAllowRating(false);
+      //this.userService.setAllowRating(false);
+      this.navbarService.setShowWishlist(false);
     } else if (userType === 'customer') {
       this.navbarService.setShowProfile(false);
       this.navbarService.setShowCart(true);
@@ -67,8 +68,8 @@ export class LocalStorageService {
       this.navbarService.setShowLogin(false);
       this.navbarService.setShowLogout(true);
       this.navbarService.setShowSignup(false);
-      this.userService.setAllowRating(true);
-      
+      //this.userService.setAllowRating(true);
+      this.navbarService.setShowWishlist(true);
     } else if (userType === 'admin') {
       this.navbarService.setShowProfile(false);
       this.navbarService.setShowCart(false);
@@ -76,7 +77,8 @@ export class LocalStorageService {
       this.navbarService.setShowLogin(false);
       this.navbarService.setShowLogout(true);
       this.navbarService.setShowSignup(false);
-      this.userService.setAllowRating(false);
+      //this.userService.setAllowRating(false);
+      this.navbarService.setShowWishlist(false);
     }
 
     this.userService.setToken(credentials.token);

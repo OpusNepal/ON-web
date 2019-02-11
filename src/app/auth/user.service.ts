@@ -5,7 +5,8 @@ import { environment } from '../../environments/environment';
 import { ProfileModel } from '../app-models/profile.model';
 import { ProfilePageModel } from '../app-models/profile-page.model';
 import { ProductOfSubcategory } from '../app-models/productsOfSubcategoryResponse.model';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { WishlistProduct } from '../app-models/wishlist-product';
 
 @Injectable({
   providedIn: 'root'
@@ -80,6 +81,18 @@ export class UserService {
 
   setAllowRating(flag: boolean) {
     this.allowRating.next(flag);
+  }
+
+  setWishlistItem(userId: Number, productId: Number) {
+    return this.http.post(environment.api + 'wishlist/', { userId, productId })
+  }
+
+  getWishlistItems(userId: Number): Observable<WishlistProduct[]> {
+    return this.http.get<WishlistProduct[]>(environment.api + `wishlist/${userId}`);
+  }
+
+  deleteWishlistItem(userId: Number, productId: Number) {
+    return this.http.put(environment.api + 'wishlist/delete/', { userId, productId })
   }
   
 }

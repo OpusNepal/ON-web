@@ -59,6 +59,9 @@
           <a class="nav-link" *ngIf="navbarService.getShowCart() | async" href="#"><span class="fa fa-cart-plus"></span><strong>Cart</strong></a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" *ngIf="navbarService.getShowWishlist() | async" routerLink="/wishlist"><strong>Wishlist</strong></a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" *ngIf="navbarService.getShowDashboard() | async" routerLink="admin"><strong>Dashboard</strong></a>
         </li>
         <li class="nav-item">
