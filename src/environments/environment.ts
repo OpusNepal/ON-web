@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   
-  files : "https://artysnepal.herokuapp.com/",
-  api: "https://artysnepal.herokuapp.com/api/",
+  files : "https://192.168.50.110:8848/",
+  api: "https://192.168.50.110:8848/api/",
   public: "http://192.168.50.110:8848/"
 
 };
