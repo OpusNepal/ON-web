@@ -3,8 +3,8 @@
     <div class="form">
         <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="fullName">Full Name:
-              <input type="text" name="fullName" class="form-control" value="" formControlName="fullName">
+            <label for="fullName">
+              <input type="text" name="fullName" class="form-control" value="" formControlName="fullName" placeholder="Full Name:">
             </label>
           </div>
           <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="alert alert-danger">
@@ -12,8 +12,8 @@
           </div>
     
           <div class="form-group">
-            <label for="email">E-mail:
-              <input type="email" name="email" value="" class="form-control" formControlName="email">
+            <label for="email">
+              <input type="email" name="email" value="" class="form-control" formControlName="email" placeholder="Email">
             </label>
           </div>
           <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
@@ -21,8 +21,8 @@
           </div>
     
           <div class="form-group">
-            <label for="password">Password:
-              <input type="password" name="password" value="" class="form-control" formControlName="password">
+            <label for="password">
+              <input type="password" name="password" value="" class="form-control" formControlName="password" placeholder="Password">
             </label>
           </div>
           <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
@@ -30,8 +30,8 @@
           </div>
 
           <div class="form-group">
-            <label for="phoneNumber">Phone Number:
-              <input type="number" name="phoneNumber" value="" class="form-control" formControlName="Phone">
+            <label for="phoneNumber">
+              <input type="number" name="phoneNumber" value="" class="form-control" formControlName="Phone" placeholder="Phone Number">
             </label>
           </div>
 

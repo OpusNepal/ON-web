@@ -4,24 +4,24 @@
        <div class="form">
            <form [formGroup]="ProductUploadForm" (ngSubmit)="onSubmit()">
              <div class="form-group">
-                 <label for="name"class=" form-control-label">Name:</label>
-                  <input type="text" name="name" class="form-control" value="" formControlName="name">
+                 <label for="name"class=" form-control-label"></label>
+                  <input type="text" name="name" class="form-control" value="" formControlName="name" placeholder="Product Name">
              </div>
              <div class="form-group">
-                 <label for="orientation"class=" form-control-label">Orientation:</label>
-                 <input type="text" name="orientation" class="form-control" value="" formControlName="orientation">
+                 <label for="orientation"class=" form-control-label"></label>
+                 <input type="text" name="orientation" class="form-control" value="" formControlName="orientation" placeholder="Orientation">
              </div>
              <div class="form-group">
                  <label for="builOn"class=" form-control-label">Build On:</label>
-                <input type="date" name="buildOn" class="form-control" value="" formControlName="buildOn">
+                <input type="date" name="buildOn" class="form-control" value="" formControlName="buildOn" >
              </div>
              <div class="form-group">
-                 <label for="price"class=" form-control-label">Price:</label>
-                 <input type="number" name="price" class="form-control" value="" formControlName="price">
+                 <label for="price"class=" form-control-label"></label>
+                 <input type="number" name="price" class="form-control" value="" formControlName="price" placeholder="Price">
              </div>
              <div class="form-group">
-                 <label for="availability"class=" form-control-label">Availability:</label>
-                 <input type="text" name="availability" class="form-control" value="" formControlName="availability">
+                 <label for="availability"class=" form-control-label"></label>
+                 <input type="text" name="availability" class="form-control" value="" formControlName="availability" placeholder="Availability">
              </div>
            
              <div class="form-group">
