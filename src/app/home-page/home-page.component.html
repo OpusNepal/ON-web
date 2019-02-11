@@ -1,131 +1,131 @@
 <div class="container-fluid">
-    <div class="row">
-   
-   <div class="col-md-9" style="padding-top: 2%">    
-        <ngb-carousel *ngIf="images" class="fullscreen" >
-          <ng-template ngbSlide>
-            <img [src]="images[0]" alt="Random first slide" class="fullscreen" style="opacity:0.6">
-            <div class="carousel-caption headline" style="top:90px">
-              <h1 style="color:white;">Reckless Traveler</h1>
-              <h3 style="color:white;">Ramesh Xhu</h3>
-              <span class="btn btn-primary btn-lg" style="background-color: rgba(89, 171, 227, 1);color:white; border-radius: 0px; border-color: white;border-width:3px;width:auto;margin-left:0%">Shop Now</span>
-            </div>
-          </ng-template>
-          <ng-template ngbSlide>
-            <img [src]="images[1]" alt="Random second slide" class="fullscreen" style="opacity:0.6" >
-            <div class="carousel-caption headline" style="top:90px">
-              <h1 style="color:white;">Murals</h1>
-              <span class="btn btn-primary btn-lg" style="background-color: rgba(89, 171, 227, 1);color:white; border-radius: 0px; border-color: white;border-width:3px;width:auto;margin-left:0%">Shop Now</span>
-              
-            </div>
-          </ng-template>
-          <ng-template ngbSlide>
-            <img [src]="images[2]" alt="Random third slide" class="fullscreen" style="opacity:0.6" >
-            <div class="carousel-caption headline" style="top:90px">
-              <h1 style="color:white;">Heritages</h1>
-              <span class="btn " style="background-color: rgba(89, 171, 227, 1);color:white; border-radius: 0px; border-color: white;border-width:3px;width:auto;margin-left:0%">Shop Now</span>
-             
-            </div>
-          </ng-template>
-        </ngb-carousel>
-       
-        
-      </div>  
+  <div class="row">
+ 
+ <div class="col-md-9" style="padding-top: 2%">    
+      <ngb-carousel *ngIf="images" class="fullscreen" >
+        <ng-template ngbSlide>
+          <img [src]="images[0]" alt="Random first slide" class="fullscreen" style="opacity:0.6">
+          <div class="carousel-caption headline" style="top:90px">
+            <h1 style="color:white;">Reckless Traveler</h1>
+            <h3 style="color:white;">Ramesh Xhu</h3>
+            <span class="btn btn-primary btn-lg" style="background-color: rgba(89, 171, 227, 1);color:white; border-radius: 0px; border-color: white;border-width:3px;width:auto;margin-left:0%">Shop Now</span>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <img [src]="images[1]" alt="Random second slide" class="fullscreen" style="opacity:0.6" >
+          <div class="carousel-caption headline" style="top:90px">
+            <h1 style="color:white;">Murals</h1>
+            <span class="btn btn-primary btn-lg" style="background-color: rgba(89, 171, 227, 1);color:white; border-radius: 0px; border-color: white;border-width:3px;width:auto;margin-left:0%">Shop Now</span>
+            
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <img [src]="images[2]" alt="Random third slide" class="fullscreen" style="opacity:0.6" >
+          <div class="carousel-caption headline" style="top:90px">
+            <h1 style="color:white;">Heritages</h1>
+            <span class="btn " style="background-color: rgba(89, 171, 227, 1);color:white; border-radius: 0px; border-color: white;border-width:3px;width:auto;margin-left:0%">Shop Now</span>
+           
+          </div>
+        </ng-template>
+      </ngb-carousel>
+     
+      
+    </div>  
 
 <!--Artist of the week -->
 
-        <div class="col-md-3">
-            <div class="square-card">
-              <a href="#" alt="square card" style="display: block;">
-                <div class="card-header">
-                    <img src="./assets/images/thumb/kiran.png" class="img-responsive " style="width: 100%">
-                    <div class="card-header_overlay text-center">
-                        <span class="pill" style="font-size: 10px;">Artist of the Week</span>
-                     </div>
-                </div>
+      <div class="col-md-3">
+          <div class="square-card">
+            <div (click)="showProfileForArtistOfTheWeek()" alt="square card" style="display: block;">
+              <div class="card-header">
+                <img [src]="artistOfTheWeek.users.profile.profilepic" class="img-responsive" style="width: 100%">
+                  <div class="card-header_overlay text-center">
+                      <span class="pill" style="font-size: 10px;">Artist of the Week</span>
+                   </div>
+              </div>
+  
+              <div class="page-header text-center" style="padding-top:25px;">
+                <h4>{{ artistOfTheWeek.users.fullName }}</h4>
+              </div>
     
-                <div class="page-header text-center" style="padding-top:25px;">
-                  <h4>Kiran Maharjan</h4> 
-                </div>
+              <p class="text-center">
+                Specialization : Street art<br>
+                Street Name : {{ artistOfTheWeek.users.profile.streetName }}<br>
+              </p>
+              <div class="cta">
     
-                  <p class="text-center">
-                      Specialization :  Street art<br>
-                      Street Name : H11235<br>
-                        Awards : 4<br>
-                        Mural  : 7 <br>
-                        Exhibitions : 4<br>
-                    
-                    </p>
-                  <div class="cta">
-        
-                  </div>
-                </a>
+              </div>
             </div>
+          </div>
         </div>
-        <div class="col-md-12" style="text-align: center;">
-              
-            <div *ngFor = "let product of subcategoryProductsList">
-                    <div class="headline" *ngIf="product.subcategoryProducts.length > 0">
-                        <h3>Featured   <strong style="font-weight: bold"> {{product.subcategory}}  Arts </strong></h3>
-                    </div>
-                    <div class="row" *ngIf="product.subcategoryProducts.length > 0" >
-                        <div class="col-md-3 col-sm-6" *ngFor = "let prod of product.subcategoryProducts; let i=index" >
-                          <div *ngIf="i < 4">
-                            <div class="square-card">
-                            <a alt="square card" style="display: block;">
-          
-                              <div class="product-page-single">
-                                <div class="single-product-item">
-          
-                    <div class="product-image-wrap">
-                    <div class="card-header" style="padding: 0%">
-                                        <a><img src="{{prod.image}}" alt="Product image" style="height:100%" ></a>
-                                        </div>
-                                        <div class="product-detail-inner">
-                                            <div class="item-details-overly-info">
-                                                <ul class="list-inline ">
-                                                  
-                                                    <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                                    <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
-                                                   <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-item-details">
-                                        <h2><a (click)="viewProductDetail($event)"><strong id ="{{prod.id}}">{{prod.Name}}</strong></a></h2><br><h2>{{prod.user.fullName}}</h2>
-                                         
-                                        <div class="price-like-box">
-                                            <div class="pull-left item-price">
-                                                <!-- <span class="old-price"><del>$50.00</del></span> -->
-                                                <span class="current-price">{{prod.price}}</span>
-                                            </div>
-                                            <br>
-                                            <div class="row" style="padding:10%">
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                            </div>
-                          </div>
-                          <a id = "{{prod.subCategoryId}}" (click)="showMore($event)" class="btn btn-outline-dark" *ngIf="i == 4" style=""> Show more</a>
-                        </div>   
+
+       
+
+
+
+      <div class="col-md-12" style="text-align: center;">
             
-                      </div>
-                </div>
-        </div>
-  <!--End Artist of week-->
-  <!-- Display of image according to subcategories -->
+          <div *ngFor = "let product of subcategoryProductsList">
+                  <div class="headline" *ngIf="product.subcategoryProducts.length > 0">
+                      <h3>Featured   <strong style="font-weight: bold"> {{product.subcategory}}  Arts </strong></h3>
+                  </div>
+                  <div class="row" *ngIf="product.subcategoryProducts.length > 0" >
+                      <div class="col-md-3 col-sm-6" *ngFor = "let prod of product.subcategoryProducts; let i=index" >
+                        <div *ngIf="i < 4">
+                          <div class="square-card">
+                          <a alt="square card" style="display: block;">
+        
+                            <div class="product-page-single">
+                              <div class="single-product-item">
+        
+                  <div class="product-image-wrap">
+                  <div class="card-header" style="padding: 0%">
+                                      <a><img src="{{prod.image}}" alt="Product image" style="height:100%" ></a>
+                                      </div>
+                                      <div class="product-detail-inner">
+                                          <div class="item-details-overly-info">
+                                              <ul class="list-inline ">
+                                                
+                                                  <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                                  <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
+                                                 <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
+                                              </ul>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="product-item-details">
+                                      <h2><a (click)="viewProductDetail($event)"><strong id ="{{prod.id}}">{{prod.Name}}</strong></a></h2><br><h2>{{prod.user.fullName}}</h2>
+                                       
+                                      <div class="price-like-box">
+                                          <div class="pull-left item-price">
+                                              <!-- <span class="old-price"><del>$50.00</del></span> -->
+                                              <span class="current-price">{{prod.price}}</span>
+                                          </div>
+                                          <br>
+                                          <div class="row" style="padding:10%">
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star"></span>
+                                          <span class="fa fa-star"></span>
+                                      </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          </a>
+                          </div>
+                        </div>
+                        <a id = "{{prod.subCategoryId}}" (click)="showMore($event)" class="btn btn-outline-dark" *ngIf="i == 4" style="color:white"> Show more</a>
+                      </div>   
+          
+                    </div>
+              </div>
+      </div>
+<!--End Artist of week-->
+<!-- Display of image according to subcategories -->
 
   <!-- End of Display of Image according to categories -->
 
-  </div>
-</div>
-<app-footer></app-footer>
+
+<app-footer style="width:100%"></app-footer>
