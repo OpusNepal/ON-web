@@ -19,7 +19,7 @@
                 </div>
               </div>
             <button (click)="verifyProduct(product.id)" class="card__button"><Strong style="color:dimgrey">Verify</Strong></button>
-              <button (click)="rejectProduct(product.id)" class="card__button"><Strong style="color:#d91e18">Reject</Strong></button>
+              <button (click)="setRejectIds(product.id, product.user.id); open(content);" class="card__button" ><Strong style="color:#d91e18">Reject</Strong></button>
             </div>
           </div>
   
@@ -43,7 +43,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" [disabled]= "comment.value.length == 0" (click)="modal.close('Save click'); rejectProduct(comment.value);">Send</button>
+        <button type="button" class="btn btn-success" [disabled]= "comment.value.length == 0" (click)="modal.close('Save click'); rejectProduct(comment.value);">Send</button>
       </div>
     </ng-template>
     
