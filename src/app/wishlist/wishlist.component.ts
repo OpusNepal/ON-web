@@ -40,8 +40,11 @@ export class WishlistComponent implements OnInit {
   removeFromWishList(productId: Number) {
     const { userId } = this.localStorageService.getAuthData();
 
-    this.userService.deleteWishlistItem(userId, productId).subscribe(() => {
+    this.userService.deleteWishlistItem(userId, productId).subscribe((res) => {
       //SUCCESS
+      this.products = this.products.filter((item) => {
+        return item.productId !== productId;
+      });
     });
   }
 
