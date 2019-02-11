@@ -18,7 +18,7 @@
   
           <div class="card__action-bar">
             
-                <button type="button" class="card__button" data-toggle="modal" [attr.data-target]="'#Bio' + artist.id">
+                <button type="button" class="card__button" data-toggle="modal" [attr.data-target]="'#Bio' + artist.id" style="cursor: pointer">
                     <strong style="color:#3a539b">View bio</strong>
                   </button>
                   <div class="modal fade" id="Bio{{artist.id}}">
@@ -31,7 +31,7 @@
             
             
             
-                <button type="button" class="card__button" data-toggle="modal" [attr.data-target]="'#myModal' + artist.id">
+                <button type="button" class="card__button" style="cursor: pointer" data-toggle="modal" [attr.data-target]="'#myModal' + artist.id">
                     <strong style="color:#3a539b">Sample Art</strong> 
                   </button>
                        
@@ -45,7 +45,7 @@
             
          
             
-                <button type="button" class="card__button" data-toggle="modal" [attr.data-target]="'#myModalCV'+artist.id">
+                <button type="button" class="card__button" style="cursor: pointer" data-toggle="modal" [attr.data-target]="'#myModalCV'+artist.id">
                     <strong style="color:#3a539b">View CV</strong>
                   </button>
                   <div class="modal fade" id="myModalCV{{artist.id}}">
@@ -57,8 +57,8 @@
                     </div>
             
         
-        <button (click)="verifyArtist(artist)" class="card__button"><Strong style="color:dimgrey">Verify</Strong></button>
-        <button (click)="open(content); setRejectArtistId(artist.id)" class="card__button"><Strong style="color:#d91e18">Reject</Strong></button>
+        <button (click)="verifyArtist(artist)"  class="card__button"><Strong style="color:dimgrey; cursor:pointer">Verify</Strong></button>
+        <button (click)="open(content); setRejectArtistId(artist.id)" style="cursor: pointer" class="card__button"><Strong style="color:#d91e18">Reject</Strong></button>
          
           </div>
   

@@ -8,11 +8,22 @@
         <p class="card__text"> <a>Email: {{ artist.email }}</a><br>
             <a>Expert: {{ artist.profile.expert }}</a><br>
             <a>Role: {{ artist.profile.role }}</a><br>
-            <a>Phone Number: {{ artist.phone }}</a><br></p>
-
-     
-
+            <a>Phone Number: {{ artist.phone }}</a><br><br>
+            <button (click)="setArtistOfWeek(artist.id)" class="card__button" style="cursor: pointer"><strong>Make Artist of Week</strong> </button>
+          </p>
     </div>
 
   </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ message }}!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="modal.close('Save click'); ">OK</button>
+  </div>
+</ng-template>

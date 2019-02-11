@@ -7,7 +7,7 @@
           <p class="card__text">Availability: {{ product.availability }}</p>
   
           <div class="card__action-bar">
-            <button type="button" class="card__button" data-toggle="modal" [attr.data-target]="'#' + product.id">
+            <button type="button" class="card__button" style="cursor: pointer" data-toggle="modal" [attr.data-target]="'#' + product.id">
                 <strong style="color:#3a539b">View More</strong>
             </button>
             
@@ -18,8 +18,8 @@
                   </div>
                 </div>
               </div>
-            <button (click)="verifyProduct(product.id)" class="card__button"><Strong style="color:dimgrey">Verify</Strong></button>
-              <button (click)="setRejectIds(product.id, product.user.id); open(content);" class="card__button" ><Strong style="color:#d91e18">Reject</Strong></button>
+            <button (click)="verifyProduct(product.id)" class="card__button"><Strong style="color:dimgrey; cursor:pointer">Verify</Strong></button>
+              <button  (click)="setRejectIds(product.id, product.user.id); open(content);" style="cursor: pointer" class="card__button" ><Strong style="color:#d91e18">Reject</Strong></button>
             </div>
           </div>
   
