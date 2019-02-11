@@ -24,6 +24,14 @@ export interface Artist {
     profile: Profile
 }
 
+export interface ArtistOfTheWeek {
+    id: Number
+    created_at: String,
+    updated_at: String,
+    artistId: Number,
+    users: Artist   
+}
+
 export const mockArtists: Artist[] =
 [
     {
@@ -73,3 +81,36 @@ export const mockArtists: Artist[] =
         }
     }
 ]
+
+
+export const artistOfTheWeek = {
+    "id": 2,
+    "created_at": "2019-02-06T15:26:09.137Z",
+    "updated_at": "2019-02-06T15:26:09.137Z",
+    "artistId": 46,
+    "users": {
+        "id": 46,
+        "created_at": "2019-02-02T07:47:03.273Z",
+        "updated_at": "2019-02-07T13:21:33.646Z",
+        "email": "yudeep.rajbhandari@gmail.com",
+        "userType": "artist",
+        "fullName": "Yudeep Rajbhandari",
+        "Phone": "12345",
+        "isVerified": true,
+        "profile": {
+            "id": 28,
+            "created_at": "2019-02-02T07:47:03.287Z",
+            "updated_at": "2019-02-02T07:47:24.293Z",
+            "streetName": "user",
+            "expert": "now",
+            "role": "enough",
+            "bio": "now",
+            "artistId": 46,
+            "CV": "public/uploads/CV/1549093644261Techical-Features-of-Opus-Nepal.pdf",
+            "profilepic": "public/uploads/profilepic/1549093644263minions-despicable-me-2-wallpapers-desktop-backgrounds-1.jpg",
+            "samplepic": "public/uploads/sampleart/1549093644270minions-despicable-me-2-wallpapers-desktop-backgrounds-1.jpg"
+        }
+    }
+    
+}
+

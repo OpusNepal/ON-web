@@ -10,11 +10,16 @@
             <button type="button" class="card__button" style="cursor: pointer" data-toggle="modal" [attr.data-target]="'#' + product.id">
                 <strong style="color:#3a539b">View More</strong>
             </button>
-            
+  
             <div class="modal fade" id="{{product.id}}">
                 <div class="modal-dialog">
                   <div class="modal-content" style="padding: 10%">
-                    <p>bla bla bla</p>
+                    <p>Build on: {{ product.buildOn }}</p>
+                  <p>Artist Name: {{ product.user.fullName }}</p>
+                  <p>Artist e-mail: {{ product.user.email }}</p>
+                  <p>Artist Phone number: {{ product.user.Phone }}</p>
+                  <p>Category: {{ product.subCategory.category.Category }}</p>
+                  <p>Sub-category: {{ product.subCategory.subCategory }}</p>
                   </div>
                 </div>
               </div>
@@ -22,11 +27,7 @@
               <button  (click)="setRejectIds(product.id, product.user.id); open(content);" style="cursor: pointer" class="card__button" ><Strong style="color:#d91e18">Reject</Strong></button>
             </div>
           </div>
-  
-           
         </div>
-      </div>     
-
 
    <ng-template #content let-modal>
       <div class="modal-header">
@@ -45,6 +46,24 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-success" [disabled]= "comment.value.length == 0" (click)="modal.close('Save click'); rejectProduct(comment.value);">Send</button>
       </div>
-    </ng-template>
-    
-  
+    </div>
+  </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Comment:</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <textarea class="form-control" rows="5" id="comment" #comment></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" [disabled]="comment.value.length == 0" (click)="modal.close('Save click'); rejectProduct(comment.value);">Send</button>
+    </div>
+  </ng-template>
