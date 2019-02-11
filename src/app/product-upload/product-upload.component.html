@@ -1,9 +1,7 @@
 <div class="login-page">
-    <div class="card">
-       <div class="card-header">
-         <strong>Upload Product</strong>
-       </div>
-       <div class="card-body">
+    
+    <div class="banner">Upload<strong> Product</strong></div>
+       <div class="form">
            <form [formGroup]="ProductUploadForm" (ngSubmit)="onSubmit()">
              <div class="form-group">
                  <label for="name"class=" form-control-label">Name:</label>
@@ -28,7 +26,7 @@
            
              <div class="form-group">
                <label for="Category">Category:
-                 <select class="form-control" formControlName="Category" [(ngModel)]="selectedCategory"(change)="selectCategory($event)">
+                 <select class="form-control" formControlName="Category" [(ngModel)]="selectedCategory"(change)="selectCategory($event)" style="height:50px">
                    
                    <option [ngValue]="undefined" disabled> Select </option>
                    <option [value]="category.id" *ngFor="let category of Categories">  
@@ -38,7 +36,7 @@
                </label>
              <div class="form-group">
                  <label for="SubCategory">Sub-Category:
-                 <select class="form-control" formControlName="SubCategory" [(ngModel)]="selectedSubCategory"(change)="selectSubCategory($event)">
+                 <select class="form-control" formControlName="SubCategory" [(ngModel)]="selectedSubCategory"(change)="selectSubCategory($event)" style="height:50px">
                    
                    <option [ngValue]="undefined" disabled> Select </option>
                    <option [value]="subcategory.id" *ngFor="let subcategory of SubCategories">  
@@ -54,13 +52,13 @@
              </div>
                
              </div>
-             <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" name="button" [disabled]="!ProductUploadForm.valid">Upload</button>
+             <button type="submit"  name="button" [disabled]="!ProductUploadForm.valid">Upload</button>
              
            </form>
        
          </div>
          
-    </div>
-    
+  
    
    </div>
+   
