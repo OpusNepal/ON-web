@@ -8,6 +8,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ProductUploadComponent } from './product-upload/product-upload.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { AllProductsComponent } from './all-products/all-products.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'upload-product', component: ProductUploadComponent},
   {path: 'profile-page', component: ProfilePageComponent},
   {path: 'product-view', component: ProductViewComponent},
-  {path: 'all-products', component: AllProductsComponent}
+  {path: 'all-products', component: AllProductsComponent},
+  {path: 'cart', component: CartComponent}
 
 ];
 
