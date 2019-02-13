@@ -1,19 +1,38 @@
-<div class="container">
-  <div class="row">
-    <div class="card col-md-4" style="width:400px;" *ngFor="let product of products">
-      <img class="card-img-top" [src]="product.products.image" width="300" height="300" alt="product image">
-      <div class="card-body">
-        <h4 class="card-title">Name: {{ product.products.Name }}</h4>
-        <p class="card-text">Availability: {{ product.products.availability }}</p>
-        <p class="card-text">Price: {{ product.products.price }}</p>
+<div class="container" >
+  <div class="row" >
+<div class="square-card" *ngFor="let product of products" style="background-color: white">
+  <a alt="square card" style="display: block;">
 
-      </div>
+    <div class="product-page-single">
+      <div class="single-product-item">
 
-      <div>
-        <button (click)="addToCart(product.productId)" class="btn btn-success"><span class="fa fa-cart-plus"></span> Add to Cart</button>
-        <button (click)="removeFromWishList(product.productId)" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Remove from Wishlist</button>
+<div class="product-image-wrap">
+<div class="card-header" style="padding: 0%">
+              <a><img [src]="product.products.image" alt="Product image" style="height:100%" ></a>
+              </div>
+      
+          </div>
+          <div class="product-item-details">
+              <h2><a (click)="viewProductDetail($event)"><strong id ="{{product.products.id}}" style="cursor: pointer">{{product.products.Name}}</strong></a></h2><br><h2>Availibility: {{product.products.availability}}</h2>
+               
+              <div class="price-like-box">
+                  <div class="pull-left item-price">
+                      <!-- <span class="old-price"><del>$50.00</del></span> -->
+                      <span class="current-price">Price: {{product.products.price}}</span>
+                  </div>
+                  <br>
+                  <div class="row" style=" text-align: center; display:list-item">
+                   
+                     <button (click)="addToCart(product.productId)" name="button" class="button" style=" margin-right: 2%; "><span class="fa fa-cart-plus"></span>  Add to Cart</button>
+                    
+                     <button (click)="removeFromWishList(product.productId)" name="button" class="button" style=" background-color: rgba(217, 30, 24, 1); "><i class="fa fa-trash"></i>  Remove
+                      </button>
+              </div>
+              </div>
+          </div>
       </div>
-    </div>
   </div>
-</div>
-
+  </a>
+  </div>
+  </div>
+  </div>
