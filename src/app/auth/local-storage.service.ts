@@ -77,4 +77,20 @@ export class LocalStorageService {
     this.userService.isAuthenticated = true;
   }
 
+  saveProductsData(id){
+    localStorage.setItem('productIds',id);
+  }
+  clearProductsData(): void{
+    localStorage.removeItem('productIds');
+  }
+  getProductsData():{productIds} | null{
+    const productIds = localStorage.getItem('productIds');
+    if (!productIds) {
+      return;
+    }
+    return {
+     productIds
+    };
+  }
+
 }
