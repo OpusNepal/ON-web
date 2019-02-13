@@ -89,7 +89,7 @@
                                               <ul class="list-inline ">
                                                 
                                                   <li class="item-add-to-cart"><a href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                                  <li class="item-wishlist"><a href="#" title="Wish list"><i class="fa fa-heart-o"></i></a></li>
+                                                  <li *ngIf="enableWishlist" class="item-wishlist" (click)="addToWishlist(prod.id)"><a title="Wish list"><i class="fa fa-heart-o"></i></a></li>
                                                  <!--  <li class="item-like"><a href="#" title="Like"><i class="fa fa-thumbs-o-up"></i></a></li> -->
                                               </ul>
                                           </div>
@@ -127,7 +127,7 @@
 <!--End Artist of week-->
 <!-- Display of image according to subcategories -->
 
-    <!-- End of Display of Image according to categories -->
+        <!-- End of Display of Image according to categories -->
 
 
 <app-footer style="width:100%"></app-footer>

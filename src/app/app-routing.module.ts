@@ -9,6 +9,7 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
 import { ProductViewComponent } from './product-view/product-view.component';
 import { AllProductsComponent } from './all-products/all-products.component';
 import { CartComponent } from './cart/cart.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'profile-page', component: ProfilePageComponent},
   {path: 'product-view', component: ProductViewComponent},
   {path: 'all-products', component: AllProductsComponent},
-  {path: 'cart', component: CartComponent}
+  {path: 'cart', component: CartComponent},
+  {path: 'wishlist', component: WishlistComponent}
 
 ];
 

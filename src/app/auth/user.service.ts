@@ -5,6 +5,8 @@ import { environment } from '../../environments/environment';
 import { ProfileModel } from '../app-models/profile.model';
 import { ProfilePageModel } from '../app-models/profile-page.model';
 import { ProductOfSubcategory } from '../app-models/productsOfSubcategoryResponse.model';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { WishlistProduct } from '../app-models/wishlist-product';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,7 @@ export class UserService {
 
   isAuthenticated = false;
   private token = '';
+  private allowRating = new BehaviorSubject<boolean>(false);
 
   constructor(public http: HttpClient) { }
 
@@ -67,4 +70,29 @@ export class UserService {
     return this.http.get(environment.api + 'products/' + id);
   }
 
+  rateProduct(rating: Number, productId: Number, userId: Number) {
+    const body = {rating, productId, userId };
+    return this.http.post(environment.api + "products/rating/", body)
+  }
+
+  getAllowRating() {
+    return this.allowRating.asObservable();
+  }
+
+  setAllowRating(flag: boolean) {
+    this.allowRating.next(flag);
+  }
+
+  setWishlistItem(userId: Number, productId: Number) {
+    return this.http.post(environment.api + 'wishlist/', { userId, productId })
+  }
+
+  getWishlistItems(userId: Number): Observable<WishlistProduct[]> {
+    return this.http.get<WishlistProduct[]>(environment.api + `wishlist/${userId}`);
+  }
+
+  deleteWishlistItem(userId: Number, productId: Number) {
+    return this.http.put(environment.api + 'wishlist/delete/', { userId, productId })
+  }
+  
 }

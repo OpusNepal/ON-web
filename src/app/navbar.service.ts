@@ -13,6 +13,7 @@ export class NavbarService {
   private showSignup = new BehaviorSubject<boolean>(true);
   private showCart = new BehaviorSubject<boolean>(false);
   private showUploadProduct = new BehaviorSubject<boolean>(false);
+  private showWishlist = new BehaviorSubject<boolean>(false);
 
   constructor() { }
 
@@ -69,6 +70,14 @@ export class NavbarService {
   
   setShowUploadProduct(flag: boolean) {
     this.showUploadProduct.next(flag)
+  }
+
+  getShowWishlist() {
+    return this.showWishlist.asObservable();
+  }
+
+  setShowWishlist(flag: boolean) {
+    this.showWishlist.next(flag);
   }
 
 }

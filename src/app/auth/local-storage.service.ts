@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserService } from './user.service';
 import { NavbarService } from '../navbar.service';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +48,10 @@ export class LocalStorageService {
       return;
     }
 
-    const { userType } = credentials;
+    let { userType } = credentials;
+
+    console.log(userType)
+    userType = userType.toLowerCase()
     if (userType === 'artist') {
       this.navbarService.setShowProfile(true);
       this.navbarService.setShowCart(false);
@@ -55,14 +59,17 @@ export class LocalStorageService {
       this.navbarService.setShowLogin(false);
       this.navbarService.setShowLogout(true);
       this.navbarService.setShowSignup(false);
-    } else if (userType === 'Customer') {
+      //this.userService.setAllowRating(false);
+      this.navbarService.setShowWishlist(false);
+    } else if (userType === 'customer') {
       this.navbarService.setShowProfile(false);
       this.navbarService.setShowCart(true);
       this.navbarService.setShowDashboard(false);
       this.navbarService.setShowLogin(false);
       this.navbarService.setShowLogout(true);
       this.navbarService.setShowSignup(false);
-      
+      //this.userService.setAllowRating(true);
+      this.navbarService.setShowWishlist(true);
     } else if (userType === 'admin') {
       this.navbarService.setShowProfile(false);
       this.navbarService.setShowCart(false);
@@ -70,7 +77,8 @@ export class LocalStorageService {
       this.navbarService.setShowLogin(false);
       this.navbarService.setShowLogout(true);
       this.navbarService.setShowSignup(false);
-
+      //this.userService.setAllowRating(false);
+      this.navbarService.setShowWishlist(false);
     }
 
     this.userService.setToken(credentials.token);

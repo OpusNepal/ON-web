@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="card col-md-4" style="width:400px;" *ngFor="let product of products">
+      <img class="card-img-top" [src]="product.products.image" width="300" height="300" alt="product image">
+      <div class="card-body">
+        <h4 class="card-title">Name: {{ product.products.Name }}</h4>
+        <p class="card-text">Availability: {{ product.products.availability }}</p>
+        <p class="card-text">Price: {{ product.products.price }}</p>
+
+      </div>
+
+      <div>
+        <button (click)="addToCart(product.productId)" class="btn btn-success"><span class="fa fa-cart-plus"></span> Add to Cart</button>
+        <button (click)="removeFromWishList(product.productId)" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Remove from Wishlist</button>
+      </div>
+    </div>
+  </div>
+</div>
+

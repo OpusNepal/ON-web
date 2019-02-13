@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   SubCategories : ProductSubCategory[];
   List: Array<CategoryAndSubCategoryModel> = [];
 
-  constructor(public localStorage: LocalStorageService, public userService: UserService, public navbarService: NavbarService, public router: Router) { }
+  constructor(public localStorage: LocalStorageService, public userService: UserService, public navbarService: NavbarService, private router: Router) { }
 
   ngOnInit() {
     
@@ -36,11 +36,9 @@ export class HeaderComponent implements OnInit {
           this.SubCategories.forEach(row =>{
            
             model.subcategories.push(row.subCategory);
-            model.subCategoryIds.push(row.id);
           
           });
-          
-         
+             
         });
         this.List.push(model);
       } );
@@ -59,13 +57,8 @@ export class HeaderComponent implements OnInit {
     this.navbarService.setShowProfile(false);
     this.navbarService.setShowCart(false);
     this.navbarService.setShowUploadProduct(false);
-  }
-
-  showProducts(event){
-    console.log(event);
-    var id = event.target.attributes.id.value;
-    console.log(id);
-    this.router.navigate(['all-products'],{queryParams: {subCategoryId : id}});
-  }
+    //this.userService.setAllowRating(false);
+    this.navbarService.setShowWishlist(false);
+    }
   
 }
