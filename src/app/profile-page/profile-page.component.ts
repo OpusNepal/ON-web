@@ -55,9 +55,12 @@ export class ProfilePageComponent implements OnInit {
       
     )
     
-    
-    
-    
+  }
+  viewProductDetail(event){
+    console.log(event);
+    var target = event.target || event.srcElement || event.currentTarget;
+    var id = target.attributes.id.value;
+    this.router.navigate(['product-view'], { queryParams: {productId: id}});
   }
 
 }

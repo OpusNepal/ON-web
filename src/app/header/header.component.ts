@@ -52,6 +52,7 @@ export class HeaderComponent implements OnInit {
 
   logoutEvent(){
     this.localStorage.clearAuthData();
+    this.localStorage.clearProductsData();
     this.navbarService.setShowLogout(false);
     this.navbarService.setShowLogin(true);
     this.navbarService.setShowSignup(true);

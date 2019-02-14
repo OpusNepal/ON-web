@@ -20,7 +20,7 @@ export class LocalStorageService {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     localStorage.removeItem('userId');
-    localStorage.removeItem('userType')
+    localStorage.removeItem('userType');
     this.userService.isAuthenticated = false;
   }
 
