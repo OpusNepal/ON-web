@@ -20,7 +20,7 @@ export class LocalStorageService {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     localStorage.removeItem('userId');
-    localStorage.removeItem('userType')
+    localStorage.removeItem('userType');
     this.userService.isAuthenticated = false;
   }
 
@@ -75,6 +75,22 @@ export class LocalStorageService {
 
     this.userService.setToken(credentials.token);
     this.userService.isAuthenticated = true;
+  }
+
+  saveProductsData(id){
+    localStorage.setItem('productIds',id);
+  }
+  clearProductsData(): void{
+    localStorage.removeItem('productIds');
+  }
+  getProductsData():{productIds} | null{
+    const productIds = localStorage.getItem('productIds');
+    if (!productIds) {
+      return;
+    }
+    return {
+     productIds
+    };
   }
 
 }

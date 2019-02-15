@@ -1,0 +1,88 @@
+<div class="container">
+
+    <div class="row"> 
+         <div class="col-md-6">
+        
+
+             <div class="row">
+                 <h3>  {{products.length}} items in your cart</h3>
+             </div>
+        
+       </div> 
+
+
+       
+  </div>
+<!-- </section> -->
+
+
+    <div class="row">
+        <div class="col-md-11">
+            <div class="table-responsive">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Arts </th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Available</th>
+                            <th scope="col" style="width:10%"></th>
+                            <th scope="col" class="text-right">Price</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody >
+                          <tr *ngFor="let prod of products">
+                            <td><img src="{{prod.image}}" style="width: 25%"> </td>
+                            <td>{{prod.Name}}</td>
+                            
+                            <td> {{prod.availability}}</td>
+                            <td></td>
+                            <!-- <td><input class="form-control" type="text" value="1" ></td> -->
+                            <td class="text-right">{{prod.price}}</td>
+                            <td class="text-right"><button id = "{{prod.id}}" class="btn btn-sm btn-danger"   (click)= "removeFromCart($event)">
+                                <i  id = "{{prod.id}}" class="fa fa-trash"></i> 
+                            </button> </td>
+                        </tr>
+                      
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td>Sub-Total</td>
+                            <td class="text-right">Rs.{{subTotal}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Shipping</td>
+                            <td class="text-right">Rs.{{shipping}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><strong>Total</strong></td>
+                            <td class="text-right"><strong>Rs.{{subTotal + shipping}}</strong></td>
+                        </tr>
+                        
+                    </tbody>
+
+                </table>
+
+            </div>
+                            <div class="pull-right">
+                    <a href="paymentForm.html"><button class="btn btn-primary btn-sm  ">Proceed For Payment</button></a>
+                </div>
+  
+  <a href="demo.html" class="pull-left">Keep Shopping</a>
+        </div>
+</div>
+
+
+</div>
+<app-footer></app-footer>

@@ -19,6 +19,8 @@ import { ProductUploadComponent } from './product-upload/product-upload.componen
 import { AdminModule } from './admin/admin.module';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { AllProductsComponent } from './all-products/all-products.component';
+import { CartComponent } from './cart/cart.component';
+import { PaymentFormComponent } from './payment-form/payment-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { AllProductsComponent } from './all-products/all-products.component';
     FooterComponent,
     ProductUploadComponent,
     ProductViewComponent,
-    AllProductsComponent
+    AllProductsComponent,
+    CartComponent,
+    PaymentFormComponent
     
   ],
   imports: [
