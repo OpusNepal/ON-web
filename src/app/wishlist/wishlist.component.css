@@ -3,6 +3,9 @@
   z-index: 1;
   padding-top: 200px;
 }
+::-moz-list-bullet {
+  display:none;
+}
 .fullscreen {
     width:100%;
   
@@ -434,9 +437,11 @@ body {
         -webkit-transition: all 0.3 ease;
         transition: all 0.3 ease;
         cursor: pointer;
-        margin-bottom: 5%
+        margin-bottom: 5%;
+      
       }
       
       .button:hover,.form button:active,.form button:focus {
         background: #43A047;
       }
+     
