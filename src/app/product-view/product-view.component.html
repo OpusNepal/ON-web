@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6" order="1">
         <br><br>
         <div class="mag watermarked" >
             <img  id="zoom_mw" src="{{productDetails.image}}" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width:542px" data-toggle="magnify" class="image-responsive " ><br><br>
@@ -112,7 +112,7 @@
         </div>
 
     
-<div class="headline" *ngIf="products.length > 0">
+<div  *ngIf="products.length > 0">
     <h2 >More By <b style="font-weight: bold; margin-bottom: 0%">{{productDetails.user.fullName}}</b></h2>
 </div>
 <div class="row"  >
