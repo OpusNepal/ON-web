@@ -61,5 +61,12 @@ export class HeaderComponent implements OnInit {
     //this.userService.setAllowRating(false);
     this.navbarService.setShowWishlist(false);
     }
+
+    showProducts(event){
+      console.log(event);
+      var id = event.target.attributes.id.value;
+      console.log(id);
+      this.router.navigate(['all-products'],{queryParams: {subCategoryId : id}});
+    }
   
 }
