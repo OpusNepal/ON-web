@@ -54,6 +54,7 @@ export class AccountVerificationComponent implements OnInit {
     console.log(comment)
 
     this.adminService.rejectAccount(this.currentRejectArtistId, comment).subscribe(() => {
+      this.artists = this.artists.filter(e => e.id !== this.currentRejectArtistId);
       console.log('Rejected')
     });
     //this.unverifiedArtists = this.unverifiedArtists.filter(item => item.id !== artist.id);
