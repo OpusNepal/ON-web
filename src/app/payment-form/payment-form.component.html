@@ -1,0 +1,354 @@
+<div class="container">
+
+  <div class="headline">
+    <h2>Opus  <b> Check Out </b></h2>
+    <p> Check out to get<br> the prodcut at your doorstep </p>
+  </div>
+                 
+ <div id="modal-3" class="modal" data-modal-effect="slide-top">
+  <div class="modal-content">
+    <h2 class="fs-title">User Information</h2>
+    <h3 class="fs-subtitle">Known our user is crucial</h3>
+    <p>Art is all about knowning who loves them and who make them.Having your information will help us to reach for arts feedback and suggestion and as well as helps us in faster and reliable shipping at your door.</p>
+    <input type="button" name="next" class="next action-button modal-close" value="Got it!">
+  </div>
+ </div>
+</div>
+
+<form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+  <ul id="progressbar">
+    <li class="active">User Information</li>
+  <!--  <li>Coupon </li> -->
+    <li>Billing Methods</li>
+    <li>Billing Recheck</li>
+    <!-- <li>Retention</li> -->
+  </ul>
+</form>
+
+
+
+<!-- USER INFORMATION FIELD SET --> 
+  <fieldset>
+    <h2 class="fs-title">Basic Information</h2>
+    <h3 class="fs-subtitle">We just need some basic information to proceed your payment method</h3>
+  
+
+  
+
+
+      <div class="hs_firstname field hs-form-field">
+      
+        <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983"> Existing User?</label>
+
+
+        <a  href="login.html" id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your full  name" >Click Here </a>
+        <span class="error1" style="display: none;">
+            <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+
+      <p>---------------------------------------OR---------------------------------------------</p>
+
+  <!-- Begin What's Your First Name Field -->
+      <div class="hs_firstname field hs-form-field">
+      
+        <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983"> Full Name *</label>
+
+        <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your full  name" >
+        <span class="error1" style="display: none;">
+            <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+  <!-- End What's Your First Name Field -->
+
+  <!-- Begin What's Your Email Field -->
+      <div class="hs_email field hs-form-field">
+      
+        <label for="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">E-mail Address *</label>
+
+        <input id="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="email" required="required" type="email" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid email address." >
+        <span class="error1" style="display: none;">
+            <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+  <!-- End What's Your Email Field -->
+
+  <!-- Begin Total Number of Constituents in Your Database Field -->
+      <div class="hs_email field hs-form-field hs_total_number_of_constituents_in_your_database">
+      
+        <label for="edit-submitted-constituent-base-total-constituents total_number_of_constituents_in_your_database-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">Phone Number *</label>
+
+        <input id="edit-submitted-constituent-base-total-constituents" class="form-text hs-input" name="total_number_of_constituents_in_your_database" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number" >
+        <span class="error1" style="display: none;">
+            <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+
+
+      <div class="hs_firstname field hs-form-field">
+      
+        <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Country </label>
+
+        <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your country name" >
+        <span class="error1" style="display: none;">
+            <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+
+
+      <div class="hs_email field hs-form-field">
+      
+        <label for="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Street Address *</label>
+
+        <input id="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="name" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid street address." >
+        <span class="error1" style="display: none;">
+            <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+
+
+
+
+      <div class="hs_firstname field hs-form-field">
+      
+        <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">State / Zone *</label>
+
+        <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your state/zone name" >
+        <span class="error1" style="display: none;">
+            <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+
+
+
+      <div class="hs_firstname field hs-form-field">
+      
+        <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Shipping Address</label>
+
+        <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="Fill this if shipping address is different from above address " data-rule-required="true" data-msg-required="Please include your first name" >
+        <span class="error1" style="display: none;">
+            <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+
+
+
+  <!-- End Total Number of Constituents in Your Database Field -->
+  <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
+  <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> What Is This?</div>
+  </fieldset>
+
+  <fieldset>
+    <h2 class="fs-title">Billing Methods </h2>
+    <h3 class="fs-subtitle">Choose any one Paying Methods</h3>
+    
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><input type="radio" name="choice">
+        Cash on Delivery
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        
+        Simply,Pay with cash upon delivery.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><input type="radio" name="choice">
+        Local e-Payments Methods
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        
+        Simply,Pay through eSewa or Khalti.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree"><input type="radio" name="choice">
+        Pay with Cards
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      
+
+
+
+
+
+
+
+    <div class="hs_firstname field hs-form-field">
+          
+            
+                          <h3 class="text-center">Payment Details</h3>
+                          <img class="img-responsive cc-img" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+                      
+
+                                <div class="form-group">
+                                      <label>CARD NUMBER</label>
+                                      <div class="input-group">
+                                          <input type="tel" class="form-control" placeholder="Valid Card Number" />
+                                          <span class="input-group-addon"><span class="fa fa-credit-card"></span></span>
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+                                      <input type="tel" class="form-control" placeholder="MM / YY" />
+                                  </div>
+
+
+                                  <div class="form-group">
+                                      <label>CV CODE</label>
+                                      <input type="tel" class="form-control" placeholder="CVC" />
+                                  </div>
+
+
+
+                                  <div class="form-group">
+                                      <label>CARD OWNER</label>
+                                      <input type="text" class="form-control" placeholder="Card Owner Names" />
+                                  </div>
+
+
+    </div>
+    </div>
+  </div>
+
+  <div class="hs_firstname field hs-form-field">
+        
+          <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983"> Order Note</label>
+
+          <textarea id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="" > Place you sweet message or any notes on delivery  </textarea>
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+  </div>
+
+        <!-- End Average Gift Size Perchent Change Field -->
+    <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+  </fieldset>
+
+
+
+<!-- Cultivation2 FIELD SET --> 
+<fieldset>
+  <h2 class="fs-title">Billing Review</h2>
+  <h3 class="fs-subtitle">Finalize the Payment </h3>
+
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Arts </th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Available</th>
+                            <th scope="col" style="width:10%"></th>
+                            <th scope="col" class="text-right">Price</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                          <tr>
+                            <td><img src="images/thumb/Kiran-3_800x604.jpg" style="width: 150%"> </td>
+                            <td>Beginning</td>
+                          
+                            <td> available</td>
+                            <td><a href="login.html"></a> </td>
+                            <!-- <td><input class="form-control" type="text" value="1" ></td> -->
+                            <td class="text-right">Rs.1,50,000.00</td>
+                            <td class="text-right"><button class="btn btn-sm btn-danger">
+                                <i class="fa fa-trash"></i> 
+                            </button> </td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/thumb/smallRicksaw.png" style="width: 150%" > </td>
+                            <td>Hardworking Nepali </td>
+                            <td> 1 piece only </td>
+                            <td><a href="login.html"></a> </td>
+                            <td class="text-right">Rs.3,550</td>
+                            <td class="text-right"><button class="btn btn-sm btn-danger">
+                                <i class="fa fa-trash"></i> 
+                            </button> </td>
+                        </tr>
+                      
+
+                        
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td>Sub-Total</td>
+                            <td class="text-right">Rs.1,53,500.00</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+
+                            <td></td>
+                            <td>Shipping</td>
+                            <td class="text-right">Rs.200</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><strong>Total</strong></td>
+                            <td class="text-right"><strong>Rs.1,53,700.00</strong></td>
+                        </tr>
+                        
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+
+
+    </div>
+  
+
+  </div>
+
+
+
+
+
+
+            <!-- Begin Total Giving In Year 1 Field -->
+    <div class="form-item webform-component webform-component-textfield" id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field">
+      
+        <label for=" edit-submitted-cultivation-amount-3 total_giving_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">Payment Method choosen : Simply going  to Pay with cash upon delivery.
+        </label>
+
+        
+        <span class="error1" style="display: none;">
+            <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+    </div>
+     
+  <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
+  <input type="button" data-page="3" name="next"  class="next action-button"  value="Place Order" />
+  <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+</fieldset>

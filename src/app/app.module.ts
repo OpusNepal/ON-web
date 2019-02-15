@@ -21,6 +21,7 @@ import { ProductViewComponent } from './product-view/product-view.component';
 import { AllProductsComponent } from './all-products/all-products.component';
 import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { PaymentFormComponent } from './payment-form/payment-form.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     ProductViewComponent,
     AllProductsComponent,
     CartComponent,
-    WishlistComponent
+    WishlistComponent,
+    PaymentFormComponent
     
   ],
   imports: [

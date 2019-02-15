@@ -5,7 +5,9 @@
     
     <div class="form">
         <div class="row" style="margin:0%">
-           
+             <div class="row">
+                 <h3>  {{products.length}} items in your cart</h3>
+             </div>
                 <div class="table-responsive">
     
                     <table class="table table-striped">
@@ -19,48 +21,35 @@
                                
                             </tr>
                         </thead>
-                        <tbody>
-                              <tr>
-                                <td><img src="images/thumb/Kiran-3_800x604.jpg" style="width: 25%"> </td>
-                                <td>Beginning</td>
-                               
-                                <td> available</td>
-                                <td><a href="login.html"></a> </td>
+                        <tbody >
+                              <tr *ngFor="let prod of products">
+                                <td><img src="{{prod.image}}" style="width: 25%"> </td>
+                                <td>{{prod.Name}}</td>
+                                
+                                <td> {{prod.availability}}</td>
+                                <td></td>
                                 <!-- <td><input class="form-control" type="text" value="1" ></td> -->
-                                <td class="text-right">Rs.1,50,000.00</td>
-                                <td class="text-right"><button class="btn btn-sm " style="background-color:red;color:white; border-color: white">
-                                    <i class="fa fa-trash"></i> 
-                                </button> </td>
-                            </tr>
-                            <tr>
-                                <td><img src="images/thumb/smallRicksaw.png" style="width: 25%" > </td>
-                                <td>Hardworking Nepali </td>
-                                <td> 1 piece only </td>
-                                <td><a href="login.html"></a> </td>
-                                <td class="text-right">Rs.3,550.00</td>
-                                <td class="text-right"><button class="btn btn-sm " style="background-color:red;color:white;border-color: white">
-                                    <i class="fa fa-trash"></i> 
+                                <td class="text-right">{{prod.price}}</td>
+                                <td class="text-right"><button id = "{{prod.id}}" class="btn btn-sm btn-danger"   (click)= "removeFromCart($event)">
+                                    <i  id = "{{prod.id}}" class="fa fa-trash"></i> 
                                 </button> </td>
                             </tr>
                           
-    
-                            
                             <tr>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td> 
                                 <td>Sub-Total</td>
-                                <td class="text-right">Rs.1,53,500.00</td>
+                                <td class="text-right">Rs.{{subTotal}}</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-    
                                 <td></td>
                                 <td>Shipping</td>
-                                <td class="text-right">Rs.200.00</td>
+                                <td class="text-right">Rs.{{shipping}}</td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -68,7 +57,7 @@
                                 <td></td>
                                 <td></td>
                                 <td><strong>Total</strong></td>
-                                <td class="text-right"><strong>Rs.1,57,050.00</strong></td>
+                                <td class="text-right"><strong>Rs.{{subTotal + shipping}}</strong></td>
                             </tr>
                             
                         </tbody>
@@ -85,5 +74,7 @@
           
     </div>
 </div>
-    
-    </div>
+
+
+</div>
+<app-footer></app-footer>

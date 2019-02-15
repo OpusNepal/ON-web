@@ -16,7 +16,7 @@ export class ProductViewComponent implements OnInit {
   userId: number;
   products: Array<UserProductModel> = [];
   productDetails: ProductOfSubcategory;
-  productIds: Array<String> = [];
+  productIds: Array<number> = [];
   isLoggedIn: Boolean = false;
   duplicateProduct : Boolean = false;
 
@@ -76,6 +76,7 @@ export class ProductViewComponent implements OnInit {
       this.productIds.push(productId);
       this.localStorage.saveProductsData(JSON.stringify(this.productIds));
      }
+     this.router.navigate(['/cart']);
     
      
   }
