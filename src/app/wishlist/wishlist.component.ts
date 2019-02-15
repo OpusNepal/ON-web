@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../auth/user.service';
 import { WishlistProduct } from '../app-models/wishlist-product';
 import { LocalStorageService } from '../auth/local-storage.service';
-import { environment } from 'src/environments/environment';;
+import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wishlist',
@@ -13,7 +14,7 @@ export class WishlistComponent implements OnInit {
 
   products: WishlistProduct[]
 
-  constructor(private userService: UserService, private localStorageService: LocalStorageService) { }
+  constructor(private userService: UserService, private localStorageService: LocalStorageService, private router: Router) { }
 
   ngOnInit() {
     if (this.localStorageService.getAuthData()) {
@@ -46,6 +47,11 @@ export class WishlistComponent implements OnInit {
         return item.productId !== productId;
       });
     });
+  }
+
+  viewProductDetail(productId: Number) {
+    // navigate to the profile page
+    this.router.navigate(['product-view'], { queryParams: { productId }});
   }
 
 }
