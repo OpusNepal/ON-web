@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
           this.SubCategories.forEach(row =>{
            
             model.subcategories.push(row.subCategory);
+            model.subCategoryIds.push(row.id);
           
           });
              
@@ -63,9 +64,9 @@ export class HeaderComponent implements OnInit {
     }
 
     showProducts(event){
-      console.log(event);
+      console.log(event.target.attributes.id);
       var id = event.target.attributes.id.value;
-      console.log(id);
+      console.log("<<<<<<<<",id);
       this.router.navigate(['all-products'],{queryParams: {subCategoryId : id}});
     }
   
