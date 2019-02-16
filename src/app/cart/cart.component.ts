@@ -24,21 +24,22 @@ export class CartComponent implements OnInit {
   }
 
   getProducts(){
-    this.products = [];
+  
     this.subTotal = 0;
     this.shipping = 0;
-
-    this.productIds = JSON.parse(this.localStorage.getProductsData().productIds);
-    for(let id of this.productIds){
-      this.userService.getProductDetail(id).subscribe(res => {
-          this.productDetails = res;
-          this.productDetails.image = environment.files + this.productDetails.image;
-          this.subTotal = this.subTotal + Number(this.productDetails.price);
-          console.log(this.subTotal);
-          this.shipping = this.shipping + 100;
-          this.products.push(this.productDetails);
-      });
-      
+    if(this.localStorage.getProductsData() != null){
+      this.productIds = JSON.parse(this.localStorage.getProductsData().productIds);
+      for(let id of this.productIds){
+        this.userService.getProductDetail(id).subscribe(res => {
+            this.productDetails = res;
+            this.productDetails.image = environment.files + this.productDetails.image;
+            this.subTotal = this.subTotal + Number(this.productDetails.price);
+            console.log(this.subTotal);
+            this.shipping = this.shipping + 100;
+            this.products.push(this.productDetails);
+        });
+        
+      }
     }
   }
   removeFromCart(event){
@@ -51,6 +52,7 @@ export class CartComponent implements OnInit {
     );
     console.log(this.productIds);
     this.localStorage.saveProductsData(JSON.stringify(this.productIds));
+    this.products = [];
     this.getProducts();
   }
 
