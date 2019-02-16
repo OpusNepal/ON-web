@@ -111,11 +111,11 @@
 <!-- related arts -->
         </div>
 
-    
-<div  *ngIf="products.length > 0">
+  <br>  
+<div  *ngIf="products.length > 0" style="text-align: center">
     <h2 >More By <b style="font-weight: bold; margin-bottom: 0%">{{productDetails.user.fullName}}</b></h2>
 </div>
-<div class="row"  >
+<div class="row" style="width:100%" >
         <div class="col-md-3 col-sm-6" *ngFor = "let prod of products; let i=index" >
           <div *ngIf="i < 4">
             <div class="square-card">
