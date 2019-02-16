@@ -117,11 +117,9 @@ export class HomePageComponent implements OnInit {
 
   }
   
-  viewProductDetail(event){
-      console.log(event);
-      var target = event.target || event.srcElement || event.currentTarget;
-      var id = target.attributes.id.value;
-      this.router.navigate(['product-view'], { queryParams: {productId: id}});
+  viewProductDetail(productId: Number) {
+    // navigate to the profile page
+    this.router.navigate(['product-view'], { queryParams: { productId }});
   }
   showMore(event){
     console.log(event);
