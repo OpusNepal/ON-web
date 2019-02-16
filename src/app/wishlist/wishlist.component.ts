@@ -46,6 +46,10 @@ export class WishlistComponent implements OnInit {
       this.products = this.products.filter((item) => {
         return item.productId !== productId;
       });
+
+      if (this.products.length <= 0) {
+        
+      }
     });
   }
 

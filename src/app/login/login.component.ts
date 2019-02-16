@@ -61,8 +61,10 @@ export class LoginComponent implements OnInit {
       this.navbarService.setShowSignup(false);
       this.navbarService.setShowLogout(true);
 
+      console.log("UserType-----------", userType)
       if (userType === 'artist') {
         this.navbarService.setShowProfile(true)
+        this.navbarService.setShowUploadProduct(true);
         //this.userService.setAllowRating(false);
       } else if (userType === 'admin') {
         this.navbarService.setShowDashboard(true);
