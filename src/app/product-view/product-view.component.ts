@@ -15,7 +15,7 @@ export class ProductViewComponent implements OnInit {
   id: number;
   userId: number;
   products: Array<UserProductModel> = [];
-  productDetails: ProductOfSubcategory;
+  productDetails: any;
   productIds: Array<number> = [];
   isLoggedIn: Boolean = false;
   duplicateProduct : Boolean = false;
