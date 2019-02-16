@@ -42,21 +42,20 @@
       </ul>
       <ul class="navbar-nav " style="float:right">
         <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowUploadProduct() | async" routerLink="/upload-product"><strong>Upload Product</strong></a>
+          <a class="nav-link" *ngIf="navbarService.getShowProfile() | async" routerLink="/profile-page"><span class=""></span><strong>Profile</strong></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowProfile() | async" routerLink="/profile-page"><span class=""></span><strong>Profile</strong></a>
+          <a class="nav-link" *ngIf="navbarService.getShowUploadProduct() | async" routerLink="/upload-product"><strong>Upload Product</strong></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" *ngIf="navbarService.getShowLogin() | async" routerLink="/login"><span class="fa fa-sign-in"></span>
           <strong>Login</strong></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowLogout() | async" routerLink="/home" (click)="logoutEvent()"><span
-              class="fa fa-sign-out"></span><strong>Logout</strong></a>
+          <a class="nav-link" *ngIf="navbarService.getShowSignup() | async" routerLink="/signup"><strong>Sign Up</strong></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowSignup() | async" routerLink="/signup"><strong>Sign Up</strong></a>
+          <a class="nav-link" *ngIf="navbarService.getShowWishlist() | async" routerLink="/wishlist"><strong>Wishlist</strong></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" *ngIf="navbarService.getShowCart() | async" routerLink="/cart"><span class="fa fa-cart-plus"></span><strong>Cart</strong></a>
@@ -64,6 +63,11 @@
         <li class="nav-item">
           <a class="nav-link" *ngIf="navbarService.getShowDashboard() | async" routerLink="admin"><strong>Dashboard</strong></a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="navbarService.getShowLogout() | async" routerLink="/home" (click)="logoutEvent()"><span
+              class="fa fa-sign-out"></span><strong>Logout</strong></a>
+        </li>
+       
       </ul>
     </div>
 
