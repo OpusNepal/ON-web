@@ -37,7 +37,7 @@
      
 
       <div class="col-md-3">
-          <div class="square-card">
+          <div *ngIf="artistOfTheWeek" class="square-card">
             <div (click)="showProfileForArtistOfTheWeek()" alt="square card" style="display: block;">
               <div class="card-header">
                 <img [src]="artistOfTheWeek.users.profile.profilepic" class="img-responsive" style="width: 100%">
