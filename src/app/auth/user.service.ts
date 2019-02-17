@@ -7,6 +7,7 @@ import { ProfilePageModel } from '../app-models/profile-page.model';
 import { ProductOfSubcategory } from '../app-models/productsOfSubcategoryResponse.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { WishlistProduct } from '../app-models/wishlist-product';
+import { CustomArt } from '../app-models/custom-art';
 
 @Injectable({
   providedIn: 'root'
@@ -93,6 +94,22 @@ export class UserService {
 
   deleteWishlistItem(userId: Number, productId: Number) {
     return this.http.put(environment.api + 'wishlist/delete/', { userId, productId })
+  }
+
+  requestCustomArt(data: CustomArt) {
+    return this.http.post(environment.api + "customArt", data);
+  }
+
+  getAllCustomArt() {
+    return this.http.get(environment.api + "customArt")
+  }
+
+  getUserCustomArt(userId: Number) {
+    return this.http.get(environment.api + `customArt/${userId}`)
+  }
+
+  deleteCustomArt(artId: Number) {
+    return this.http.put(environment.api + `deletecustomArt/${artId}`, null)
   }
   
 }

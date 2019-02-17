@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,8 @@ import { AllProductsComponent } from './all-products/all-products.component';
 import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
+import { CustomizedArtComponent } from './customized-art/customized-art.component';
+import { CustomizedArtHelpComponent } from './customized-art-help/customized-art-help.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { PaymentFormComponent } from './payment-form/payment-form.component';
     AllProductsComponent,
     CartComponent,
     WishlistComponent,
-    PaymentFormComponent
+    PaymentFormComponent,
+    CustomizedArtComponent,
+    CustomizedArtHelpComponent
     
   ],
   imports: [
@@ -49,7 +54,7 @@ import { PaymentFormComponent } from './payment-form/payment-form.component';
     AuthModule,
     HttpClientModule,
     AdminModule,
-   
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="row">
+    <div class="jubmbotron">
+      <div class="headline">
+        <h2>
+          Get Arts the way you have imagined <br> <br>
+          <a routerLink="/customizedarthelp"><button class="btn btn-primary"> How does customized art works? </button></a>
+        </h2>
+      </div>
+    </div>
+
+  </div>
+  <hr>
+
+
+  <div class="login-page">
+    <div class="form">
+      <form [formGroup]="customArtForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="instruction"> <strong>Instruction </strong>
+            <input type="text" name="instruction" class="form-control" value="" formControlName="instruction"
+              placeholder="Describe your art...">
+          </label>
+        </div>
+        <div *ngIf="instruction.invalid && (instruction.dirty || instruction.touched)" class="alert alert-danger">
+          Instruction is required
+        </div>
+
+        <div class="form-group">
+          <label for="referenceArt"> <strong>Upload reference Art</strong>
+            <input type="file" name="referenceArt" value="" class="form-control" formControlName="referenceArt"
+              placeholder="Select reference art">
+          </label><br>
+          <span>Upload sample as referece for Artist</span>
+        </div>
+
+        <div class="form-group">
+          <label for="preferredArtistName"> <strong> Select your preferred artist if any</strong>
+            <input type="text" name="preferredArtistName" value="" class="form-control" formControlName="preferredArtistName"
+              placeholder="Select your preferred artist">
+          </label><br>
+          <span>Send us your prefered artist name</span>
+        </div>
+
+        <div class="form-group">
+          <label for="framing"><strong>Framing</strong>
+            <select class="form-control" formControlName="framing" style="height:50px">
+              <option value="No framing" [selected]="true">No framing</option>
+              <option value="Hardwood">Hardwood</option>
+              <option value="Welded steel">Welded steel</option>
+              <option value="Hand-carved">Hand-carved</option>
+              <option value="Gold and Silver leaf gilt">Gold and Silver leaf gilt</option>
+            </select>
+          </label><br>
+          <span>We can frame it,Choose any framing option or just ship it rolled in a tube.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="deliveryDeadline"><strong>Delivery Deadline</strong>
+            <select class="form-control" formControlName="deliveryDeadline" style="height:50px">
+              <option value="no" [selected]="true">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </label><br>
+          <span>Do you need to receive your painting by a specific date?</span>
+        </div>
+
+        <div class="form-group" *ngIf="showSelectDate">
+          <label for="deliveryDeadlineDate">
+            <div class="input-group">
+              <input class="form-control" placeholder="yyyy-mm-dd" name="deliveryDeadlineDate" formControlName="deliveryDeadlineDate"
+                ngbDatepicker #d="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+              </div>
+            </div>
+          </label>
+          <br>
+          <span>**A delivery deadline may reduce the pool of interested artists. For maximum quality, select the latest
+            possible date.**</span>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" name="button" [disabled]="!customArtForm.valid">Submit
+          request</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+</div>
