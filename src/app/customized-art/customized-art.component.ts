@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import {Observable} from 'rxjs';
+import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
+import { UserService } from '../auth/user.service';
+import { CustomArt } from '../app-models/custom-art';
+import { LocalStorageService } from '../auth/local-storage.service';
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 
 
 @Component({
@@ -9,51 +15,147 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 })
 export class CustomizedArtComponent implements OnInit {
 
+  @ViewChild('content')
+  private content;
+
   customArtForm: FormGroup;
   showSelectDate = false;
 
-  instruction:FormControl
-  referenceArt:FormControl
+  description:FormControl
+  image:FormControl
   preferredArtistName: FormControl
   framing: FormControl
-  deliveryDeadline: FormControl
-  deliveryDeadlineDate: FormControl
+  // deliveryDeadline: FormControl
+  // deliveryDeadlineDate: FormControl
+  address_line_1: FormControl
+  address_line_2: FormControl
+  country: FormControl
+  city: FormControl
+  province: FormControl
+  postal_code: FormControl
+  alt_phone: FormControl
+  alt_address: FormControl
 
-  constructor(private formBuilder: FormBuilder) { }
+  artists = [];
+  artistsList = [];
+
+  refImage: File
+
+  search = (text$: Observable<string>) =>
+    text$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      map(term => term.length < 2 ? []
+        : this.artists.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+    )
+
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private localStorageService: LocalStorageService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.createForm();
+    this.userService.getNamesOfVerifiedArtist().subscribe((res) => {
+      console.log(res)
+      this.artistsList = res;
+      this.artists = this.artistsList.map((artist) => {
+        return artist.fullName
+      });
+    });
   }
 
   private createForm(): void {
 
-    this.instruction = this.formBuilder.control('', Validators.required)
-    this.referenceArt = this.formBuilder.control('')
+    this.description = this.formBuilder.control('', Validators.required)
+    this.image = this.formBuilder.control('')
     this.preferredArtistName = this.formBuilder.control('')
     this.framing = this.formBuilder.control('No Framing')
-    this.deliveryDeadline = this.formBuilder.control('no')
-    this.deliveryDeadlineDate = this.formBuilder.control('');
+    // this.deliveryDeadline = this.formBuilder.control('no')
+    // this.deliveryDeadlineDate = this.formBuilder.control('')
+    this.address_line_1 = this.formBuilder.control('', Validators.required)
+    this.address_line_2 = this.formBuilder.control('')
+    this.country = this.formBuilder.control('', Validators.required)
+    this.city = this.formBuilder.control('')
+    this.province = this.formBuilder.control('')
+    this.postal_code = this.formBuilder.control('')
+    this.alt_phone = this.formBuilder.control('')
+    this.alt_address = this.formBuilder.control('')
+  
+
 
     this.customArtForm = this.formBuilder.group({
-      instruction: this.instruction,
-      referenceArt:this.referenceArt,
+      description: this.description,
+      image:this.image,
       preferredArtistName: this.preferredArtistName,
       framing: this.framing,
-      deliveryDeadline: this.deliveryDeadline,
-      deliveryDeadlineDate: this.deliveryDeadlineDate
+      address_line_1: this.address_line_1,
+      address_line_2: this.address_line_2,
+      country: this.country,
+      province: this.province,
+      postal_code: this.postal_code,
+      alt_phone: this.alt_phone,
+      alt_address: this.alt_address,
+      city: this.city
+      // deliveryDeadline: this.deliveryDeadline,
+      // deliveryDeadlineDate: this.deliveryDeadlineDate
     });
 
-    this.deliveryDeadline.valueChanges.subscribe((value) => {
-      if (value === 'yes') {
-        this.showSelectDate = true
-      } else if (value === 'no') {
-        this.showSelectDate = false
-      }
-    });
+    // this.deliveryDeadline.valueChanges.subscribe((value) => {
+    //   if (value === 'yes') {
+    //     this.showSelectDate = true
+    //   } else if (value === 'no') {
+    //     this.showSelectDate = false
+    //   }
+    // });
   }
 
   onSubmit() {
-    console.log(this.customArtForm.value);
+    const {preferredArtistName} = this.customArtForm.value
+
+    const artist = this.artistsList.find(item => preferredArtistName === item.fullName)
+
+    if(!artist) {
+      return
+    }
+
+    const { userId } = this.localStorageService.getAuthData()
+
+    delete this.customArtForm.value["preferredArtistName"]
+    const data: CustomArt = {
+      ... this.customArtForm.value,
+      artistId: artist.id,
+      buyerId: userId
+    }
+
+    console.log(data)
+
+    const formData = new FormData()
+    formData.append('address_line_1', data.address_line_1);
+    formData.append('address_line_2', data.address_line_2);
+    formData.append('alt_address', data.alt_address);
+    formData.append('artistId', artist.id);
+    formData.append('buyerId', userId);
+    formData.append('city', data.city);
+    formData.append('country', data.country);
+    formData.append('description', data.description);
+    formData.append('framing', data.framing);
+    formData.append('image', this.refImage);
+    formData.append('postal_code', data.postal_code.toString())
+    formData.append('alt_phone', data.alt_phone)
+    formData.append('province', data.province)
+
+    this.userService.requestCustomArt(formData).subscribe(() => {
+      console.log('Success')
+      this.open(this.content)
+    });
+
+    
+  }
+
+  onProductSelect(event){
+    this.refImage = event.target.files[0];
+  }
+
+  open(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title'})
   }
 
 }

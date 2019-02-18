@@ -1,7 +1,15 @@
 export interface CustomArt {
     image: File,
-    arttistId: Number,
+    artistId: Number,
     buyerId: Number,
     description: string,
     framing: string,
+    address_line_1: string,
+    address_line_2: string,
+    country: string,
+    city: string,
+    province: string,
+    postal_code: Number,
+    alt_phone: string,
+    alt_address: string,
 }

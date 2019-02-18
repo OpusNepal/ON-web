@@ -96,7 +96,7 @@ export class UserService {
     return this.http.put(environment.api + 'wishlist/delete/', { userId, productId })
   }
 
-  requestCustomArt(data: CustomArt) {
+  requestCustomArt(data) {
     return this.http.post(environment.api + "customArt", data);
   }
 
@@ -112,4 +112,7 @@ export class UserService {
     return this.http.put(environment.api + `deletecustomArt/${artId}`, null)
   }
   
+  getNamesOfVerifiedArtist() {
+    return this.http.get<any[]>(environment.api + 'users/getAllArtist')
+  }
 }
