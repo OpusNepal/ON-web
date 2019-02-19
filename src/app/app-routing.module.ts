@@ -13,6 +13,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { CustomizedArtComponent } from './customized-art/customized-art.component';
 import { CustomizedArtHelpComponent } from './customized-art-help/customized-art-help.component';
+import { MyCustomArtComponent } from './my-custom-art/my-custom-art.component';
 
 
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: 'wishlist', component: WishlistComponent},
   {path: 'paymentGateway', component: PaymentFormComponent},
   {path: 'customizedart', component: CustomizedArtComponent},
-  {path: 'customizedarthelp', component: CustomizedArtHelpComponent}
+  {path: 'customizedarthelp', component: CustomizedArtHelpComponent},
+  {path: 'mycustomart', component: MyCustomArtComponent}
 ];
 
 @NgModule({

@@ -25,6 +25,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { CustomizedArtComponent } from './customized-art/customized-art.component';
 import { CustomizedArtHelpComponent } from './customized-art-help/customized-art-help.component';
+import { MyCustomArtComponent } from './my-custom-art/my-custom-art.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CustomizedArtHelpComponent } from './customized-art-help/customized-art
     WishlistComponent,
     PaymentFormComponent,
     CustomizedArtComponent,
-    CustomizedArtHelpComponent
+    CustomizedArtHelpComponent,
+    MyCustomArtComponent
     
   ],
   imports: [

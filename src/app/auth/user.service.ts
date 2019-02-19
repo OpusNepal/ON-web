@@ -8,6 +8,7 @@ import { ProductOfSubcategory } from '../app-models/productsOfSubcategoryRespons
 import { BehaviorSubject, Observable } from 'rxjs';
 import { WishlistProduct } from '../app-models/wishlist-product';
 import { CustomArt } from '../app-models/custom-art';
+import { MyCustomArt } from '../app-models/my-custom-art';
 
 @Injectable({
   providedIn: 'root'
@@ -104,8 +105,8 @@ export class UserService {
     return this.http.get(environment.api + "customArt")
   }
 
-  getUserCustomArt(userId: Number) {
-    return this.http.get(environment.api + `customArt/${userId}`)
+  getUserCustomArt(userId: Number): Observable<MyCustomArt[]> {
+    return this.http.get<MyCustomArt[]>(environment.api + `customArt/${userId}`)
   }
 
   deleteCustomArt(artId: Number) {
