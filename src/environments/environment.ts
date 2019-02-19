@@ -9,6 +9,7 @@ export const environment = {
   // api: "https://artysnepal.herokuapp.com/api/",
   public: "http://68.183.82.137:8848/"
 
+
 };
 
 /*
