@@ -1,0 +1,67 @@
+<div class="container helper">
+  <div class="row" *ngIf="undeliveredArts && undeliveredArts.length > 0; else nopendingart">
+    <div class="card card--big" *ngFor="let undeliveredArt of undeliveredArts">
+      <img class="card__image" [src]="undeliveredArt.Image" alt="custom_art_image">
+
+      <h2 class="card__title">Framing: {{ undeliveredArt.Framing }}</h2>
+      <p class="card__text">Preferred Artist: {{ undeliveredArt.artist.fullName }}</p>
+      <p class="card__text">Description: {{ undeliveredArt.description }}</p>
+      <p class="card__text">Delivered: No</p>
+      
+
+      <div class="card__action-bar">
+        <button (click)="setArtId(undeliveredArt.id); open(content);" style="cursor: pointer" class="card__button"><Strong
+            style="color:#d91e18">Change Status</Strong></button>
+            <button (click)="setArtId(undeliveredArt.id); open(delete);" style="cursor: pointer" class="card__button"><Strong
+              style="color:#d91e18">Delete</Strong></button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<ng-template #nopendingart>
+  <h2>No pending delivery remaining!</h2>
+</ng-template>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Are you sure?</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close(''); changeStatus();">Change Status</button>
+  </div>
+</ng-template>
+
+<ng-template #delete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Are you sure?</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close(''); deleteArt();">Delete Art</button>
+  </div>
+</ng-template>
+
+<ng-template #success let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Success</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <h3>{{ message }}</h3>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('');">OK</button>
+  </div>
+</ng-template>
+

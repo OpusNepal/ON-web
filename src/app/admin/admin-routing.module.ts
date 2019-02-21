@@ -6,6 +6,8 @@ import { ImageVerificationComponent } from './image-verification/image-verificat
 import { CurrentArtistComponent } from './current-artist/current-artist.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { AddSubcategoryComponent } from './add-subcategory/add-subcategory.component';
+import { DeliveredArtsComponent } from './delivered-arts/delivered-arts.component';
+import { NotDeliveredArtsComponent } from './not-delivered-arts/not-delivered-arts.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
       {
         path: 'addsubcategory',
         component: AddSubcategoryComponent
+      },
+      {
+        path: 'deliveredarts',
+        component: DeliveredArtsComponent
+      },
+      {
+        path: 'notdeliveredarts',
+        component: NotDeliveredArtsComponent
       }
     ]
   }
