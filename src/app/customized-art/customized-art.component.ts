@@ -65,7 +65,7 @@ export class CustomizedArtComponent implements OnInit {
   private createForm(): void {
 
     this.description = this.formBuilder.control('', Validators.required)
-    this.image = this.formBuilder.control('')
+    this.image = this.formBuilder.control('', Validators.required)
     this.preferredArtistName = this.formBuilder.control('')
     this.framing = this.formBuilder.control('No Framing')
     // this.deliveryDeadline = this.formBuilder.control('no')

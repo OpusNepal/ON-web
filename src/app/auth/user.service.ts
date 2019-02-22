@@ -110,7 +110,7 @@ export class UserService {
   }
 
   deleteCustomArt(artId: Number) {
-    return this.http.put(environment.api + `deletecustomArt/${artId}`, null)
+    return this.http.put(environment.api + `customArt/deletecustomArt/${artId}`, null)
   }
   
   getNamesOfVerifiedArtist() {

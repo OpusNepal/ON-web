@@ -69,7 +69,10 @@ export class AdminService {
   }
 
   changeDeliveryStatus(artId: Number, status: boolean) {
-    return this.http.put(environment.api + `admin/customizedArtdelivery/${artId}`, { status})
+    const body = {
+      status: status
+    }
+    return this.http.put(environment.api + `customArt/changeDeliveryStatus/${artId}`, body)
   }
 
 }
