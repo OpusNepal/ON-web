@@ -44,13 +44,7 @@
                             </span>
                         </a>
                     </li>
-                    <li role="presentation" >
-                        <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
-                            <span class="round-tab">
-                                <i class="	fa fa-bullhorn"></i>
-                            </span>
-                        </a>
-                    </li>
+                   
 
                     <li role="presentation" >
                         <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
@@ -87,134 +81,137 @@
                               <span>Upload sample as referece for Artist</span>
                             </div>
                     
-                            <div class="form-group">
-                              <label for="preferredArtistName"> <strong> Select your preferred artist if any</strong>
-                                <input type="text" name="preferredArtistName" value="" class="form-control" formControlName="preferredArtistName"
-                                   [ngbTypeahead]="search">
-                              </label><br>
-                              <span>Send us your prefered artist name</span>
-                            </div>
+                   
                     
-                            <div class="form-group">
-                              <label for="framing"><strong>Framing</strong>
-                                <select class="form-control" formControlName="framing" style="height:50px">
-                                  <option value="No framing" [selected]="true">No framing</option>
-                                  <option value="Hardwood">Hardwood</option>
-                                  <option value="Welded steel">Welded steel</option>
-                                  <option value="Hand-carved">Hand-carved</option>
-                                  <option value="Gold and Silver leaf gilt">Gold and Silver leaf gilt</option>
-                                </select>
-                              </label><br>
-                              <span>We can frame it,Choose any framing option or just ship it rolled in a tube.</span>
-                            </div>
-                    
-                            <div class="form-group">
-                              <label for="address_line_1"> <strong> Address Line 1</strong>
-                                <input type="text" name="address_line_1" value="" class="form-control" formControlName="address_line_1"
-                                  placeholder="">
-                              </label><br>
-                            </div>
-                    
-                    
-                            <div class="form-group">
-                              <label for="address_line_2"> <strong> Address Line 2</strong>
-                                <input type="text" name="address_line_2" value="" class="form-control" formControlName="address_line_2"
-                                  placeholder="">
-                              </label><br>
-                            </div>
-                    
-                            <div class="form-group">
-                              <label for="country"> <strong> Country</strong>
-                                <input type="text" name="country" value="" class="form-control" formControlName="country" placeholder="">
-                              </label><br>
-                            </div>
-                    
-                            <div class="form-group">
-                              <label for="city"> <strong> City</strong>
-                                <input type="text" name="city" value="" class="form-control" formControlName="city" placeholder="">
-                              </label><br>
-                            </div>
-                    
-                            <div class="form-group">
-                              <label for="province"> <strong> Province</strong>
-                                <input type="text" name="province" value="" class="form-control" formControlName="province" placeholder="">
-                              </label><br>
-                            </div>
-                    
-                            <div class="form-group">
-                              <label for="postal_code"> <strong> Postal code</strong>
-                                <input type="number" name="postal_code" value="" class="form-control" formControlName="postal_code"
-                                  placeholder="">
-                              </label><br>
-                            </div>
-                    
-                            <div class="form-group">
-                              <label for="alt_phone"> <strong> Alt Phone</strong>
-                                <input type="number" name="alt_phone" value="" class="form-control" formControlName="alt_phone" placeholder="">
-                              </label><br>
-                            </div>
-                    
-                    
-                            <div class="form-group">
-                              <label for="alt_address"> <strong> Alt address</strong>
-                                <input type="text" name="alt_address" value="" class="form-control" formControlName="alt_address"
-                                  placeholder="">
-                              </label><br>
-                            </div>
-                    
-                    
-                            <!-- <div class="form-group">
-                              <label for="deliveryDeadline"><strong>Delivery Deadline</strong>
-                                <select class="form-control" formControlName="deliveryDeadline" style="height:50px">
-                                  <option value="no" [selected]="true">No</option>
-                                  <option value="yes">Yes</option>
-                                </select>
-                              </label><br>
-                              <span>Do you need to receive your painting by a specific date?</span>
-                            </div>
-                    
-                            <div class="form-group" *ngIf="showSelectDate">
-                              <label for="deliveryDeadlineDate">
-                                <div class="input-group">
-                                  <input class="form-control" placeholder="yyyy-mm-dd" name="deliveryDeadlineDate" formControlName="deliveryDeadlineDate"
-                                    ngbDatepicker #d="ngbDatepicker">
-                                  <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
-                                  </div>
-                                </div>
-                              </label>
-                              <br>
-                              <span>**A delivery deadline may reduce the pool of interested artists. For maximum quality, select the latest
-                                possible date.**</span>
-                            </div> -->
-                    
-                            <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" name="button" [disabled]="!customArtForm.valid">Submit
-                              request</button>
                     
                           </form>
                         </div>
                       </div>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="step2">
-                        <h3>Step 2</h3>
-                        <p>This is step 2</p>
-                        <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                        </ul>
+                        <div class="login-page">
+    
+                            <div class="form">
+                              <form [formGroup]="customArtForm" (ngSubmit)="onSubmit()">
+                                  <div class="form-group">
+                                      <label for="preferredArtistName"> <strong> Select your preferred artist if any</strong>
+                                        <input type="text" name="preferredArtistName" value="" class="form-control" formControlName="preferredArtistName"
+                                           [ngbTypeahead]="search">
+                                      </label><br>
+                                      <span>Send us your prefered artist name</span>
+                                    </div>
+                            
+                                    <div class="form-group">
+                                      <label for="framing"><strong>Framing</strong>
+                                        <select class="form-control" formControlName="framing" style="height:50px">
+                                          <option value="No framing" [selected]="true">No framing</option>
+                                          <option value="Hardwood">Hardwood</option>
+                                          <option value="Welded steel">Welded steel</option>
+                                          <option value="Hand-carved">Hand-carved</option>
+                                          <option value="Gold and Silver leaf gilt">Gold and Silver leaf gilt</option>
+                                        </select>
+                                      </label><br>
+                                      <span>We can frame it,Choose any framing option or just ship it rolled in a tube.</span>
+                                    </div>
+                                </form>
+                                </div>
+</div>
+                              
+                            
                     </div>
-                    <div class="tab-pane" role="tabpanel" id="step3">
-                        <h3>Step 3</h3>
-                        <p>This is step 3</p>
-                        <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                            <li><button type="button" class="btn btn-default next-step">Skip</button></li>
-                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
-                        </ul>
-                    </div>
+                   
                     <div class="tab-pane" role="tabpanel" id="complete">
-                        <h3>Complete</h3>
-                        <p>You have successfully completed all steps.</p>
+                        <div class="login-page">
+    
+                            <div class="form">
+                              <form [formGroup]="customArtForm" (ngSubmit)="onSubmit()">
+                              
+                            <div class="form-group">
+                                <label for="address_line_1"> <strong> Address Line 1</strong>
+                                  <input type="text" name="address_line_1" value="" class="form-control" formControlName="address_line_1"
+                                    placeholder="">
+                                </label><br>
+                              </div>
+                      
+                      
+                              <div class="form-group">
+                                <label for="address_line_2"> <strong> Address Line 2</strong>
+                                  <input type="text" name="address_line_2" value="" class="form-control" formControlName="address_line_2"
+                                    placeholder="">
+                                </label><br>
+                              </div>
+                      
+                              <div class="form-group">
+                                <label for="country"> <strong> Country</strong>
+                                  <input type="text" name="country" value="" class="form-control" formControlName="country" placeholder="">
+                                </label><br>
+                              </div>
+                      
+                              <div class="form-group">
+                                <label for="city"> <strong> City</strong>
+                                  <input type="text" name="city" value="" class="form-control" formControlName="city" placeholder="">
+                                </label><br>
+                              </div>
+                      
+                              <div class="form-group">
+                                <label for="province"> <strong> Province</strong>
+                                  <input type="text" name="province" value="" class="form-control" formControlName="province" placeholder="">
+                                </label><br>
+                              </div>
+                      
+                              <div class="form-group">
+                                <label for="postal_code"> <strong> Postal code</strong>
+                                  <input type="number" name="postal_code" value="" class="form-control" formControlName="postal_code"
+                                    placeholder="">
+                                </label><br>
+                              </div>
+                      
+                              <div class="form-group">
+                                <label for="alt_phone"> <strong> Alt Phone</strong>
+                                  <input type="number" name="alt_phone" value="" class="form-control" formControlName="alt_phone" placeholder="">
+                                </label><br>
+                              </div>
+                      
+                      
+                              <div class="form-group">
+                                <label for="alt_address"> <strong> Alt address</strong>
+                                  <input type="text" name="alt_address" value="" class="form-control" formControlName="alt_address"
+                                    placeholder="">
+                                </label><br>
+                              </div>
+                      
+                      
+                              <!-- <div class="form-group">
+                                <label for="deliveryDeadline"><strong>Delivery Deadline</strong>
+                                  <select class="form-control" formControlName="deliveryDeadline" style="height:50px">
+                                    <option value="no" [selected]="true">No</option>
+                                    <option value="yes">Yes</option>
+                                  </select>
+                                </label><br>
+                                <span>Do you need to receive your painting by a specific date?</span>
+                              </div>
+                      
+                              <div class="form-group" *ngIf="showSelectDate">
+                                <label for="deliveryDeadlineDate">
+                                  <div class="input-group">
+                                    <input class="form-control" placeholder="yyyy-mm-dd" name="deliveryDeadlineDate" formControlName="deliveryDeadlineDate"
+                                      ngbDatepicker #d="ngbDatepicker">
+                                    <div class="input-group-append">
+                                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                                    </div>
+                                  </div>
+                                </label>
+                                <br>
+                                <span>**A delivery deadline may reduce the pool of interested artists. For maximum quality, select the latest
+                                  possible date.**</span>
+                              </div> -->
+                      
+                              <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" name="button" [disabled]="!customArtForm.valid">Submit
+                                request</button>
+                                </form>
+                                </div>
+</div>
+        
                     </div>
                     <div class="clearfix"></div>
                 </div>
