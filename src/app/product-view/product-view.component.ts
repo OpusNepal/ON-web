@@ -87,4 +87,10 @@ export class ProductViewComponent implements OnInit {
     this.router.navigate(['product-view'], { queryParams: {productId: id}});
 }
 
+viewProfile(event){
+  console.log(event);
+  let artistId = event.target.id;
+  this.router.navigate(['profile-page'],{queryParams:{id: artistId}});
+}
+
 }
