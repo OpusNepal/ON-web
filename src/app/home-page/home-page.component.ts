@@ -53,7 +53,7 @@ export class HomePageComponent implements OnInit {
           this.productSubCategories = res;
           this.productSubCategories.forEach(row =>{
             let subcategoryProduct: SubcategoryProducts = new SubcategoryProducts();
-            // console.log(row.subCategory);
+            console.log(row.subCategory);
             subcategoryProduct.subcategory = row.subCategory;
             this.userService.getProductsOfSubCategory(row.id).subscribe(
               res =>{
@@ -62,7 +62,7 @@ export class HomePageComponent implements OnInit {
                   row.image = environment.files + row.image;
                   subcategoryProduct.subcategoryProducts.push(row);
                 });
-                // console.log(subcategoryProduct);
+                console.log(subcategoryProduct);
                 this.subcategoryProductsList.push(subcategoryProduct);
               }
             );
@@ -70,7 +70,7 @@ export class HomePageComponent implements OnInit {
           });
   
         });
-        // console.log(this.subcategoryProductsList);
+        console.log(this.subcategoryProductsList);
 
         // this.userService.getAllowRating().subscribe((res) => {
         //   if(!res) {

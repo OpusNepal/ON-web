@@ -4,6 +4,7 @@ import { UserService } from '../auth/user.service';
 import { ProductOfSubcategory } from '../app-models/productsOfSubcategoryResponse.model';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { LocalStorageDataModel } from '../app-models/localStorageData.model';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  productIds: Array<number>;
+  productIds: Array<LocalStorageDataModel> = [];
   productDetails: any;
   products: Array<any> = [];
   subTotal: number = 0;
@@ -30,11 +31,12 @@ export class CartComponent implements OnInit {
     this.shipping = 0;
     if(this.localStorage.getProductsData() != null){
       this.productIds = JSON.parse(this.localStorage.getProductsData().productIds);
-      for(let id of this.productIds){
-        this.userService.getProductDetail(id).subscribe(res => {
+      for(let prod of this.productIds){
+        this.userService.getProductDetail(prod.id).subscribe(res => {
             this.productDetails = res;
             this.productDetails.image = environment.files + this.productDetails.image;
-            this.subTotal = this.subTotal + Number(this.productDetails.price);
+            this.productDetails.quantity = prod.quantity;
+            this.subTotal = this.subTotal + Number(this.productDetails.price * this.productDetails.quantity);
             console.log(this.subTotal);
             this.shipping = this.shipping + 100;
             this.products.push(this.productDetails);
@@ -48,7 +50,7 @@ export class CartComponent implements OnInit {
     let prodId = event.target.id;
     console.log(prodId);
     this.productIds = this.productIds.filter(item => 
-      item !== prodId
+      item.id !== prodId
     
     );
     console.log(this.productIds);
@@ -58,6 +60,22 @@ export class CartComponent implements OnInit {
   }
   checkout(){
     this.router.navigate(['paymentGateway']);
+  }
+  quantityChange(event){
+    console.log(event);
+    var id = event.target.id;
+    var changedQuantity = event.target.value;
+    var value = JSON.parse(this.localStorage.getProductsData().productIds);
+    for(let val of value){
+      if(val.id == id)
+      {
+        console.log("value found");
+        val.quantity = changedQuantity;
+      }
+    }
+    this.localStorage.saveProductsData(JSON.stringify(value));
+    this.products = [];
+    this.getProducts();
   }
 
 }
