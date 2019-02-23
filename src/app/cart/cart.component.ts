@@ -3,6 +3,7 @@ import { LocalStorageService } from '../auth/local-storage.service';
 import { UserService } from '../auth/user.service';
 import { ProductOfSubcategory } from '../app-models/productsOfSubcategoryResponse.model';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +18,7 @@ export class CartComponent implements OnInit {
   shipping: number = 0;
 
 
-  constructor(public localStorage: LocalStorageService, public userService: UserService) { }
+  constructor(public localStorage: LocalStorageService, public userService: UserService, public router: Router) { }
 
   ngOnInit() {
     this.getProducts();
@@ -54,6 +55,9 @@ export class CartComponent implements OnInit {
     this.localStorage.saveProductsData(JSON.stringify(this.productIds));
     this.products = [];
     this.getProducts();
+  }
+  checkout(){
+    this.router.navigate(['paymentGateway']);
   }
 
 }
