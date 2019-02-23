@@ -26,6 +26,7 @@ import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { CustomizedArtComponent } from './customized-art/customized-art.component';
 import { CustomizedArtHelpComponent } from './customized-art-help/customized-art-help.component';
 import { MyCustomArtComponent } from './my-custom-art/my-custom-art.component';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,9 @@ import { MyCustomArtComponent } from './my-custom-art/my-custom-art.component';
     AuthModule,
     HttpClientModule,
     AdminModule,
-    FormsModule
+    FormsModule,
+    NgHttpLoaderModule.forRoot(),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

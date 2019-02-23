@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from './auth/local-storage.service';
+import { Spinkit } from 'ng-http-loader'; 
+
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,7 @@ import { LocalStorageService } from './auth/local-storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  public spinkit = Spinkit;
 
   constructor(public localStorageService: LocalStorageService) {
 
