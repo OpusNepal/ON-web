@@ -9,6 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { WishlistProduct } from '../app-models/wishlist-product';
 import { CustomArt } from '../app-models/custom-art';
 import { MyCustomArt } from '../app-models/my-custom-art';
+import {changePassword} from '../app-models/changePassword'
 
 @Injectable({
   providedIn: 'root'
@@ -115,5 +116,13 @@ export class UserService {
   
   getNamesOfVerifiedArtist() {
     return this.http.get<any[]>(environment.api + 'users/getAllArtist')
+  }
+
+  changePassword(data,userId){
+    return this.http.put(environment.api + `auth/resetpassword/${userId}`, data)
+
+  }
+  reset(data){
+    return this.http.post(environment.api+`auth/reset`,data);
   }
 }

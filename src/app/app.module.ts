@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -27,6 +27,13 @@ import { CustomizedArtComponent } from './customized-art/customized-art.componen
 import { CustomizedArtHelpComponent } from './customized-art-help/customized-art-help.component';
 import { MyCustomArtComponent } from './my-custom-art/my-custom-art.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { NotificationModule } from "./lib/notification/notification.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule, MatSpinner } from '@angular/material';
+
+
 
 @NgModule({
   declarations: [
@@ -46,9 +53,13 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     PaymentFormComponent,
     CustomizedArtComponent,
     CustomizedArtHelpComponent,
-    MyCustomArtComponent
+    MyCustomArtComponent,
+    ChangePasswordComponent,
+    ForgetPasswordComponent
+  ]
     
-  ],
+    
+  ,
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -60,8 +71,14 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     FormsModule,
     NgHttpLoaderModule.forRoot(),
 
+    NotificationModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    MatSpinner
+]
 })
 export class AppModule { }
