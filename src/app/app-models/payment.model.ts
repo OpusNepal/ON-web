@@ -1,3 +1,5 @@
+import { LocalStorageDataModel } from './localStorageData.model';
+
 export class PaymentModel{
     address_line_1: String;
     address_line_2: String;
@@ -7,8 +9,7 @@ export class PaymentModel{
     postal_code: String;
     alt_address: String;
     alt_phone: String;
-    Buyer_id: String;
-    totalPrice: String;
-    products: Array<{id: number;
-                    quantity: String}> = [];
+    buyer_id: String;
+    totalPrice: number;
+    products: Array<LocalStorageDataModel> = [];
 }

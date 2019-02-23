@@ -94,5 +94,11 @@ export class UserService {
   deleteWishlistItem(userId: Number, productId: Number) {
     return this.http.put(environment.api + 'wishlist/delete/', { userId, productId })
   }
+
+  checkout(paymentData): any{
+    console.log(paymentData);
+    console.log(environment.api + 'delivery');
+    return this.http.post(environment.api + 'delivery', paymentData)
+  }
   
 }

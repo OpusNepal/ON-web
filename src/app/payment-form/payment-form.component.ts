@@ -4,6 +4,8 @@ import { LocalStorageService } from '../auth/local-storage.service';
 import { UserService } from '../auth/user.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { PaymentModel } from '../app-models/payment.model';
+import { LocalStorageDataModel } from '../app-models/localStorageData.model';
 
 @Component({
   selector: 'app-payment-form',
@@ -12,11 +14,12 @@ import { environment } from 'src/environments/environment';
 })
 export class PaymentFormComponent implements OnInit {
 
-  productIds: Array<number>;
+  productIds: Array<LocalStorageDataModel>;
   productDetails: any;
   products: Array<any> = [];
   subTotal: number = 0;
   shipping: number = 0;
+  paymentData: PaymentModel = new PaymentModel();
 
   PaymentForm = new FormGroup({
     address_line_1 : new FormControl(''),
@@ -26,7 +29,7 @@ export class PaymentFormComponent implements OnInit {
     province : new FormControl(''),
     postal_code : new FormControl(''),
     alt_address : new FormControl(''),
-    alt_phone : new FormControl('')
+    alt_phone : new FormControl(''),
   });
 
   constructor(public formBuilder: FormBuilder, public localStorage: LocalStorageService, public userService: UserService, public router: Router) { }
@@ -55,11 +58,12 @@ export class PaymentFormComponent implements OnInit {
     this.shipping = 0;
     if(this.localStorage.getProductsData() != null){
       this.productIds = JSON.parse(this.localStorage.getProductsData().productIds);
-      for(let id of this.productIds){
-        this.userService.getProductDetail(id).subscribe(res => {
+      for(let prod of this.productIds){
+        this.userService.getProductDetail(prod.id).subscribe(res => {
             this.productDetails = res;
             this.productDetails.image = environment.files + this.productDetails.image;
-            this.subTotal = this.subTotal + Number(this.productDetails.price);
+            this.productDetails.quantity = prod.quantity;
+            this.subTotal = this.subTotal + Number(this.productDetails.price * this.productDetails.quantity);
             console.log(this.subTotal);
             this.shipping = this.shipping + 100;
             this.products.push(this.productDetails);
@@ -73,7 +77,7 @@ export class PaymentFormComponent implements OnInit {
     let prodId = event.target.id;
     console.log(prodId);
     this.productIds = this.productIds.filter(item => 
-      item !== prodId
+      item.id !== prodId
     
     );
     console.log(this.productIds);
@@ -83,7 +87,32 @@ export class PaymentFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.PaymentForm.value);
+   
+    this.paymentData = this.PaymentForm.value;
+    this.paymentData.buyer_id = this.localStorage.getAuthData().userId;
+    this.paymentData.products = this.productIds;
+    this.paymentData.totalPrice = this.subTotal + this.shipping;
+    console.log(this.paymentData);
+    this.userService.checkout(this.paymentData).subscribe(res =>{
+      console.log(res);
+    });
+  }
+
+  quantityChange(event){
+    console.log(event);
+    var id = event.target.id;
+    var changedQuantity = event.target.value;
+    var value = JSON.parse(this.localStorage.getProductsData().productIds);
+    for(let val of value){
+      if(val.id == id)
+      {
+        console.log("value found");
+        val.quantity = changedQuantity;
+      }
+    }
+    this.localStorage.saveProductsData(JSON.stringify(value));
+    this.products = [];
+    this.getProducts();
   }
 
 }
