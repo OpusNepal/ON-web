@@ -1,39 +1,46 @@
-<div class="container" >
-  <div class="row" >
-<div class="square-card" *ngFor="let product of products" style="background-color: white;">
-  <a alt="square card" style="display: block;">
+<div class="container">
+  <div class="row" *ngIf="products && products.length > 0; else noProduct">
+    <div class="square-card" *ngFor="let product of products" style="background-color: white;">
+      <a alt="square card" style="display: block;">
 
-    <div class="product-page-single">
-      <div class="single-product-item">
+        <div class="product-page-single">
+          <div class="single-product-item">
 
-<div class="product-image-wrap">
-<div class="card-header" style="padding: 0%">
-              <a><img [src]="product.products.image" alt="Product image" style="height:100%" ></a>
+            <div class="product-image-wrap">
+              <div class="card-header" style="padding: 0%">
+                <a><img [src]="product.products.image" alt="Product image" style="height:100%"></a>
               </div>
-      
-          </div>
-          <div class="product-item-details">
-              <h2><a (click)="viewProductDetail(product.products.id)"><strong id ="{{product.products.id}}" style="cursor: pointer; padding-bottom: 5%">{{product.products.Name}}</strong></a></h2><br><h2>Availibility: {{product.products.availability}}</h2>
-               
+
+            </div>
+            <div class="product-item-details">
+              <h2><a (click)="viewProductDetail(product.products.id)"><strong id="{{product.products.id}}" style="cursor: pointer; padding-bottom: 5%">{{product.products.Name}}</strong></a></h2><br>
+              <h2>Availibility: {{product.products.availability}}</h2>
+
               <div class="price-like-box">
-                  <div class="pull-left item-price">
-                      <!-- <span class="old-price"><del>$50.00</del></span> -->
-                      <span class="current-price">Price: {{product.products.price}}</span>
-                  </div>
-                  <br>
-                  
-              </div>
-            
-                 <div style="width:100%; text-align:center; bottom:0; ">  
-                <button (click)="addToCart(product.productId)" name="button" class="button" style="width:100%; "><span class="fa fa-cart-plus"></span>  Add to Cart</button>
-               
-                <button (click)="removeFromWishList(product.productId)" name="button" class="button" style="width:100%; background-color: rgba(217, 30, 24, 1); "><i class="fa fa-trash"></i>  Remove
-                 </button>
+                <div class="pull-left item-price">
+                  <!-- <span class="old-price"><del>$50.00</del></span> -->
+                  <span class="current-price">Price: {{product.products.price}}</span>
                 </div>
+                <br>
+
+              </div>
+
+              <div style="width:100%; text-align:center; bottom:0; ">
+                <button (click)="addToCart(product.productId)" name="button" class="button" style="width:100%; "><span
+                    class="fa fa-cart-plus"></span> Add to Cart</button>
+
+                <button (click)="removeFromWishList(product.productId)" name="button" class="button" style="width:100%; background-color: rgba(217, 30, 24, 1); "><i
+                    class="fa fa-trash"></i> Remove
+                </button>
+              </div>
+            </div>
           </div>
-      </div>
+        </div>
+      </a>
+    </div>
   </div>
-  </a>
-  </div>
-  </div>
-  </div>
+
+  <ng-template #noProduct>
+    <h2>Wishlist Empty. Add items to your wishlist and come back here!</h2>
+  </ng-template>
+</div>

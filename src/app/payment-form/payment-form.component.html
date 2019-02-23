@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" style="width:100%">
 
-  <div class="headline">
+  <div class="headline"  style="width:100%" >
     <h2>Opus  <b> Check Out </b></h2>
     <p> Check out to get<br> the prodcut at your doorstep </p>
   </div>
@@ -15,156 +15,98 @@
  </div>
 </div>
 
-<main>
+<div class="tabs" style="margin-left:30%">
+  <input type="radio" name="tabs" id="tabone" checked="checked">
+  <label for="tabone">User Information</label>
+  <div class="tab">
+       
+    <div class="form">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+     <div class="form-group">
+      <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">
+        Existing User?
+      </label>
+      <button type="submit" name="button">Click Here</button>
+      
+    </div>
 
-  <input id="tab1" type="radio" name="tabs" checked>
-  <label for="tab1">User Information</label>
-
-  <input id="tab2" type="radio" name="tabs">
-  <label for="tab2">Billing Methods</label>
-
-  <input id="tab3" type="radio" name="tabs">
-  <label for="tab3">Billing recheck</label>
-
- 
-
-  <section id="content1">
-    <fieldset>
-    <h2 class="fs-title">Basic Information</h2>
-    <h3 class="fs-subtitle">We just need some basic information to proceed your payment method</h3>
+    <p>-------------------------------------OR--------------------------------------------</p>
+        <div class="form-group">
+          <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983"> Full Name:
+            <input type="text" name="fullName" class="form-control" value="" formControlName="fullName" placeholder="Full Name:">
+          </label>
+        </div>
+       
   
-
+        <div class="form-group"> 
+          <label for="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Email:
+            <input type="email" name="email" value="" class="form-control" formControlName="email" placeholder="Email">
+          </label>
+        </div>
+        
+    <div class="form-group">
+          <label for="edit-submitted-constituent-base-total-constituents total_number_of_constituents_in_your_database-99a6d115-5e68-4355-a7d0-529207feb0b3_6344" style="height: 90px">Phone Number:
+            <input type="number" name="phoneNumber" value="" class="form-control" formControlName="Phone" placeholder="Phone Number" style="height: auto">
+          </label>
+        </div>
+    
+    <div class="form-group">
+          <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Country:
+            <input type="text" name="Country" class="form-control" value="" formControlName="Country" placeholder="Country">
+          </label>
+        </div>
+    
+    <div class="form-group">
+          <label for="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Street Address:
+            <input type="text" name="streetaddress" class="form-control" value="" formControlName="streetaddress" placeholder="Street Address">
+          </label>
+        </div>
   
+  <div class="form-group">
+          <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">State/ Provience:
+            <input type="text" name="state" class="form-control" value="" formControlName="state" placeholder="State / Zone *">
+          </label>
+        </div>
+    
+     <div class="form-group">
+          <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Shipping Address:
+            <input type="text" name="Shipping Address" class="form-control" value="" formControlName="Shipping Address" placeholder="Shipping Address">
+          </label>
+        </div>
+       
+     
 
+        
 
-      <div class="hs_firstname field hs-form-field">
-      
-        <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983"> Existing User?</label>
-
-
-        <a  href="login.html" id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your full  name" >Click Here </a>
-        <span class="error1" style="display: none;">
-            <i class="error-log fa fa-exclamation-triangle"></i>
-        </span>
-      </div>
-
-      <p>---------------------------------------OR---------------------------------------------</p>
-
-  <!-- Begin What's Your First Name Field -->
-      <div class="hs_firstname field hs-form-field">
-      
-        <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983"> Full Name *</label>
-
-        <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your full  name" >
-        <span class="error1" style="display: none;">
-            <i class="error-log fa fa-exclamation-triangle"></i>
-        </span>
-      </div>
-  <!-- End What's Your First Name Field -->
-
-  <!-- Begin What's Your Email Field -->
-      <div class="hs_email field hs-form-field">
-      
-        <label for="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">E-mail Address *</label>
-
-        <input id="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="email" required="required" type="email" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid email address." >
-        <span class="error1" style="display: none;">
-            <i class="error-log fa fa-exclamation-triangle"></i>
-        </span>
-      </div>
-  <!-- End What's Your Email Field -->
-
-  <!-- Begin Total Number of Constituents in Your Database Field -->
-      <div class="hs_email field hs-form-field hs_total_number_of_constituents_in_your_database">
-      
-        <label for="edit-submitted-constituent-base-total-constituents total_number_of_constituents_in_your_database-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">Phone Number *</label>
-
-        <input id="edit-submitted-constituent-base-total-constituents" class="form-text hs-input" name="total_number_of_constituents_in_your_database" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number" >
-        <span class="error1" style="display: none;">
-            <i class="error-log fa fa-exclamation-triangle"></i>
-        </span>
-      </div>
-
-
-      <div class="hs_firstname field hs-form-field">
-      
-        <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Country </label>
-
-        <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your country name" >
-        <span class="error1" style="display: none;">
-            <i class="error-log fa fa-exclamation-triangle"></i>
-        </span>
-      </div>
-
-
-      <div class="hs_email field hs-form-field">
-      
-        <label for="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Street Address *</label>
-
-        <input id="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="name" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid street address." >
-        <span class="error1" style="display: none;">
-            <i class="error-log fa fa-exclamation-triangle"></i>
-        </span>
-      </div>
-
-
-
-
-      <div class="hs_firstname field hs-form-field">
-      
-        <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">State / Zone *</label>
-
-        <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your state/zone name" >
-        <span class="error1" style="display: none;">
-            <i class="error-log fa fa-exclamation-triangle"></i>
-        </span>
-      </div>
-
-
-
-      <div class="hs_firstname field hs-form-field">
-      
-        <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Shipping Address</label>
-
-        <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="Fill this if shipping address is different from above address " data-rule-required="true" data-msg-required="Please include your first name" >
-        <span class="error1" style="display: none;">
-            <i class="error-log fa fa-exclamation-triangle"></i>
-        </span>
-      </div>
-
-
-
-  <!-- End Total Number of Constituents in Your Database Field -->
-  <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
-  <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> What Is This?</div>
-  </fieldset>
-  </section>
-
-  <section id="content2">
+        
+  
+       
+        <button type="submit" name="button">Next</button>
+        
+      </form>
+  
+    </div>
+   </div>
+  
+  <input type="radio" name="tabs" id="tabtwo">
+  <label for="tabtwo">Billing Methods</label>
+  <div class="tab">
+      <div class="form">
     <p>
       Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin.
     </p>
     <p>
       Jerky jowl pork chop tongue, kielbasa shank venison. Capicola shank pig ribeye leberkas filet mignon brisket beef kevin tenderloin porchetta. Capicola fatback venison shank kielbasa, drumstick ribeye landjaeger beef kevin tail meatball pastrami prosciutto pancetta. Tail kevin spare ribs ground round ham ham hock brisket shoulder. Corned beef tri-tip leberkas flank sausage ham hock filet mignon beef ribs pancetta turkey.
-    </p>
-  </section>
-
-  <section id="content3">
-    <p>
-      Jerky jowl pork chop tongue, kielbasa shank venison. Capicola shank pig ribeye leberkas filet mignon brisket beef kevin tenderloin porchetta. Capicola fatback venison shank kielbasa, drumstick ribeye landjaeger beef kevin tail meatball pastrami prosciutto pancetta. Tail kevin spare ribs ground round ham ham hock brisket shoulder. Corned beef tri-tip leberkas flank sausage ham hock filet mignon beef ribs pancetta turkey.
-    </p>
-    <p>
-      Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin.
-    </p>
-  </section>
-
-  <section id="content4">
+    </p></div> </div>
+  
+  <input type="radio" name="tabs" id="tabthree">
+  <label for="tabthree">Billing recheck</label>
+  <div class="tab">
+      <div class="form">
     <p>
       Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin.
     </p>
-    <p>
-      Jerky jowl pork chop tongue, kielbasa shank venison. Capicola shank pig ribeye leberkas filet mignon brisket beef kevin tenderloin porchetta. Capicola fatback venison shank kielbasa, drumstick ribeye landjaeger beef kevin tail meatball pastrami prosciutto pancetta. Tail kevin spare ribs ground round ham ham hock brisket shoulder. Corned beef tri-tip leberkas flank sausage ham hock filet mignon beef ribs pancetta turkey.
-    </p>
-  </section>
-
-</main>
+    
+  </div>
+  </div>
+</div>
