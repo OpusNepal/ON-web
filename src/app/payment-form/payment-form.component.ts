@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { PaymentModel } from '../app-models/payment.model';
 import { LocalStorageDataModel } from '../app-models/localStorageData.model';
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-payment-form',
@@ -36,6 +38,23 @@ export class PaymentFormComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
+    var $radios = $('input[type="radio"][name="tabs"]')
+    $('.next').click(function() {
+      var $checked = $radios.filter(':checked');
+      var $next = $radios.eq($radios.index($checked) + 1);
+      if(!$next.length){
+          $next = $radios.first();
+      }
+      $next.prop("checked", true);
+    });
+    $('.previous').click(function() {
+      var $checked = $radios.filter(':checked');
+      var $next = $radios.eq($radios.index($checked) - 1 );
+      if(!$next.length){
+          $next = $radios.first();
+      }
+      $next.prop("checked", true);
+    });
     // this.createForm();
   }
   // private createForm(): void {
@@ -114,5 +133,7 @@ export class PaymentFormComponent implements OnInit {
     this.products = [];
     this.getProducts();
   }
+  
+
 
 }
