@@ -71,9 +71,11 @@ export class ChangePasswordComponent implements OnInit {
       this.showMessage = "Passwords do not match";
       this.showError = true
     }else{
+      console.log(this.userId);
     this.userService.changePassword(this.changePasswordForm.value,this.userId).subscribe((res)=>{
         console.log(res);
       this.ns.success("Password changed successfully");
+      this.router.navigate(['login']);
 
 
     

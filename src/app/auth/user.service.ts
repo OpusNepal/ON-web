@@ -15,7 +15,7 @@ import {changePassword} from '../app-models/changePassword'
   providedIn: 'root'
 })
 export class UserService {
-
+  resetPassword=false;
   isAuthenticated = false;
   private token = '';
   private allowRating = new BehaviorSubject<boolean>(false);
@@ -36,7 +36,7 @@ export class UserService {
   }
 
   login(user: AuthModel) {
-    return this.http.post<{data: {data: {email: string, id:Number, token:string, userType:string}}}>(environment.api + "auth/login", user);
+    return this.http.post<{data: {data: {email: string, id:Number, token:string, userType:string,passwordreset:boolean}}}>(environment.api + "auth/login", user);
   }
 
   updateProfile(userId, user) {
@@ -119,10 +119,15 @@ export class UserService {
   }
 
   changePassword(data,userId){
+    console.log("<<<<<<<",userId)
     return this.http.put(environment.api + `auth/resetpassword/${userId}`, data)
 
   }
   reset(data){
     return this.http.post(environment.api+`auth/reset`,data);
+  }
+  verify(){
+    return this.http.get(environment.api+`auth/verify`);
+
   }
 }

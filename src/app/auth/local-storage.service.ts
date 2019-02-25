@@ -25,7 +25,12 @@ export class LocalStorageService {
     this.userService.isAuthenticated = false;
   }
 
+  getAuthToken(): string | null {
+    console.log("cons",localStorage.getItem('token'))
+    return localStorage.getItem('token');
+  }
   getAuthData(): { token, email, userId, userType } | null {
+    console.log("authtoken")
     const token = localStorage.getItem('token');
     const email = localStorage.getItem('email');
     const userId = localStorage.getItem('userId');

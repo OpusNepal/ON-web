@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.userService.login(this.signinForm.value).subscribe((res) => {
       console.log(res.data.data);
-      const { email, id, token, userType } = res.data.data;
+      const { email, id, token, userType,passwordreset } = res.data.data;
       this.userService.isAuthenticated = true;
       this.userService.setToken(token);
       this.localStorageService.saveAuthData(token, email, id, userType);
@@ -62,7 +62,11 @@ export class LoginComponent implements OnInit {
       this.navbarService.setShowLogout(true);
 
       console.log("UserType-----------", userType)
-      debugger
+      console.log('pass',passwordreset);
+      if(passwordreset===true){
+        this.userService.resetPassword=true;
+        this.router.navigate(['changepassword'])
+      }
       if (userType === 'artist') {
         this.navbarService.setShowProfile(true)
         this.navbarService.setShowUploadProduct(true);
@@ -77,6 +81,7 @@ export class LoginComponent implements OnInit {
       }
     //1  this.router.navigate(['profile-page'],{ queryParams: {userId: id}});
     }, (err) => {
+      console.log(err)
       this.showMessage = err.error.error.message;
       this.showError = true
     });

@@ -8,11 +8,14 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 import { AddSubcategoryComponent } from './add-subcategory/add-subcategory.component';
 import { DeliveredArtsComponent } from './delivered-arts/delivered-arts.component';
 import { NotDeliveredArtsComponent } from './not-delivered-arts/not-delivered-arts.component';
+import { GeneralAuthGuardService } from "../auth/generalAuth.guard";
+
 
 const routes: Routes = [
   {
     path:'admin',
     component: DashboardComponent,
+    canActivate: [GeneralAuthGuardService],
     children: [
       {
         path: 'verifyaccount',
