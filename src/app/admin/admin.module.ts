@@ -11,6 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CurrentArtistComponent } from './current-artist/current-artist.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { AddSubcategoryComponent } from './add-subcategory/add-subcategory.component';
+import { NotDeliveredArtsComponent } from './not-delivered-arts/not-delivered-arts.component';
+import { DeliveredArtsComponent } from './delivered-arts/delivered-arts.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { AddSubcategoryComponent } from './add-subcategory/add-subcategory.compo
     SidebarComponent,
     CurrentArtistComponent,
     AddCategoryComponent,
-    AddSubcategoryComponent
+    AddSubcategoryComponent,
+    NotDeliveredArtsComponent,
+    DeliveredArtsComponent,
   ],
   imports: [
     CommonModule,

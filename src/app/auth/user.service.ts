@@ -7,6 +7,8 @@ import { ProfilePageModel } from '../app-models/profile-page.model';
 import { ProductOfSubcategory } from '../app-models/productsOfSubcategoryResponse.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { WishlistProduct } from '../app-models/wishlist-product';
+import { CustomArt } from '../app-models/custom-art';
+import { MyCustomArt } from '../app-models/my-custom-art';
 
 @Injectable({
   providedIn: 'root'
@@ -99,6 +101,24 @@ export class UserService {
     console.log(paymentData);
     console.log(environment.api + 'delivery');
     return this.http.post(environment.api + 'delivery', paymentData)
+  } 
+  requestCustomArt(data) {
+    return this.http.post(environment.api + "customArt", data);
+  }
+
+  getAllCustomArt() {
+    return this.http.get(environment.api + "customArt")
+  }
+
+  getUserCustomArt(userId: Number): Observable<MyCustomArt[]> {
+    return this.http.get<MyCustomArt[]>(environment.api + `customArt/${userId}`)
+  }
+
+  deleteCustomArt(artId: Number) {
+    return this.http.put(environment.api + `customArt/deletecustomArt/${artId}`, null)
   }
   
+  getNamesOfVerifiedArtist() {
+    return this.http.get<any[]>(environment.api + 'users/getAllArtist')
+  }
 }

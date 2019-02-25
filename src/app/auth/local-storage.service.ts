@@ -60,6 +60,7 @@ export class LocalStorageService {
       this.navbarService.setShowLogout(true);
       this.navbarService.setShowSignup(false);
       //this.userService.setAllowRating(false);
+      this.navbarService.setShowUploadProduct(true);
       this.navbarService.setShowWishlist(false);
     } else if (userType === 'customer') {
       this.navbarService.setShowProfile(false);
@@ -68,11 +69,13 @@ export class LocalStorageService {
       this.navbarService.setShowLogin(false);
       this.navbarService.setShowLogout(true);
       this.navbarService.setShowSignup(false);
+      this.navbarService.setShowUploadProduct(false);
       //this.userService.setAllowRating(true);
       this.navbarService.setShowWishlist(true);
     } else if (userType === 'admin') {
       this.navbarService.setShowProfile(false);
       this.navbarService.setShowCart(false);
+      this.navbarService.setShowUploadProduct(false);
       this.navbarService.setShowDashboard(true);
       this.navbarService.setShowLogin(false);
       this.navbarService.setShowLogout(true);
@@ -91,7 +94,7 @@ export class LocalStorageService {
   clearProductsData(): void{
     localStorage.removeItem('productIds');
   }
-  getProductsData():{productIds} | null{
+  getProductsData(): {productIds} | null{
     const productIds = localStorage.getItem('productIds');
     if (!productIds) {
       return;

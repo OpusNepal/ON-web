@@ -11,6 +11,9 @@ import { AllProductsComponent } from './all-products/all-products.component';
 import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
+import { CustomizedArtComponent } from './customized-art/customized-art.component';
+import { CustomizedArtHelpComponent } from './customized-art-help/customized-art-help.component';
+import { MyCustomArtComponent } from './my-custom-art/my-custom-art.component';
 
 
 const routes: Routes = [
@@ -25,8 +28,10 @@ const routes: Routes = [
   {path: 'all-products', component: AllProductsComponent},
   {path: 'cart', component: CartComponent},
   {path: 'wishlist', component: WishlistComponent},
-  {path: 'paymentGateway', component: PaymentFormComponent}
-
+  {path: 'paymentGateway', component: PaymentFormComponent},
+  {path: 'customizedart', component: CustomizedArtComponent},
+  {path: 'customizedarthelp', component: CustomizedArtHelpComponent},
+  {path: 'mycustomart', component: MyCustomArtComponent}
 ];
 
 @NgModule({
