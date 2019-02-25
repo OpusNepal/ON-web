@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+
+img {
+  background: url('http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif') center no-repeat;
+}
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 /*
 Typography

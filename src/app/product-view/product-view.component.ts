@@ -5,6 +5,7 @@ import { ProductOfSubcategory } from '../app-models/productsOfSubcategoryRespons
 import { environment } from 'src/environments/environment';
 import { LocalStorageService } from '../auth/local-storage.service';
 import { UserProductModel } from '../app-models/user-product.model';
+import { LocalStorageDataModel } from '../app-models/localStorageData.model';
 
 @Component({
   selector: 'app-product-view',
@@ -16,9 +17,10 @@ export class ProductViewComponent implements OnInit {
   userId: number;
   products: Array<UserProductModel> = [];
   productDetails: any;
-  productIds: Array<number> = [];
+  productIds: Array<LocalStorageDataModel> = [];
   isLoggedIn: Boolean = false;
   duplicateProduct : Boolean = false;
+  productId : LocalStorageDataModel = new LocalStorageDataModel();
 
   constructor(private route: ActivatedRoute, private userService: UserService, public localStorage: LocalStorageService, public router: Router) { }
 
@@ -60,22 +62,26 @@ export class ProductViewComponent implements OnInit {
     if(this.localStorage.getProductsData() != null){
       var value = JSON.parse(this.localStorage.getProductsData().productIds);
     }
-     
-     var productId = event.target.attributes.id.value;
+    
+     this.productId.quantity = 1;
+     this.productId.id = event.target.attributes.id.value;
      if(value != null){
       this.productIds = value;
       for(let val of value){
-        if(val == productId)
+        if(val.id == this.productId.id)
         {
           console.log("duplicate value found");
           this.duplicateProduct = true;
+          val.quantity = val.quantity + 1;
         }
       }
      }
+     console.log(this.productIds);
       if(!this.duplicateProduct){
-      this.productIds.push(productId);
-      this.localStorage.saveProductsData(JSON.stringify(this.productIds));
+      this.productIds.push(this.productId);
+     
      }
+     this.localStorage.saveProductsData(JSON.stringify(this.productIds));
      this.router.navigate(['/cart']);
     
      
@@ -85,6 +91,12 @@ export class ProductViewComponent implements OnInit {
     var target = event.target || event.srcElement || event.currentTarget;
     var id = target.attributes.id.value;
     this.router.navigate(['product-view'], { queryParams: {productId: id}});
+}
+
+viewProfile(event){
+  console.log(event);
+  let artistId = event.target.id;
+  this.router.navigate(['profile-page'],{queryParams:{id: artistId}});
 }
 
 }

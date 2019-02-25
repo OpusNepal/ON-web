@@ -7,7 +7,7 @@ import { ProductCategory } from '../app-models/productCategory.model';
 import { ProductSubCategory } from '../app-models/productSubCategory.model';
 import { NavbarService } from '../navbar.service';
 import { Router } from '@angular/router';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -44,7 +44,10 @@ export class HeaderComponent implements OnInit {
         this.List.push(model);
       } );
     });
-   
+    $(".Dropdown").on("click", function(){
+      $(this).toggleClass('is-expanded');
+    });
+
   }
 
 

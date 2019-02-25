@@ -21,32 +21,35 @@ export class ProfilePageComponent implements OnInit {
   productImage: any;
   products: Array<UserProductModel> = [];
 
-  constructor(private route: ActivatedRoute, public userService: UserService,public localStorage: LocalStorageService, public router: Router, public navbarService: NavbarService) { }
+  constructor(private route: ActivatedRoute, public userService: UserService,public localStorage: LocalStorageService, public router: Router, public navbarService: NavbarService) { 
+    this.route.queryParams
+      .subscribe(params => {
+        if(params.id != null){
+          this.id = params.id;
+        }
+        this.ngOnInit();
+        
+      });
+      
+  }
 
   ngOnInit() {
 
-    // this.route.queryParams
-    //   .subscribe(params => {
-    //     console.log(params);
-    //     this.id = params.userId;
-    //   });
-      this.navbarService.setShowLogout(true);
-      this.navbarService.setShowLogin(false);
-      this.navbarService.setShowSignup(false);
-      this.navbarService.setShowDashboard(false);
-      this.navbarService.setShowProfile(true);
-      this.navbarService.setShowCart(false);
-      this.navbarService.setShowUploadProduct(true);
       this.localStorage.getAuthData() == null ? this.router.navigate(['login']):this.id = this.localStorage.getAuthData().userId;
       this.productImage = environment.files;
+      this.route.queryParams
+      .subscribe(params => {
+        if(params.id != null){
+          this.id = params.id;
+        }
+        
+      });
 
     Promise.all([this.userService.getProfile(this.id),this.userService.getProductsofUser(this.id)]).then(
       res => {
         this.profilePageModel = res[0];
         this.imagePath = environment.files + this.profilePageModel.profilepic;
-        console.log(this.imagePath);
         this.products = res[1];
-        console.log(this.products);
         for (let product of this.products){
           product.image = environment.files + product.image;
         }

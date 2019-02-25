@@ -73,6 +73,12 @@ main .helper {
   .menu ul li.icon-addsubcategory {
     background-image: url("http://www.entypo.com/images//folder.svg");
   }
+  .menu ul li.icon-verifiedartist {
+    background-image: url("http://www.entypo.com/images/publish.svg");
+  }
+  .menu ul li.icon-notverifiedartist {
+    background-image: url("http://www.entypo.com/images/notification.svg");
+  }
   
   .menu ul li:hover {
     background-color: rgba(0, 0, 0, 0.1);

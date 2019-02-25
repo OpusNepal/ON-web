@@ -1,4 +1,7 @@
-<div class="login-page">
+<div class="login-page" *ngIf="products.length < 1">
+    <h2>No Items in Cart Yet!</h2>
+</div>
+<div class="login-page" *ngIf="products.length > 0">
     <div class="banner">Upload<strong> Product</strong></div>
        
     <!-- </section> -->
@@ -16,7 +19,7 @@
                                 <th scope="col">Arts </th>
                                 <th scope="col">Product</th>
                                 <th scope="col">Available</th>
-                                <th scope="col" style="width:10%"></th>
+                                <th scope="col" style="width:10%">Quantity</th>
                                 <th scope="col" class="text-right">Price</th>
                                
                             </tr>
@@ -27,9 +30,9 @@
                                 <td>{{prod.Name}}</td>
                                 
                                 <td> {{prod.availability}}</td>
-                                <td></td>
+                                <td><input id = "{{prod.id}}" type = "number" min = "1" [value] = "prod.quantity" (input) = "quantityChange($event)"></td>
                                 <!-- <td><input class="form-control" type="text" value="1" ></td> -->
-                                <td class="text-right">{{prod.price}}</td>
+                                <td class="text-right">{{prod.price * prod.quantity}}</td>
                                 <td class="text-right"><button id = "{{prod.id}}" class="btn btn-sm btn-danger"   (click)= "removeFromCart($event)">
                                     <i  id = "{{prod.id}}" class="fa fa-trash"></i> 
                                 </button> </td>
@@ -63,9 +66,9 @@
                         </tbody>
     
                     </table>
-                    <a href="demo.html" class="pull-left"><strong>Keep Shopping</strong></a>
+                    <a class="pull-left"><strong>Keep Shopping</strong></a>
                     <div class="pull-right">
-                        <a href="payment-form.html"><button name="button" class="button">Proceed For Payment</button></a>
+                        <a (click)= "checkout()"><button name="button" class="button">Proceed For Payment</button></a>
                     </div>
                 </div>
                               
