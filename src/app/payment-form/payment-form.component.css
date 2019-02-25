@@ -4,12 +4,14 @@
  .tabs {
   display: flex;
   flex-wrap: wrap;
+  padding:0%;
+  margin-left:30%;
 }
 
 .tabs label {
   order: 1;
   display: block;
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
   margin-right: 0.2rem;
   cursor: pointer;
   background: #b9b9b9;
@@ -189,4 +191,15 @@ body {
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
+}
+
+@media (max-width: 1320px) {
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    padding:0%;
+    width: 100%;
+    margin-left:10%;
+  }
+  
 }
