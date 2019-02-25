@@ -36,7 +36,7 @@ export class UserService {
   }
 
   login(user: AuthModel) {
-    return this.http.post<{data: {data: {email: string, id:Number, token:string, userType:string,passwordreset:boolean}}}>(environment.api + "auth/login", user);
+    return this.http.post<{data: {data: {email: string, id:Number, token:string, userType:string,passwordreset:boolean,name:string}}}>(environment.api + "auth/login", user);
   }
 
   updateProfile(userId, user) {

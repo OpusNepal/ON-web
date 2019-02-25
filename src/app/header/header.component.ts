@@ -8,6 +8,8 @@ import { ProductSubCategory } from '../app-models/productSubCategory.model';
 import { NavbarService } from '../navbar.service';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -16,35 +18,44 @@ import * as $ from 'jquery';
 export class HeaderComponent implements OnInit {
   modalReference: any;
   closeResult: any;
-  Categories : ProductCategory[];
-  SubCategories : ProductSubCategory[];
+  name: String;
+
+  Categories: ProductCategory[];
+  SubCategories: ProductSubCategory[];
   List: Array<CategoryAndSubCategoryModel> = [];
 
   constructor(public localStorage: LocalStorageService, public userService: UserService, public navbarService: NavbarService, private router: Router) { }
 
   ngOnInit() {
-    
-    this.userService.getCategories().subscribe(res =>{
+    // if(this.localStorage.getAuthData() != null){
+    //   this.name= this.localStorage.getAuthData().name;
+    // }
+    // else {
+    //   this.name='Hello';
+    // }
+    this.name = this.localStorage.getAuthData() !== undefined ? this.localStorage.getAuthData().name : 'Hello';
+
+    this.userService.getCategories().subscribe(res => {
       this.Categories = res;
       this.Categories.forEach(row => {
-        let model = new CategoryAndSubCategoryModel();
+        const model = new CategoryAndSubCategoryModel();
         // console.log(row.Category);
         model.category = row.Category;
-        this.userService.getSubCategories(row.id).subscribe(res =>{
+        this.userService.getSubCategories(row.id).subscribe(res => {
           this.SubCategories = res;
           // console.log(this.SubCategories);
-          this.SubCategories.forEach(row =>{
-           
+          this.SubCategories.forEach(row => {
+
             model.subcategories.push(row.subCategory);
             model.subCategoryIds.push(row.id);
-          
+
           });
-             
+
         });
         this.List.push(model);
       } );
     });
-    $(".Dropdown").on("click", function(){
+    $('.Dropdown').on('click', function() {
       $(this).toggleClass('is-expanded');
     });
 
@@ -52,7 +63,7 @@ export class HeaderComponent implements OnInit {
 
 
 
-  logoutEvent(){
+  logoutEvent() {
     this.localStorage.clearAuthData();
     this.localStorage.clearProductsData();
     this.navbarService.setShowLogout(false);
@@ -62,15 +73,16 @@ export class HeaderComponent implements OnInit {
     this.navbarService.setShowProfile(false);
     this.navbarService.setShowCart(false);
     this.navbarService.setShowUploadProduct(false);
-    //this.userService.setAllowRating(false);
+    // this.userService.setAllowRating(false);
     this.navbarService.setShowWishlist(false);
+    this.navbarService.setshowresetpassword(false);
     }
 
-    showProducts(event){
+    showProducts(event) {
       console.log(event.target.attributes.id);
-      var id = event.target.attributes.id.value;
-      console.log("<<<<<<<<",id);
-      this.router.navigate(['all-products'],{queryParams: {subCategoryId : id}});
+      const id = event.target.attributes.id.value;
+      console.log('<<<<<<<<', id);
+      this.router.navigate(['all-products'], {queryParams: {subCategoryId : id}});
     }
-  
+
 }

@@ -42,8 +42,7 @@
       </ul>
       <div class="Dropdown" style="float:right">
   <div class="Dropdown-profile">
-    <img src="//s3-us-west-2.amazonawsa.com/s.cdpn.io/33381/profile/profile-80.jpg?1" class="Photo"  />
-    <span class="Name">Michael Lee</span>
+    <span class="Name">{{name}}</span>
     <span class="MenuIcon">
       <span class="MenuIcon-line"></span>
       <span class="MenuIcon-line"></span>
@@ -75,6 +74,9 @@
           <li class="nav-item">
             <a class=" NavLink" *ngIf="navbarService.getShowDashboard() | async" routerLink="admin"><strong>Dashboard</strong></a>
           </li>
+      <li class="nav-item">
+        <a class=" NavLink" *ngIf="navbarService.getshowresetpassword() | async" routerLink="/changepassword"><strong>Reset Password</strong></a>
+      </li>
           <li class="nav-item">
             <a class=" NavLink" *ngIf="navbarService.getShowLogout() | async" routerLink="/home" (click)="logoutEvent()"><span
                 class="fa fa-sign-out"></span><strong>Logout</strong></a>

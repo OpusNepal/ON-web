@@ -14,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
         const token = this.userService.getToken();
         const reqWithToken = req.clone({
             setHeaders: {
-                'x-access-token': token,
+                'x-access-token': token?token:"",
                 'Cache-Control':  'no-cache, no-store, must-revalidate, post- check=0, pre-check=0',
         'Pragma': 'no-cache',
         'Expires': '0'

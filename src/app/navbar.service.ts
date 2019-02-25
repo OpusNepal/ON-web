@@ -14,6 +14,8 @@ export class NavbarService {
   private showCart = new BehaviorSubject<boolean>(false);
   private showUploadProduct = new BehaviorSubject<boolean>(false);
   private showWishlist = new BehaviorSubject<boolean>(false);
+  private showresetpassword = new BehaviorSubject<boolean>(false);
+
 
   constructor() { }
 
@@ -23,6 +25,13 @@ export class NavbarService {
 
   setShowSignup(flag: boolean) {
     this.showSignup.next(flag);
+  }
+  getshowresetpassword() {
+    return this.showresetpassword.asObservable();
+  }
+
+  setshowresetpassword(flag: boolean) {
+    this.showresetpassword.next(flag);
   }
 
   getShowDashboard() {

@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
     this.navbarService.setShowProfile(false);
     this.navbarService.setShowCart(false);
     this.navbarService.setShowUploadProduct(false);
+    this.navbarService.setshowresetpassword(true);
   }
 
   createForm(): void {
@@ -50,10 +51,10 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.userService.login(this.signinForm.value).subscribe((res) => {
       console.log(res.data.data);
-      const { email, id, token, userType,passwordreset } = res.data.data;
+      const { email, id, token, userType,passwordreset,name } = res.data.data;
       this.userService.isAuthenticated = true;
       this.userService.setToken(token);
-      this.localStorageService.saveAuthData(token, email, id, userType);
+      this.localStorageService.saveAuthData(token, email, id, userType,name);
 
       this.router.navigate(['home'])
 

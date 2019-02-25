@@ -10,11 +10,12 @@ export class LocalStorageService {
 
   constructor(private userService: UserService, private navbarService: NavbarService) {}
 
-  saveAuthData(token: string, email: string, userId: Number, userType: string): void {
+  saveAuthData(token: string, email: string, userId: Number, userType: string,name:string): void {
     localStorage.setItem('token', token);
     localStorage.setItem('email', email);
     localStorage.setItem('userType', userType)
     localStorage.setItem('userId', userId.toString());
+    localStorage.setItem('name',name);
   }
 
   clearAuthData(): void {
@@ -22,6 +23,8 @@ export class LocalStorageService {
     localStorage.removeItem('email');
     localStorage.removeItem('userId');
     localStorage.removeItem('userType');
+    localStorage.removeItem('name');
+
     this.userService.isAuthenticated = false;
   }
 
@@ -29,12 +32,13 @@ export class LocalStorageService {
     console.log("cons",localStorage.getItem('token'))
     return localStorage.getItem('token');
   }
-  getAuthData(): { token, email, userId, userType } | null {
+  getAuthData(): { token, email, userId, userType,name } | null {
     console.log("authtoken")
     const token = localStorage.getItem('token');
     const email = localStorage.getItem('email');
     const userId = localStorage.getItem('userId');
     const userType = localStorage.getItem('userType')
+    const name=localStorage.getItem('name')
     if (!token) {
       return;
     }
@@ -42,7 +46,8 @@ export class LocalStorageService {
       token,
       email,
       userId,
-      userType
+      userType,
+      name
     };
   }
 
