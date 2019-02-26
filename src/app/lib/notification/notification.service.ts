@@ -9,8 +9,10 @@ export class NotificationService {
         message: message
       },
       {
-        type: "success"
-      }
+        type: "success",
+        z_index: 8000,
+      },
+     
     );
   }
 
@@ -20,7 +22,8 @@ export class NotificationService {
         message: message
       },
       {
-        type: "danger"
+        type: "danger",
+        z_index: 8000,
       }
     );
   }
