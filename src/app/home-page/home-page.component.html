@@ -95,16 +95,16 @@
                                           </div>
                                       </div>
                                   </div>
-                                  <div class="product-item-details">
-                                      <h2><a (click)="viewProductDetail(prod.id)"><strong id ="{{prod.id}}" style="cursor: pointer">{{prod.Name}}</strong></a></h2><br><h2>{{prod.user.fullName}}</h2>
+                                  <div class="product-item-details" style="text-align: center">
+                                      <h2><a (click)="viewProductDetail(prod.id)"><strong id ="{{prod.id}}" style="cursor: pointer;">{{prod.Name}}</strong></a></h2><h2>{{prod.user.fullName}}</h2>
                                        
                                       <div class="price-like-box">
-                                          <div class="pull-left item-price">
+                                          <div class=" item-price">
                                               <!-- <span class="old-price"><del>$50.00</del></span> -->
-                                              <span class="current-price">{{prod.price}}</span>
+                                              <span class="current-price">Rs. {{prod.price}}</span>
                                           </div>
                                           <br>
-                                          <div class="row" style="padding:10%">
+                                          <div class="row" style="padding-left:45%; padding-bottom:5% ">
                                           <span class="fa fa-star checked"></span>
                                           <span class="fa fa-star checked"></span>
                                           <span class="fa fa-star checked"></span>
