@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { Artist, ArtistOfTheWeek } from './artist';
 import { Product } from './products';
 import { Observable, of} from 'rxjs';
+import { AdminDeliveryResponse } from '../app-models/AdminDeliveryResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -74,5 +75,9 @@ export class AdminService {
     }
     return this.http.put(environment.api + `customArt/changeDeliveryStatus/${artId}`, body)
   }
+
+  getAllDeliveredProduct(): Observable<AdminDeliveryResponse[]> {
+    return this.http.get<AdminDeliveryResponse[]>(environment.api + `delivery`);
+  } 
 
 }

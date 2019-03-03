@@ -10,6 +10,7 @@ import { WishlistProduct } from '../app-models/wishlist-product';
 import { CustomArt } from '../app-models/custom-art';
 import { MyCustomArt } from '../app-models/my-custom-art';
 import {changePassword} from '../app-models/changePassword'
+import { UserDeliveryResponse } from '../app-models/UserDeliveryResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -131,8 +132,12 @@ export class UserService {
   reset(data){
     return this.http.post(environment.api+`auth/reset`,data);
   }
+
   verify(){
     return this.http.get(environment.api+`auth/verify`);
+  }
 
+  getMyDeliveredProduct(userId: Number): Observable<UserDeliveryResponse[]> {
+    return this.http.get<UserDeliveryResponse[]>(environment.api + `delivery/user/${userId}`)
   }
 }
