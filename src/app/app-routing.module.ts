@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent, canActivate: [LoginAuthGuardService]},
   
-  {path: 'profile', component: ProfileComponent, canActivate: [GeneralAuthGuardService]},
+  {path: 'profile', component: ProfileComponent},
   {path: 'upload-product', component: ProductUploadComponent, canActivate: [GeneralAuthGuardService]},
   {path: 'profile-page', component: ProfilePageComponent, canActivate: [GeneralAuthGuardService]},
   {path: 'product-view', component: ProductViewComponent},

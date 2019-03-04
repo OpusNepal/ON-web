@@ -7,8 +7,12 @@
       <p class="card__text">Preferred Artist: {{ deliveredArt.artist.fullName }}</p>
       <p class="card__text">Description: {{ deliveredArt.description }}</p>
       <p class="card__text">Delivered: Yes</p>
+      <address class="card_text"> <b>Address: </b><br>
+        {{ deliveredArt.default_address.address_line_1}}, {{ deliveredArt.default_address.address_line_2}} <br>
+        {{ deliveredArt.default_address.postal_code }}, {{ deliveredArt.default_address.province }} <br>
+        {{ deliveredArt.default_address.city }}, {{ deliveredArt.default_address.country }} <br>
+      </address>
       
-
       <div class="card__action-bar">
         <button (click)="setArtId(deliveredArt.id); open(content);" style="cursor: pointer" class="card__button"><Strong
             style="color:#d91e18">Change Status</Strong></button>

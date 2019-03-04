@@ -24,7 +24,9 @@ export class HeaderComponent implements OnInit {
   SubCategories: ProductSubCategory[];
   List: Array<CategoryAndSubCategoryModel> = [];
 
-  constructor(public localStorage: LocalStorageService, public userService: UserService, public navbarService: NavbarService, private router: Router) { }
+  constructor(public localStorage: LocalStorageService, public userService: UserService, public navbarService: NavbarService, private router: Router) {
+
+   }
 
   ngOnInit() {
     // if(this.localStorage.getAuthData() != null){
@@ -76,6 +78,7 @@ export class HeaderComponent implements OnInit {
     // this.userService.setAllowRating(false);
     this.navbarService.setShowWishlist(false);
     this.navbarService.setshowresetpassword(false);
+    this.navbarService.setUsername("Hello");
     }
 
     showProducts(event) {

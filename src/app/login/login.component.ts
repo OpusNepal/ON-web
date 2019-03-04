@@ -80,6 +80,8 @@ export class LoginComponent implements OnInit {
         this.navbarService.setShowWishlist(true);
         //this.userService.setAllowRating(true);
       }
+
+      this.navbarService.setUsername(name)
     //1  this.router.navigate(['profile-page'],{ queryParams: {userId: id}});
     }, (err) => {
       console.log(err)

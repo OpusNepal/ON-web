@@ -1,29 +1,33 @@
 <div class="container helper">
-    <div class="row" *ngIf="undeliveredArts && undeliveredArts.length > 0; else nopendingart">
-      <div class="card card--big" *ngFor="let undeliveredArt of undeliveredArts">
-        <img class="card__image" [src]="undeliveredArt.Image" alt="custom_art_image">
-  
-                <h2 class="card__title">Framing: {{ undeliveredArt.Framing }}</h2>
-            
-            <p class="card__text">
-              
-              <a>Preferred Artist: {{ undeliveredArt.artist.fullName }}</a><br>
-              <a>Description: {{ undeliveredArt.description }}</a><br>
-              <a>Delivered: No</a><br>
-            </p>
-        
-  <br>
-        <div class="card__action-bar">
-          <button (click)="setArtId(undeliveredArt.id); open(content);" style="cursor: pointer" class="card__button"><Strong
-              style="color:#d91e18">Change Status</Strong></button>
-              <button (click)="setArtId(undeliveredArt.id); open(delete);" style="cursor: pointer" class="card__button"><Strong
-                style="color:#d91e18">Delete</Strong></button>
-        </div>
+  <div class="row" *ngIf="undeliveredArts && undeliveredArts.length > 0; else nopendingart">
+    <div class="card card--big" *ngFor="let undeliveredArt of undeliveredArts">
+      <img class="card__image" [src]="undeliveredArt.Image" alt="custom_art_image">
+
+      <h2 class="card__title">Framing: {{ undeliveredArt.Framing }}</h2>
+
+      <div class="card__text">
+        <a>Preferred Artist: {{ undeliveredArt.artist.fullName }}</a><br>
+        <a>Description: {{ undeliveredArt.description }}</a><br>
+        <a>Delivered: No</a><br>
+        <address> <b>Address: </b><br>
+          {{ undeliveredArt.default_address.address_line_1}}, {{ undeliveredArt.default_address.address_line_2}} <br>
+          {{ undeliveredArt.default_address.postal_code }}, {{ undeliveredArt.default_address.province }} <br>
+          {{ undeliveredArt.default_address.city }}, {{ undeliveredArt.default_address.country }} <br>
+        </address>
+      </div>
+
+
+      <br>
+      <div class="card__action-bar">
+        <button (click)="setArtId(undeliveredArt.id); open(content);" style="cursor: pointer" class="card__button"><Strong
+            style="color:#d91e18">Change Status</Strong></button>
+        <button (click)="setArtId(undeliveredArt.id); open(delete);" style="cursor: pointer" class="card__button"><Strong
+            style="color:#d91e18">Delete</Strong></button>
       </div>
     </div>
-  
   </div>
-  
+
+</div>
 
 
 <ng-template #nopendingart>
@@ -69,4 +73,3 @@
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('');">OK</button>
   </div>
 </ng-template>
-

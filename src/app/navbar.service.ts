@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable,  BehaviorSubject } from 'rxjs';
+import { Observable,  BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,7 @@ export class NavbarService {
   private showUploadProduct = new BehaviorSubject<boolean>(false);
   private showWishlist = new BehaviorSubject<boolean>(false);
   private showresetpassword = new BehaviorSubject<boolean>(false);
+  private username = new BehaviorSubject<string>("Hello");
 
 
   constructor() { }
@@ -87,6 +88,14 @@ export class NavbarService {
 
   setShowWishlist(flag: boolean) {
     this.showWishlist.next(flag);
+  }
+
+  getUsername() {
+    return this.username.asObservable()
+  }
+
+  setUsername(username: string) {
+    this.username.next(username)
   }
 
 }

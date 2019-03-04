@@ -26,6 +26,7 @@ export class NotDeliveredArtsComponent implements OnInit {
       let clonedRes: MyCustomArt[] = JSON.parse(JSON.stringify(res));
       let data  = clonedRes.map((myCustomArt) => {
         myCustomArt.Image = environment.public + myCustomArt.Image;
+        myCustomArt.default_address = JSON.parse(myCustomArt.default_address)
         if (!myCustomArt.isDelivered) {
           return myCustomArt
         }

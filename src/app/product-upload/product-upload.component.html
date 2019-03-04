@@ -23,7 +23,22 @@
                  <label for="availability"class=" form-control-label"></label>
                  <input type="text" name="availability" class="form-control" value="" formControlName="availability" placeholder="Availability">
              </div>
-           
+             <div class="form-group">
+              <label for="size"class=" form-control-label"></label>
+              <input type="text" name="size" class="form-control" value="" formControlName="size" placeholder="Size e.g. 17'*17' in">
+          </div>
+          <div class="form-group">
+            <label for="description"class=" form-control-label"></label>
+            <input type="text" name="description" class="form-control" value="" formControlName="description" placeholder="description">
+        </div>
+        <div class="form-group">
+          <label for="medium"class=" form-control-label"></label>
+          <input type="text" name="medium" class="form-control" value="" formControlName="medium" placeholder="Medium eg pencil,brush etc">
+      </div>
+          <div class="form-group">
+            <label for="weight"class=" form-control-label"></label>
+            <input type="text" name="weight" class="form-control" value="" formControlName="weight" placeholder="Weight approx in gram">
+        </div>
              <div class="form-group">
                <label for="Category">Category:
                  <select class="form-control" formControlName="Category" [(ngModel)]="selectedCategory"(change)="selectCategory($event)" style="height:50px">
