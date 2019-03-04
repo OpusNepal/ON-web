@@ -1,8 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {AdminService} from '../admin.service';
-import {AdminDeliveryResponse} from '../../app-models/AdminDeliveryResponse';
-import {environment} from '../../../environments/environment';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AdminService } from '../admin.service';
+import { AdminDeliveryResponse } from '../../app-models/AdminDeliveryResponse';
+import { environment } from '../../../environments/environment';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-delivered-product',
@@ -21,7 +22,7 @@ export class AllDeliveredProductComponent implements OnInit {
   @ViewChild('success')
   private success;
 
-  constructor(private adminService: AdminService, private modalService: NgbModal) { }
+  constructor(private adminService: AdminService, private modalService: NgbModal, private router: Router) { }
 
   ngOnInit() {
     this.adminService.getAllDeliveredProduct().subscribe(res => {
@@ -30,6 +31,7 @@ export class AllDeliveredProductComponent implements OnInit {
       //console.log(clonedRes)
       let data = clonedRes.map((product) => {
         product.default_address = JSON.parse(product.default_address)
+        product.created_at = new Date(product.created_at).toLocaleString()
         product.delivery_products = product.delivery_products.map((item) => {
           item.products.image = environment.public + item.products.image
           return item
@@ -60,7 +62,7 @@ export class AllDeliveredProductComponent implements OnInit {
   }
 
   open(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title'})
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
   }
 
   deleteArt() {
@@ -74,6 +76,11 @@ export class AllDeliveredProductComponent implements OnInit {
   toggleShowProducts(product) {
     this.showProduct = !this.showProduct
     this.selectedProduct = product
+  }
+
+  viewProductDetail(productId: Number) {
+    // navigate to the profile page
+    this.router.navigate(['product-view'], { queryParams: { productId } });
   }
 
 }
