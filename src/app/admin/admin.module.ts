@@ -13,6 +13,7 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 import { AddSubcategoryComponent } from './add-subcategory/add-subcategory.component';
 import { NotDeliveredArtsComponent } from './not-delivered-arts/not-delivered-arts.component';
 import { DeliveredArtsComponent } from './delivered-arts/delivered-arts.component';
+import { AllUndeliveredProductComponent } from './all-undelivered-product/all-undelivered-product.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { DeliveredArtsComponent } from './delivered-arts/delivered-arts.componen
     AddSubcategoryComponent,
     NotDeliveredArtsComponent,
     DeliveredArtsComponent,
+    AllUndeliveredProductComponent,
   ],
   imports: [
     CommonModule,

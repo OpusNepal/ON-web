@@ -9,6 +9,8 @@ import { AddSubcategoryComponent } from './add-subcategory/add-subcategory.compo
 import { DeliveredArtsComponent } from './delivered-arts/delivered-arts.component';
 import { NotDeliveredArtsComponent } from './not-delivered-arts/not-delivered-arts.component';
 import { GeneralAuthGuardService } from "../auth/generalAuth.guard";
+import {AllDeliveredProductComponent} from './all-delivered-product/all-delivered-product.component';
+import {AllUndeliveredProductComponent} from './all-undelivered-product/all-undelivered-product.component';
 
 
 const routes: Routes = [
@@ -44,6 +46,14 @@ const routes: Routes = [
       {
         path: 'notdeliveredarts',
         component: NotDeliveredArtsComponent
+      },
+      {
+        path: 'alldeliveredproduct',
+        component: AllDeliveredProductComponent
+      },
+      {
+        path: 'allundeliveredproduct',
+        component: AllUndeliveredProductComponent
       }
     ]
   }

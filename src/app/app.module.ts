@@ -32,6 +32,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { NotificationModule } from "./lib/notification/notification.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule, MatSpinner } from '@angular/material';
+import { AllDeliveredProductComponent } from './admin/all-delivered-product/all-delivered-product.component';
 
 
 
@@ -55,7 +56,8 @@ import { MatProgressSpinnerModule, MatSpinner } from '@angular/material';
     CustomizedArtHelpComponent,
     MyCustomArtComponent,
     ChangePasswordComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    AllDeliveredProductComponent
   ]
     
     

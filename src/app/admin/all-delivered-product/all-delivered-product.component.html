@@ -1,0 +1,37 @@
+<table>
+    <tr>
+        <th>Buyer Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Alt Phone</th>
+        <th>View Products</th>
+    </tr>
+
+    <tr *ngFor="let product of products">
+        <td>{{ product.buyer.id }}</td>
+        <td>{{ product.buyer.fullName }}</td>
+        <td>{{ product.buyer.email }}</td>
+        <td>{{ product.buyer.Phone}}</td>
+        <td>{{ product.alt_phone}}</td>
+        <td> <a (click)="toggleShowProducts(product)"> Toggle</a></td>
+    </tr>
+</table>
+
+<div class="container helper" *ngIf="showProduct">
+        <div class="row">
+          <div class="card card--big" *ngFor="let product of selectedProduct.delivery_products">
+            <img class="card__image" [src]="product.products.image" alt="custom_art_image">
+      
+            <h2 class="card__title">{{ product.products.Name }}</h2>
+            <p class="card__text">Orientation: {{ product.products.Orientation }}</p>
+            <p class="card__text">Build On:  {{ product.products.buildOn }}</p>
+            <p class="card__text">Medium: {{ product.products.medium }}</p>
+            <p class="card__text">Size: {{ product.proucts.size }}</p>
+   
+          </div>
+        </div>
+      
+      </div>
+      
+

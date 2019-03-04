@@ -20,8 +20,6 @@ import { LoginAuthGuardService } from "./auth/loginAuth.guard";
 import { GeneralAuthGuardService } from "./auth/generalAuth.guard";
 
 
-
-
 const routes: Routes = [
   {path: 'home', component: HomePageComponent },
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -40,7 +38,7 @@ const routes: Routes = [
   {path: 'customizedarthelp', component: CustomizedArtHelpComponent},
   {path: 'mycustomart', component: MyCustomArtComponent, canActivate: [GeneralAuthGuardService]},
   {path:'changepassword',component:ChangePasswordComponent},
-  {path:'forgetpassword',component:ForgetPasswordComponent}
+  {path:'forgetpassword',component:ForgetPasswordComponent},
 
 ];
 
