@@ -28,7 +28,7 @@ export class AllDeliveredProductComponent implements OnInit {
     this.adminService.getAllDeliveredProduct().subscribe(res => {
       let clonedRes = JSON.parse(JSON.stringify(res));
 
-      //console.log(clonedRes)
+      console.log(clonedRes)
       let data = clonedRes.map((product) => {
         product.default_address = JSON.parse(product.default_address)
         product.created_at = new Date(product.created_at).toLocaleString()
@@ -36,10 +36,9 @@ export class AllDeliveredProductComponent implements OnInit {
           item.products.image = environment.public + item.products.image
           return item
         })
-        // if (product.isDelivered) {
-        //   return product
-        // }
-        return product
+        if (product.isDelivered) {
+          return product
+        }
       })
 
       this.products = data.filter(product => product)
@@ -82,5 +81,18 @@ export class AllDeliveredProductComponent implements OnInit {
     // navigate to the profile page
     this.router.navigate(['product-view'], { queryParams: { productId } });
   }
+
+  changeDeliveryStatus(deliveryId: Number) {
+    this.adminService.changeProductDeliveryStatus(false, deliveryId).subscribe(res =>  { this.products = this.products.filter(product => product.id != deliveryId)
+    })
+  }
+
+
+  deleteProductDelivery(deliveryId: Number) {
+    this.adminService.deleteProductDelivery(deliveryId).subscribe(res => {
+      this.products = this.products.filter(product => product.id != deliveryId)
+    })
+  }
+
 
 }

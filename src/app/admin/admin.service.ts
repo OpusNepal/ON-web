@@ -80,4 +80,13 @@ export class AdminService {
     return this.http.get<AdminDeliveryResponse[]>(environment.api + `delivery`);
   } 
 
+  changeProductDeliveryStatus(status: boolean, deliveryId: Number) {
+    return this.http.put(environment.api+`delivery/changeDeliveryStatus/${deliveryId}`, { status })
+  }
+
+  deleteProductDelivery(deliveryId: Number) {
+    return this.http.put(environment.api+`delivery/deletedelivery/${deliveryId}`, null)
+
+  }
+
 }

@@ -1,3 +1,4 @@
+<div *ngIf="products && products.length > 0">
 <table>
     <tr>
         <th>Buyer Id</th>
@@ -5,8 +6,10 @@
         <th>Email</th>
         <th>Phone</th>
         <th>Alt Phone</th>
+        <th>Address</th>
+        <th>Alternate Address</th>
         <th>Created Date</th>
-        <th>View Products</th>
+        <th>Actions </th>
     </tr>
 
     <tr *ngFor="let product of products">
@@ -15,8 +18,21 @@
         <td>{{ product.buyer.email }}</td>
         <td>{{ product.buyer.Phone}}</td>
         <td>{{ product.alt_phone}}</td>
+        <td>
+            <address>
+                {{ product.default_address.address_line_1}} {{ product.default_address.address_line_2}}
+                {{ product.default_address.country}} {{ product.default_address.city}}
+                {{ product.default_address.province}} {{ product.default_address.postal_code}}
+            </address>
+        </td>
+  
+        <td>{{product.alt_address}}</td>
         <td>{{ product.created_at }}</td>
-        <td> <a (click)="toggleShowProducts(product)"> Toggle</a></td>
+        <td> 
+                <a (click)="toggleShowProducts(product)"> Toggle</a>
+                <button (click)="changeDeliveryStatus(product.id)">Change Status</button>
+                <button (click)="deleteProductDelivery(product.id)">Delete</button>
+              </td>
     </tr>
 </table>
 
@@ -36,4 +52,4 @@
       
       </div>
       
-
+    </div>
