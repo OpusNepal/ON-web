@@ -33,6 +33,7 @@ import { NotificationModule } from "./lib/notification/notification.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule, MatSpinner } from '@angular/material';
 import { AllDeliveredProductComponent } from './admin/all-delivered-product/all-delivered-product.component';
+import { UserDeliveredProductsComponent } from './user-delivered-products/user-delivered-products.component';
 
 
 
@@ -57,7 +58,8 @@ import { AllDeliveredProductComponent } from './admin/all-delivered-product/all-
     MyCustomArtComponent,
     ChangePasswordComponent,
     ForgetPasswordComponent,
-    AllDeliveredProductComponent
+    AllDeliveredProductComponent,
+    UserDeliveredProductsComponent
   ]
     
     

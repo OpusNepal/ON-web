@@ -22,6 +22,17 @@ interface DeliveryProduct {
 
 }
 
+interface Buyer {
+    id: Number,
+    created_at: string,
+    updated_at: string,
+    email: string,
+    userType: string,
+    fullName: string,
+    Phone: string,
+    isVerified: boolean
+}
+
 export interface UserDeliveryResponse {
     id: Number,
     created_at: string,
@@ -33,4 +44,5 @@ export interface UserDeliveryResponse {
     alt_phone: string,
     isDelivered: boolean,
     delivery_products: DeliveryProduct[],
+    buyer: Buyer
 }
