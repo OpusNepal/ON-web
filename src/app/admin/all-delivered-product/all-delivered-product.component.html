@@ -1,93 +1,105 @@
 
 
   <div class="container">
-	<div class="col-md-12">
-    	<div class="panel panel-default">
-				<div class="panel-heading">
-					Not-Delivered Products
-				</div>
-        <div class="panel-body">
-					<table class="table table-condensed table-striped">
-    <thead>
-        <tr>
-					 <th>Buyer Id</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Alt Phone</th>
-        <th>Created Date</th>
-        <th>View Products</th>
-        </tr>
-    </thead>
-
-    <tbody>
-           <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle" *ngFor="let product of products">
-                   <td>{{ product.buyer.id }}</td>
-        <td>{{ product.buyer.fullName }}</td>
-        <td>{{ product.buyer.email }}</td>
-        <td>{{ product.buyer.Phone}}</td>
-        <td>{{ product.alt_phone}}</td>
-        <td>{{ product.created_at }}</td>
-        <td> <button class="btn btn-default btn-xs"><span class="fa fa-eye"></span></button></td>
-        </tr>
-			
-        <tr>
-            <td colspan="12" class="hiddenRow">
-							<div class="accordian-body collapse" id="demo1" > 
-                                    <div  *ngIf="showProduct">
-              <table class="table table-striped" >
-                      <thead>
-                        <tr class="info">
-													<th>Image</th>
-													<th>Product Name</th>
-													<th>Orientation</th>		
-													<th>Made On</th>	
-													<th>Medium</th>	
-													<th>Size</th>	
-												</tr>
-											</thead>	
-								  		
-											<tbody>
-												
-                        <tr data-toggle="collapse"  class="accordion-toggle" data-target="#demo10"  *ngFor="let product of selectedProduct.delivery_products">
-													<td> <a href="#"> <img  [src]="product.products.image" alt="custom_art_image"></a></td>
-													<td>{{ product.products.Name }}</td>
-													<td>{{ product.products.Orientation }} </td>
-													<td>  {{ product.products.buildOn }}</td>
-													<td> {{ product.products.medium }}</td>
-													<td> 
-                                                            {{ product.products.size }}
-													</td>
-												</tr>
-												
-		
-						
-												
-														
-                       
-												
-														
-                       
-								
-               
-                      </tbody>
-               	</table>
-              </div>
-              </div> 
+    <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="banner">Not-<strong>Delivered </strong>Products</div>
+          <div class="panel-body">
+            <table class="table table-condensed table-striped">
+      <thead>
+          <tr>
+             <th>Buyer Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+       <th>Address</th>
+          <th>Alternate Address</th>
+          <th>Alt Phone</th>
+          <th>Created Date</th>
+          <th>View Products</th>
+          </tr>
+      </thead>
+  
+      <tbody>
+             <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle" *ngFor="let product of products">
+                     <td>{{ product.buyer.id }}</td>
+          <td>{{ product.buyer.fullName }}</td>
+          <td>{{ product.buyer.email }}</td>
+      <td>
+              <address>
+                  {{ product.default_address.address_line_1}} {{ product.default_address.address_line_2}}
+                  {{ product.default_address.country}} {{ product.default_address.city}}
+                  {{ product.default_address.province}} {{ product.default_address.postal_code}}
+              </address>
           </td>
-        </tr>
-      
-      
-			
-       
-       
-       
-    </tbody>
-</table>
-            </div>
+    
+          <td>{{product.alt_address}}</td>
+          <td>{{ product.buyer.Phone}}</td>
+          <td>{{ product.alt_phone}}</td>
+          <td>{{ product.created_at }}</td>
+          <td> <button class="btn btn-default btn-xs" (click)="toggleShowProducts(product)" style="background-color: rgb(12, 185, 99); color:white; border: none; margin: 2%"> <span class="fa fa-eye"></span> </button>
+            <button class="btn btn-default btn-xs" style="background-color: slateblue; color:white; border: none; margin: 2%" (click)="changeDeliveryStatus(product.id)"><span class="fa fa-pencil"></span></button>
+                <button  class="btn btn-default btn-xs" style="background-color: red; color:white; border: none; margin: 2%" (click)="deleteProductDelivery(product.id)"><span class="fa fa-trash"></span></button>
+          </td>
+          </tr>
         
-          </div> 
+          <tr>
+              <td colspan="12" class="hiddenRow">
+                <div class="accordian-body collapse" id="demo1"   *ngIf="showProduct"> 
+                                      
+                <table class="table table-striped" >
+                        <thead>
+                          <tr class="info">
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Orientation</th>		
+                            <th>Made On</th>	
+                            <th>Medium</th>	
+                            <th>Size</th>	
+                          </tr>
+                        </thead>	
+                        
+                        <tbody>
+                          
+                          <tr data-toggle="collapse"  class="accordion-toggle" data-target="#demo10"  *ngFor="let product of selectedProduct.delivery_products">
+                            <td> <a href="#"> <img  [src]="product.products.image" alt="custom_art_image" style="width:50px"></a></td>
+                            <td>{{ product.products.Name }}</td>
+                            <td>{{ product.products.Orientation }} </td>
+                            <td>  {{ product.products.buildOn }}</td>
+                            <td> {{ product.products.medium }}</td>
+                            <td> 
+                                                              {{ product.products.size }}
+                            </td>
+                          </tr>
+                          
+      
+              
+                          
+                              
+                         
+                          
+                              
+                         
+                  
+                 
+                        </tbody>
+                   </table>
+               
+                </div> 
+            </td>
+          </tr>
         
-      </div>
-	</div>
- 
+        
+        
+         
+         
+         
+      </tbody>
+  </table>
+              </div>
+          
+            </div> 
+          
+        </div>
+    </div>
+   

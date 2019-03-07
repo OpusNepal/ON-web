@@ -8,3 +8,16 @@ body{
 .hiddenRow {
     padding: 0 !important;
 }
+
+.banner {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: rgba(31, 58, 147, 1);
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 25px;
+    text-align: center;
+  }
