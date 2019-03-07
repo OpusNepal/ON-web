@@ -1,13 +1,13 @@
 
-  <div class="container">
+  <div class="container" *ngIf="products && products.length > 0">
     <div class="col-md-12">
         <div class="panel panel-default">
-          <div class="banner">Not-<strong>Delivered </strong>Products</div>
+          <div class="banner"><strong>Delivered </strong>Products</div>
           <div class="panel-body">
             <table class="table table-condensed table-striped">
       <thead>
           <tr>
-             <th>Buyer Id</th>
+             <th style="    width: 8%;">Buyer Id</th>
           <th>Name</th>
           <th>Email</th>
           <th>Phone</th>
@@ -15,7 +15,7 @@
           <th>Alternate Address</th>
           <th>Alt Phone</th>
           <th>Created Date</th>
-          <th>View Products</th>
+          <th style="width:14%">View Products</th>
           </tr>
       </thead>
   
@@ -36,9 +36,9 @@
           <td>{{ product.buyer.Phone}}</td>
           <td>{{ product.alt_phone}}</td>
           <td>{{ product.created_at }}</td>
-          <td> <button class="btn btn-default btn-xs" (click)="toggleShowProducts(product)" style="background-color: rgb(12, 185, 99); color:white; border: none; margin: 2%"> <span class="fa fa-eye"></span> </button>
-            <button class="btn btn-default btn-xs" style="background-color: slateblue; color:white; border: none; margin: 2%" (click)="changeDeliveryStatus(product.id)"><span class="fa fa-pencil"></span></button>
-                <button  class="btn btn-default btn-xs" style="background-color: red; color:white; border: none; margin: 2%" (click)="deleteProductDelivery(product.id)"><span class="fa fa-trash"></span></button>
+          <td> <button class="btn btn-default btn-xs" (click)="toggleShowProducts(product)" style="background-color: rgb(12, 185, 99); color:white; border: none; margin: 2%;     padding: 7px 11px;"> <span class="fa fa-eye"></span> </button>
+            <button class="btn btn-default btn-xs" style="background-color: slateblue; color:white; border: none; margin: 2%;     padding: 7px 11px;" (click)="changeDeliveryStatus(product.id)"><span class="fa fa-pencil"></span></button>
+                <button  class="btn btn-default btn-xs" style="background-color: red; color:white; border: none; margin: 2%;     padding: 7px 11px;" (click)="deleteProductDelivery(product.id)"><span class="fa fa-trash"></span></button>
           </td>
           </tr>
         

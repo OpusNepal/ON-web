@@ -4,9 +4,9 @@
       <img class="card__image" [src]="deliveredArt.Image" alt="custom_art_image">
 
       <h2 class="card__title">Framing: {{ deliveredArt.Framing }}</h2>
-      <p class="card__text">Preferred Artist: {{ deliveredArt.artist.fullName }}</p>
-      <p class="card__text">Description: {{ deliveredArt.description }}</p>
-      <p class="card__text">Delivered: Yes</p>
+      <p class="card__text"><a><strong>Preferred Artist:</strong> {{ deliveredArt.artist.fullName }}</a><br>
+        <a><strong>Description:</strong> {{ deliveredArt.description }}</a><br>
+      <a ><strong>Delivered:</strong> Yes</a><br></p>
       <address class="card_text"> <b>Address: </b><br>
         {{ deliveredArt.default_address.address_line_1}}, {{ deliveredArt.default_address.address_line_2}} <br>
         {{ deliveredArt.default_address.postal_code }}, {{ deliveredArt.default_address.province }} <br>
