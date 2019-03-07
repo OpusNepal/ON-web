@@ -1,17 +1,26 @@
-<div *ngIf="products && products.length > 0">
-  <table>
-      <tr>
-          <th>TransactionId</th>
+
+  <div class="container" *ngIf="products && products.length > 0">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="banner">Not-<strong>Delivered </strong>Products</div>
+          <div class="panel-body">
+            <table class="table table-condensed table-striped">
+      <thead>
+          <tr>
+               <th>TransactionId</th>
          
-          <th>Address</th>
+       <th>Address</th>
           <th>Alternate Address</th>
+         
           <th>Created Date</th>
-          <th>Status</th>
-          <th>Actions </th>
-      </tr>
+		  <th>Status</th>
+          <th style="width:14%">Actions </th>
+          </tr>
+      </thead>
   
-      <tr *ngFor="let product of products">
-          <td>{{ product.id }}</td>
+      <tbody>
+             <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle" *ngFor="let product of products">
+             <td>{{ product.id }}</td>
           
           
           <td>
@@ -25,27 +34,68 @@
           <td>{{product.alt_address}}</td>
           <td>{{ product.created_at }}</td>
           <td>{{product.isDelivered? "Delivered": "In process"}}</td>
-          <td> 
-                  <a (click)="toggleShowProducts(product)"> Toggle</a>
-                </td>
-      </tr>
+          <td> <button class="btn btn-default btn-xs" (click)="toggleShowProducts(product)" style="background-color: rgb(12, 185, 99); color:white; border: none; margin: 2%;     padding: 7px 11px;"> <span class="fa fa-eye"></span> </button>
+
+          </td>
+          </tr>
+        
+          <tr>
+              <td colspan="12" class="hiddenRow">
+                <div class="accordian-body collapse" id="demo1"   *ngFor="let product of selectedProduct.delivery_products"> 
+                                      
+                <table class="table table-striped" >
+                        <thead>
+                          <tr class="info">
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Orientation</th>		
+                            <th>Made On</th>	
+                            <th>Medium</th>	
+                            <th>Size</th>	
+                          </tr>
+                        </thead>	
+                        
+                        <tbody>
+                          
+                          <tr data-toggle="collapse"  class="accordion-toggle" data-target="#demo10"  *ngFor="let product of selectedProduct.delivery_products">
+                            <td> <a href="#"> <img  [src]="product.products.image" alt="custom_art_image" style="width:50px"></a></td>
+                            <td><a (click)="viewProductDetail(product.productId)">{{ product.products.Name }}</a></td>
+                            <td>{{ product.products.Orientation }} </td>
+                            <td>  {{ product.products.buildOn }}</td>
+                            <td> {{ product.products.medium }}</td>
+                            <td> 
+                                                              {{ product.products.size }}
+                            </td>
+                          </tr>
+                          
+      
+              
+                          
+                              
+                         
+                          
+                              
+                         
+                  
+                 
+                        </tbody>
+                   </table>
+               
+                </div> 
+            </td>
+          </tr>
+        
+        
+        
+         
+         
+         
+      </tbody>
   </table>
-  
-  <div class="container helper" *ngIf="showProduct">
-          <div class="row">
-            <div class="card card--big" *ngFor="let product of selectedProduct.delivery_products">
-              <img class="card__image" [src]="product.products.image" alt="custom_art_image">
-        
-              <h2 class="card__title" (click)="viewProductDetail(product.productId)" >  {{ product.products.Name }} </h2>
-              <p class="card__text">Orientation: {{ product.products.Orientation }}</p>
-              <p class="card__text">Build On:  {{ product.products.buildOn }}</p>
-              <p class="card__text">Medium: {{ product.products.medium }}</p>
-              <p class="card__text">Size: {{ product.products.size }}</p>
-     
-            </div>
-          </div>
-        
+              </div>
+          
+            </div> 
+          
         </div>
-        
-      </div>
-  
+    </div>
+   

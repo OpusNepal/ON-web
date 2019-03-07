@@ -62,7 +62,7 @@
                           
                           <tr data-toggle="collapse"  class="accordion-toggle" data-target="#demo10"  *ngFor="let product of selectedProduct.delivery_products">
                             <td> <a href="#"> <img  [src]="product.products.image" alt="custom_art_image" style="width:50px"></a></td>
-                            <td>{{ product.products.Name }}</td>
+                            <td><a (click)="viewProductDetail(product.productId)">{{ product.products.Name }}</a></td>
                             <td>{{ product.products.Orientation }} </td>
                             <td>  {{ product.products.buildOn }}</td>
                             <td> {{ product.products.medium }}</td>
