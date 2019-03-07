@@ -177,7 +177,7 @@
     </div>
     <br>
     <button  class="previous" value="Previous"  style="margin:2%; width:37%;">Previous</button>
-    <button type="submit" (click)="onSubmit()" name="button" [hidden] = "!products.length > 0" style="margin:2%; width:37%;">Place Order</button>
+    <button type="submit" (click)="onSubmit()" name="button" [hidden] = "products.length < 0" style="margin:2%; width:37%;">Place Order</button>
     <button type="submit" (click)="onSubmit()" name="button" [hidden] = "products.length > 0" style="margin:2%; width:37%;">Return</button>
     
     </div>

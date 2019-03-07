@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'home', component: HomePageComponent },
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'signup', component: SignupComponent},
-  {path: 'login', component: LoginComponent, canActivate: [LoginAuthGuardService]},
+  {path: 'login', component: LoginComponent},
   
   {path: 'profile', component: ProfileComponent},
   {path: 'upload-product', component: ProductUploadComponent, canActivate: [GeneralAuthGuardService]},

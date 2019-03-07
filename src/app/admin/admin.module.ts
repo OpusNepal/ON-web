@@ -16,6 +16,7 @@ import { DeliveredArtsComponent } from './delivered-arts/delivered-arts.componen
 import { AllUndeliveredProductComponent } from './all-undelivered-product/all-undelivered-product.component';
 
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -29,6 +30,7 @@ import { AllUndeliveredProductComponent } from './all-undelivered-product/all-un
     NotDeliveredArtsComponent,
     DeliveredArtsComponent,
     AllUndeliveredProductComponent,
+
   ],
   imports: [
     CommonModule,

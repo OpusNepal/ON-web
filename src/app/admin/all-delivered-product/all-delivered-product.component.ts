@@ -26,6 +26,7 @@ export class AllDeliveredProductComponent implements OnInit {
 
   ngOnInit() {
     this.adminService.getAllDeliveredProduct().subscribe(res => {
+
       let clonedRes = JSON.parse(JSON.stringify(res));
 
       console.log(clonedRes)

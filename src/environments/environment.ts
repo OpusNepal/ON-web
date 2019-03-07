@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  api: "http://192.168.51.137:8848/api/",
-  files : "http://192.168.51.137:8848/",
-  public: "http://192.168.51.137:8848/"
+  api: "http://localhost:8848/api/",
+  files : "http://localhost:8848/",
+  public: "http://localhost:8848/"
+
 
 };
 

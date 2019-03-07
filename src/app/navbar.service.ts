@@ -15,7 +15,7 @@ export class NavbarService {
   private showUploadProduct = new BehaviorSubject<boolean>(false);
   private showWishlist = new BehaviorSubject<boolean>(false);
   private showresetpassword = new BehaviorSubject<boolean>(false);
-  private username = new BehaviorSubject<string>("Hello");
+  private username = new BehaviorSubject<string>(!localStorage.getItem('name')?"Hello":localStorage.getItem('name'));
 
 
   constructor() { }

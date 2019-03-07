@@ -41,6 +41,7 @@ export interface AdminDeliveryResponse {
     buyer_id: Number,
     default_address: string,
     alt_address: string,
+    totalPrice:string,
     alt_phone: string,
     isDelivered: boolean,
     delivery_products: DeliveryProduct[],
