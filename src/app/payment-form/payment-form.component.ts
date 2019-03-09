@@ -114,6 +114,9 @@ export class PaymentFormComponent implements OnInit {
     this.paymentData.totalPrice = this.subTotal + this.shipping;
     console.log(this.paymentData);
     this.userService.checkout(this.paymentData).subscribe(res =>{
+      this.ns.success("Your delivery items are in process");
+    this.localStorage.clearProductsData();
+    this.router.navigate(['cart'])
       console.log(res);
     
     });
