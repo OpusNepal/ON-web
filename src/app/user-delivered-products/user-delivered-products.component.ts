@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../auth/user.service';
-import { UserDeliveryResponse } from '../app-models/UserDeliveryResponse';
+import { UserDeliveryResponse, DeliveryProduct } from '../app-models/UserDeliveryResponse';
 import { environment } from '../../environments/environment';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../auth/local-storage.service';
 
@@ -10,7 +10,9 @@ import { LocalStorageService } from '../auth/local-storage.service';
 @Component({
   selector: 'app-user-delivered-products',
   templateUrl: './user-delivered-products.component.html',
-  styleUrls: ['./user-delivered-products.component.css']
+  styleUrls: ['./user-delivered-products.component.css'],
+  providers: [NgbRatingConfig]
+
 })
 export class UserDeliveredProductsComponent implements OnInit{
 products: UserDeliveryResponse[]
@@ -19,11 +21,14 @@ selectedProduct: UserDeliveryResponse
 selectedProductId: Number
 message = ""
 showProduct = false
+currentRate = 5
 
 @ViewChild('success')
 private success;
 
-constructor(private userService: UserService,private localstorage:LocalStorageService, private modalService: NgbModal, private router: Router) { }
+constructor(private userService: UserService,private localstorage:LocalStorageService, private modalService: NgbModal, private router: Router, public ratingConfig: NgbRatingConfig) {
+  ratingConfig.max = 5;
+}
 
 ngOnInit() {
   this.userService.getMyDeliveredProduct(this.localstorage.getAuthData().userId).subscribe(res => {
@@ -31,15 +36,12 @@ ngOnInit() {
 
     console.log(clonedRes)
     let data = clonedRes.map((product) => {
-      // if(product.isDelivered==true){
-      //   product.isDelivered="Delivered";
-      // }
-      // if(product.isDelivered==false){
-      //   product.isDelivered="In Process"
-      // }
       product.default_address = JSON.parse(product.default_address)
       product.created_at = new Date(product.created_at).toLocaleString()
       product.delivery_products = product.delivery_products.map((item) => {
+        if (!item.rating) {
+          item.rating = 0;
+        }
         item.products.image = environment.public + item.products.image
         return item
       })
@@ -88,6 +90,13 @@ viewProductDetail(productId: Number) {
   this.router.navigate(['product-view'], { queryParams: { productId } });
 }
 
+rateChanged(rating: Number, productId: Number) {
+  const { userId } = this.localstorage.getAuthData();
+  this.userService.rateProduct(rating, productId, Number(userId)).subscribe((res) => {
+    console.log(res)
+  });
 
+
+}
 
 }

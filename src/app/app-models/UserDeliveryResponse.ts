@@ -1,9 +1,10 @@
-interface DeliveryProduct {
+export interface DeliveryProduct {
     id: Number,
     created_at: string,
     updated_at: string,
     transactionId: Number,
     productId: Number,
+    rating?: Number,
     quantity: Number,
     products: {
         id: Number,
