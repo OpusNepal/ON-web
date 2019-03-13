@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../auth/user.service';
 import { ProductOfSubcategory } from '../app-models/productsOfSubcategoryResponse.model';
 import { environment } from 'src/environments/environment';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-all-products',
@@ -12,7 +13,9 @@ import { environment } from 'src/environments/environment';
 export class AllProductsComponent implements OnInit {
   id: number;
   products: Array<ProductOfSubcategory>;
-  constructor(public route: ActivatedRoute, public userService: UserService, public router: Router) { }
+  constructor(public route: ActivatedRoute, public userService: UserService, public router: Router, public ratingConfig: NgbRatingConfig) {
+    ratingConfig.max = 5;
+   }
 
   ngOnInit() {
     this.route.queryParams

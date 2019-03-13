@@ -6,6 +6,8 @@ import { environment } from 'src/environments/environment';
 import { LocalStorageService } from '../auth/local-storage.service';
 import { UserProductModel } from '../app-models/user-product.model';
 import { LocalStorageDataModel } from '../app-models/localStorageData.model';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-product-view',
@@ -22,7 +24,9 @@ export class ProductViewComponent implements OnInit {
   duplicateProduct : Boolean = false;
   productId : LocalStorageDataModel = new LocalStorageDataModel();
 
-  constructor(private route: ActivatedRoute, private userService: UserService, public localStorage: LocalStorageService, public router: Router) { }
+  constructor(private route: ActivatedRoute, private userService: UserService, public localStorage: LocalStorageService, public router: Router, public ratingConfig: NgbRatingConfig) { 
+    ratingConfig.max = 5;
+  }
 
   ngOnInit() {
     this.duplicateProduct = false;
