@@ -5,6 +5,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth-interceptor';
 import { LoginAuthGuardService } from "./loginAuth.guard";
 import { GeneralAuthGuardService } from "./generalAuth.guard";
+import{AdminAuthGuardService} from "./adminauth.guard";
 
 
 
@@ -21,7 +22,8 @@ import { GeneralAuthGuardService } from "./generalAuth.guard";
       multi: true
     },
     LoginAuthGuardService,
-    GeneralAuthGuardService
+    GeneralAuthGuardService,
+    AdminAuthGuardService
   ]
 })
 export class AuthModule { }

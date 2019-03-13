@@ -11,13 +11,13 @@ import { NotDeliveredArtsComponent } from './not-delivered-arts/not-delivered-ar
 import { GeneralAuthGuardService } from "../auth/generalAuth.guard";
 import {AllDeliveredProductComponent} from './all-delivered-product/all-delivered-product.component';
 import {AllUndeliveredProductComponent} from './all-undelivered-product/all-undelivered-product.component';
-
+import {AdminAuthGuardService} from '../auth/adminauth.guard';
 
 const routes: Routes = [
   {
     path:'admin',
     component: DashboardComponent,
-    canActivate: [GeneralAuthGuardService],
+    canActivate: [AdminAuthGuardService],
     children: [
       {
         path: 'verifyaccount',
