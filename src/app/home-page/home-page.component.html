@@ -104,12 +104,13 @@
                                               <span class="current-price">{{prod.price}}</span>
                                           </div>
                                           <br>
-                                          <div class="row" style="padding:10%">
-                                          <span class="fa fa-star checked"></span>
+                                          <div class="row" style="padding:10%" *ngIf="prod.rating.rating">
+                                          <!-- <span class="fa fa-star checked"></span>
                                           <span class="fa fa-star checked"></span>
                                           <span class="fa fa-star checked"></span>
                                           <span class="fa fa-star"></span>
-                                          <span class="fa fa-star"></span>
+                                          <span class="fa fa-star"></span> -->
+                                          <ngb-rating [(rate)] = "prod.rating.average" [readonly]="true"></ngb-rating>
                                       </div>
                                       </div>
                                   </div>

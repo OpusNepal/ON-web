@@ -56,6 +56,8 @@ export class ProductViewComponent implements OnInit {
         
         });
       });
+
+      console.log(this.productDetails)
       
   }
   addToCart(event){
