@@ -52,7 +52,7 @@
                         <th>Made On</th>
                         <th>Medium</th>
                         <th>Size</th>
-                        <th>Rate</th>
+                        <th *ngIf="selectedProduct.isDelivered">Rate</th>
                       </tr>
                     </thead>
 
@@ -67,7 +67,7 @@
                         <td>
                           {{ product.products.size }}
                         </td>
-                        <td><ngb-rating [(rate)]="product.rating" (rateChange)="rateChanged($event, product.productId)"></ngb-rating></td>
+                        <td *ngIf="selectedProduct.isDelivered"><ngb-rating [(rate)]="product.rating" (rateChange)="rateChanged($event, product.productId)"></ngb-rating></td>
                       </tr>
 
 
