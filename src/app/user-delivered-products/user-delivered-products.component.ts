@@ -31,12 +31,12 @@ ngOnInit() {
 
     console.log(clonedRes)
     let data = clonedRes.map((product) => {
-      if(product.isDelivered==true){
-        product.isDelivered="Delivered";
-      }
-      if(product.isDelivered==false){
-        product.isDelivered="In Process"
-      }
+      // if(product.isDelivered==true){
+      //   product.isDelivered="Delivered";
+      // }
+      // if(product.isDelivered==false){
+      //   product.isDelivered="In Process"
+      // }
       product.default_address = JSON.parse(product.default_address)
       product.created_at = new Date(product.created_at).toLocaleString()
       product.delivery_products = product.delivery_products.map((item) => {
@@ -79,6 +79,7 @@ deleteArt() {
 
 toggleShowProducts(product) {
   this.showProduct = !this.showProduct
+  console.log("[r",product);
   this.selectedProduct = product
 }
 
