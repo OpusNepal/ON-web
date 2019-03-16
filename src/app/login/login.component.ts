@@ -35,7 +35,8 @@ export class LoginComponent implements OnInit {
     this.navbarService.setShowProfile(false);
     this.navbarService.setShowCart(false);
     this.navbarService.setShowUploadProduct(false);
-    this.navbarService.setshowresetpassword(true);
+
+    //this.navbarService.setshowresetpassword(true);
   }
 
   createForm(): void {
@@ -61,6 +62,7 @@ export class LoginComponent implements OnInit {
       this.navbarService.setShowLogin(false);
       this.navbarService.setShowSignup(false);
       this.navbarService.setShowLogout(true);
+      this.navbarService.setshowresetpassword(true);
 
       console.log("UserType-----------", userType)
       console.log('pass',passwordreset);

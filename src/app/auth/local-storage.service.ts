@@ -59,7 +59,7 @@ export class LocalStorageService {
     }
 
     let { userType } = credentials;
-
+this.navbarService.setshowresetpassword(true);
     console.log(userType)
     userType = userType.toLowerCase()
     if (userType === 'artist') {

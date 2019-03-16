@@ -2,7 +2,6 @@ import { Component, OnInit,ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl,AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../auth/user.service';
-import { KscSpinnerDirective } from "../lib/spinner/KscSpinner.directive";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 import { NavbarService } from '../navbar.service';
 import { NotificationService } from "../lib/notification/notification.service";

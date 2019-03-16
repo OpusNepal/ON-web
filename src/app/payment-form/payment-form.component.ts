@@ -5,6 +5,7 @@ import { UserService } from '../auth/user.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { PaymentModel } from '../app-models/payment.model';
+import {NotificationService} from '../lib/notification/notification.service';
 import { LocalStorageDataModel } from '../app-models/localStorageData.model';
 import * as $ from 'jquery';
 
@@ -34,7 +35,7 @@ export class PaymentFormComponent implements OnInit {
     alt_phone : new FormControl(''),
   });
 
-  constructor(public formBuilder: FormBuilder, public localStorage: LocalStorageService, public userService: UserService, public router: Router) { }
+  constructor(public formBuilder: FormBuilder,public ns:NotificationService, public localStorage: LocalStorageService, public userService: UserService, public router: Router) { }
 
   ngOnInit() {
     this.getProducts();
@@ -113,7 +114,11 @@ export class PaymentFormComponent implements OnInit {
     this.paymentData.totalPrice = this.subTotal + this.shipping;
     console.log(this.paymentData);
     this.userService.checkout(this.paymentData).subscribe(res =>{
+      this.ns.success("Your delivery items are in process");
+    this.localStorage.clearProductsData();
+    this.router.navigate(['cart'])
       console.log(res);
+    
     });
   }
 

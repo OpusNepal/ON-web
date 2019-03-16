@@ -18,15 +18,14 @@ import {ChangePasswordComponent} from './change-password/change-password.compone
 import {ForgetPasswordComponent} from './forget-password/forget-password.component';
 import { LoginAuthGuardService } from "./auth/loginAuth.guard";
 import { GeneralAuthGuardService } from "./auth/generalAuth.guard";
-
-
+import {UserDeliveredProductsComponent} from './user-delivered-products/user-delivered-products.component'
 
 
 const routes: Routes = [
   {path: 'home', component: HomePageComponent },
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'signup', component: SignupComponent},
-  {path: 'login', component: LoginComponent, canActivate: [LoginAuthGuardService]},
+  {path: 'login', component: LoginComponent},
   
   {path: 'profile', component: ProfileComponent},
   {path: 'upload-product', component: ProductUploadComponent, canActivate: [GeneralAuthGuardService]},
@@ -40,7 +39,8 @@ const routes: Routes = [
   {path: 'customizedarthelp', component: CustomizedArtHelpComponent},
   {path: 'mycustomart', component: MyCustomArtComponent, canActivate: [GeneralAuthGuardService]},
   {path:'changepassword',component:ChangePasswordComponent},
-  {path:'forgetpassword',component:ForgetPasswordComponent}
+  {path:'forgetpassword',component:ForgetPasswordComponent},
+  {path:'userdelivery', component:UserDeliveredProductsComponent}
 
 ];
 
