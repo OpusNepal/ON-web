@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { environment } from 'src/environments/environment';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -63,7 +64,9 @@ export class HeaderComponent implements OnInit {
 
   }
 
-
+search(serial:string){
+  this.router.navigate(['searchproduct'], { queryParams: { serial }});
+}
 
   logoutEvent() {
     this.localStorage.clearAuthData();
