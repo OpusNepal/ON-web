@@ -1,4 +1,4 @@
-@import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);
+/* @import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css); */
 
 .profile-page{
     background-color: rgb(250, 248, 241);
@@ -234,5 +234,17 @@ QUOTES close */
     transition: all .2s ease;
   }
 
+  .editProfile{
+	display: block;
+	clear: both;
+	line-height: 1.428571429;
+	color: #333 !important;
+    white-space: normal;
+    cursor: pointer;
+  }
+  .editProfile:hover {
+	color: blue !important;
+    
+}
 
 

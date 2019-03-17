@@ -100,5 +100,19 @@ export class UserService {
     console.log(environment.api + 'delivery');
     return this.http.post(environment.api + 'delivery', paymentData)
   }
+
+  updateUser(userDetail, userId): Promise<any>{
+    console.log(userDetail);
+    return this.http.put(environment.api + 'users/' + userId , userDetail).toPromise();
+  }
   
+  editProfile(profileDetail, userId): Promise<any>{
+    console.log(profileDetail);
+    return this.http.put(environment.api + 'profile/updateProfile/' + userId , profileDetail).toPromise();
+
+  }
+
+  changeProfilePicture(userId,profilePic){
+    return this.http.put(environment.api + 'profile/updateProfilePic/' + userId , profilePic);
+  }
 }

@@ -22,6 +22,7 @@ import { AllProductsComponent } from './all-products/all-products.component';
 import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { PaymentFormComponent } from './payment-form/payment-form.component';
     AllProductsComponent,
     CartComponent,
     WishlistComponent,
-    PaymentFormComponent
+    PaymentFormComponent,
+    EditProfileComponent,
+
     
   ],
   imports: [

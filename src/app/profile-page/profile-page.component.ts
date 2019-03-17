@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../auth/user.service';
 import { environment } from 'src/environments/environment';
@@ -6,6 +6,7 @@ import { ProfilePageModel } from '../app-models/profile-page.model';
 import { UserProductModel } from '../app-models/user-product.model';
 import { LocalStorageService } from '../auth/local-storage.service';
 import { NavbarService } from '../navbar.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -14,14 +15,23 @@ import { NavbarService } from '../navbar.service';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
+ 
+  @ViewChild('content')
+  private content;
+ 
 
   id: String;
   profilePageModel : ProfilePageModel = new ProfilePageModel();
   imagePath: any;
   productImage: any;
   products: Array<UserProductModel> = [];
+  url:any;
+  profilePic: any;
+  imgURL : any;
+  modalReference: any;
+  message: String;
 
-  constructor(private route: ActivatedRoute, public userService: UserService,public localStorage: LocalStorageService, public router: Router, public navbarService: NavbarService) { 
+  constructor(private route: ActivatedRoute, public userService: UserService,public localStorage: LocalStorageService, public router: Router, public navbarService: NavbarService, private modalService: NgbModal) { 
     this.route.queryParams
       .subscribe(params => {
         if(params.id != null){
@@ -34,7 +44,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   ngOnInit() {
-
+      console.log("love");
       this.localStorage.getAuthData() == null ? this.router.navigate(['login']):this.id = this.localStorage.getAuthData().userId;
       this.productImage = environment.files;
       this.route.queryParams
@@ -48,7 +58,10 @@ export class ProfilePageComponent implements OnInit {
     Promise.all([this.userService.getProfile(this.id),this.userService.getProductsofUser(this.id)]).then(
       res => {
         this.profilePageModel = res[0];
+        console.log(this.profilePageModel);
         this.imagePath = environment.files + this.profilePageModel.profilepic;
+        console.log("naya imagePath" + this.imagePath);
+        this.imgURL = this.imagePath;
         this.products = res[1];
         for (let product of this.products){
           product.image = environment.files + product.image;
@@ -64,6 +77,54 @@ export class ProfilePageComponent implements OnInit {
     var target = event.target || event.srcElement || event.currentTarget;
     var id = target.attributes.id.value;
     this.router.navigate(['product-view'], { queryParams: {productId: id}});
+  }
+
+  editProfile(){
+    this.router.navigate(['edit-profile']);
+  }
+
+  open(content) {
+    this.modalReference = this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title'})
+  }
+
+  onSelectFile(files) { 
+    // console.log(event);
+    // this.pic = event.target.files[0];
+    // this.profilePic = event.target.files[0].name;
+    // console.log(this.profilePic);
+    this.profilePic = files[0];
+    console.log(this.profilePic);
+    if (files.length === 0)
+    return;
+
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.message = "Only images are supported.";
+      return;
+    }
+
+    var reader = new FileReader();
+    // this.imagePath = files;
+    reader.readAsDataURL(files[0]); 
+    reader.onload = (_event) => { 
+      this.imgURL = reader.result; 
+    }
+  }
+
+  updateProfilePic(){
+    const profilePicData = new FormData();
+    profilePicData.append("profilepic",this.profilePic)
+    this.userService.changeProfilePicture(this.id,profilePicData).subscribe(
+        res=>{
+          console.log(res);
+          this.ngOnInit();
+        }
+      ), (err) => {
+        console.log(err);
+      };
+     
+      this.modalReference.close();
+      
   }
 
 }
