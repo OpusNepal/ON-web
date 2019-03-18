@@ -11,7 +11,7 @@
   <div class="card card--big" *ngFor="let artist of verifiedArtists | grdFilter: {fullName: searchText, Phone:searchText,  email: searchText}; let i=index;">
       <img class="card__image" [src]="artist.profile.profilepic"  alt="profile picture">
   
-        <h2 class="card__title"><a id="{{artist.id}}" (click)="viewProfile($event)" style="color:blue">{{artist.fullName}}</a></h2>
+        <h2 class="card__title"><a id="{{artist.id}}" (click)="viewProfile($event)" >{{artist.fullName}}</a></h2>
         <p class="card__text"> <a>Email: {{ artist.email }}</a><br>
             <a>Expert: {{ artist.profile.expert }}</a><br>
             <a>Role: {{ artist.profile.role }}</a><br>
