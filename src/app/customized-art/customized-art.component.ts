@@ -6,6 +6,8 @@ import { UserService } from '../auth/user.service';
 import { CustomArt } from '../app-models/custom-art';
 import { LocalStorageService } from '../auth/local-storage.service';
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -39,6 +41,8 @@ export class CustomizedArtComponent implements OnInit {
   artists = [];
   artistsList = [];
 
+  artistId: Number
+
   refImage: File
 
   search = (text$: Observable<string>) =>
@@ -49,7 +53,7 @@ export class CustomizedArtComponent implements OnInit {
         : this.artists.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
     )
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private localStorageService: LocalStorageService, private modalService: NgbModal) { }
+  constructor(public router: Router,private formBuilder: FormBuilder, private userService: UserService, private localStorageService: LocalStorageService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.createForm();
@@ -111,17 +115,18 @@ export class CustomizedArtComponent implements OnInit {
     const {preferredArtistName} = this.customArtForm.value
 
     const artist = this.artistsList.find(item => preferredArtistName === item.fullName)
-
-    if(!artist) {
-      return
+    if (artist) {
+      this.artistId = artist.id
+    } else {
+      this.artistId = null
     }
-
+    
     const { userId } = this.localStorageService.getAuthData()
 
     delete this.customArtForm.value["preferredArtistName"]
     const data: CustomArt = {
       ... this.customArtForm.value,
-      artistId: artist.id,
+      artistId: this.artistId,
       buyerId: userId
     }
 
@@ -131,7 +136,10 @@ export class CustomizedArtComponent implements OnInit {
     formData.append('address_line_1', data.address_line_1);
     formData.append('address_line_2', data.address_line_2);
     formData.append('alt_address', data.alt_address);
-    formData.append('artistId', artist.id);
+    if (this.artistId) {
+      formData.append('artistId', String(this.artistId));
+
+    }
     formData.append('buyerId', userId);
     formData.append('city', data.city);
     formData.append('country', data.country);
@@ -145,6 +153,7 @@ export class CustomizedArtComponent implements OnInit {
     this.userService.requestCustomArt(formData).subscribe(() => {
       console.log('Success')
       this.open(this.content)
+      this.router.navigate['home'];
     });
 
     

@@ -65,8 +65,8 @@
                           <form [formGroup]="customArtForm" (ngSubmit)="onSubmit()">
                             <div class="form-group">
                               <label for="description"> <strong>Description </strong>
-                                <input type="text" name="description" class="form-control" value="" formControlName="description"
-                                  placeholder="Describe your art...">
+                                <textarea rows="5" name="description" class="form-control" value="" formControlName="description"
+                                  placeholder="Describe your art..." style="background-color: #d4d4d4"></textarea>
                               </label>
                             </div>
                             <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
@@ -76,7 +76,7 @@
                             <div class="form-group">
                               <label for="image"> <strong>Upload reference Art</strong>
                                 <input type="file" name="image" accept="image/*" value="" class="form-control form-control-file" formControlName="image" (change)="onProductSelect($event)"
-                                  placeholder="Select reference art">
+                                  placeholder="Select reference art" style="height: auto">
                               </label><br>
                               <span>Upload sample as referece for Artist</span>
                             </div>

@@ -172,14 +172,14 @@
   .product-item-details h2 {
       font-size: 15px;
       line-height: 20px;
-      padding: 10px 0;
+      padding: 5px 0;
       margin: 0;
       font-weight: 400;
       color: #949291;
   }
   
   .product-item-details h2 a {
-      color: #949291;
+      color: #f08812fb;
   }
   
   .product-item-details h2 a:hover {
