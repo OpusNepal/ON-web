@@ -73,6 +73,13 @@
             <a class=" NavLink" *ngIf="navbarService.getShowWishlist() | async" routerLink="/wishlist"><strong>Wishlist</strong></a>
           </li>
           <li class="nav-item">
+            <a class=" NavLink" *ngIf="navbarService.getShowWishlist() | async" routerLink="/userdelivery"><strong>My Delivery</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class=" NavLink" *ngIf="navbarService.getShowWishlist() | async" routerLink="/mycustomart"><strong>My CustomArt</strong></a>
+          </li>
+
+          <li class="nav-item">
             <a class=" NavLink" *ngIf="navbarService.getShowCart() | async" routerLink="/cart"><span class="fa fa-cart-plus"></span><strong>Cart</strong></a>
           </li>
           <li class="nav-item">
