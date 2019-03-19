@@ -1,0 +1,42 @@
+<div class="login-page">
+    
+  <div class="banner">Edit<strong> Product</strong></div>
+     <div class="form">
+         <form [formGroup]="ProductUpdateForm" (ngSubmit)="onSubmit()">
+           <div class="form-group">
+               <label for="name"class=" form-control-label">Product Name:</label>
+                <input type="text" name="name" class="form-control" value="" formControlName="name" readonly>
+           </div>
+           <div class="form-group">
+               <label for="orientation"class=" form-control-label">Orientation:</label>
+               <input type="text" name="orientation" class="form-control" value="" formControlName="orientation" readonly>
+           </div>
+           <div class="form-group">
+               <label for="builOn"class=" form-control-label">Build On:</label>
+              <input type="text" name="buildOn" class="form-control" value="" formControlName="buildOn" readonly>
+           </div>
+           <div class="form-group">
+               <label for="price"class=" form-control-label">Price:</label>
+               <input type="number" name="price" class="form-control" value="" formControlName="price" readonly>
+           </div>
+           <div class="form-group">
+               <label for="availability"class=" form-control-label">Availability:</label>
+               <select class="form-control" formControlName="availability" style="height:50px">
+                 
+                <option>yes</option>
+                <option>no</option>  
+                     
+               
+              </select>
+           </div>
+         
+           <button type="submit"  name="button" >Update</button>
+           
+         </form>
+     
+       </div>
+       
+
+ 
+ </div>
+ 

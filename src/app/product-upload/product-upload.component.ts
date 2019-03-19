@@ -83,7 +83,8 @@ export class ProductUploadComponent implements OnInit {
     productForm.append("availability",this.ProductUploadForm.value.availability);
     productForm.append("Name",this.ProductUploadForm.value.name);
     productForm.append("image",this.productImage);
-    console.log(productForm);
+    console.log("form data yo ho");
+    console.log(JSON.stringify(productForm));
     this.userService.uploadProduct(productForm).subscribe((res)=>{
         console.log(res);
         this.router.navigate(['profile-page']);

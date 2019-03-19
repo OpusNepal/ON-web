@@ -115,4 +115,13 @@ export class UserService {
   changeProfilePicture(userId,profilePic){
     return this.http.put(environment.api + 'profile/updateProfilePic/' + userId , profilePic);
   }
+
+  deleteProduct(productId){
+    return this.http.put(environment.api + 'products/delete/'  + productId , '');
+  }
+
+  updateProductAvailability(productId , prodAvail){
+    return this.http.put(environment.api + 'products/updatavail/' + productId , prodAvail);
+  }
+
 }

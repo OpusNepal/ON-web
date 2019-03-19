@@ -29,7 +29,9 @@ export class ProfilePageComponent implements OnInit {
   profilePic: any;
   imgURL : any;
   modalReference: any;
+  modalReferenceConfirm: any;
   message: String;
+  productId: number;
 
   constructor(private route: ActivatedRoute, public userService: UserService,public localStorage: LocalStorageService, public router: Router, public navbarService: NavbarService, private modalService: NgbModal) { 
     this.route.queryParams
@@ -44,7 +46,6 @@ export class ProfilePageComponent implements OnInit {
   }
 
   ngOnInit() {
-      console.log("love");
       this.localStorage.getAuthData() == null ? this.router.navigate(['login']):this.id = this.localStorage.getAuthData().userId;
       this.productImage = environment.files;
       this.route.queryParams
@@ -58,9 +59,8 @@ export class ProfilePageComponent implements OnInit {
     Promise.all([this.userService.getProfile(this.id),this.userService.getProductsofUser(this.id)]).then(
       res => {
         this.profilePageModel = res[0];
-        console.log(this.profilePageModel);
+        // console.log(this.profilePageModel);
         this.imagePath = environment.files + this.profilePageModel.profilepic;
-        console.log("naya imagePath" + this.imagePath);
         this.imgURL = this.imagePath;
         this.products = res[1];
         for (let product of this.products){
@@ -84,14 +84,18 @@ export class ProfilePageComponent implements OnInit {
   }
 
   open(content) {
+    this.removeFadeClass();
     this.modalReference = this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title'})
+  }
+  openConfirmation(content,event){
+    this.removeFadeClass();
+    this.modalReferenceConfirm = this.modalService.open(content,{ ariaLabelledBy: 'modal-basic-title'});
+    this.productId = event.target.id;
+    console.log(this.productId);
   }
 
   onSelectFile(files) { 
-    // console.log(event);
-    // this.pic = event.target.files[0];
-    // this.profilePic = event.target.files[0].name;
-    // console.log(this.profilePic);
+  
     this.profilePic = files[0];
     console.log(this.profilePic);
     if (files.length === 0)
@@ -104,7 +108,6 @@ export class ProfilePageComponent implements OnInit {
     }
 
     var reader = new FileReader();
-    // this.imagePath = files;
     reader.readAsDataURL(files[0]); 
     reader.onload = (_event) => { 
       this.imgURL = reader.result; 
@@ -126,5 +129,27 @@ export class ProfilePageComponent implements OnInit {
       this.modalReference.close();
       
   }
+  deleteProduct(){
+    this.userService.deleteProduct(this.productId).subscribe(res=>{
+      console.log(res);
+      this.ngOnInit();
+    }),(err)=>{
+      console.log(err);
+    }
+    this.modalReferenceConfirm.close();
+    
+  }
+  updateAvailability(event){
+    this.router.navigate(['edit-product'],{queryParams: {productId : event.target.id}});
+  }
+
+  removeFadeClass(){
+    $("button").click(function(){
+      $("p").removeClass("fade");
+    });
+  }
+
+
+
 
 }

@@ -80,8 +80,8 @@
                                                 <div class="product-detail-inner">
                                                     <div class="item-details-overly-info">
                                                         <ul class="list-inline list-unstyled">
-                                                            <li class="item-add-to-cart"><a  title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                                            <li class="item-wishlist"><a  title="Wish list"><i class="fa fa-heart-o"></i></a></li>
+                                                            <li class="item-add-to-cart"><a title="Delete Product"><i class="fa fa-trash"  id = "{{product.id}}" (click) = openConfirmation(contentDelete,$event)></i></a></li>
+                                                            <li class="item-wishlist"><a title="Edit Product" (click) = "updateAvailability($event)"><i id = "{{product.id}}" class="fa fa-edit"></i></a></li>
                                                           
                                                         </ul>
                                                     </div>
@@ -216,3 +216,15 @@
       <button type="button" class="btn btn-outline-dark"   (click)="updateProfilePic()">OK</button>
     </div>
   </ng-template>
+  <ng-template #contentDelete let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Are you sure you want to delete the product?</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark"  (click)="deleteProduct()">Yes</button>
+          <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">No</button>
+        </div>
+    </ng-template>

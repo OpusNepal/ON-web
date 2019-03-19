@@ -12,16 +12,22 @@
                  <input type="text" name="orientation" class="form-control" value="" formControlName="orientation" placeholder="Orientation">
              </div>
              <div class="form-group">
-                 <label for="builOn"class=" form-control-label">Build On:</label>
-                <input type="text" name="buildOn" class="form-control" value="" formControlName="buildOn" >
+                 <label for="builOn"class=" form-control-label"></label>
+                <input type="text" name="buildOn" class="form-control" value="" formControlName="buildOn" placeholder="Build On">
              </div>
              <div class="form-group">
                  <label for="price"class=" form-control-label"></label>
                  <input type="number" name="price" class="form-control" value="" formControlName="price" placeholder="Price">
              </div>
              <div class="form-group">
-                 <label for="availability"class=" form-control-label"></label>
-                 <input type="text" name="availability" class="form-control" value="" formControlName="availability" placeholder="Availability">
+                 <label for="availability"class=" form-control-label">Availability:</label>
+                 <select class="form-control" formControlName="availability" placeholder="Availability" style="height:50px">
+                   
+                  <option>yes</option>
+                  <option>no</option>  
+                       
+                 
+                </select>
              </div>
            
              <div class="form-group">
