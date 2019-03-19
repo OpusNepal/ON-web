@@ -72,7 +72,7 @@
                       <h3>Featured   <strong style="font-weight: bold"> {{product.subcategory}}  Arts </strong></h3>
                   </div>
                   <div class="row" *ngIf="product.subcategoryProducts.length > 0" >
-                      <div class="col-md-3 col-sm-6" *ngFor = "let prod of product.subcategoryProducts; let i=index" >
+                      <div class="col-md-3 col-sm-6" *ngFor = "let prod of product.subcategoryProducts; let i=index" style="position: unset" >
                         <div *ngIf="i < 4">
                           <div class="square-card">
                           <a alt="square card" style="display: block;">
