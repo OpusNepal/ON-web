@@ -19,6 +19,8 @@ import {ForgetPasswordComponent} from './forget-password/forget-password.compone
 import { LoginAuthGuardService } from "./auth/loginAuth.guard";
 import { GeneralAuthGuardService } from "./auth/generalAuth.guard";
 import {UserDeliveredProductsComponent} from './user-delivered-products/user-delivered-products.component'
+import {FeaturedArtistComponent} from './featured-artist/featured-artist.component';
+import {SearchResultProductsComponent} from './search-result-products/search-result-products.component'
 
 
 const routes: Routes = [
@@ -40,7 +42,12 @@ const routes: Routes = [
   {path: 'mycustomart', component: MyCustomArtComponent, canActivate: [GeneralAuthGuardService]},
   {path:'changepassword',component:ChangePasswordComponent},
   {path:'forgetpassword',component:ForgetPasswordComponent},
-  {path:'userdelivery', component:UserDeliveredProductsComponent}
+  {path:'userdelivery', component:UserDeliveredProductsComponent},
+  {path:'featuredArtist', component:FeaturedArtistComponent},
+  {
+    path:'searchproduct',component:SearchResultProductsComponent
+  }
+
 
 ];
 

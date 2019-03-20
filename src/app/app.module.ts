@@ -34,7 +34,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule, MatSpinner } from '@angular/material';
 import { AllDeliveredProductComponent } from './admin/all-delivered-product/all-delivered-product.component';
 import { UserDeliveredProductsComponent } from './user-delivered-products/user-delivered-products.component';
-
+import {FeaturedArtistComponent} from './featured-artist/featured-artist.component';
+import {GrdFilterPipe} from './lib/custompipe';
+import { SearchResultProductsComponent } from './search-result-products/search-result-products.component';
 
 
 @NgModule({
@@ -59,7 +61,10 @@ import { UserDeliveredProductsComponent } from './user-delivered-products/user-d
     ChangePasswordComponent,
     ForgetPasswordComponent,
     AllDeliveredProductComponent,
-    UserDeliveredProductsComponent
+    UserDeliveredProductsComponent,
+    FeaturedArtistComponent,
+    GrdFilterPipe,
+    SearchResultProductsComponent
   ]
     
     

@@ -1,51 +1,35 @@
 <div class="container helper">
-  <div class="row" *ngIf="customArts && customArts.length > 0; else nocustomart">
-    <div class="card card--big" *ngFor="let customArt of customArts">
-      <img class="card__image" [src]="customArt.Image" alt="custom_art_image">
+  <div class="row" *ngIf="customArts && customArts.length > 0;else nopendingart">
+    <div class="card card--big" *ngFor="let deliveredArt of customArts">
+      <img class="card__image" [src]="deliveredArt.Image" alt="custom_art_image">
 
-      <h2 class="card__title">Framing: {{ customArt.Framing }}</h2>
-      <p class="card__text">Preferred Artist: {{ customArt.artist.fullName }}</p>
-      <p class="card__text">Description: {{ customArt.description }}</p>
-
-      <div class="card__action-bar">
-        <button (click)="setCancelCustomArtId(customArt.id); open(content);" style="cursor: pointer" class="card__button"><Strong
-            style="color:#d91e18">Cancel Order</Strong></button>
-      </div>
+      <h2 class="card__title">Framing: {{ deliveredArt.Framing }}</h2>
+      <div class="card__text">
+        <a>Preferred Artist: {{ deliveredArt.artist?deliveredArt.artist.fullName:"N/A" }}</a>
+        <button type="button" class="card__button" data-toggle="modal" [attr.data-target]="'#desc2' + deliveredArt.id" style="cursor: pointer">
+            <strong style="color:#3a539b">View description</strong>
+          </button>
+          <div class="modal fade" id="desc2{{deliveredArt.id}}">
+              <div class="modal-dialog">
+                <div class="modal-content" style="padding:10%">
+                  <p>{{ deliveredArt.description }}</p>
+                </div>
+              </div>
+            </div><br>
+        
+          <a>Delivery Status: {{deliveredArt.isDelivered?"Yes":"In Process"}}</a><br>
+      <address class="card_text"> <b>Address: </b><br>
+        {{ deliveredArt.default_address.address_line_1}}, {{ deliveredArt.default_address.address_line_2}} <br>
+        {{ deliveredArt.default_address.postal_code }}, {{ deliveredArt.default_address.province }} <br>
+        {{ deliveredArt.default_address.city }}, {{ deliveredArt.default_address.country }} <br>      </address>
+      
+ 
     </div>
   </div>
 
+
 </div>
-
-
-<ng-template #nocustomart>
-  <h2>No custom art ordered yet!</h2>
+<ng-template #nopendingart>
+  <h2>No pending Custom Art remaining!</h2>
+  <p>Click <a routerLink="/customizedarthelp">here</a> to know how it works.</p>
 </ng-template>
-
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Are you sure?</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close(''); cancelOrder();">Cancel order</button>
-  </div>
-</ng-template>
-
-<ng-template #success let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Success</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-
-  <div class="modal-body">
-    <h3>Order cancelled successfully</h3>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('');">OK</button>
-  </div>
-</ng-template>
-

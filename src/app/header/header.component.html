@@ -36,11 +36,15 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link"><strong>Featured Artists</strong></a>
+          <a class="nav-link" routerLink="/featuredArtist"><strong>Featured Artists</strong></a>
+        </li>
+        <li class="searchbar">
+            <input type="text" placeholder="Search.." [(ngModel)]="serial" (keyup.enter)="search(serial)">
+
         </li>
 
       </ul>
-      <div class="Dropdown" style="float:right">
+      <div class="Dropdown" style="float:right; width:unset">
   <div class="Dropdown-profile">
     <span class="Name">{{ navbarService.getUsername() | async }}</span>
     <span class="MenuIcon">
@@ -68,6 +72,13 @@
           <li class="nav-item">
             <a class=" NavLink" *ngIf="navbarService.getShowWishlist() | async" routerLink="/wishlist"><strong>Wishlist</strong></a>
           </li>
+          <li class="nav-item">
+            <a class=" NavLink" *ngIf="navbarService.getShowWishlist() | async" routerLink="/userdelivery"><strong>My Delivery</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class=" NavLink" *ngIf="navbarService.getShowWishlist() | async" routerLink="/mycustomart"><strong>My CustomArt</strong></a>
+          </li>
+
           <li class="nav-item">
             <a class=" NavLink" *ngIf="navbarService.getShowCart() | async" routerLink="/cart"><span class="fa fa-cart-plus"></span><strong>Cart</strong></a>
           </li>
