@@ -4,6 +4,8 @@ import { UserService } from '../auth/user.service';
 import { ProductOfSubcategory } from '../app-models/productsOfSubcategoryResponse.model';
 import { environment } from 'src/environments/environment';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { LocalStorageService } from '../auth/local-storage.service';
+
 
 @Component({
   selector: 'app-all-products',
@@ -13,7 +15,9 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 export class AllProductsComponent implements OnInit {
   id: number;
   products: Array<ProductOfSubcategory>;
-  constructor(public route: ActivatedRoute, public userService: UserService, public router: Router, public ratingConfig: NgbRatingConfig) {
+  enableWishlist = false;
+
+  constructor(private localStorageService: LocalStorageService,public route: ActivatedRoute, public userService: UserService, public router: Router, public ratingConfig: NgbRatingConfig) {
     ratingConfig.max = 5;
    }
 
@@ -32,7 +36,12 @@ export class AllProductsComponent implements OnInit {
             });
           });
       });
-   
+      if (this.localStorageService.getAuthData()) {
+        const { userType } = this.localStorageService.getAuthData();
+        if (userType === 'customer') {
+          this.enableWishlist = true
+        }
+      }
     
   }
   viewProductDetail(event){
@@ -41,5 +50,10 @@ export class AllProductsComponent implements OnInit {
     var id = target.attributes.id.value;
     this.router.navigate(['product-view'], { queryParams: {productId: id}});
 }
-
+addToWishlist(productId: Number) {
+  const { userId } = this.localStorageService.getAuthData();
+  this.userService.setWishlistItem(userId, productId).subscribe((res) => {
+    //Success
+  });
+}
 }

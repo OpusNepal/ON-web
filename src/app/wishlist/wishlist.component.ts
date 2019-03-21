@@ -5,6 +5,8 @@ import { LocalStorageService } from '../auth/local-storage.service';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { LocalStorageDataModel } from '../app-models/localStorageData.model';
+
 
 
 @Component({
@@ -15,6 +17,9 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 export class WishlistComponent implements OnInit {
 
   products: WishlistProduct[]
+  productIds: Array<LocalStorageDataModel> = [];
+  duplicateProduct : Boolean = false;
+  productId : LocalStorageDataModel = new LocalStorageDataModel();
 
   constructor(public ratingConfig: NgbRatingConfig,private userService: UserService, private localStorageService: LocalStorageService, private router: Router) { 
     ratingConfig.max = 5;
@@ -39,10 +44,34 @@ export class WishlistComponent implements OnInit {
   }
 
 
-  addToCart(productId: Number) {
-    //TODO 
+  addToCart(event){
+    if(this.localStorageService.getProductsData() != null){
+      var value = JSON.parse(this.localStorageService.getProductsData().productIds);
+    }
+    
+     this.productId.quantity = 1;
+     this.productId.id = event.target.attributes.id.value;
+     if(value != null){
+      this.productIds = value;
+      for(let val of value){
+        if(val.id == this.productId.id)
+        {
+          console.log("duplicate value found");
+          this.duplicateProduct = true;
+          val.quantity = val.quantity + 1;
+        }
+      }
+     }
+     console.log(this.productIds);
+      if(!this.duplicateProduct){
+      this.productIds.push(this.productId);
+     
+     }
+     this.localStorage.saveProductsData(JSON.stringify(this.productIds));
+     this.router.navigate(['/cart']);
+    
+     
   }
-
   removeFromWishList(productId: Number) {
     const { userId } = this.localStorageService.getAuthData();
 

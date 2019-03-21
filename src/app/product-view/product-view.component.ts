@@ -23,6 +23,7 @@ export class ProductViewComponent implements OnInit {
   isLoggedIn: Boolean = false;
   duplicateProduct : Boolean = false;
   productId : LocalStorageDataModel = new LocalStorageDataModel();
+  enableWishlist = false;
 
   constructor(private route: ActivatedRoute, private userService: UserService, public localStorage: LocalStorageService, public router: Router, public ratingConfig: NgbRatingConfig) { 
     ratingConfig.max = 5;
@@ -61,7 +62,12 @@ export class ProductViewComponent implements OnInit {
         
         });
       });
-
+      if (this.localStorage.getAuthData()) {
+        const { userType } = this.localStorage.getAuthData();
+        if (userType === 'customer') {
+          this.enableWishlist = true
+        }
+      }
       console.log(this.productDetails)
       
   }
@@ -108,4 +114,10 @@ viewProfile(event){
   this.router.navigate(['profile-page'],{queryParams:{id: artistId}});
 }
 
+addToWishlist(productId: Number) {
+  const { userId } = this.localStorage.getAuthData();
+  this.userService.setWishlistItem(userId, productId).subscribe((res) => {
+    //Success
+  });
+}
 }

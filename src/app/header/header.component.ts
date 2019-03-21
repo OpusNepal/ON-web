@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   modalReference: any;
   closeResult: any;
   name: String;
+  serial:string;
 
   Categories: ProductCategory[];
   SubCategories: ProductSubCategory[];
