@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 import { UserService } from './user.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth-interceptor';
+import { LoginAuthGuardService } from "./loginAuth.guard";
+import { GeneralAuthGuardService } from "./generalAuth.guard";
+import{AdminAuthGuardService} from "./adminauth.guard";
+
+
 
 @NgModule({
   declarations: [],
@@ -15,7 +20,10 @@ import { AuthInterceptor } from './auth-interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    LoginAuthGuardService,
+    GeneralAuthGuardService,
+    AdminAuthGuardService
   ]
 })
 export class AuthModule { }

@@ -31,13 +31,17 @@
                                         <!-- <span class="old-price"><del>$50.00</del></span> -->
                                         <span class="current-price">{{prod.price}}</span>
                                     </div>
-                                    <br>
-                                    <div class="row" style="padding:10%">
-                                    <span class="fa fa-star checked"></span>
+                                    
+                                    <div class="row" style="padding-left:10%" *ngIf="prod.rating.average">
+                                    <!-- <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star checked"></span>
                                     <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span> -->
+                                    <ngb-rating [(rate)]="prod.rating.average" [readonly]="true"></ngb-rating>
+                                    <div *ngIf="prod.rating.average ===undefined">
+                                            <br>
+                                          </div>
                                 </div>
                                 </div>
                             </div>

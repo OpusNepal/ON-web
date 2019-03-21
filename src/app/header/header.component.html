@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
   <div class="container">
     <a class="navbar-brand" href="#"><img src="./assets/images/brand/opus.jpg" style="width:auto; height:59px; overflow: hidden !important;"
-        class="logo" alt="Opus "></a>
+        class="logo" alt="Opus " onerror="this.onerror=null;this.src='http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif';"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,7 +13,7 @@
           <a class="nav-link" href="#"><strong>Home</strong> <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"><strong>Customized Arts</strong></a>
+          <a class="nav-link" routerLink="customizedart"><strong>Customized Arts</strong></a>
         </li>
         <li class="nav-item dropdown megamenu-fw">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" style="background:none"><strong>Categories</strong></a>
@@ -36,40 +36,66 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link"><strong>Featured Artists</strong></a>
+          <a class="nav-link" routerLink="/featuredArtist"><strong>Featured Artists</strong></a>
+        </li>
+        <li class="searchbar">
+            <input type="text" placeholder="Search.." [(ngModel)]="serial" (keyup.enter)="search(serial)">
+
         </li>
 
       </ul>
-      <ul class="navbar-nav " style="float:right">
+      <div class="Dropdown" style="float:right; width:unset">
+  <div class="Dropdown-profile">
+    <span class="Name">{{ navbarService.getUsername() | async }}</span>
+    <span class="MenuIcon">
+      <span class="MenuIcon-line"></span>
+      <span class="MenuIcon-line"></span>
+      <span class="MenuIcon-line"></span>
+    </span>
+  </div>
+  <nav class="Dropdown-nav">
+    <ul class="Dropdown-menu">
         <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowProfile() | async" routerLink="/profile-page"><span class=""></span><strong>Profile</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowUploadProduct() | async" routerLink="/upload-product"><strong>Upload
-              Product</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowLogin() | async" routerLink="/login"><span class="fa fa-sign-in"></span>
-            <strong>Login</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowSignup() | async" routerLink="/signup"><strong>Sign Up</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowWishlist() | async" routerLink="/wishlist"><strong>Wishlist</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowCart() | async" routerLink="/cart"><span class="fa fa-cart-plus"></span><strong>Cart</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowDashboard() | async" routerLink="admin"><strong>Dashboard</strong></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="navbarService.getShowLogout() | async" routerLink="/home" (click)="logoutEvent()"><span
-              class="fa fa-sign-out"></span><strong>Logout</strong></a>
-        </li>
+            <a class=" NavLink" *ngIf="navbarService.getShowProfile() | async" routerLink="/profile-page" ><span class=""></span><strong>Profile</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class=" NavLink" *ngIf="navbarService.getShowUploadProduct() | async" routerLink="/upload-product"><strong>Upload
+                Product</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class=" NavLink" *ngIf="navbarService.getShowLogin() | async" routerLink="/login"><span class="fa fa-sign-in"></span>
+              <strong>Login</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class=" NavLink" *ngIf="navbarService.getShowSignup() | async" routerLink="/signup"><strong>Sign Up</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class=" NavLink" *ngIf="navbarService.getShowWishlist() | async" routerLink="/wishlist"><strong>Wishlist</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class=" NavLink" *ngIf="navbarService.getShowWishlist() | async" routerLink="/userdelivery"><strong>My Delivery</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class=" NavLink" *ngIf="navbarService.getShowWishlist() | async" routerLink="/mycustomart"><strong>My CustomArt</strong></a>
+          </li>
 
-      </ul>
+          <li class="nav-item">
+            <a class=" NavLink" *ngIf="navbarService.getShowCart() | async" routerLink="/cart"><span class="fa fa-cart-plus"></span><strong>Cart</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class=" NavLink" *ngIf="navbarService.getShowDashboard() | async" routerLink="admin"><strong>Dashboard</strong></a>
+          </li>
+      <li class="nav-item">
+        <a class=" NavLink" *ngIf="navbarService.getshowresetpassword() | async" routerLink="/changepassword"><strong>Reset Password</strong></a>
+      </li>
+          <li class="nav-item">
+            <a class=" NavLink" *ngIf="navbarService.getShowLogout() | async" routerLink="/home" (click)="logoutEvent()"><span
+                class="fa fa-sign-out"></span><strong>Logout</strong></a>
+          </li>
+</ul>
+  </nav>
+</div>
+ 
     </div>
 
   </div>

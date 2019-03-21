@@ -1,0 +1,237 @@
+
+<div class="container" style="text-align: center">
+  <div class="row" >
+
+     
+
+
+    
+      <div class="headline" style="width:100%" >
+        <h3 style="margin:05%">
+          Get Arts the way you have imagined <br> <br>
+          <a routerLink="/customizedarthelp"><button class="button"> How does customized art works? </button></a>
+        </h3>
+      </div>
+  
+
+  </div>
+  <hr>
+
+
+  
+</div>
+
+<div class="container">
+	<div class="row">
+		<section style="width:100%;text-align: center">
+        <div class="wizard">
+            <div class="wizard-inner">
+                <div class="connecting-line"></div>
+                <ul class="nav nav-tabs" role="tablist">
+
+                    <li role="presentation" >
+                        <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                <i class="fa fa-folder-open"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li role="presentation" >
+                        <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="fa fa-pencil"></i>
+                            </span>
+                        </a>
+                    </li>
+                   
+
+                    <li role="presentation" >
+                        <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="fa fa-check"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <form role="form" style="background-color: white">
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel" id="step1">
+                      <div class="login-page">
+    
+                        <div class="form">
+                          <form [formGroup]="customArtForm" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                              <label for="description"> <strong>Description </strong>
+                                <textarea rows="5" name="description" class="form-control" value="" formControlName="description"
+                                  placeholder="Describe your art..." style="background-color: #d4d4d4"></textarea>
+                              </label>
+                            </div>
+                            <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
+                              description is required
+                            </div>
+                    
+                            <div class="form-group">
+                              <label for="image"> <strong>Upload reference Art</strong>
+                                <input type="file" name="image" accept="image/*" value="" class="form-control form-control-file" formControlName="image" (change)="onProductSelect($event)"
+                                  placeholder="Select reference art" style="height: auto">
+                              </label><br>
+                              <span>Upload sample as referece for Artist</span>
+                            </div>
+                    
+                   
+                    
+                    
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="step2">
+                        <div class="login-page">
+    
+                            <div class="form">
+                              <form [formGroup]="customArtForm" (ngSubmit)="onSubmit()">
+                                  <div class="form-group">
+                                      <label for="preferredArtistName"> <strong> Select your preferred artist if any</strong>
+                                        <input type="text" name="preferredArtistName" value="" class="form-control" formControlName="preferredArtistName"
+                                           [ngbTypeahead]="search">
+                                      </label><br>
+                                      <span>Send us your prefered artist name</span>
+                                    </div>
+                            
+                                    <div class="form-group">
+                                      <label for="framing"><strong>Framing</strong>
+                                        <select class="form-control" formControlName="framing" style="height:50px">
+                                          <option value="No framing" [selected]="true">No framing</option>
+                                          <option value="Hardwood">Hardwood</option>
+                                          <option value="Welded steel">Welded steel</option>
+                                          <option value="Hand-carved">Hand-carved</option>
+                                          <option value="Gold and Silver leaf gilt">Gold and Silver leaf gilt</option>
+                                        </select>
+                                      </label><br>
+                                      <span>We can frame it,Choose any framing option or just ship it rolled in a tube.</span>
+                                    </div>
+                                </form>
+                                </div>
+</div>
+                              
+                            
+                    </div>
+                   
+                    <div class="tab-pane" role="tabpanel" id="complete">
+                        <div class="login-page">
+    
+                            <div class="form">
+                              <form [formGroup]="customArtForm" (ngSubmit)="onSubmit()">
+                              
+                            <div class="form-group">
+                                <label for="address_line_1"> <strong> Address Line 1</strong>
+                                  <input type="text" name="address_line_1" value="" class="form-control" formControlName="address_line_1"
+                                    placeholder="">
+                                </label><br>
+                              </div>
+                      
+                      
+                              <div class="form-group">
+                                <label for="address_line_2"> <strong> Address Line 2</strong>
+                                  <input type="text" name="address_line_2" value="" class="form-control" formControlName="address_line_2"
+                                    placeholder="">
+                                </label><br>
+                              </div>
+                      
+                              <div class="form-group">
+                                <label for="country"> <strong> Country</strong>
+                                  <input type="text" name="country" value="" class="form-control" formControlName="country" placeholder="">
+                                </label><br>
+                              </div>
+                      
+                              <div class="form-group">
+                                <label for="city"> <strong> City</strong>
+                                  <input type="text" name="city" value="" class="form-control" formControlName="city" placeholder="">
+                                </label><br>
+                              </div>
+                      
+                              <div class="form-group">
+                                <label for="province"> <strong> Province</strong>
+                                  <input type="text" name="province" value="" class="form-control" formControlName="province" placeholder="">
+                                </label><br>
+                              </div>
+                      
+                              <div class="form-group">
+                                <label for="postal_code"> <strong> Postal code</strong>
+                                  <input type="number" name="postal_code" value="" class="form-control" formControlName="postal_code"
+                                    placeholder="">
+                                </label><br>
+                              </div>
+                      
+                              <div class="form-group">
+                                <label for="alt_phone"> <strong> Alt Phone</strong>
+                                  <input type="number" name="alt_phone" value="" class="form-control" formControlName="alt_phone" placeholder="">
+                                </label><br>
+                              </div>
+                      
+                      
+                              <div class="form-group">
+                                <label for="alt_address"> <strong> Alt address</strong>
+                                  <input type="text" name="alt_address" value="" class="form-control" formControlName="alt_address"
+                                    placeholder="">
+                                </label><br>
+                              </div>
+                      
+                      
+                              <!-- <div class="form-group">
+                                <label for="deliveryDeadline"><strong>Delivery Deadline</strong>
+                                  <select class="form-control" formControlName="deliveryDeadline" style="height:50px">
+                                    <option value="no" [selected]="true">No</option>
+                                    <option value="yes">Yes</option>
+                                  </select>
+                                </label><br>
+                                <span>Do you need to receive your painting by a specific date?</span>
+                              </div>
+                      
+                              <div class="form-group" *ngIf="showSelectDate">
+                                <label for="deliveryDeadlineDate">
+                                  <div class="input-group">
+                                    <input class="form-control" placeholder="yyyy-mm-dd" name="deliveryDeadlineDate" formControlName="deliveryDeadlineDate"
+                                      ngbDatepicker #d="ngbDatepicker">
+                                    <div class="input-group-append">
+                                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                                    </div>
+                                  </div>
+                                </label>
+                                <br>
+                                <span>**A delivery deadline may reduce the pool of interested artists. For maximum quality, select the latest
+                                  possible date.**</span>
+                              </div> -->
+                      
+                              <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" name="button" [disabled]="!customArtForm.valid">Submit
+                                request</button>
+                                </form>
+                                </div>
+</div>
+        
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </form>
+        </div>
+    </section>
+   </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Success!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Your request is being processed!</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark"   (click)="modal.close('Save click'); ">OK</button>
+  </div>
+</ng-template>

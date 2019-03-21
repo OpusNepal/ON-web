@@ -1,0 +1,81 @@
+<div class="container helper">
+  <div class="row" *ngIf="deliveredArts && deliveredArts.length > 0; else nopendingart">
+    <div class="card card--big" *ngFor="let deliveredArt of deliveredArts">
+      <img class="card__image" [src]="deliveredArt.Image" alt="custom_art_image">
+
+      <h2 class="card__title">Framing: {{ deliveredArt.Framing }}</h2>
+      <div class="card__text">
+        <a>Preferred Artist: {{ deliveredArt.artist?deliveredArt.artist.fullName:N/A }}</a>
+        <button type="button" class="card__button" data-toggle="modal" [attr.data-target]="'#desc1' + deliveredArt.id" style="cursor: pointer">
+            <strong style="color:#3a539b">View description</strong>
+          </button>
+          <div class="modal fade" id="desc1{{deliveredArt.id}}">
+              <div class="modal-dialog">
+                <div class="modal-content" style="padding:10%">
+                  <p>{{ deliveredArt.description }}</p>
+                </div>
+              </div>
+            </div><br>
+        
+      <address class="card_text"> <b>Address: </b><br>
+        {{ deliveredArt.default_address.address_line_1}}, {{ deliveredArt.default_address.address_line_2}} <br>
+        {{ deliveredArt.default_address.postal_code }}, {{ deliveredArt.default_address.province }} <br>
+        {{ deliveredArt.default_address.city }}, {{ deliveredArt.default_address.country }} <br>
+      </address>
+      
+      <div class="card__action-bar">
+        <button (click)="setArtId(deliveredArt.id); open(content);" style="cursor: pointer" class="card__button"><Strong
+            style="color:#d91e18">Change Status</Strong></button>
+            <button (click)="setArtId(deliveredArt.id); open(delete);" style="cursor: pointer" class="card__button"><Strong
+              style="color:#d91e18">Delete</Strong></button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<ng-template #nopendingart>
+  <h2>No pending delivery remaining!</h2>
+</ng-template>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Are you sure?</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close(''); changeStatus();">Change Status</button>
+  </div>
+</ng-template>
+
+<ng-template #delete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Are you sure?</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close(''); deleteArt();">Delete Art</button>
+  </div>
+</ng-template>
+
+<ng-template #success let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Success</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <h3>{{ message }}</h3>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('');">OK</button>
+  </div>
+</ng-template>
+

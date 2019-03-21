@@ -49,7 +49,12 @@ export class ProductUploadComponent implements OnInit {
       buildOn: ['',Validators.required],
       price: ['',Validators.required],
       name: ['',Validators.required],
-      availability: ['',Validators.required]
+      availability: ['',Validators.required],
+      size: ['',Validators.required],
+      description: ['',Validators.required],
+      medium: ['',Validators.required],
+      weight: ['',Validators.required],
+
       
     });
   }
@@ -76,7 +81,7 @@ export class ProductUploadComponent implements OnInit {
   onSubmit(){
     const productForm = new FormData();
     productForm.append("Orientation",this.ProductUploadForm.value.orientation);
-    productForm.append("buildOn", this.ProductUploadForm.value.builOn);
+    productForm.append("buildOn", this.ProductUploadForm.value.buildOn);
     productForm.append("price",this.ProductUploadForm.value.price);
     productForm.append("artistId", this.userId);
     productForm.append("subCategoryId", this.selectedSubCategory);
@@ -85,6 +90,11 @@ export class ProductUploadComponent implements OnInit {
     productForm.append("image",this.productImage);
     console.log("form data yo ho");
     console.log(JSON.stringify(productForm));
+    productForm.append("size",this.ProductUploadForm.value.size);
+    productForm.append("description",this.ProductUploadForm.value.description);
+    productForm.append("medium",this.ProductUploadForm.value.medium);
+    productForm.append("weight",this.ProductUploadForm.value.weight);
+    console.log(productForm);
     this.userService.uploadProduct(productForm).subscribe((res)=>{
         console.log(res);
         this.router.navigate(['profile-page']);

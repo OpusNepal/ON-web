@@ -7,12 +7,16 @@ import { ProfilePageModel } from '../app-models/profile-page.model';
 import { ProductOfSubcategory } from '../app-models/productsOfSubcategoryResponse.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { WishlistProduct } from '../app-models/wishlist-product';
+import { CustomArt } from '../app-models/custom-art';
+import { MyCustomArt } from '../app-models/my-custom-art';
+import {changePassword} from '../app-models/changePassword'
+import { UserDeliveryResponse } from '../app-models/UserDeliveryResponse';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
+  resetPassword=false;
   isAuthenticated = false;
   private token = '';
   private allowRating = new BehaviorSubject<boolean>(false);
@@ -33,7 +37,7 @@ export class UserService {
   }
 
   login(user: AuthModel) {
-    return this.http.post<{data: {data: {email: string, id:Number, token:string, userType:string}}}>(environment.api + "auth/login", user);
+    return this.http.post<{data: {data: {email: string, id:Number, token:string, userType:string,passwordreset:boolean,name:string}}}>(environment.api + "auth/login", user);
   }
 
   updateProfile(userId, user) {
@@ -64,6 +68,9 @@ export class UserService {
 
   getProductsOfSubCategory(id) : any{
     return this.http.get(environment.api + 'products/getproductsubCategory/' + id);
+  }
+  getProductsbysearch(search) : any{
+    return this.http.get(environment.api +  `search/${search}`);
   }
 
   getProductDetail(id) : any{
@@ -99,6 +106,21 @@ export class UserService {
     console.log(paymentData);
     console.log(environment.api + 'delivery');
     return this.http.post(environment.api + 'delivery', paymentData)
+  } 
+  requestCustomArt(data) {
+    return this.http.post(environment.api + "customArt", data);
+  }
+
+  getAllCustomArt() {
+    return this.http.get(environment.api + "customArt")
+  }
+
+  getUserCustomArt(userId: Number): Observable<MyCustomArt[]> {
+    return this.http.get<MyCustomArt[]>(environment.api + `customArt/${userId}`)
+  }
+
+  deleteCustomArt(artId: Number) {
+    return this.http.put(environment.api + `customArt/deletecustomArt/${artId}`, null)
   }
 
   updateUser(userDetail, userId): Promise<any>{
@@ -124,4 +146,24 @@ export class UserService {
     return this.http.put(environment.api + 'products/updatavail/' + productId , prodAvail);
   }
 
+  getNamesOfVerifiedArtist() {
+    return this.http.get<any[]>(environment.api + 'users/getAllArtist')
+  }
+
+  changePassword(data,userId){
+    console.log("<<<<<<<",userId)
+    return this.http.put(environment.api + `auth/resetpassword/${userId}`, data)
+
+  }
+  reset(data){
+    return this.http.post(environment.api+`auth/reset`,data);
+  }
+
+  verify(){
+    return this.http.get(environment.api+`auth/verify`);
+  }
+
+  getMyDeliveredProduct(userId: Number): Observable<UserDeliveryResponse[]> {
+    return this.http.get<UserDeliveryResponse[]>(environment.api + `delivery/user/${userId}`)
+  }
 }

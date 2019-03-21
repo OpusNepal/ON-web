@@ -35,6 +35,8 @@ export class LoginComponent implements OnInit {
     this.navbarService.setShowProfile(false);
     this.navbarService.setShowCart(false);
     this.navbarService.setShowUploadProduct(false);
+
+    //this.navbarService.setshowresetpassword(true);
   }
 
   createForm(): void {
@@ -50,18 +52,24 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.userService.login(this.signinForm.value).subscribe((res) => {
       console.log(res.data.data);
-      const { email, id, token, userType } = res.data.data;
+      const { email, id, token, userType,passwordreset,name } = res.data.data;
       this.userService.isAuthenticated = true;
       this.userService.setToken(token);
-      this.localStorageService.saveAuthData(token, email, id, userType);
+      this.localStorageService.saveAuthData(token, email, id, userType,name);
 
       this.router.navigate(['home'])
 
       this.navbarService.setShowLogin(false);
       this.navbarService.setShowSignup(false);
       this.navbarService.setShowLogout(true);
+      this.navbarService.setshowresetpassword(true);
 
       console.log("UserType-----------", userType)
+      console.log('pass',passwordreset);
+      if(passwordreset===true){
+        this.userService.resetPassword=true;
+        this.router.navigate(['changepassword'])
+      }
       if (userType === 'artist') {
         this.navbarService.setShowProfile(true)
         this.navbarService.setShowUploadProduct(true);
@@ -74,8 +82,11 @@ export class LoginComponent implements OnInit {
         this.navbarService.setShowWishlist(true);
         //this.userService.setAllowRating(true);
       }
+
+      this.navbarService.setUsername(name)
     //1  this.router.navigate(['profile-page'],{ queryParams: {userId: id}});
     }, (err) => {
+      console.log(err)
       this.showMessage = err.error.error.message;
       this.showError = true
     });

@@ -4,8 +4,7 @@ import { environment } from '../../environments/environment';
 import { Artist, ArtistOfTheWeek } from './artist';
 import { Product } from './products';
 import { Observable, of} from 'rxjs';
-import { mockProducts } from './products';
-import { mockArtists, artistOfTheWeek } from './artist';
+import { AdminDeliveryResponse } from '../app-models/AdminDeliveryResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,6 @@ export class AdminService {
 
   getArtists(): Observable<Artist[]> {
     return this.http.get<Artist[]>(environment.api + "admin/getprofile");
-    //return of(mockArtists);  
   }
 
   verifyArtist(id: Number) {
@@ -25,7 +23,6 @@ export class AdminService {
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(environment.api + 'admin/getproducts');
-    //return of(mockProducts);
   }
 
   verifyProduct(id: Number) {
@@ -33,16 +30,11 @@ export class AdminService {
   }
 
   getVerifiedArtists(): Observable<Artist[]> {
-
-    //add api to get verified artist
     return this.http.get<Artist[]>(environment.api + "admin/getVerifiedProfile");
   }
 
   addCategory(category: string): Observable<any> {
     return this.http.post(environment.api + `category`, {category});
-    // add api to add category
-    //console.log(category)
-    //return of(true)
   }
 
   getCategories() : any {
@@ -50,10 +42,7 @@ export class AdminService {
   }
 
   addSubcategory(subcategory: string, categoryId: Number): Observable<any> {
-//     console.log(subcategory, categoryId)
-//     return of(true)
     return this.http.post(environment.api + `category/createsubCategory`, {subCategory: subcategory, categoryId});
-    // add api to add sub category
   }
 
   rejectProduct(rejectMessage: string, productId: Number, userId:Number) {
@@ -73,13 +62,31 @@ export class AdminService {
   }
   
   setArtistOfWeek(id: Number) {
-    //console.log(id)
     return this.http.post(environment.api + 'users/ArtistOfWeek', { id })
   }
 
   getArtistOfWeek(): Observable<ArtistOfTheWeek> {
-    //return of(artistOfTheWeek);
     return this.http.get<ArtistOfTheWeek>(environment.api + 'users/ArtistOfWeek')
+  }
+
+  changeDeliveryStatus(artId: Number, status: boolean) {
+    const body = {
+      status: status
+    }
+    return this.http.put(environment.api + `customArt/changeDeliveryStatus/${artId}`, body)
+  }
+
+  getAllDeliveredProduct(): Observable<AdminDeliveryResponse[]> {
+    return this.http.get<AdminDeliveryResponse[]>(environment.api + `delivery`);
+  } 
+
+  changeProductDeliveryStatus(status: boolean, deliveryId: Number) {
+    return this.http.put(environment.api+`delivery/changeDeliveryStatus/${deliveryId}`, { status })
+  }
+
+  deleteProductDelivery(deliveryId: Number) {
+    return this.http.put(environment.api+`delivery/deletedelivery/${deliveryId}`, null)
+
   }
 
 }

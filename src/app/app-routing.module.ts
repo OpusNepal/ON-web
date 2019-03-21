@@ -13,6 +13,16 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { CustomizedArtComponent } from './customized-art/customized-art.component';
+import { CustomizedArtHelpComponent } from './customized-art-help/customized-art-help.component';
+import { MyCustomArtComponent } from './my-custom-art/my-custom-art.component';
+import {ChangePasswordComponent} from './change-password/change-password.component';
+import {ForgetPasswordComponent} from './forget-password/forget-password.component';
+import { LoginAuthGuardService } from "./auth/loginAuth.guard";
+import { GeneralAuthGuardService } from "./auth/generalAuth.guard";
+import {UserDeliveredProductsComponent} from './user-delivered-products/user-delivered-products.component'
+import {FeaturedArtistComponent} from './featured-artist/featured-artist.component';
+import {SearchResultProductsComponent} from './search-result-products/search-result-products.component'
 
 
 const routes: Routes = [
@@ -20,9 +30,10 @@ const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
+  
   {path: 'profile', component: ProfileComponent},
-  {path: 'upload-product', component: ProductUploadComponent},
-  {path: 'profile-page', component: ProfilePageComponent},
+  {path: 'upload-product', component: ProductUploadComponent, canActivate: [GeneralAuthGuardService]},
+  {path: 'profile-page', component: ProfilePageComponent, canActivate: [GeneralAuthGuardService]},
   {path: 'product-view', component: ProductViewComponent},
   {path: 'all-products', component: AllProductsComponent},
   {path: 'cart', component: CartComponent},
@@ -30,6 +41,20 @@ const routes: Routes = [
   {path: 'paymentGateway', component: PaymentFormComponent},
   {path: 'edit-profile', component:EditProfileComponent},
   {path: 'edit-product', component:EditProductComponent},
+  {path: 'cart', component: CartComponent, canActivate: [GeneralAuthGuardService]},
+  {path: 'wishlist', component: WishlistComponent, canActivate: [GeneralAuthGuardService]},
+  {path: 'paymentGateway', component: PaymentFormComponent, canActivate: [GeneralAuthGuardService]},
+  {path: 'customizedart', component: CustomizedArtComponent, canActivate: [GeneralAuthGuardService]},
+  {path: 'customizedarthelp', component: CustomizedArtHelpComponent},
+  {path: 'mycustomart', component: MyCustomArtComponent, canActivate: [GeneralAuthGuardService]},
+  {path:'changepassword',component:ChangePasswordComponent},
+  {path:'forgetpassword',component:ForgetPasswordComponent},
+  {path:'userdelivery', component:UserDeliveredProductsComponent},
+  {path:'featuredArtist', component:FeaturedArtistComponent},
+  {
+    path:'searchproduct',component:SearchResultProductsComponent
+  }
+
 
 ];
 

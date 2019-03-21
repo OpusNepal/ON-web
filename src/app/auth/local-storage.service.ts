@@ -10,11 +10,12 @@ export class LocalStorageService {
 
   constructor(private userService: UserService, private navbarService: NavbarService) {}
 
-  saveAuthData(token: string, email: string, userId: Number, userType: string): void {
+  saveAuthData(token: string, email: string, userId: Number, userType: string,name:string): void {
     localStorage.setItem('token', token);
     localStorage.setItem('email', email);
     localStorage.setItem('userType', userType)
     localStorage.setItem('userId', userId.toString());
+    localStorage.setItem('name',name);
   }
 
   clearAuthData(): void {
@@ -22,14 +23,22 @@ export class LocalStorageService {
     localStorage.removeItem('email');
     localStorage.removeItem('userId');
     localStorage.removeItem('userType');
+    localStorage.removeItem('name');
+
     this.userService.isAuthenticated = false;
   }
 
-  getAuthData(): { token, email, userId, userType } | null {
+  getAuthToken(): string | null {
+    console.log("cons",localStorage.getItem('token'))
+    return localStorage.getItem('token');
+  }
+  getAuthData(): { token, email, userId, userType,name } | null {
+    console.log("authtoken")
     const token = localStorage.getItem('token');
     const email = localStorage.getItem('email');
     const userId = localStorage.getItem('userId');
     const userType = localStorage.getItem('userType')
+    const name=localStorage.getItem('name')
     if (!token) {
       return;
     }
@@ -37,7 +46,8 @@ export class LocalStorageService {
       token,
       email,
       userId,
-      userType
+      userType,
+      name
     };
   }
 
@@ -49,7 +59,7 @@ export class LocalStorageService {
     }
 
     let { userType } = credentials;
-
+this.navbarService.setshowresetpassword(true);
     console.log(userType)
     userType = userType.toLowerCase()
     if (userType === 'artist') {
@@ -60,6 +70,7 @@ export class LocalStorageService {
       this.navbarService.setShowLogout(true);
       this.navbarService.setShowSignup(false);
       //this.userService.setAllowRating(false);
+      this.navbarService.setShowUploadProduct(true);
       this.navbarService.setShowWishlist(false);
     } else if (userType === 'customer') {
       this.navbarService.setShowProfile(false);
@@ -68,11 +79,13 @@ export class LocalStorageService {
       this.navbarService.setShowLogin(false);
       this.navbarService.setShowLogout(true);
       this.navbarService.setShowSignup(false);
+      this.navbarService.setShowUploadProduct(false);
       //this.userService.setAllowRating(true);
       this.navbarService.setShowWishlist(true);
     } else if (userType === 'admin') {
       this.navbarService.setShowProfile(false);
       this.navbarService.setShowCart(false);
+      this.navbarService.setShowUploadProduct(false);
       this.navbarService.setShowDashboard(true);
       this.navbarService.setShowLogin(false);
       this.navbarService.setShowLogout(true);
@@ -91,7 +104,7 @@ export class LocalStorageService {
   clearProductsData(): void{
     localStorage.removeItem('productIds');
   }
-  getProductsData():{productIds} | null{
+  getProductsData(): {productIds} | null{
     const productIds = localStorage.getItem('productIds');
     if (!productIds) {
       return;

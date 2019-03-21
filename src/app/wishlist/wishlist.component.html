@@ -24,6 +24,20 @@
                 <br>
 
               </div>
+             
+              <div class="row" style="padding-left:10%" >
+                <!-- <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span> -->
+        
+                <ngb-rating [(rate)] = "product.products.rating.rating" [readonly]="true" *ngIf="product.products.rating.rating"></ngb-rating>
+                <div *ngIf="product.products.rating.rating ===undefined">
+                  <br>
+                </div>
+
+            </div>
 
               <div style="width:100%; text-align:center; bottom:0; ">
                 <button (click)="addToCart(product.productId)" name="button" class="button" style="width:100%; "><span

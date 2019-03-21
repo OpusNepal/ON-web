@@ -5,18 +5,7 @@
         <div class="mag watermarked" >
             <img  id="zoom_mw" src="{{productDetails.image}}" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width:542px" data-toggle="magnify" class="image-responsive " ><br><br>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="headline">
-                <h2 style="margin-bottom:0%; text-align:center; font-weight: bold"> Story behind this Art </h2>
-                </div>
-
-                <div class="embed-responsive embed-responsive-16by9  sizer">
-                  <iframe width="100%" height="auto" class="embed-responsive-item" src="https://www.youtube.com/embed/x1Kr_ixThGI" frameborder="0" allow="autoplay; encrypted-media" alt="Shankar Man Shrestha Video from youtube site is unable to show..Check your internet connetivity and Try again
-                  " allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
+     
       </div> 
 
 
@@ -29,12 +18,14 @@
                         <div class="headline" style="margin:0%; text-align:center">
                             <h2 style="margin-bottom:0%; text-align:center; font-weight: bold"><strong>{{productDetails.Name}}</strong></h2>
                           
-                                <span class="fa fa-star checked"></span>
+                                <!-- <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                           
+                                <span class="fa fa-star"></span> -->
+                                <div *ngIf="productDetails.rating.average">
+                                  <ngb-rating [(rate)]="productDetails.rating.average" [readonly]="true"></ngb-rating>
+                    </div>
                         </div>
                      
                         <br>
@@ -44,7 +35,7 @@
                         <div class="description">
                             <hr>
                                        Genre : {{productDetails.subCategory.subCategory}}<br>
-                                        Artist  : <a id="{{productDetails.artistId}}" (click)="viewProfile($event)" style="color:blue">{{productDetails.user.fullName}}</a><br>
+                                        Artist  : <a id="{{productDetails.artistId}}" (click)="viewProfile($event)" style="color:blue; cursor: pointer;">{{productDetails.user.fullName}}</a><br>
                                         Size: 17.5" x 13.5" Inch<br>
                                         Signed : Yes<br>
                                         Orientation : {{productDetails.Orientation}}<br>
@@ -69,48 +60,32 @@
                         </div>
                     </div>
                 
-                    <div class="tabs">
-                        <input class="input" name="tabs" type="radio" id="tab-1" checked="checked"/>
-                        <label class="label" for="tab-1">Description</label><div class="panel">
-                        <p> ― {{productDetails.user.fullName}}</p>      
-                                 <blockquote cite="https://www.goodreads.com/quotes/tag/himalayas">
-                                  "This type of  scene is very common in Nepalese society.I got this scenario when I was wandering with my daughter Sakshi in Murli Chwok of Birjung.It tooks me 3 days to draw this in canvas."
-                                  
-                                 </blockquote> 
-                        </div>
-                        
-                        <input class="input" name="tabs" type="radio" id="tab-2"/>
-                        <label class="label" for="tab-2">Reviews</label><div class="panel">
-                        <p>
-                            
-                                                           
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span> 
-                                <span style="background-color: green;padding:1%; margin-left:5px; color:white; border-radius:5% ">61</span>
-                             
-                         </p>
-                         <p> ― {{productDetails.user.fullName}}</p>      
-                                 <blockquote cite="https://www.goodreads.com/quotes/tag/himalayas">
-                                  "This type of  scene is very common in Nepalese society.I got this scenario when I was wandering with my daughter Sakshi in Murli Chwok of Birjung.It tooks me 3 days to draw this in canvas."
-                            
-                                 </blockquote> 
-                                                        </div>
-                         
-                         
-                         
-                         </div>
                  
 </div>
 
 
 
 
+
 <!-- related arts -->
         </div>
-
+        <div class="col-md-12" style="margin-top: 5%">
+                       
+            <label class="label" style="margin:0; width:100%;text-align: center">Description</label><div  style="    background-color:  #1f3a93;
+            margin-top: 4px; color:white">
+            
+                     <blockquote cite="https://www.goodreads.com/quotes/tag/himalayas" style="padding:3%">
+                      "This type of  scene is very common in Nepalese society.I got this scenario when I was wandering with my daughter Sakshi in Murli Chwok of Birjung.It tooks me 3 days to draw this in canvas."
+                      
+                     </blockquote> 
+                     <p style="color:white; text-align: right; margin-right:3%; margin-top:-53px"> ― {{productDetails.user.fullName}}</p>      
+            </div>
+            
+           
+             
+             
+             
+             </div>
   <br>  
 <div  *ngIf="products.length > 0" style="text-align: center">
     <h2 >More By <b style="font-weight: bold; margin-bottom: 0%">{{productDetails.user.fullName}}</b></h2>
@@ -148,12 +123,17 @@
                                 <span class="current-price">{{prod.price}}</span>
                             </div>
                             <br>
-                            <div class="row" style="padding:10%">
-                            <span class="fa fa-star checked"></span>
+                            <div class="row" style="padding-left:10%">
+                            <!-- <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span> -->
+                      
+                            <!-- <ngb-rating [(rate)] = "prod.rating.average" [readonly]="true" *ngIf="prod.rating.average"></ngb-rating>
+                        <div *ngIf="prod.rating.average ===undefined">
+                          <br>
+</div> -->
                         </div>
                         </div>
                     </div>
