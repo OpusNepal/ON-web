@@ -140,5 +140,9 @@ export class HomePageComponent implements OnInit {
       //Success
     });
   }
-
+  viewProfile(event){
+    console.log(event);
+    let artistId = event.target.id;
+    this.router.navigate(['profile-page'],{queryParams:{id: artistId}});
+  }
 }
