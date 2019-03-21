@@ -15,11 +15,19 @@
               <div class="modal-dialog">
                 <div class="modal-content" style="padding: 10%">
                   <p>Build on: {{ product.buildOn }}</p>
+                  <p>Orientation: {{product.orientation}}</p>
+                  <p>Price: {{product.price}}</p>
+                  <p>Availability:{{product.availability}}</p>
+                  <p>Size:{{product.size}}</p>
+                  <p>Description:{{product.description}}</p>
+                  <p>Medium:{{product.medium}}</p>
+                  <p>Weight:{{product.weight}}</p>
                 <p>Artist Name: {{ product.user.fullName }}</p>
                 <p>Artist e-mail: {{ product.user.email }}</p>
                 <p>Artist Phone number: {{ product.user.Phone }}</p>
                 <p>Category: {{ product.subCategory.category.Category }}</p>
                 <p>Sub-category: {{ product.subCategory.subCategory }}</p>
+                <p></p>
                 </div>
               </div>
             </div>

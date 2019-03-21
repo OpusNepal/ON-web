@@ -29,6 +29,7 @@ export class ProductViewComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.duplicateProduct = false;
     this.localStorage.getAuthData() == null ? this.isLoggedIn = false : this.isLoggedIn = true;
     console.log(this.isLoggedIn);
@@ -96,7 +97,9 @@ export class ProductViewComponent implements OnInit {
     console.log(event);
     var target = event.target || event.srcElement || event.currentTarget;
     var id = target.attributes.id.value;
+    window.scrollTo(0, 0);
     this.router.navigate(['product-view'], { queryParams: {productId: id}});
+
 }
 
 viewProfile(event){

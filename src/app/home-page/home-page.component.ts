@@ -107,7 +107,11 @@ export class HomePageComponent implements OnInit {
 
         
   }
-
+  viewProfile(event){
+    console.log(event);
+    let artistId = event.target.id;
+    this.router.navigate(['profile-page'],{queryParams:{id: artistId}});
+  }
   showProfileForArtistOfTheWeek() {
     // navigate to show the profile of the artist of the week
     // TODO

@@ -34,16 +34,15 @@
                     <div class="col-md-12">
                         <div class="description">
                             <hr>
-                                       Genre : {{productDetails.subCategory.subCategory}}<br>
-                                        Artist  : <a id="{{productDetails.artistId}}" (click)="viewProfile($event)" style="color:blue; cursor: pointer;">{{productDetails.user.fullName}}</a><br>
-                                        Size: 17.5" x 13.5" Inch<br>
-                                        Signed : Yes<br>
-                                        Orientation : {{productDetails.Orientation}}<br>
-                                        Material : Canvas<br>
-                                        Medium : Pencil<br>
-                                        Weight(approx) in gm : 500 gm with package<br>
-                                        Price : Rs. {{productDetails.price}}
-                            <hr>
+                            Genre : {{productDetails.subCategory.subCategory}}<br>
+                            Artist  : <a id="{{productDetails.artistId}}" (click)="viewProfile($event)" style="color:blue;cursor:pointer">{{productDetails.user.fullName}}</a><br>
+                            Size: {{productDetails.size}}<br>
+                            Availability : {{productDetails.availability}}<br>
+                            Orientation : {{productDetails.Orientation}}<br>
+                            Material : {{productDetails.buildOn}}<br>
+                            Medium : {{productDetails.medium}}<br>
+                            Weight(approx) in gm : {{productDetails.weight}} with package<br>
+                            Price : Rs. {{productDetails.price}}
                         </div>
                         <div class="col-md-8 pull-right">
                             <a > <button id="{{productDetails.id}}" (click)= "addToCart($event)" class="btn btn-primary  btn-md btn-brand btn-full-width" style="margin-left:0%; width:60%" [hidden]="!isLoggedIn">
@@ -75,8 +74,7 @@
             margin-top: 4px; color:white">
             
                      <blockquote cite="https://www.goodreads.com/quotes/tag/himalayas" style="padding:3%">
-                      "This type of  scene is very common in Nepalese society.I got this scenario when I was wandering with my daughter Sakshi in Murli Chwok of Birjung.It tooks me 3 days to draw this in canvas."
-                      
+{{productDetails.description}}                      
                      </blockquote> 
                      <p style="color:white; text-align: right; margin-right:3%; margin-top:-53px"> ― {{productDetails.user.fullName}}</p>      
             </div>
@@ -115,7 +113,7 @@
                         </div>
                     </div>
                     <div class="product-item-details">
-                        <h2><a (click)="viewProductDetail($event)"><strong id="{{prod.id}}">{{prod.Name}}</strong></a></h2><br><h2>{{prod.user.fullName}}</h2>
+                        <h2><a (click)="viewProductDetail($event)" style="cursor:pointer"><strong id="{{prod.id}}">{{prod.Name}}</strong></a></h2><br><h2>{{prod.user.fullName}}</h2>
                          
                         <div class="price-like-box">
                             <div class="pull-left item-price">
@@ -130,10 +128,10 @@
                             <span class="fa fa-star"></span>
                             <span class="fa fa-star"></span> -->
                       
-                            <!-- <ngb-rating [(rate)] = "prod.rating.average" [readonly]="true" *ngIf="prod.rating.average"></ngb-rating>
+                            <ngb-rating [(rate)] = "prod.rating.average" [readonly]="true" *ngIf="prod.rating.average"></ngb-rating>
                         <div *ngIf="prod.rating.average ===undefined">
                           <br>
-</div> -->
+</div>
                         </div>
                         </div>
                     </div>
