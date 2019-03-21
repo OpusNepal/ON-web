@@ -25,14 +25,14 @@ export class PaymentFormComponent implements OnInit {
   paymentData: PaymentModel = new PaymentModel();
 
   PaymentForm = new FormGroup({
-    address_line_1 : new FormControl(''),
-    address_line_2 : new FormControl(''),
-    country : new FormControl(''),
-    city : new FormControl(''),
-    province : new FormControl(''),
-    postal_code : new FormControl(''),
-    alt_address : new FormControl(''),
-    alt_phone : new FormControl(''),
+    address_line_1 : new FormControl('', Validators.required),
+    address_line_2 : new FormControl('', Validators.required),
+    country : new FormControl('', Validators.required),
+    city : new FormControl('', Validators.required),
+    province : new FormControl('', Validators.required),
+    postal_code : new FormControl('', Validators.required),
+    alt_address : new FormControl('', Validators.required),
+    alt_phone : new FormControl('', Validators.required),
   });
 
   constructor(public formBuilder: FormBuilder,public ns:NotificationService, public localStorage: LocalStorageService, public userService: UserService, public router: Router) { }
