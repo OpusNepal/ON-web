@@ -4,13 +4,11 @@
 
 export const environment = {
   production: false,
-  // api: "http://68.183.82.137:8848/api/",
-  // files : "http://68.183.82.137:8848/",
-  // // api: "https://artysnepal.herokuapp.com/api/",
-  // public: "http://68.183.82.137:8848/"
-  api: "http://localhost:8848/api/",
-  files : "http://localhost:8848/",
-  public: "http://localhost:8848/"
+  api: "http://192.168.51.137:8848/api/",
+  files : "http://192.168.51.137:8848/",
+  public: "http://192.168.51.137:8848/"
+
+
 };
 
 /*
