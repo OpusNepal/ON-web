@@ -29,6 +29,7 @@ export class MyCustomArtComponent implements OnInit {
 
       this.customArts = clonedRes.map((myCustomArt) => {
         myCustomArt.Image = environment.public + myCustomArt.Image;
+        myCustomArt.default_address = JSON.parse(myCustomArt.default_address)
         return myCustomArt;
       });
 
