@@ -122,7 +122,30 @@ export class UserService {
   deleteCustomArt(artId: Number) {
     return this.http.put(environment.api + `customArt/deletecustomArt/${artId}`, null)
   }
+
+  updateUser(userDetail, userId): Promise<any>{
+    console.log(userDetail);
+    return this.http.put(environment.api + 'users/' + userId , userDetail).toPromise();
+  }
   
+  editProfile(profileDetail, userId): Promise<any>{
+    console.log(profileDetail);
+    return this.http.put(environment.api + 'profile/updateProfile/' + userId , profileDetail).toPromise();
+
+  }
+
+  changeProfilePicture(userId,profilePic){
+    return this.http.put(environment.api + 'profile/updateProfilePic/' + userId , profilePic);
+  }
+
+  deleteProduct(productId){
+    return this.http.put(environment.api + 'products/delete/'  + productId , '');
+  }
+
+  updateProductAvailability(productId , prodAvail){
+    return this.http.put(environment.api + 'products/updatavail/' + productId , prodAvail);
+  }
+
   getNamesOfVerifiedArtist() {
     return this.http.get<any[]>(environment.api + 'users/getAllArtist')
   }

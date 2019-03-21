@@ -88,6 +88,8 @@ export class ProductUploadComponent implements OnInit {
     productForm.append("availability",this.ProductUploadForm.value.availability);
     productForm.append("Name",this.ProductUploadForm.value.name);
     productForm.append("image",this.productImage);
+    console.log("form data yo ho");
+    console.log(JSON.stringify(productForm));
     productForm.append("size",this.ProductUploadForm.value.size);
     productForm.append("description",this.ProductUploadForm.value.description);
     productForm.append("medium",this.ProductUploadForm.value.medium);

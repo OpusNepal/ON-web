@@ -47,14 +47,13 @@
               </div>
   
               <div class="page-header text-center" style="padding-top:25px;">
-                
-                <h4> <a id="{{artistOfTheWeek.users.profile.artistId}}" (click)="viewProfile($event)" style="cursor:pointer">{{artistOfTheWeek.users.fullName }}</a><br></h4>
+                <h4> <a id="{{artistOfTheWeek.users.profile.artistId}}" (click)="viewProfile($event)" style=" cursor: pointer;">{{ artistOfTheWeek.users.fullName }}</a></h4>
               </div>
     
-        <p class="text-center">
+              <p class="text-center">
                 Expert : {{artistOfTheWeek.users.profile.expert}}<br>
-                Role:{{artistOfTheWeek.users.profile.role}}<br>
                 Street Name : {{ artistOfTheWeek.users.profile.streetName }}<br>
+                Role: {{artistOfTheWeek.users.profile.role}}
               </p>
               <div class="cta">
     

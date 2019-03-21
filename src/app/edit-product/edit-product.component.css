@@ -1,46 +1,24 @@
-/**
- * Tabs
- */
- .tabs {
-  display: flex;
-  flex-wrap: wrap;
-  padding:0%;
-  margin-left:30%;
-}
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-.tabs label {
-  order: 1;
-  display: block;
-  padding: 1rem 2.5rem;
-  margin-right: 0.2rem;
-  cursor: pointer;
-  background: #b9b9b9;
-  font-weight: bold;
-  transition: background ease 0.2s;
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
 }
 .form {
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  max-width: 60%;
-
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-
-.form2 {
-  position: relative;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 80%;
-
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
-  background: #b9b9b9;
+  background: #f2f2f2;
   width: 100%;
   border: 0;
   margin: 0 0 15px;
@@ -48,6 +26,17 @@
   box-sizing: border-box;
   font-size: 14px;
 }
+.form-group textarea {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
 .form select {
     font-family: "Roboto", sans-serif;
     outline: 0;
@@ -63,12 +52,9 @@
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     display: block;
-    background-color: white;
-    color:black;
 }
 .banner {
     font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
     outline: 0;
     background: rgba(31, 58, 147, 1);
     width: 100%;
@@ -83,11 +69,10 @@
   text-transform: uppercase;
   outline: 0;
   background: rgba(31, 58, 147, 1);
-  width: 50%;
+  width: 100%;
   border: 0;
   padding: 15px;
   color: #FFFFFF;
-  margin-bottom: 3%;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
@@ -112,7 +97,7 @@
 .container {
   position: relative;
   z-index: 1;
- text-align:center;
+  max-width: 300px;
   margin: 0 auto;
 }
 .container:before, .container:after {
@@ -142,74 +127,13 @@
 .container .info span .fa {
   color: #EF3B3A;
 }
-.tabs .tab {
-  order: 99;
-  flex-grow: 1;
-  width: 100%;
-  display: none;
-  padding: 1rem;
-  background: #fff;
-}
-
-.tabs input[type="radio"] {
-  display: none;
-}
-
-.tabs input[type="radio"]:checked + label {
-  background: #fff;
-}
-
-.tabs input[type="radio"]:checked + label + .tab {
-  display: block;
-}
-
-@media (max-width: 45em) {
-  .tabs .tab,
-  .tabs label {
-    order: initial;
-  }
-
-  .tabs label {
-    width: 100%;
-    margin-right: 0;
-    margin-top: 0.2rem;
-  }
-}
-/**
- * Generic Styling
-*/
 body {
-  background: gray;
-  min-height: 100vh;
-  box-sizing: border-box;
-  padding-top: 10vh;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 300;
-  line-height: 1.5;
-  max-width: 60rem;
-  margin: 0 auto;
-  font-size: 112%;
-}
-
-.input {
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+  background: -moz-linear-gradient(right, #76b852, #8DC26F);
+  background: -o-linear-gradient(right, #76b852, #8DC26F);
+  background: linear-gradient(to left, #76b852, #8DC26F);
   font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-
-@media (max-width: 1320px) {
-  .tabs {
-    display: flex;
-    flex-wrap: wrap;
-    padding:0%;
-    width: 100%;
-    margin-left:10%;
-  }
-  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
 }

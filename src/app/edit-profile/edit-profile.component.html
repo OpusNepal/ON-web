@@ -1,0 +1,55 @@
+<div class="login-page">
+  <div class="banner">Edit<strong> Profile</strong></div>
+    <div class="form">
+          <div [formGroup] = "profileEditForm">
+            <div formGroupName="userDetail">
+              <div class = "form-group">
+                <label for="fullName">Full Name
+                    <input type="text" name="fullName" class="form-control" value="" formControlName="fullName">
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email
+                    <input type="email" name="email" value="" class="form-control" formControlName="email">
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label for="phoneNumber" style="height: 50px">Phone Number
+                    <input type="text" name="phoneNumber" value="" class="form-control" formControlName="Phone"  style="height: auto">
+                  </label>
+                </div>
+            </div>
+            <br>
+            <div formGroupName = "profileDetail">
+                <div class="form-group">
+                    <label for="streetName" style="height: 50px">StreetName
+                      <input type="text" name="streetName" class="form-control" value="" formControlName="streetName">
+                    </label>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="expert" style="height: 50px">Expert
+                      <input type="text" name="expert" value="" class="form-control" formControlName="expert">
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label for="role" style="height: 50px">Role
+                      <input type="text" name="role" value="" class="form-control" formControlName="role">
+                    </label>
+                  </div>
+
+                  
+                  <div class="form-group">
+                    <label for="bio" style="height: 50px">Bio
+                      <textarea  row="10"  name="bio" value="" class="form-control" formControlName="bio"></textarea>>
+                    </label>
+                  </div>
+            </div>
+           
+          <br><br>
+          <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" name="button" (click)= "onSubmit()">Update</button>
+    
+          </div>
+    </div>
+</div>
+

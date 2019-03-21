@@ -13,14 +13,14 @@
        
     <div class="form">
      <div class="form-group">
-      <label for="existingUser">
+      <!-- <label for="existingUser">
         Existing User?
       </label>
-      <button type="submit" name="button">Click Here</button>
+      <button type="submit" name="button">Click Here</button> -->
       
     </div>
 
-    <p>-------------------------------------OR--------------------------------------------</p>
+    <!-- <p>-------------------------------------OR--------------------------------------------</p> -->
         <div class="form-group">
           <label for="address_line_1"> Address Line 1:
             <input type="text" name="address_line_1" class="form-control" value="" formControlName="address_line_1" placeholder="Address Line 1">
@@ -104,13 +104,13 @@
   <label for="tabthree">Billing recheck</label>
   
   <div class="tab">
-    <div class="form">
+    <div class="form form2">
 
         <div class="banner">Billing<strong> Review</strong></div>
            
         <!-- </section> -->
             <div class="row" style="margin:0%"  *ngIf="products.length > 0"> 
-                 <div class="row">
+                 <div class="row" style="margin-left:5%">
                      <h3>  {{products.length}} items in your cart</h3>
                  </div>
                     <div class="table-responsive">
@@ -144,23 +144,23 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td></td> 
-                                    <td>Sub-Total</td>
+                                    <!-- <td></td>  -->
+                                    <th >Sub-Total</th>
                                     <td class="text-right">Rs.{{subTotal}}</td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
-                                    <td>Shipping</td>
+                                    <!-- <td></td> -->
+                                    <th>Shipping</th>
                                     <td class="text-right">Rs.{{shipping}}</td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
+                                    <!-- <td></td> -->
                                     <td><strong>Total</strong></td>
                                     <td class="text-right"><strong>Rs.{{subTotal + shipping}}</strong></td>
                                 </tr>
@@ -177,7 +177,7 @@
     </div>
     <br>
     <button  class="previous" value="Previous"  style="margin:2%; width:37%;">Previous</button>
-    <button type="submit" (click)="onSubmit()" name="button" [hidden] = "products.length < 0" style="margin:2%; width:37%;">Place Order</button>
+    <button type="submit" (click)="onSubmit()" name="button" [hidden] = "products.length < 0" style="margin:2%; width:37%;" [disabled]="!PaymentForm.valid">Place Order</button>
     <button type="submit" (click)="onSubmit()" name="button" [hidden] = "products.length > 0" style="margin:2%; width:37%;">Return</button>
     
     </div>
