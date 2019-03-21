@@ -72,42 +72,44 @@
                 <div class="panel-body">
                   <div class="row">
                 
-                        <div class="col-md-6" *ngFor = "let product of products">
-                                    <div class="product-page-single">
-                                        <div class="single-product-item">
-                                            <div class="product-image-wrap">
-                                                <a><img class="prodImage" src="{{product.image}}" alt="Product image"></a>
-                                                <div class="product-detail-inner">
-                                                    <div class="item-details-overly-info">
-                                                        <ul class="list-inline list-unstyled">
-                                                            <li class="item-add-to-cart"><a title="Delete Product"><i class="fa fa-trash"  id = "{{product.id}}" (click) = openConfirmation(contentDelete,$event)></i></a></li>
-                                                            <li class="item-wishlist"><a title="Edit Product" (click) = "updateAvailability($event)"><i id = "{{product.id}}" class="fa fa-edit"></i></a></li>
-                                                          
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item-details">
-                                                <h2><a (click)="viewProductDetail($event)" id="{{product.id}}" style="cursor:pointer">{{product.Name}}</a><br>{{fullName}}</h2>
-                                                 
-                                                <div class="price-like-box">
-                                                    <div class="pull-left item-price">
-                                                        <span class="current-price">Rs.{{product.price}}</span>
-                                                    </div>
-                                                    <div class="pull-right item-rating">
-                                                        <ul class="list-inline">
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                             <li><i class="fa fa-star"></i></li>
-                                                            
-                                                            <li><i class="fa fa-star-o"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                   </div>
+                        <div class="col-md-6" *ngFor = "let product of products" style="text-align: center">
+                            <div class="square-card">
+                                <a alt="square card" style="display: block;">
+              
+                                 <div class="product-page-single">
+                                              <div class="single-product-item">
+                                                  <div class="product-image-wrap">
+                                                      <a><img class="prodImage" src="{{product.image}}" alt="Product image"></a>
+                                                      <div class="product-detail-inner">
+                                                          <div class="item-details-overly-info">
+                                                              <ul class="list-inline list-unstyled">
+                                                                  <li class="item-add-to-cart"><a title="Delete Product"><i class="fa fa-trash"  id = "{{product.id}}" (click) = openConfirmation(contentDelete,$event)></i></a></li>
+                                                                  <li class="item-wishlist"><a title="Edit Product" (click) = "updateAvailability($event)"><i id = "{{product.id}}" class="fa fa-edit"></i></a></li>
+                                                                
+                                                              </ul>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="product-item-details">
+                                                      <h2><a (click)="viewProductDetail($event)" id="{{product.id}}" style="cursor:pointer">{{product.Name}}</a><br>{{fullName}}</h2>
+                                                       
+                                                      <div class="price-like-box">
+                                                          <div class="pull-left item-price">
+                                                              <span class="current-price">Rs.{{product.price}}</span>
+                                                          </div>
+                                                          <div class="row" style="padding-left:10%" >
+                                                            <span class="fa fa-star checked"></span>
+                                                           <span class="fa fa-star checked"></span>
+                                                           <span class="fa fa-star checked"></span>
+                                                           <span class="fa fa-star"></span>
+                                                           <span class="fa fa-star"></span> 
+                                                           </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                         </div>
+                                </a>
+                                </div>
                         </div>     <!-- first col close -->
         
                         <div class="file-upload">
