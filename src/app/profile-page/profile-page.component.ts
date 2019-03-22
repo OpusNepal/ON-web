@@ -7,6 +7,7 @@ import { UserProductModel } from '../app-models/user-product.model';
 import { LocalStorageService } from '../auth/local-storage.service';
 import { NavbarService } from '../navbar.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class ProfilePageComponent implements OnInit {
   message: String;
   productId: number;
 
-  constructor(private route: ActivatedRoute, public userService: UserService,public localStorage: LocalStorageService, public router: Router, public navbarService: NavbarService, private modalService: NgbModal) { 
+  constructor(private route: ActivatedRoute,  public ratingConfig: NgbRatingConfig,public userService: UserService,public localStorage: LocalStorageService, public router: Router, public navbarService: NavbarService, private modalService: NgbModal) { 
     this.route.queryParams
       .subscribe(params => {
         if(params.id != null){
@@ -42,7 +43,7 @@ export class ProfilePageComponent implements OnInit {
         this.ngOnInit();
         
       });
-      
+      ratingConfig.max = 5;
   }
 
   ngOnInit() {

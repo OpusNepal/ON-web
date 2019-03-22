@@ -126,7 +126,7 @@ button {
   }
   .card--big {
     box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
-    min-height: 400px;
+    min-height: 300px;
   }
   .card--big .card__image {
     border-radius: 1px 1px 0 0;
