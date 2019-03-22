@@ -67,7 +67,7 @@ export class WishlistComponent implements OnInit {
       this.productIds.push(this.productId);
      
      }
-     this.localStorage.saveProductsData(JSON.stringify(this.productIds));
+     this.localStorageService.saveProductsData(JSON.stringify(this.productIds));
      this.router.navigate(['/cart']);
     
      

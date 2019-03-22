@@ -145,4 +145,11 @@ export class HomePageComponent implements OnInit {
     let artistId = event.target.id;
     this.router.navigate(['profile-page'],{queryParams:{id: artistId}});
   }
+  scroll(){
+    window.scroll({
+      top: 500, 
+      left: 0, 
+      behavior: 'smooth'
+    });
+  }
 }

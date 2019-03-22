@@ -1,7 +1,7 @@
 .loading-splash {
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
-  background-color: #ffb142;
+ 
   z-index: -999;
   transition: opacity .2s .75s ease-in-out;
 }
@@ -43,7 +43,7 @@
 
 .loading-text {
   margin-top: 0;
-  color: #fff;
+  color: rgb(19, 16, 16);
   font-family: 'proxima-nova-2', Arial, sans-serif;
 }
 

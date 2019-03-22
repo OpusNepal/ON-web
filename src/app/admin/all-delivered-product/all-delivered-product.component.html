@@ -7,10 +7,10 @@
             <table class="table table-condensed table-striped">
       <thead>
           <tr>
-             <th style="    width: 8%;">Total Price</th>
+             <th style="    width: 8%;">Id</th>
           <th>Name</th>
           <th>Email</th>
-       
+            <th>Total Price</th>
        <th>Address</th>
           <th>Alternate Address</th>
           <th>Phone</th>
@@ -22,9 +22,10 @@
   
       <tbody *ngFor="let product of products">
              <tr data-toggle="collapse" [attr.data-target]="'#prod' + product.id" class="accordion-toggle" >
-              <td>{{ product.totalPrice }}</td>
+              <td>{{ product.id }}</td>
               <td>{{ product.buyer.fullName }}</td>
           <td>{{ product.buyer.email }}</td>
+          <td>{{product.totalPrice}}</td>
       <td>
               <address>
                   {{ product.default_address.address_line_1}} {{ product.default_address.address_line_2}}
