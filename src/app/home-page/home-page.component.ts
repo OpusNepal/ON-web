@@ -53,16 +53,16 @@ export class HomePageComponent implements OnInit {
           this.productSubCategories = res;
           this.productSubCategories.forEach(row =>{
             let subcategoryProduct: SubcategoryProducts = new SubcategoryProducts();
-            console.log(row.subCategory);
+  
             subcategoryProduct.subcategory = row.subCategory;
             this.userService.getProductsOfSubCategory(row.id).subscribe(
               res =>{
-                // console.log(res);
+                
                 res.forEach(row =>{
                   row.image = environment.files + row.image;
                   subcategoryProduct.subcategoryProducts.push(row);
                 });
-                console.log(subcategoryProduct);
+               
                 this.subcategoryProductsList.push(subcategoryProduct);
               }
             );
@@ -70,7 +70,6 @@ export class HomePageComponent implements OnInit {
           });
   
         });
-        console.log(this.subcategoryProductsList);
 
         // this.userService.getAllowRating().subscribe((res) => {
         //   if(!res) {
@@ -113,7 +112,6 @@ export class HomePageComponent implements OnInit {
     // TODO
     const id = this.artistOfTheWeek.id
     // this.router.navigate(['profile-page'],{ queryParams: {userId: id}});
-    console.log(this.artistOfTheWeek.id)
 
   }
   
@@ -122,7 +120,6 @@ export class HomePageComponent implements OnInit {
     this.router.navigate(['product-view'], { queryParams: { productId }});
   }
   showMore(event){
-    console.log(event);
     var id = event.target.attributes.id.value;
     this.router.navigate(['all-products'],{queryParams : {subCategoryId : id}});
   }
@@ -130,7 +127,6 @@ export class HomePageComponent implements OnInit {
   rateChanged(newRating: Number, productId: Number) {
     const { userId } = this.localStorageService.getAuthData();
     this.userService.rateProduct(newRating, productId, userId).subscribe((res) => {
-      //console.log(res)
     });
   }
 
@@ -141,7 +137,6 @@ export class HomePageComponent implements OnInit {
     });
   }
   viewProfile(event){
-    console.log(event);
     let artistId = event.target.id;
     this.router.navigate(['profile-page'],{queryParams:{id: artistId}});
   }

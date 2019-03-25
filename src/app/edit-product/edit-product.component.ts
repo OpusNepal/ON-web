@@ -53,7 +53,6 @@ export class EditProductComponent implements OnInit {
 getProductData(){
   this.userService.getProductDetail(this.productId).subscribe(res =>{
     this.productDetail = res;
-    console.log("yo ho data", this.productDetail);
     // this.defaultAvail = this.productDetail.availability;
     this.createForm();
   })
@@ -66,7 +65,6 @@ onSubmit(){
     "availability" : this.ProductUpdateForm.value.availability
   }
   this.userService.updateProductAvailability(this.productId,postData).subscribe(res =>{
-    console.log(res);
     this.router.navigate(['profile-page']);
   })
 }

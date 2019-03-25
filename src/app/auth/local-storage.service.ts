@@ -29,16 +29,18 @@ export class LocalStorageService {
   }
 
   getAuthToken(): string | null {
-    console.log("cons",localStorage.getItem('token'))
     return localStorage.getItem('token');
   }
   getAuthData(): { token, email, userId, userType,name } | null {
-    console.log("authtoken")
+  
     const token = localStorage.getItem('token');
     const email = localStorage.getItem('email');
     const userId = localStorage.getItem('userId');
     const userType = localStorage.getItem('userType')
-    const name=localStorage.getItem('name')
+    const name1=localStorage.getItem('name');
+    
+    const name=name1!==null?name1.match(' ')?name1.split(" ")[0]:name1:name1;
+
     if (!token) {
       return;
     }
@@ -60,7 +62,7 @@ export class LocalStorageService {
 
     let { userType } = credentials;
 this.navbarService.setshowresetpassword(true);
-    console.log(userType)
+   
     userType = userType.toLowerCase()
     if (userType === 'artist') {
       this.navbarService.setShowProfile(true);

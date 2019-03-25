@@ -24,12 +24,9 @@ export class AllProductsComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams
       .subscribe(params => {
-        // console.log(params);
         this.id = params.subCategoryId;
-        console.log(this.id);
         this.userService.getProductsOfSubCategory(this.id).subscribe(res => 
           {
-            console.log("here");
             this.products = res;
             this.products.forEach(row => {
               row.image = environment.files + row.image;
@@ -45,7 +42,6 @@ export class AllProductsComponent implements OnInit {
     
   }
   viewProductDetail(event){
-    console.log(event);
     var target = event.target || event.srcElement || event.currentTarget;
     var id = target.attributes.id.value;
     this.router.navigate(['product-view'], { queryParams: {productId: id}});

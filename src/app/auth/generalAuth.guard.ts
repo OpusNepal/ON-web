@@ -17,7 +17,6 @@ export class GeneralAuthGuardService implements CanActivate {
   async canActivate(): Promise<boolean> {
   
     const token: any | null = this.auth.getAuthToken();
-    console.log("token",token)
     if (token === null) {
       this.notification.error("Please login to  continue");
       this.router.navigate(['login']);

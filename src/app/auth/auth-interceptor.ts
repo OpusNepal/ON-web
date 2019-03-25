@@ -28,7 +28,6 @@ export class AuthInterceptor implements HttpInterceptor {
                     const response: HttpResponse<any> = <HttpResponse<any>> event;
                     if (response.url != null && response.url.endsWith('/api/auth/login') && response.ok) {
                         //save token to localstorage
-                        console.log(response.body.data.data.token);
                        this.userService.setToken(response.body.data.data.token)
                     }
                 }

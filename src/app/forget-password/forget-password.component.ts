@@ -60,7 +60,6 @@ export class ForgetPasswordComponent implements OnInit {
   onSubmit(){
    
     this.userService.reset(this.resetPasswordForm.value).subscribe((res)=>{
-        console.log(res);
       this.ns.success("Please check your email");
       this.email.reset();
 

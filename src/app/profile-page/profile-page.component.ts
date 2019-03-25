@@ -74,7 +74,6 @@ export class ProfilePageComponent implements OnInit {
     
   }
   viewProductDetail(event){
-    console.log(event);
     var target = event.target || event.srcElement || event.currentTarget;
     var id = target.attributes.id.value;
     this.router.navigate(['product-view'], { queryParams: {productId: id}});
@@ -92,13 +91,11 @@ export class ProfilePageComponent implements OnInit {
     this.removeFadeClass();
     this.modalReferenceConfirm = this.modalService.open(content,{ ariaLabelledBy: 'modal-basic-title'});
     this.productId = event.target.id;
-    console.log(this.productId);
   }
 
   onSelectFile(files) { 
   
     this.profilePic = files[0];
-    console.log(this.profilePic);
     if (files.length === 0)
     return;
 
@@ -120,7 +117,6 @@ export class ProfilePageComponent implements OnInit {
     profilePicData.append("profilepic",this.profilePic)
     this.userService.changeProfilePicture(this.id,profilePicData).subscribe(
         res=>{
-          console.log(res);
           this.ngOnInit();
         }
       ), (err) => {
@@ -132,7 +128,6 @@ export class ProfilePageComponent implements OnInit {
   }
   deleteProduct(){
     this.userService.deleteProduct(this.productId).subscribe(res=>{
-      console.log(res);
       this.ngOnInit();
     }),(err)=>{
       console.log(err);

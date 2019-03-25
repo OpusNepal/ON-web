@@ -28,9 +28,7 @@ ngOnInit() {
     this.createForm();
     this.route.queryParams
       .subscribe(params => {
-        console.log(params);
         this.id = params.userId;
-        console.log(this.id);
       });
   }
 
@@ -71,9 +69,7 @@ ngOnInit() {
     profileFormData.append('profilepic', this.profileForm.value.profilePic);
     profileFormData.append('sampleart', this.profileForm.value.sampleArt);
     
-    console.log(this.profileForm.value);
     this.userService.updateProfile(this.id, profileFormData).subscribe((res) => {
-      console.log(res);
       this.router.navigate(['login']);
     }, (err) => {
       console.log(err);

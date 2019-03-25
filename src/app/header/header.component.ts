@@ -37,8 +37,7 @@ export class HeaderComponent implements OnInit {
     // else {
     //   this.name='Hello';
     // }
-    this.name = this.localStorage.getAuthData() !== undefined ? this.localStorage.getAuthData().name : 'Hello';
-
+    this.name = this.localStorage.getAuthData() !== undefined ? this.localStorage.getAuthData().name: 'Hello';
     this.userService.getCategories().subscribe(res => {
       this.Categories = res;
       this.Categories.forEach(row => {
@@ -97,9 +96,7 @@ search(serial:string){
     }
 
     showProducts(event) {
-      console.log(event.target.attributes.id);
       const id = event.target.attributes.id.value;
-      console.log('<<<<<<<<', id);
       this.router.navigate(['all-products'], {queryParams: {subCategoryId : id}});
     }
 

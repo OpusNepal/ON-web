@@ -23,7 +23,6 @@ export class SearchResultProductsComponent implements OnInit {
         this.search = params.serial;
         this.userService.getProductsbysearch(this.search).subscribe(res => 
           {
-            console.log("here");
             this.products = res;
             this.products.forEach(row => {
               row.image = environment.files + row.image;
@@ -34,7 +33,6 @@ export class SearchResultProductsComponent implements OnInit {
     
   }
   viewProductDetail(event){
-    console.log(event);
     var target = event.target || event.srcElement || event.currentTarget;
     var id = target.attributes.id.value;
     this.router.navigate(['product-view'], { queryParams: {productId: id}});

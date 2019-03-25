@@ -35,11 +35,9 @@ export class ImageVerificationComponent implements OnInit {
       });
     });
 
-    console.log(this.products);
   }
 
   verifyProduct(id: Number) {
-    console.log(id)
     
     this.adminService.verifyProduct(id).subscribe((res) => {
       this.products = this.products.filter(e => e.id !== id);
@@ -54,7 +52,6 @@ export class ImageVerificationComponent implements OnInit {
 
   rejectProduct(comment: string) {
     this.adminService.rejectProduct(comment, this.rejectProductId, this.rejectUserId).subscribe((res) => {
-      console.log('Rejected')
       this.products = this.products.filter(e => e.id !== this.rejectUserId);
     }); 
 

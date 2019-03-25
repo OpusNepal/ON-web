@@ -34,7 +34,6 @@ ngOnInit() {
   this.userService.getMyDeliveredProduct(this.localstorage.getAuthData().userId).subscribe(res => {
     let clonedRes = JSON.parse(JSON.stringify(res));
 
-    console.log(clonedRes)
     let data = clonedRes.map((product) => {
       product.default_address = JSON.parse(product.default_address)
       product.created_at = new Date(product.created_at).toLocaleString()
@@ -49,7 +48,6 @@ ngOnInit() {
     })
 
     this.products = data.filter(product => product)
-    console.log(this.products)
   })
 }
 
@@ -81,7 +79,6 @@ deleteArt() {
 
 toggleShowProducts(product) {
   this.showProduct = !this.showProduct
-  console.log("[r",product);
   this.selectedProduct = product
 }
 
@@ -93,7 +90,6 @@ viewProductDetail(productId: Number) {
 rateChanged(rating: Number, productId: Number) {
   const { userId } = this.localstorage.getAuthData();
   this.userService.rateProduct(rating, productId, Number(userId)).subscribe((res) => {
-    console.log(res)
   });
 
 

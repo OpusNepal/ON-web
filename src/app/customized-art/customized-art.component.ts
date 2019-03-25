@@ -58,7 +58,6 @@ export class CustomizedArtComponent implements OnInit {
   ngOnInit() {
     this.createForm();
     this.userService.getNamesOfVerifiedArtist().subscribe((res) => {
-      console.log(res)
       this.artistsList = res;
       this.artists = this.artistsList.map((artist) => {
         return artist.fullName
@@ -130,7 +129,6 @@ export class CustomizedArtComponent implements OnInit {
       buyerId: userId
     }
 
-    console.log(data)
 
     const formData = new FormData()
     formData.append('address_line_1', data.address_line_1);
@@ -151,7 +149,6 @@ export class CustomizedArtComponent implements OnInit {
     formData.append('province', data.province)
 
     this.userService.requestCustomArt(formData).subscribe(() => {
-      console.log('Success')
       this.open(this.content)
       this.router.navigate['home'];
     });

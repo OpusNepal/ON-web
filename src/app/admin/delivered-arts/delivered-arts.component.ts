@@ -34,7 +34,6 @@ export class DeliveredArtsComponent implements OnInit {
       });
 
       this.deliveredArts = data.filter(art => art);
-      console.log(this.deliveredArts)
     });
   }
 

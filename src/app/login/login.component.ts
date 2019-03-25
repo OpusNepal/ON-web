@@ -51,7 +51,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     this.userService.login(this.signinForm.value).subscribe((res) => {
-      console.log(res.data.data);
       const { email, id, token, userType,passwordreset,name } = res.data.data;
       this.userService.isAuthenticated = true;
       this.userService.setToken(token);
@@ -64,8 +63,7 @@ export class LoginComponent implements OnInit {
       this.navbarService.setShowLogout(true);
       this.navbarService.setshowresetpassword(true);
 
-      console.log("UserType-----------", userType)
-      console.log('pass',passwordreset);
+      
       if(passwordreset===true){
         this.userService.resetPassword=true;
         this.router.navigate(['changepassword'])
@@ -83,7 +81,7 @@ export class LoginComponent implements OnInit {
         //this.userService.setAllowRating(true);
       }
 
-      this.navbarService.setUsername(name)
+      this.navbarService.setUsername(name.match(' ')?name.split(" ")[0]:name)
     //1  this.router.navigate(['profile-page'],{ queryParams: {userId: id}});
     }, (err) => {
       console.log(err)

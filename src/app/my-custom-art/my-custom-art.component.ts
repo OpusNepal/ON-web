@@ -33,7 +33,6 @@ export class MyCustomArtComponent implements OnInit {
         return myCustomArt;
       });
 
-      console.log(this.customArts)
 
     });
   
@@ -41,7 +40,6 @@ export class MyCustomArtComponent implements OnInit {
 
   setCancelCustomArtId(id: Number) {
     this.rejectCustomArtId = id
-    console.log(this.rejectCustomArtId)
   }
 
   cancelOrder() {

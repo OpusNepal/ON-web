@@ -27,7 +27,6 @@ export class AllUndeliveredProductComponent implements OnInit {
     this.adminService.getAllDeliveredProduct().subscribe(res => {
       let clonedRes = JSON.parse(JSON.stringify(res));
 
-      //console.log(clonedRes)
       let data = clonedRes.map((product) => {
         product.default_address = JSON.parse(product.default_address)
         product.created_at = new Date(product.created_at).toLocaleString()
@@ -41,7 +40,6 @@ export class AllUndeliveredProductComponent implements OnInit {
       })
 
       this.products = data.filter(product => product)
-      console.log(this.products)
     })
   }
 

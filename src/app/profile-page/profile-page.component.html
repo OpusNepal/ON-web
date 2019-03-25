@@ -88,8 +88,8 @@
                                                       <div class="product-detail-inner">
                                                           <div class="item-details-overly-info">
                                                               <ul class="list-inline list-unstyled">
-                                                                  <li class="item-add-to-cart"><a title="Delete Product"><i class="fa fa-trash"  id = "{{product.id}}" (click) = openConfirmation(contentDelete,$event)></i></a></li>
-                                                                  <li class="item-wishlist"><a title="Edit Product" (click) = "updateAvailability($event)"><i id = "{{product.id}}" class="fa fa-edit"></i></a></li>
+                                                                  <li class="item-add-to-cart" *ngIf="this.localStorage.getAuthData().userId==this.id || this.localStorage.getAuthData().userType==='admin'"><a title="Delete Product"><i class="fa fa-trash"  id = "{{product.id}}" (click) = openConfirmation(contentDelete,$event)></i></a></li>
+                                                                  <li class="item-wishlist" *ngIf="this.localStorage.getAuthData().userId==this.id"><a title="Edit Product" (click) = "updateAvailability($event)"><i id = "{{product.id}}" class="fa fa-edit"></i></a></li>
                                                                 
                                                               </ul>
                                                           </div>
@@ -154,7 +154,7 @@
 <app-footer>
     
 </app-footer>
-<ng-template #content let-modal>
+<ng-template #content let-modal >
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Select Profile Picture</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">

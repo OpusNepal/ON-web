@@ -32,7 +32,7 @@ export class UserService {
   }
 
   signUp(userData) {
-    console.log(userData)
+    //console.log(userData)
     return this.http.post<{data: {data: {id: string, email: string}, message: string, type: string}}>(environment.api+"auth/register", userData);
   }
 
@@ -103,8 +103,7 @@ export class UserService {
   }
 
   checkout(paymentData): any{
-    console.log(paymentData);
-    console.log(environment.api + 'delivery');
+   
     return this.http.post(environment.api + 'delivery', paymentData)
   } 
   requestCustomArt(data) {
@@ -124,12 +123,10 @@ export class UserService {
   }
 
   updateUser(userDetail, userId): Promise<any>{
-    console.log(userDetail);
     return this.http.put(environment.api + 'users/' + userId , userDetail).toPromise();
   }
   
   editProfile(profileDetail, userId): Promise<any>{
-    console.log(profileDetail);
     return this.http.put(environment.api + 'profile/updateProfile/' + userId , profileDetail).toPromise();
 
   }
@@ -151,7 +148,6 @@ export class UserService {
   }
 
   changePassword(data,userId){
-    console.log("<<<<<<<",userId)
     return this.http.put(environment.api + `auth/resetpassword/${userId}`, data)
 
   }

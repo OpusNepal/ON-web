@@ -64,7 +64,6 @@ export class SignupComponent implements OnInit {
     this.signupModel.isVerified = this.signupForm.value.userType === 'artist' ? false: true;
 
     this.userService.signUp(this.signupModel).subscribe((res) => {
-      console.log(res);
       if (userType === 'customer') {
         this.router.navigate(['login']);
       } else if (userType == 'artist') {

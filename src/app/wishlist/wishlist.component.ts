@@ -31,7 +31,6 @@ export class WishlistComponent implements OnInit {
       const { userId } = this.localStorageService.getAuthData();
 
     this.userService.getWishlistItems(userId).subscribe((res) => {
-      console.log(res);
       let clonedRes = JSON.parse(JSON.stringify(res));
 
       this.products = clonedRes.map(product => {
@@ -56,13 +55,11 @@ export class WishlistComponent implements OnInit {
       for(let val of value){
         if(val.id == this.productId.id)
         {
-          console.log("duplicate value found");
           this.duplicateProduct = true;
           val.quantity = val.quantity + 1;
         }
       }
      }
-     console.log(this.productIds);
       if(!this.duplicateProduct){
       this.productIds.push(this.productId);
      

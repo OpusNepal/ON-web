@@ -84,7 +84,6 @@ export class PaymentFormComponent implements OnInit {
             this.productDetails.image = environment.files + this.productDetails.image;
             this.productDetails.quantity = prod.quantity;
             this.subTotal = this.subTotal + Number(this.productDetails.price * this.productDetails.quantity);
-            console.log(this.subTotal);
             this.shipping = this.shipping + 100;
             this.products.push(this.productDetails);
         });
@@ -93,14 +92,11 @@ export class PaymentFormComponent implements OnInit {
     }
   }
   removeFromCart(event){
-    console.log(event);
     let prodId = event.target.id;
-    console.log(prodId);
     this.productIds = this.productIds.filter(item => 
       item.id !== prodId
     
     );
-    console.log(this.productIds);
     this.localStorage.saveProductsData(JSON.stringify(this.productIds));
     this.products = [];
     this.getProducts();
@@ -112,25 +108,21 @@ export class PaymentFormComponent implements OnInit {
     this.paymentData.buyer_id = this.localStorage.getAuthData().userId;
     this.paymentData.products = this.productIds;
     this.paymentData.totalPrice = this.subTotal + this.shipping;
-    console.log(this.paymentData);
     this.userService.checkout(this.paymentData).subscribe(res =>{
       this.ns.success("Your delivery items are in process");
     this.localStorage.clearProductsData();
     this.router.navigate(['cart'])
-      console.log(res);
     
     });
   }
 
   quantityChange(event){
-    console.log(event);
     var id = event.target.id;
     var changedQuantity = event.target.value;
     var value = JSON.parse(this.localStorage.getProductsData().productIds);
     for(let val of value){
       if(val.id == id)
       {
-        console.log("value found");
         val.quantity = changedQuantity;
       }
     }

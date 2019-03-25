@@ -22,7 +22,6 @@ export class AddSubcategoryComponent implements OnInit {
   ngOnInit() {
     this.categorySubscription = this.adminService.getCategories().subscribe((res) => {
       this.categories = res;
-      console.log(this.categories)
     });
   }
 

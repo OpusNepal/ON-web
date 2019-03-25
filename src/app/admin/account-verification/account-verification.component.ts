@@ -20,10 +20,8 @@ export class AccountVerificationComponent implements OnInit {
   ngOnInit() {
     this.adminService.getArtists().subscribe(res => {
 
-      console.log(res)
       var clonedRes = JSON.parse(JSON.stringify(res));
 
-      console.log(clonedRes)
       this.artists = clonedRes.map(artist => {
         artist.profile.profilepic = environment.public + artist.profile.profilepic;
         artist.profile.samplepic = environment.public + artist.profile.samplepic;
@@ -35,9 +33,7 @@ export class AccountVerificationComponent implements OnInit {
   }
 
   verifyArtist(artist: Artist): void {
-    console.log(artist);
     this.adminService.verifyArtist(artist.id).subscribe(res => {
-      console.log('Verified');
       this.artists = this.artists.filter(e => e.id !== artist.id);
     });
     // this.artists = this.artists.filter(e => e.id !== artist.id);
@@ -50,12 +46,9 @@ export class AccountVerificationComponent implements OnInit {
   }
 
   rejectArtist(comment: string): void {
-    console.log(this.currentRejectArtistId)
-    console.log(comment)
 
     this.adminService.rejectAccount(this.currentRejectArtistId, comment).subscribe(() => {
       this.artists = this.artists.filter(e => e.id !== this.currentRejectArtistId);
-      console.log('Rejected')
     });
     //this.unverifiedArtists = this.unverifiedArtists.filter(item => item.id !== artist.id);
   }

@@ -33,10 +33,8 @@ export class EditProfileComponent implements OnInit {
   ngOnInit() {
     this.id = this.localStorage.getAuthData().userId;
     Promise.all([this.userService.getProfile(this.id)]).then(res =>{
-      console.log(res[0]);
       this.profileDetail = res[0];
       this.createForm();
-      console.log(this.profileEditForm.value.userDetail);
 
     });
   }
@@ -59,11 +57,9 @@ export class EditProfileComponent implements OnInit {
     })
   }
   onSubmit(){
-    console.log("yay");
     Promise.all([this.userService.updateUser(this.profileEditForm.value.userDetail, this.id),this.userService.editProfile(this.profileEditForm.value.profileDetail , this.id)]).then(
       res => {
-        console.log(res[0]);
-        console.log(res[1]);
+       
         this.router.navigate(['profile-page'])
       }
     ), (err) => {

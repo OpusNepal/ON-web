@@ -18,8 +18,7 @@ export class AdminAuthGuardService implements CanActivate {
   
     const token: any | null = this.auth.getAuthToken();
     const role:any | null=this.auth.getAuthData().userType;
-    console.log("token",token)
-    console.log("role",role);
+  
     if(role !=="admin"){
         this.notification.error("Session has expired, please login again.");
         this.router.navigate(['login']);
