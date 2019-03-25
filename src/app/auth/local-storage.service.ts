@@ -98,6 +98,7 @@ this.navbarService.setshowresetpassword(true);
 
     this.userService.setToken(credentials.token);
     this.userService.isAuthenticated = true;
+    this.navbarService.setisUserlogged(false);
   }
 
   saveProductsData(id){
