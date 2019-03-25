@@ -48,8 +48,17 @@
       
 
       </ul>
-      <div class="Dropdown" style="float:right; width:unset">
-  <div class="Dropdown-profile">
+
+      <li class="nav-item">
+        <a class=" NavLink" *ngIf="navbarService.getShowLogin() | async" routerLink="/login"><span class="fa fa-sign-in"></span>
+          <strong>Login</strong></a>
+      </li>
+      <li class="nav-item">
+        <a class=" NavLink" *ngIf="navbarService.getShowSignup() | async" routerLink="/signup"><strong>Sign Up</strong></a>
+      </li>
+      
+      <div class="Dropdown" [hidden]="navbarService.getisUserlogged() | async" style="float:right; width:unset" >
+  <div class="Dropdown-profile"  >
     <span class="Name">{{ navbarService.getUsername() | async }}</span>
     <span class="MenuIcon">
       <span class="MenuIcon-line"></span>
@@ -99,7 +108,7 @@
 </ul>
   </nav>
 </div>
- 
+
     </div>
 
   </div>

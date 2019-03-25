@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
       this.localStorageService.saveAuthData(token, email, id, userType,name);
 
       this.router.navigate(['home'])
+      this.navbarService.setisUserlogged(false);
 
       this.navbarService.setShowLogin(false);
       this.navbarService.setShowSignup(false);

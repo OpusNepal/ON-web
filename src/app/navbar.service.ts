@@ -16,9 +16,16 @@ export class NavbarService {
   private showWishlist = new BehaviorSubject<boolean>(false);
   private showresetpassword = new BehaviorSubject<boolean>(false);
   private username = new BehaviorSubject<string>(!localStorage.getItem('name')?"Hello":localStorage.getItem('name'));
-
+  private isUserlogged=new BehaviorSubject<boolean>(true);
 
   constructor() { }
+  getisUserlogged() {
+    return this.isUserlogged.asObservable();
+  }
+
+  setisUserlogged(flag: boolean) {
+    this.isUserlogged.next(flag);
+  }
 
   getShowSignup() {
     return this.showSignup.asObservable();

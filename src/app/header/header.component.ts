@@ -82,6 +82,7 @@ search(serial:string){
 
   logoutEvent() {
     this.localStorage.clearAuthData();
+    this.navbarService.setisUserlogged(true);
     this.localStorage.clearProductsData();
     this.navbarService.setShowLogout(false);
     this.navbarService.setShowLogin(true);
