@@ -72,7 +72,7 @@
     <div class="form">
         <div class="row" style="margin:0%">
              <div class="row">
-                 <h3>  {{products.length}} items in your cart</h3>
+                 <h4>  {{products.length}} item(s) in your cart</h4>
              </div>
                 <div class="table-responsive">
     
@@ -93,7 +93,7 @@
                                 <td>{{prod.Name}}</td>
                                 
                                 <td> {{prod.availability}}</td>
-                                <td><input id = "{{prod.id}}" type = "number" min = "1" [value] = "prod.quantity" (input) = "quantityChange($event)" disabled></td>
+                                <td><input id = "{{prod.id}}" type = "number" min = "1" [value] = "prod.quantity" (input) = "quantityChange($event)" ></td>
                                 <!-- <td><input class="form-control" type="text" value="1" ></td> -->
                                 <td class="text-right">{{prod.price * prod.quantity}}</td>
                                 <td class="text-right"><button id = "{{prod.id}}" class="btn btn-sm btn-danger"   (click)= "removeFromCart($event)">

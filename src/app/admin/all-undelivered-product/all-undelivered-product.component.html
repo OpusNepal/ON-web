@@ -35,7 +35,7 @@
  
        <td>{{product.alt_address}}</td>
        <td>{{ product.buyer.Phone}}</td>
-       <td>{{ product.alt_phone}}</td>
+       <td>{{ product.alt_phone}}<br>{{product.Phone_2}}</td>
        <td>{{ product.created_at }}</td>
        <td> <button class="btn btn-default btn-xs" (click)="toggleShowProducts(product)" style="background-color: rgb(12, 185, 99); color:white; border: none; margin: 2%;     padding: 7px 11px;"> <span class="fa fa-eye"></span> </button>
          <button class="btn btn-default btn-xs" style="background-color: slateblue; color:white; border: none; margin: 2%;     padding: 7px 11px;" (click)="changeDeliveryStatus(product.id)"><span class="fa fa-pencil"></span></button>

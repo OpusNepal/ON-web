@@ -6,8 +6,12 @@
             <a><img title="Change Profile Picture" class="img-circle img-responsive prodImage" [src]="imagePath"  alt="Product image"></a>
             <div class="product-detail-inner">
                 <div class="item-details-overly-info">
-            
-                        <a title="Delete Product"><i class="fa fa-pencil"   (click) = open(content)></i></a>
+                    <ul class="list-inline list-unstyled">
+                        <li title="Upload pic"><i class="fa fa-pencil"   (click) = open(content)></i></li>
+                        <br>
+                            <li title="Upload pic"><i class="fa fa-edit"   (click) = "editProfile()"></i></li>
+                      
+                    </ul>
                       
                 
                 </div>
@@ -22,10 +26,7 @@
 
                   </div>
                   
-                  <div style="float:right;margin-top:10%">
-                        <a class="glyphicon glyphicon-print" style="cursor: pointer;"(click)="editProfile()" *ngIf="this.localStorage.getAuthData().userId==this.id">Edit Profile</a>
-        
-                </div>     
+                  
         </div>
 
 

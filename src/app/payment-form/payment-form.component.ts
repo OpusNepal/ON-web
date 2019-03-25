@@ -33,6 +33,7 @@ export class PaymentFormComponent implements OnInit {
     postal_code : new FormControl('', Validators.required),
     alt_address : new FormControl('', Validators.required),
     alt_phone : new FormControl('', Validators.required),
+    Phone_2:new FormControl('')
   });
 
   constructor(public formBuilder: FormBuilder,public ns:NotificationService, public localStorage: LocalStorageService, public userService: UserService, public router: Router) { }
