@@ -4,14 +4,14 @@
 
 export const environment = {
   production: false,
-  //  api: "https://68.183.82.137:8848/api/",
-  // files : "https://68.183.82.137:8848/",
-  // // api: "https://artysnepal.herokuapp.com/api/",
-  // public: "https://68.183.82.137:8848/"
-  api: "http://localhost:8848/api/",
-  files : "http://localhost:8848/",
+   api: "https://opusnepal.com/api/",
+  files : "https://opusnepal.com/",
   // api: "https://artysnepal.herokuapp.com/api/",
-  public: "http://localhost:8848/"
+  public: "https://opusnepal.com/"
+  // api: "http://localhost:8848/api/",
+  // files : "http://localhost:8848/",
+  // // api: "https://artysnepal.herokuapp.com/api/",
+  // public: "http://localhost:8848/"
 
 
 

@@ -1,10 +1,19 @@
 <div class="container target">
     <div class="row">
         <div class="col-md-2">
-            <a class ="pull-left">
-                <img title="Change Profile Picture" class="img-circle img-responsive prodImage" [src]="imagePath" (click) = "open(content)" style="cursor:pointer">
-            </a>
+            <div class="single-product-item">
+          <div class="product-image-wrap pull-left">
+            <a><img title="Change Profile Picture" class="img-circle img-responsive prodImage" [src]="imagePath"  alt="Product image"></a>
+            <div class="product-detail-inner">
+                <div class="item-details-overly-info">
             
+                        <a title="Delete Product"><i class="fa fa-pencil"   (click) = open(content)></i></a>
+                      
+                
+                </div>
+            </div>
+        </div>
+           </div> 
 
         </div>
         <div class="col-sm-10  pull-right" >

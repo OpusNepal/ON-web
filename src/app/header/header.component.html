@@ -48,15 +48,15 @@
       
 
       </ul>
-
-      <li class="nav-item">
+      <ul style="list-style-type: none; display: inline; margin: 0">
+      <li  style="display: inline; padding-right: 5px">
         <a class=" NavLink" *ngIf="navbarService.getShowLogin() | async" routerLink="/login"><span class="fa fa-sign-in"></span>
-          <strong>Login</strong></a>
+          <strong> Login</strong></a>
       </li>
-      <li class="nav-item">
+      <li style="display: inline">
         <a class=" NavLink" *ngIf="navbarService.getShowSignup() | async" routerLink="/signup"><strong>Sign Up</strong></a>
       </li>
-      
+    </ul>
       <div class="Dropdown" [hidden]="navbarService.getisUserlogged() | async" style="float:right; width:unset" >
   <div class="Dropdown-profile"  >
     <span class="Name">{{ navbarService.getUsername() | async }}</span>
