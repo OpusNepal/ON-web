@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';;
   styleUrls: ['./current-artist.component.css']
 })
 export class CurrentArtistComponent implements OnInit {
-
+  currentRejectArtistId: Number;
   verifiedArtists: Artist[];
 
   message = "";
@@ -47,5 +47,17 @@ export class CurrentArtistComponent implements OnInit {
 
     });
   }
-  
+  open(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title'})
+  }
+  setRejectArtistId(artistId: Number) {
+    this.currentRejectArtistId = artistId;
+  }
+  rejectArtist(comment: string): void {
+
+    this.adminService.rejectAccount(this.currentRejectArtistId, comment).subscribe(() => {
+      this.verifiedArtists = this.verifiedArtists.filter(e => e.id !== this.currentRejectArtistId);
+    });
+    //this.unverifiedArtists = this.unverifiedArtists.filter(item => item.id !== artist.id);
+  }
 }

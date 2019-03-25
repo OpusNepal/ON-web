@@ -9,21 +9,44 @@
             <a>Expert: {{ artist.profile.expert }}</a><br>
             <a>Role: {{ artist.profile.role }}</a><br>
             <a>Phone Number: {{ artist.Phone }}</a><br><br>
+            <button type="button" class="card__button" style="cursor: pointer" data-toggle="modal" [attr.data-target]="'#myModalCV'+artist.id">
+              <strong style="color:#3a539b">View CV</strong>
+            </button>
+
             <button (click)="setArtistOfWeek(artist.id)" class="card__button" style="cursor: pointer"><strong>Make Artist of Week</strong> </button>
+            <button (click)="open(content1); setRejectArtistId(artist.id)" style="cursor: pointer" class="card__button"><Strong style="color:#d91e18">Reject</Strong></button>
+
           </p>
+          <div class="modal fade" id="myModalCV{{artist.id}}">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <embed [src]="artist.profile.CV | safe"  height="900" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
+              </div>
+            </div>
+          </div> 
+      
+          
     </div>
 
   </div>
 </div>
 
-<ng-template #content let-modal>
+
+<ng-template #content1 let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">{{ message }}!</h4>
+    <h4 class="modal-title" id="modal-basic-title">Comment:</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <textarea class="form-control" rows="5" id="comment" #comment></textarea>
+      </div>
+    </form>
+  </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-success" (click)="modal.close('Save click'); ">OK</button>
+    <button type="button" class="btn btn-success"  [disabled]= "comment.value.length == 0" (click)="modal.close('Save click'); rejectArtist(comment.value);">Send</button>
   </div>
 </ng-template>
