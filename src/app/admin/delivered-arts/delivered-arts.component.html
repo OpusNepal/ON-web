@@ -4,7 +4,7 @@
       <img class="card__image" [src]="deliveredArt.Image" alt="custom_art_image">
 
       <h2 class="card__title">Framing: {{ deliveredArt.Framing }}</h2>
-      <div class="card__text">
+      <div class="card__text" >
           <a>Buyer Email: {{ deliveredArt.buyer.email }}</a><br>
           <a>Buyer Name: {{ deliveredArt.buyer.fullName }}</a><br>
           <a>Phone:{{deliveredArt.buyer.Phone}}, {{deliveredArt.alt_phone}}</a><br>
@@ -27,8 +27,11 @@
         {{ deliveredArt.default_address.city }}, {{ deliveredArt.default_address.country }} <br>
       </address>
       <br>
+      </div>
+     
+      <div class="card__action-bar" >
+        
       
-      <div class="card__action-bar">
         <button (click)="setArtId(deliveredArt.id); open(content);" style="cursor: pointer" class="card__button"><Strong
             style="color:#d91e18">Change Status</Strong></button>
             <button (click)="setArtId(deliveredArt.id); open(delete);" style="cursor: pointer" class="card__button"><Strong

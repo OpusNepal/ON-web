@@ -3,6 +3,8 @@ import { AdminService } from '../admin.service';
 import { Artist } from '../artist';
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 import { environment } from 'src/environments/environment';;
+import { NotificationService } from "src/app/lib/notification/notification.service";
+
 
 
 @Component({
@@ -18,9 +20,9 @@ export class CurrentArtistComponent implements OnInit {
 
 
   @ViewChild('content')
-  private content;
+  private content2;
 
-  constructor(private adminService: AdminService, private modalService: NgbModal) { }
+  constructor(private adminService: AdminService, private modalService: NgbModal,private ns:NotificationService) { }
 
   ngOnInit() {
     this.adminService.getVerifiedArtists().subscribe((res) => {
@@ -38,12 +40,11 @@ export class CurrentArtistComponent implements OnInit {
 
   setArtistOfWeek(id: Number) {
     this.adminService.setArtistOfWeek(id).subscribe((res) => {
-      this.message = "Success";
-      this.modalService.open(this.content, { ariaLabelledBy: 'modal-basic-title'})
-
+      this.ns.success("Artist of the week is set")
     }, (err) => {
       this.message = "Could not complete operation";
-      this.modalService.open(this.content, { ariaLabelledBy: 'modal-basic-title'})
+      // this.modalService.open(this.content2, { ariaLabelledBy: 'modal-basic-title'})
+      this.ns.error("Could not complete operation");
 
     });
   }

@@ -13,8 +13,8 @@
               <strong style="color:#3a539b">View CV</strong>
             </button>
 
-            <button (click)="setArtistOfWeek(artist.id)" class="card__button" style="cursor: pointer"><strong>Make Artist of Week</strong> </button>
             <button (click)="open(content1); setRejectArtistId(artist.id)" style="cursor: pointer" class="card__button"><Strong style="color:#d91e18">Reject</Strong></button>
+            <button (click)="setArtistOfWeek(artist.id)" class="card__button" style="cursor: pointer"><strong>Make Artist of Week</strong> </button>
 
           </p>
           <div class="modal fade" id="myModalCV{{artist.id}}">
