@@ -4,6 +4,7 @@ import { MyCustomArt } from '../../app-models/my-custom-art';
 import { environment } from 'src/environments/environment';
 import { AdminService } from '../admin.service';
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-not-delivered-arts',
@@ -19,7 +20,7 @@ export class NotDeliveredArtsComponent implements OnInit {
   @ViewChild('success')
   private success;
 
-  constructor(private userService: UserService, private adminService: AdminService, private modalService: NgbModal) { }
+  constructor(private userService: UserService, private adminService: AdminService, private modalService: NgbModal,private router:Router) { }
 
   ngOnInit() {
     this.userService.getAllCustomArt().subscribe(res => {
@@ -34,8 +35,18 @@ export class NotDeliveredArtsComponent implements OnInit {
 
       this.undeliveredArts = data.filter(art => art);
     });
+    console.log(this.undeliveredArts);
   }
-
+  viewProfile(event,artist){
+   
+    if(!artist){
+      return;
+    }
+    
+    let artistId = artist.id;
+    this.router.navigate(['profile-page'],{queryParams:{id: artistId}});
+    
+  } 
   changeStatus() {
     this.adminService.changeDeliveryStatus(this.selectedArt, true).subscribe((res) => {
       this.undeliveredArts = this.undeliveredArts.filter(art => art.id !== this.selectedArt);

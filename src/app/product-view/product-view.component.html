@@ -45,7 +45,7 @@
                             Price : Rs. {{productDetails.price}}
                         </div>
                         <div class="col-md-8 pull-right">
-                            <a > <button id="{{productDetails.id}}" (click)= "addToCart($event)" class="btn btn-primary  btn-md btn-brand btn-full-width" style="margin-left:0%; width:60%" *ngIf="isLoggedIn && productDetails.availability === 'yes' ">
+                            <a > <button id="{{productDetails.id}}" (click)= "addToCart($event)" class="btn btn-primary  btn-md btn-brand btn-full-width" style="margin-left:0%; width:60%" *ngIf="isLoggedIn && productDetails.availability === 'yes' && localStorage.getAuthData().usetType !=='artist' ">
                                 Add to Cart
                             </button></a>
                         </div>
@@ -54,7 +54,7 @@
                     <div class="row">
 
                         <div class="col-md-12 top-10">
-                                <p *ngIf="productDetails.availability !== 'yes'" style="color:blue">Sorry,this item cannot be shipped.</p>
+                                <p *ngIf="productDetails.availability === 'no'" style="color:blue">Sorry,this item cannot be shipped.</p>
 
                             <br>
                             <p>To order by telephone, <a href="tel:01-550555" style="color:blue"> call @ 01-550555</a></p>

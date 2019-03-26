@@ -85,7 +85,7 @@ export class ProductViewComponent implements OnInit {
         {
           console.log("duplicate value found");
           this.duplicateProduct = true;
-          val.quantity = val.quantity + 1;
+        //  val.quantity = val.quantity + 1;
         }
       }
      }

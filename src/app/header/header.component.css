@@ -181,7 +181,7 @@ width:auto;
 }
 .searchbar {
   position: relative;
-  margin-left: 350px;
+  margin-left: 300px;
   z-index: 5;
 }
 .searchbar.clicked .btn-search {

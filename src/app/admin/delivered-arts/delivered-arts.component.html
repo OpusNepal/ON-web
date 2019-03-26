@@ -5,7 +5,10 @@
 
       <h2 class="card__title">Framing: {{ deliveredArt.Framing }}</h2>
       <div class="card__text">
-        <a>Preferred Artist: {{ deliveredArt.artist?deliveredArt.artist.fullName:N/A }}</a>
+          <a>Buyer Email: {{ deliveredArt.buyer.email }}</a><br>
+          <a>Buyer Name: {{ deliveredArt.buyer.fullName }}</a><br>
+          <a>Phone:{{deliveredArt.buyer.Phone}}, {{deliveredArt.alt_phone}}</a><br>
+          <a id="{{deliveredArt.artist.id}}" (click)="viewProfile($event,deliveredArt.artist)">Preferred Artist: {{ deliveredArt.artist?deliveredArt.artist.fullName:N/A }}</a>
         <button type="button" class="card__button" data-toggle="modal" [attr.data-target]="'#desc1' + deliveredArt.id" style="cursor: pointer">
             <strong style="color:#3a539b">View description</strong>
           </button>
@@ -16,12 +19,14 @@
                 </div>
               </div>
             </div><br>
+            
         
       <address class="card_text"> <b>Address: </b><br>
         {{ deliveredArt.default_address.address_line_1}}, {{ deliveredArt.default_address.address_line_2}} <br>
         {{ deliveredArt.default_address.postal_code }}, {{ deliveredArt.default_address.province }} <br>
         {{ deliveredArt.default_address.city }}, {{ deliveredArt.default_address.country }} <br>
       </address>
+      <br>
       
       <div class="card__action-bar">
         <button (click)="setArtId(deliveredArt.id); open(content);" style="cursor: pointer" class="card__button"><Strong
