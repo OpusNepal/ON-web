@@ -38,11 +38,11 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/featuredArtist"><strong>Featured Artists</strong></a>
         </li>
-        <li class="searchbar" style="float:right">
+        <li >
       
-          <input type="text" class="btn-extended" placeholder="Search.." [(ngModel)]="serial" (keyup.enter)="search(serial)" />
-          
-          <div class="btn-search"></div>
+          <form id="demo-2">
+            <input type="search" placeholder="Search" [(ngModel)]="serial" (keyup.enter)="search(serial)">
+          </form>
           
         </li>
       
