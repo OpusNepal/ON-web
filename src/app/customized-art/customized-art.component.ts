@@ -7,6 +7,8 @@ import { CustomArt } from '../app-models/custom-art';
 import { LocalStorageService } from '../auth/local-storage.service';
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 import { Router } from '@angular/router';
+import { NotificationService } from "../lib/notification/notification.service";
+
 
 
 
@@ -53,7 +55,7 @@ export class CustomizedArtComponent implements OnInit {
         : this.artists.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
     )
 
-  constructor(public router: Router,private formBuilder: FormBuilder, private userService: UserService, private localStorageService: LocalStorageService, private modalService: NgbModal) { }
+  constructor(private ns:NotificationService,public router: Router,private formBuilder: FormBuilder, private userService: UserService, private localStorageService: LocalStorageService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.createForm();
@@ -149,8 +151,10 @@ export class CustomizedArtComponent implements OnInit {
     formData.append('province', data.province)
 
     this.userService.requestCustomArt(formData).subscribe(() => {
-      this.open(this.content)
-      this.router.navigate['home'];
+      this.router.navigate(['home']);
+      this.ns.success("Your order has been placed");
+
+      // this.open(this.content)
     });
 
     

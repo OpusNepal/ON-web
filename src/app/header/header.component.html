@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-  <div class="container" style="margin-left: 0">
+  <div class="container" style="margin-left: 20%">
     <a class="navbar-brand" href="#" style="float: left;margin-right: 5%"><img src="./assets/images/brand/opus.jpg" style="width:auto; height:59px; overflow: hidden !important;"
         class="logo" alt="Opus " onerror="this.onerror=null;this.src='http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif';"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -41,7 +41,7 @@
         <li >
       
           <form id="demo-2">
-            <input type="search" placeholder="Search" [(ngModel)]="serial" (keyup.enter)="search(serial)">
+            <input type="search" placeholder="Search" [(ngModel)]="serial" [ngModelOptions]="{standalone: true}" (keyup.enter)="search(serial)">
           </form>
           
         </li>

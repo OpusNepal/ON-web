@@ -4,22 +4,14 @@
         <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
           
           <input type="text" name="streetName" class="form-control" value="" formControlName="streetName" placeholder="Street Name">
-          <div *ngIf="streetName.invalid && (streetName.dirty || streetName.touched)" class="alert alert-danger" style="height:50px">
-            streetName is required
-          </div>
+         
           <input type="text" name="expert" value="" class="form-control" formControlName="expert" placeholder="Expert">
-          <div *ngIf="expert.invalid && (expert.dirty || expert.touched)" class="alert alert-danger" style="height:50px">
-            Expert  is required
-         </div> 
+          
           <input type="text" name="role" value="" class="form-control" formControlName="role" placeholder="Role">
-          <div *ngIf="role.invalid && (role.dirty || role.touched)" class="alert alert-danger" style="height:50px">
-            Role is required
-         </div>     
+         
           <textarea  row="10"  name="bio" value="" class="form-control" formControlName="bio"  placeholder="bio">
           </textarea>
-          <div *ngIf="bio.invalid && (bio.dirty || bio.touched)" class="alert alert-danger" style="height:50px">
-            bio is required
-         </div>
+         
 		      <label for="cv" class=" form-label" style="text-align: left">Upload CV:
           <input type="file" accept="application/pdf" (change)="onCvSelect($event)" name="cv" value="" class="form-control-file" formControlName="cv"></label>
           
