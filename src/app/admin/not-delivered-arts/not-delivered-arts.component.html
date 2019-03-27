@@ -1,6 +1,6 @@
 <div class="container helper">
   <div class="row" *ngIf="undeliveredArts && undeliveredArts.length > 0; else nopendingart">
-    <div class="card card--big" *ngFor="let undeliveredArt of undeliveredArts">
+    <div class="card card--big" *ngFor="let undeliveredArt of undeliveredArts" style="height:500px">
       <img class="card__image" [src]="undeliveredArt.Image" alt="custom_art_image">
 
       <h2 class="card__title">Framing: {{ undeliveredArt.Framing }}</h2>
