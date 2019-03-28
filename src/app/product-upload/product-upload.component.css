@@ -1,3 +1,6 @@
+
+ .form-group .form-control-label:after {content:"*";color:red;}
+
 .wizard {
   margin: 20px auto;
  

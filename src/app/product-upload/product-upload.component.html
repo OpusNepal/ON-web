@@ -109,7 +109,7 @@
                               <form [formGroup]="ProductUploadForm" (ngSubmit)="onSubmit()">
                               
                           <div class="form-group">
-               <label for="Category">Category:
+               <label for="Category" class=" form-control-label">Category: </label>
                  <select class="form-control" formControlName="Category" [(ngModel)]="selectedCategory"(change)="selectCategory($event)" style="height:50px">
                    
                    <option [ngValue]="undefined" disabled style="font-weight: bold"> Select </option>
@@ -117,9 +117,9 @@
                          {{category.Category}}
                   
                  </select>
-               </label>
+              
              <div class="form-group">
-                 <label for="SubCategory" style="font-weight: bold">Sub-Category:
+                 <label for="SubCategory" class=" form-control-label" style="font-weight: bold">Sub-Category:</label>
                  <select class="form-control" formControlName="SubCategory" [(ngModel)]="selectedSubCategory"(change)="selectSubCategory($event)" style="height:50px">
                    
                    <option [ngValue]="undefined" disabled> Select </option>
@@ -127,7 +127,7 @@
                          {{subcategory.subCategory}}
                   
                  </select>
-               </label>
+               
              </div>
              <div class="form-group">
                <label for="product" class=" form-control-label" style="font-weight: bold">Product:</label>

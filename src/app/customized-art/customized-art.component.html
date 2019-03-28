@@ -65,7 +65,7 @@
                           <form [formGroup]="customArtForm" (ngSubmit)="onSubmit()">
                             <div class="form-group">
                               
-                              <label for="description"> <div class="row"><div class="col-md-2"><strong>Description </strong></div>
+                              <label for="description"> <div class="row"><div class="col-md-2" style="display: inline"><strong>Description<span style="color:red"> *</span></strong></div>
                               <div class="col-md-9">
                                 <textarea rows="5" name="description" class="form-control" value="" formControlName="description"
                                   placeholder="Describe your art..." style="background-color: #d4d4d4"></textarea></div></div>
@@ -75,7 +75,7 @@
                     
                             <div class="form-group">
                                 
-                              <label for="image"> <div class="row"><div class="col-md-2"><strong>Upload reference Art</strong></div>
+                              <label for="image"> <div class="row"><div class="col-md-2"  style="display: inline"><strong>Upload reference Art</strong> <span style="color:red"> *</span></div>
                                 <div class="col-md-9">
                                 <input type="file" name="image" accept="image/*" value="" class="form-control form-control-file" formControlName="image" (change)="onProductSelect($event)"
                                   placeholder="Select reference art" style="height: auto"></div></div>
@@ -106,7 +106,7 @@
                             
                                     <div class="form-group">
                                       
-                                      <label for="framing"><div class="row"><div class="col-md-2"><strong>Framing</strong></div>
+                                      <label for="framing"><div class="row"><div class="col-md-2"><strong>Framing</strong> <span style="color:red"> *</span></div>
                                         <div class="col-md-9">
                                         <select class="form-control" formControlName="framing" style="height:50px">
                                           <option value="No framing" [selected]="true">No framing</option>
@@ -132,7 +132,7 @@
                               <form [formGroup]="customArtForm" (ngSubmit)="onSubmit()">
                               
                             <div class="form-group">
-                                <label for="address_line_1"><div class="row"><div class="col-md-2"> <strong> Address Line 1</strong></div>
+                                <label for="address_line_1"><div class="row"><div class="col-md-2"> <strong> Address Line 1</strong> <span style="color:red"> *</span></div>
                                   <div class="col-md-9">
                                   <input type="text" name="address_line_1" value="" class="form-control" formControlName="address_line_1"
                                     placeholder=""></div></div>
@@ -141,7 +141,7 @@
                       
                       
                               <div class="form-group">
-                                <label for="address_line_2"><div class="row"><div class="col-md-2"> <strong> Address Line 2</strong></div>
+                                <label for="address_line_2"><div class="row"><div class="col-md-2"> <strong> Address Line 2</strong> <span style="color:red"> *</span></div>
                                   <div class="col-md-9">
                                   <input type="text" name="address_line_2" value="" class="form-control" formControlName="address_line_2"
                                     placeholder=""></div></div>
@@ -149,28 +149,28 @@
                               </div>
                       
                               <div class="form-group">
-                                <label for="country"><div class="row"><div class="col-md-2"> <strong> Country</strong></div>
+                                <label for="country"><div class="row"><div class="col-md-2"> <strong> Country</strong><span style="color:red"> *</span></div>
                                   <div class="col-md-9">
                                   <input type="text" name="country" value="" class="form-control" formControlName="country" placeholder=""></div></div>
                                 </label><br>
                               </div>
                       
                               <div class="form-group">
-                                <label for="city"><div class="row"><div class="col-md-2"> <strong> City</strong></div>
+                                <label for="city"><div class="row"><div class="col-md-2"> <strong> City</strong><span style="color:red"> *</span></div>
                                   <div class="col-md-9">
                                   <input type="text" name="city" value="" class="form-control" formControlName="city" placeholder=""></div></div>
                                 </label><br>
                               </div>
                       
                               <div class="form-group">
-                                <label for="province"><div class="row"><div class="col-md-2"><strong> Province</strong></div>
+                                <label for="province"><div class="row"><div class="col-md-2"><strong> Province</strong><span style="color:red"> *</span></div>
                                   <div class="col-md-9">
                                   <input type="text" name="province" value="" class="form-control" formControlName="province" placeholder=""></div></div>
                                 </label><br>
                               </div>
                       
                               <div class="form-group">
-                                <label for="postal_code"><div class="row"><div class="col-md-2"> <strong> Postal code</strong></div>
+                                <label for="postal_code"><div class="row"><div class="col-md-2"> <strong> Postal code</strong><span style="color:red"> *</span></div>
                                   <div class="col-md-9">
                                   <input type="number" name="postal_code" value="" class="form-control" formControlName="postal_code"
                                     placeholder=""></div></div>
@@ -178,14 +178,14 @@
                               </div>
                       
                               <div class="form-group">
-                                <label for="alt_phone"><div class="row"><div class="col-md-2"> <strong> Alt Phone</strong></div>
+                                <label for="alt_phone"><div class="row"><div class="col-md-2"> <strong> Alt Phone</strong><span style="color:red"> *</span></div>
                                   <div class="col-md-9"><input type="number" name="alt_phone" value="" class="form-control" formControlName="alt_phone" placeholder=""></div></div>
                                 </label><br>
                               </div>
                       
                       
                               <div class="form-group">
-                                <label for="alt_address"><div class="row"><div class="col-md-2"><strong> Alt address</strong></div>
+                                <label for="alt_address"><div class="row"><div class="col-md-2"><strong> Alt address</strong><span style="color:red"> *</span></div>
                                   <div class="col-md-9">
                                   <input type="text" name="alt_address" value="" class="form-control" formControlName="alt_address"
                                     placeholder=""></div></div>

@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+.form-control :after {content:"*";color:red;} 
+.form-label :after {content:"*";color:red;}
 .login-page {
   width: 360px;
   padding: 8% 0 0;
