@@ -6,7 +6,7 @@
             <a><img title="Change Profile Picture" class="img-circle img-responsive prodImage" [src]="imagePath"  alt="Product image"></a>
             <div class="product-detail-inner">
                 <div class="item-details-overly-info">
-                    <ul class="list-inline list-unstyled">
+                    <ul class="list-inline list-unstyled" *ngIf="this.localStorage.getAuthData().userId==this.id">
                         <li title="Upload pic"><i class="fa fa-pencil"   (click) = open(content)></i></li>
                         <br>
                             <li title="Upload pic"><i class="fa fa-edit"   (click) = "editProfile()"></i></li>
