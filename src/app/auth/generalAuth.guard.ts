@@ -23,7 +23,7 @@ export class GeneralAuthGuardService implements CanActivate {
     if (token === null) {
       this.notification.error("Please login to  continue");
       this.router.navigate(['login']);
-      this.NavbarService.setisUserlogged(false);
+      this.NavbarService.setisUserlogged(true);
 
       return false;
     } else {
@@ -34,7 +34,7 @@ export class GeneralAuthGuardService implements CanActivate {
         // this means the token is not good so lets go back to
         this.notification.error("Session has expired, please login again.");
         this.router.navigate(['login']);
-        this.NavbarService.setisUserlogged(false);
+        this.NavbarService.setisUserlogged(true);
 
         return false;
       }
